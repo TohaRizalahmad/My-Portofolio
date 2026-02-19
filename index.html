@@ -1,0 +1,842 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,700;0,900;1,700;1,900&family=Outfit:wght@300;400;500;600&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg-deep:    #080810;
+  --bg:         #0d0d1a;
+  --bg-card:    #11111f;
+  --border:     rgba(255,255,255,0.06);
+  --border-lit: rgba(255,255,255,0.12);
+  --gold:       #c9a96e;
+  --gold-dim:   rgba(201,169,110,0.12);
+  --gold-glow:  rgba(201,169,110,0.06);
+  --cream:      #f0ead8;
+  --muted:      rgba(240,234,216,0.42);
+  --muted2:     rgba(240,234,216,0.2);
+  --success:    #4ecca3;
+  --blue:       #6b9fff;
+  --font-d: 'Playfair Display', Georgia, serif;
+  --font-b: 'Outfit', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{background:var(--bg-deep);color:var(--cream);font-family:var(--font-b);font-weight:400;line-height:1.6;min-height:100vh;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+
+/* BG */
+.bg-atm{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(90px);}
+.orb1{width:560px;height:560px;top:-220px;left:-180px;background:radial-gradient(circle,rgba(201,169,110,.16) 0%,transparent 70%);animation:da 22s ease-in-out infinite alternate;}
+.orb2{width:640px;height:640px;bottom:-260px;right:-220px;background:radial-gradient(circle,rgba(107,159,255,.1) 0%,transparent 70%);animation:db 28s ease-in-out infinite alternate;}
+.orb3{width:320px;height:320px;top:42%;left:52%;background:radial-gradient(circle,rgba(78,204,163,.07) 0%,transparent 70%);animation:dc 19s ease-in-out infinite alternate;}
+@keyframes da{to{transform:translate(70px,90px);}}
+@keyframes db{to{transform:translate(-70px,-90px);}}
+@keyframes dc{to{transform:translate(-50px,70px);}}
+.bg-grid{position:fixed;inset:0;z-index:0;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.018) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.018) 1px,transparent 1px);background-size:80px 80px;}
+.bg-noise{position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.025;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:180px 180px;}
+
+/* LAYOUT */
+.shell{position:relative;z-index:2;display:grid;grid-template-columns:280px 1fr;min-height:100vh;}
+
+/* SIDEBAR */
+.sidebar{position:sticky;top:0;height:100vh;overflow-y:auto;overflow-x:hidden;background:rgba(11,11,22,.88);backdrop-filter:blur(28px);border-right:1px solid var(--border);display:flex;flex-direction:column;}
+.sidebar::-webkit-scrollbar{width:0;}
+.sb-top{padding:36px 26px 28px;border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:30px;}
+.brand-mark{width:30px;height:30px;border:1.5px solid var(--gold);border-radius:7px;display:flex;align-items:center;justify-content:center;}
+.brand-mark::before{content:'';width:8px;height:8px;background:var(--gold);border-radius:2px;}
+.brand-txt{font-family:var(--font-m);font-size:11px;color:var(--muted);letter-spacing:2.5px;text-transform:uppercase;}
+.sb-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:10px;}
+.av-outer{position:relative;width:80px;height:80px;}
+.av-ring{position:absolute;inset:-3px;border-radius:50%;background:conic-gradient(var(--gold) 0deg,transparent 140deg,var(--gold) 260deg,transparent 360deg);animation:spin 9s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg);}}
+.av-inner{position:absolute;inset:3px;border-radius:50%;background:var(--bg-card);display:flex;align-items:center;justify-content:center;font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--gold);overflow:hidden;}
+.sb-name{font-family:var(--font-d);font-size:17px;font-weight:700;color:var(--cream);}
+.sb-role{font-family:var(--font-m);font-size:10px;color:var(--gold);letter-spacing:2px;text-transform:uppercase;}
+.avail{display:inline-flex;align-items:center;gap:6px;font-size:10px;color:var(--success);background:rgba(78,204,163,.08);border:1px solid rgba(78,204,163,.2);padding:4px 12px;border-radius:20px;font-family:var(--font-m);letter-spacing:.4px;}
+.avail-dot{width:5px;height:5px;background:var(--success);border-radius:50%;animation:pg 2s infinite;}
+@keyframes pg{0%,100%{box-shadow:0 0 0 0 rgba(78,204,163,.4);}50%{box-shadow:0 0 0 5px rgba(78,204,163,0);}}
+
+/* NAV */
+.sb-nav{padding:22px 14px;flex:1;}
+.nav-lbl{font-size:9px;letter-spacing:3px;text-transform:uppercase;color:var(--muted2);font-family:var(--font-m);padding:0 12px;margin-bottom:6px;margin-top:18px;}
+.nav-lbl:first-child{margin-top:0;}
+.nav-a{display:flex;align-items:center;gap:11px;padding:11px 14px;border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);text-decoration:none;border:1px solid transparent;transition:all .2s cubic-bezier(.4,0,.2,1);position:relative;overflow:hidden;}
+.nav-a::before{content:'';position:absolute;left:0;top:0;bottom:0;width:2px;background:var(--gold);transform:scaleY(0);transition:transform .22s;border-radius:0 2px 2px 0;}
+.nav-a:hover{color:var(--cream);background:rgba(255,255,255,.03);border-color:var(--border);}
+.nav-a.active{color:var(--gold);background:var(--gold-dim);border-color:rgba(201,169,110,.22);}
+.nav-a.active::before{transform:scaleY(1);}
+.ni{width:16px;height:16px;flex-shrink:0;opacity:.7;}
+.nav-a.active .ni{opacity:1;}
+.n-badge{margin-left:auto;font-size:9px;font-family:var(--font-m);background:var(--gold-dim);color:var(--gold);padding:2px 7px;border-radius:10px;border:1px solid rgba(201,169,110,.2);}
+.sb-bot{padding:20px;border-top:1px solid var(--border);}
+.sb-cta{width:100%;padding:12px;background:var(--gold);color:var(--bg-deep);border:none;border-radius:8px;font-family:var(--font-b);font-size:13px;font-weight:600;display:flex;align-items:center;justify-content:center;gap:8px;transition:all .2s;cursor:pointer;}
+.sb-cta:hover{background:#d4b87a;transform:translateY(-1px);box-shadow:0 8px 24px rgba(201,169,110,.28);}
+
+/* MAIN */
+.main{display:flex;flex-direction:column;min-height:100vh;}
+.topbar{position:sticky;top:0;z-index:50;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:64px;background:rgba(8,8,16,.82);backdrop-filter:blur(22px);border-bottom:1px solid var(--border);}
+.breadcrumb{display:flex;align-items:center;gap:8px;font-family:var(--font-m);font-size:12px;color:var(--muted2);}
+.breadcrumb span{color:var(--muted);}
+.bc-active{color:var(--cream)!important;}
+.bc-sep{color:var(--muted2)!important;}
+.tb-actions{display:flex;gap:10px;align-items:center;}
+.btn{padding:8px 18px;border-radius:8px;font-family:var(--font-b);font-size:12px;font-weight:500;border:1px solid var(--border-lit);background:transparent;color:var(--muted);transition:all .2s;cursor:pointer;}
+.btn:hover{color:var(--cream);border-color:rgba(255,255,255,.2);background:rgba(255,255,255,.04);}
+.btn-gold{background:var(--gold);color:var(--bg-deep);border-color:var(--gold);font-weight:600;}
+.btn-gold:hover{background:#d4b87a;border-color:#d4b87a;color:var(--bg-deep);box-shadow:0 4px 20px rgba(201,169,110,.3);}
+
+/* SECTIONS */
+.section{display:none;flex-direction:column;gap:26px;padding:40px;flex:1;animation:si .35s cubic-bezier(.4,0,.2,1);}
+.section.active{display:flex;}
+@keyframes si{from{opacity:0;transform:translateY(16px);}to{opacity:1;transform:translateY(0);}}
+
+/* SECTION HEADER */
+.sec-head{display:flex;align-items:flex-start;justify-content:space-between;padding-bottom:22px;border-bottom:1px solid var(--border);gap:20px;}
+.sec-eyebrow{font-family:var(--font-m);font-size:10px;letter-spacing:3px;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+.sec-title{font-family:var(--font-d);font-size:38px;font-weight:900;line-height:1.1;letter-spacing:-1px;color:var(--cream);}
+.sec-title em{font-style:italic;color:var(--gold);}
+.sec-tag{flex-shrink:0;font-family:var(--font-m);font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:6px 14px;border-radius:20px;align-self:flex-end;}
+
+/* CARD */
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;padding:26px;transition:border-color .25s,box-shadow .25s,transform .25s;position:relative;overflow:hidden;}
+.card::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(201,169,110,.025) 0%,transparent 60%);opacity:0;transition:opacity .25s;}
+.card:hover{border-color:var(--border-lit);box-shadow:0 4px 40px rgba(0,0,0,.5);transform:translateY(-2px);}
+.card:hover::before{opacity:1;}
+.c-label{font-family:var(--font-m);font-size:9px;letter-spacing:2.5px;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:8px;}
+.c-label::after{content:'';flex:1;height:1px;background:linear-gradient(90deg,var(--border-lit),transparent);}
+
+/* ── PROFILE ── */
+.prof-hero{background:var(--bg-card);border:1px solid var(--border);border-radius:22px;padding:46px;display:grid;grid-template-columns:170px 1fr;gap:46px;align-items:start;position:relative;overflow:hidden;}
+.prof-hero::after{content:'';position:absolute;top:-80px;right:-80px;width:320px;height:320px;background:radial-gradient(circle,rgba(201,169,110,.06) 0%,transparent 65%);pointer-events:none;}
+.photo-frame{position:relative;width:150px;height:150px;}
+.photo-deco{position:absolute;border:1px solid rgba(201,169,110,.18);border-radius:18px;top:12px;left:12px;right:-12px;bottom:-12px;z-index:0;}
+.photo-box{position:relative;z-index:1;width:150px;height:150px;border-radius:16px;background:linear-gradient(135deg,rgba(201,169,110,.12),rgba(107,159,255,.08));border:1px solid var(--border-lit);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;overflow:hidden;}
+.photo-init{font-family:var(--font-d);font-size:52px;font-weight:900;color:var(--gold);line-height:1;}
+.photo-hint{font-family:var(--font-m);font-size:9px;color:var(--muted2);letter-spacing:.8px;text-align:center;}
+.prof-greet{font-family:var(--font-m);font-size:10px;color:var(--gold);letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;}
+.prof-name{font-family:var(--font-d);font-size:42px;font-weight:900;letter-spacing:-1.5px;line-height:1.05;color:var(--cream);margin-bottom:6px;}
+.prof-title{font-size:14px;color:var(--muted);font-weight:400;margin-bottom:18px;}
+.prof-bio{font-size:13px;color:rgba(240,234,216,.52);line-height:1.85;max-width:490px;margin-bottom:26px;}
+.prof-meta{display:flex;flex-wrap:wrap;gap:18px;margin-bottom:26px;}
+.meta-c{display:flex;align-items:center;gap:7px;font-size:12px;color:var(--muted);font-family:var(--font-m);}
+.prof-cta{display:flex;gap:12px;}
+.btn-solid{padding:10px 26px;border:1px solid var(--gold);border-radius:8px;font-size:13px;font-weight:600;color:var(--bg-deep);background:var(--gold);transition:all .2s;font-family:var(--font-b);cursor:pointer;}
+.btn-solid:hover{background:#d4b87a;box-shadow:0 6px 24px rgba(201,169,110,.32);transform:translateY(-1px);}
+.btn-outline{padding:10px 22px;border:1px solid var(--border-lit);border-radius:8px;font-size:13px;font-weight:500;color:var(--muted);background:transparent;transition:all .2s;font-family:var(--font-b);cursor:pointer;}
+.btn-outline:hover{color:var(--gold);border-color:var(--gold);}
+
+/* STATS */
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;}
+.stat-card{background:var(--bg-card);border:1px solid var(--border);border-radius:14px;padding:22px 18px;position:relative;overflow:hidden;transition:border-color .2s,transform .2s;}
+.stat-card:hover{border-color:var(--border-lit);transform:translateY(-2px);}
+.stat-card::after{content:'';position:absolute;bottom:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--gold),transparent);opacity:0;transition:opacity .2s;}
+.stat-card:hover::after{opacity:1;}
+.stat-num{font-family:var(--font-d);font-size:36px;font-weight:900;color:var(--cream);letter-spacing:-1px;line-height:1;}
+.stat-suf{color:var(--gold);font-size:26px;}
+.stat-lbl{font-size:10px;color:var(--muted2);font-family:var(--font-m);letter-spacing:1px;text-transform:uppercase;margin-top:5px;}
+.stat-ico{position:absolute;top:14px;right:14px;font-size:16px;opacity:.25;}
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+
+/* ── TOOLS ── */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(126px,1fr));gap:10px;}
+.tool-pill{background:var(--bg-card);border:1px solid var(--border);border-radius:13px;padding:16px 13px;text-align:center;transition:all .22s;position:relative;overflow:hidden;}
+.tool-pill::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--gold-glow),transparent);opacity:0;transition:opacity .22s;}
+.tool-pill:hover{border-color:rgba(201,169,110,.35);transform:translateY(-3px);box-shadow:0 12px 32px rgba(0,0,0,.4);}
+.tool-pill:hover::after{opacity:1;}
+.t-emoji{font-size:24px;display:block;margin-bottom:8px;line-height:1;}
+.t-name{font-size:12px;font-weight:600;color:var(--cream);display:block;margin-bottom:2px;}
+.t-lvl{font-family:var(--font-m);font-size:9px;color:var(--muted2);letter-spacing:.4px;}
+.t-bar{height:2px;background:rgba(255,255,255,.06);border-radius:2px;margin-top:10px;overflow:hidden;}
+.t-bar-f{height:100%;background:linear-gradient(90deg,var(--gold),rgba(201,169,110,.35));border-radius:2px;transition:width 1.2s cubic-bezier(.4,0,.2,1);}
+
+/* ── PROJECTS ── */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:16px;}
+.proj-card{background:var(--bg-card);border:1px solid var(--border);border-radius:18px;overflow:hidden;transition:all .25s;position:relative;}
+.proj-card:hover{border-color:var(--border-lit);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.55);}
+.proj-thumb{width:100%;height:170px;background:linear-gradient(135deg,rgba(201,169,110,.1),rgba(107,159,255,.08));display:flex;align-items:center;justify-content:center;font-size:40px;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+/* ← FOTO PROYEK: set background-image:url('screenshot.jpg');background-size:cover pada .proj-thumb dan hapus emoji */
+.proj-thumb-img{width:100%;height:100%;object-fit:cover;display:block;}
+.proj-badge{position:absolute;top:12px;right:12px;font-family:var(--font-m);font-size:9px;letter-spacing:1px;text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid;}
+.proj-badge.live{color:var(--success);background:rgba(78,204,163,.1);border-color:rgba(78,204,163,.25);}
+.proj-badge.wip{color:var(--gold);background:var(--gold-dim);border-color:rgba(201,169,110,.25);}
+.proj-body{padding:22px;}
+.proj-title{font-family:var(--font-d);font-size:18px;font-weight:700;color:var(--cream);margin-bottom:6px;letter-spacing:-.3px;}
+.proj-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:16px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px;}
+.proj-tag{font-family:var(--font-m);font-size:9px;letter-spacing:.8px;color:var(--muted2);background:rgba(255,255,255,.04);border:1px solid var(--border);padding:3px 9px;border-radius:6px;}
+.proj-links{display:flex;gap:10px;}
+.proj-link{font-family:var(--font-m);font-size:10px;color:var(--muted);text-decoration:none;display:flex;align-items:center;gap:5px;transition:color .2s;letter-spacing:.5px;}
+.proj-link:hover{color:var(--gold);}
+
+/* ── ACHIEVEMENT (Sertifikat) ── */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;}
+.cert-card{background:var(--bg-card);border:1px solid var(--border);border-radius:16px;overflow:hidden;transition:all .25s;position:relative;}
+.cert-card:hover{border-color:rgba(201,169,110,.35);transform:translateY(-4px);box-shadow:0 16px 48px rgba(0,0,0,.55);}
+
+/* Area gambar sertifikat */
+.cert-img-wrap{width:100%;aspect-ratio:4/3;background:linear-gradient(135deg,rgba(201,169,110,.08),rgba(107,159,255,.05));display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;border-bottom:1px solid var(--border);}
+.cert-placeholder{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.6;}
+.cert-placeholder-icon{font-size:36px;line-height:1;}
+.cert-placeholder-txt{font-family:var(--font-m);font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);}
+
+/* Gambar asli — tampil kalau ada */
+.cert-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+.cert-card:hover .cert-img-wrap img{transform:scale(1.04);}
+
+/* Overlay saat hover — klik untuk perbesar */
+.cert-overlay{position:absolute;inset:0;background:rgba(8,8,16,.65);display:flex;align-items:center;justify-content:center;opacity:0;transition:opacity .25s;cursor:pointer;}
+.cert-card:hover .cert-overlay{opacity:1;}
+.cert-overlay-btn{font-family:var(--font-m);font-size:10px;letter-spacing:1.5px;color:var(--gold);border:1px solid rgba(201,169,110,.5);padding:8px 18px;border-radius:6px;background:rgba(8,8,16,.8);text-transform:uppercase;}
+
+.cert-body{padding:18px;}
+.cert-title{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--cream);margin-bottom:4px;letter-spacing:-.2px;}
+.cert-issuer{font-family:var(--font-m);font-size:10px;color:var(--gold);letter-spacing:1px;text-transform:uppercase;margin-bottom:6px;}
+.cert-year-row{display:flex;align-items:center;justify-content:space-between;margin-top:8px;}
+.cert-year{font-family:var(--font-m);font-size:10px;color:var(--muted2);background:rgba(255,255,255,.03);border:1px solid var(--border);padding:3px 10px;border-radius:20px;}
+.cert-type{font-size:10px;color:var(--muted2);}
+
+/* LIGHTBOX */
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(4,4,12,.95);display:flex;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .3s;padding:24px;}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lightbox-img{max-width:90vw;max-height:85vh;object-fit:contain;border-radius:12px;border:1px solid var(--border-lit);box-shadow:0 24px 80px rgba(0,0,0,.8);}
+.lightbox-close{position:absolute;top:24px;right:28px;font-size:28px;color:var(--muted);cursor:pointer;background:none;border:none;line-height:1;transition:color .2s;font-family:var(--font-m);}
+.lightbox-close:hover{color:var(--cream);}
+.lightbox-caption{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);font-family:var(--font-m);font-size:11px;color:var(--muted);letter-spacing:1px;text-align:center;}
+
+/* ── SOCIAL ── */
+.soc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.soc-card{background:var(--bg-card);border:1px solid var(--border);border-radius:17px;padding:26px 22px;text-decoration:none;display:flex;flex-direction:column;gap:13px;transition:all .25s;position:relative;overflow:hidden;}
+.soc-card::after{content:'↗';position:absolute;top:18px;right:18px;font-size:13px;color:var(--muted2);transition:transform .2s,color .2s;}
+.soc-card:hover{border-color:var(--border-lit);transform:translateY(-4px);box-shadow:0 4px 40px rgba(0,0,0,.5);}
+.soc-card:hover::after{transform:translate(3px,-3px);color:var(--gold);}
+.soc-ico-wrap{width:46px;height:46px;border-radius:11px;display:flex;align-items:center;justify-content:center;font-size:20px;border:1px solid var(--border);background:rgba(255,255,255,.03);transition:border-color .2s;}
+.soc-card:hover .soc-ico-wrap{border-color:var(--border-lit);}
+.soc-name{font-family:var(--font-d);font-size:15px;font-weight:700;color:var(--cream);}
+.soc-handle{font-family:var(--font-m);font-size:11px;color:var(--muted);margin-top:-6px;}
+.soc-stat{font-size:11px;color:var(--success);font-family:var(--font-m);margin-top:auto;letter-spacing:.3px;}
+.contact-box{background:linear-gradient(135deg,rgba(201,169,110,.055) 0%,rgba(107,159,255,.035) 100%);border:1px solid rgba(201,169,110,.2);border-radius:18px;padding:38px;text-align:center;display:flex;flex-direction:column;align-items:center;gap:14px;}
+.cb-title{font-family:var(--font-d);font-size:26px;font-weight:700;color:var(--cream);letter-spacing:-.5px;}
+.cb-sub{font-size:13px;color:var(--muted);max-width:400px;line-height:1.75;}
+.cb-email{font-family:var(--font-m);font-size:13px;color:var(--gold);text-decoration:none;border-bottom:1px solid rgba(201,169,110,.3);padding-bottom:2px;transition:border-color .2s;}
+.cb-email:hover{border-color:var(--gold);}
+.line-deco{width:40px;height:2px;background:linear-gradient(90deg,var(--gold),transparent);margin-bottom:4px;}
+
+/* RESPONSIVE */
+@media(max-width:1100px){.stats-grid{grid-template-columns:repeat(2,1fr);}.soc-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:768px){.shell{grid-template-columns:1fr;}.sidebar{position:fixed;left:-280px;z-index:200;transition:left .3s;height:100vh;}.sidebar.open{left:0;}.section{padding:24px 18px;}.prof-hero{grid-template-columns:1fr;text-align:center;padding:28px;}.photo-frame{margin:0 auto;}.prof-meta{justify-content:center;}.prof-cta{justify-content:center;}.sec-title{font-size:30px;}.about-g{grid-template-columns:1fr;}.soc-grid{grid-template-columns:1fr;}.topbar{padding:0 18px;}}
+::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-track{background:transparent;}::-webkit-scrollbar-thumb{background:rgba(255,255,255,.07);border-radius:2px;}::-webkit-scrollbar-thumb:hover{background:rgba(201,169,110,.28);}
+</style>
+</head>
+<body>
+
+<div class="bg-atm">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="bg-grid"></div>
+<div class="bg-noise"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <img class="lightbox-img" id="lb-img" src="" alt="">
+  <div class="lightbox-caption" id="lb-cap"></div>
+</div>
+
+<div class="shell">
+
+  <!-- ════ SIDEBAR ════ -->
+  <aside class="sidebar">
+    <div class="sb-top">
+      <div class="brand">
+        <div class="brand-mark"></div>
+        <span class="brand-txt">Portfolio</span>
+      </div>
+      <div class="sb-profile">
+        <div class="av-outer">
+          <div class="av-ring"></div>
+          <div class="av-inner">YN</div>
+          <!-- ← EDIT: Ganti "YN" dengan inisial. Foto: background-image:url('foto.jpg');background-size:cover -->
+        </div>
+        <div class="sb-name">Nama Anda</div>
+        <!-- ← EDIT: Nama lengkap -->
+        <div class="sb-role">Web Developer</div>
+        <!-- ← EDIT: Peran Anda -->
+        <div class="avail"><div class="avail-dot"></div>Open to work</div>
+      </div>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="nav-lbl">Menu</div>
+
+      <a class="nav-a active" onclick="nav('profile',this)" href="#">
+        <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
+        Profil
+      </a>
+
+      <a class="nav-a" onclick="nav('tools',this)" href="#">
+        <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></svg>
+        Tools & Skills
+        <span class="n-badge">14</span>
+      </a>
+
+      <a class="nav-a" onclick="nav('projects',this)" href="#">
+        <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg>
+        Projects
+        <span class="n-badge">4</span>
+        <!-- ← EDIT: Sesuaikan jumlah proyek -->
+      </a>
+
+      <a class="nav-a" onclick="nav('achievement',this)" href="#">
+        <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/></svg>
+        Sertifikat
+        <span class="n-badge">6</span>
+        <!-- ← EDIT: Sesuaikan jumlah sertifikat -->
+      </a>
+
+      <a class="nav-a" onclick="nav('social',this)" href="#">
+        <svg class="ni" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/></svg>
+        Social Media
+      </a>
+    </nav>
+
+    <div class="sb-bot">
+      <button class="sb-cta" onclick="nav('social',null)">✉ Hubungi Saya</button>
+    </div>
+  </aside>
+
+  <!-- ════ MAIN ════ -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="breadcrumb">
+        <span>Portfolio</span>
+        <span class="bc-sep">/</span>
+        <span class="bc-active" id="bc">Profil</span>
+      </div>
+      <div class="tb-actions">
+        <button class="btn" onclick="downloadCV()">↓ Download CV</button>
+        <button class="btn btn-gold" onclick="nav('social',null)">Hire Me</button>
+      </div>
+    </header>
+
+    <!-- ══ PROFIL ══ -->
+    <section id="profile" class="section active">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">01 — Tentang Saya</div>
+          <div class="sec-title">Halo, Saya<br><em>Nama Anda</em></div>
+          <!-- ← EDIT: Ganti nama -->
+        </div>
+        <div class="sec-tag">// Profile</div>
+      </div>
+
+      <div class="prof-hero">
+        <div class="photo-frame">
+          <div class="photo-deco"></div>
+          <div class="photo-box">
+            <div class="photo-init">YN</div>
+            <div class="photo-hint">Foto Anda</div>
+            <!-- ← FOTO NYATA: background-image:url('foto.jpg');background-size:cover pada .photo-box, hapus photo-init & photo-hint -->
+          </div>
+        </div>
+        <div>
+          <div class="prof-greet">Selamat Datang di Portofolio Saya</div>
+          <div class="prof-name">Nama Anda</div>
+          <!-- ← EDIT -->
+          <div class="prof-title">Full Stack Web Developer · UI Enthusiast</div>
+          <!-- ← EDIT -->
+          <p class="prof-bio">Seorang web developer yang passionate dalam membangun produk digital yang fungsional sekaligus indah. Saya percaya bahwa kode yang baik adalah kode yang menghadirkan nilai nyata bagi penggunanya.</p>
+          <!-- ← EDIT: Bio singkat Anda -->
+          <div class="prof-meta">
+            <div class="meta-c">📍 Kota, Indonesia</div>
+            <div class="meta-c">🎓 Universitas Anda</div>
+            <div class="meta-c">💼 N+ Tahun Pengalaman</div>
+            <div class="meta-c">🌐 website-anda.com</div>
+            <!-- ← EDIT semua meta di atas -->
+          </div>
+          <div class="prof-cta">
+            <button class="btn-solid" onclick="downloadCV()">↓ Download CV</button>
+            <button class="btn-outline" onclick="nav('social',null)">Kontak Saya</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-ico">📁</div>
+          <div class="stat-num"><span class="counter" data-target="50">0</span><span class="stat-suf">+</span></div>
+          <div class="stat-lbl">Proyek Selesai</div>
+          <!-- ← EDIT: data-target="50" sesuai jumlah proyek -->
+        </div>
+        <div class="stat-card">
+          <div class="stat-ico">🤝</div>
+          <div class="stat-num"><span class="counter" data-target="30">0</span><span class="stat-suf">+</span></div>
+          <div class="stat-lbl">Klien Puas</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ico">⚡</div>
+          <div class="stat-num"><span class="counter" data-target="5">0</span><span class="stat-suf">+</span></div>
+          <div class="stat-lbl">Tahun Pengalaman</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-ico">⭐</div>
+          <div class="stat-num"><span class="counter" data-target="100">0</span><span class="stat-suf">%</span></div>
+          <div class="stat-lbl">Client Satisfaction</div>
+        </div>
+      </div>
+
+      <div class="about-g">
+        <div class="card">
+          <div class="c-label">Tentang Saya</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.85;">Saya memulai perjalanan sebagai web developer sejak [tahun]. Sejak itu, saya telah terlibat dalam berbagai proyek mulai dari startup lokal hingga klien internasional. Saya senang menghadapi tantangan teknis kompleks dan mengubahnya menjadi solusi yang elegan.</p>
+          <!-- ← EDIT: Kisah Anda -->
+        </div>
+        <div class="card">
+          <div class="c-label">Apa yang Saya Kerjakan</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <div style="font-size:13px;color:var(--muted);display:flex;align-items:start;gap:10px;"><span style="color:var(--gold);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">01</span><span>Membangun web application responsif dan performant dengan teknologi modern.</span></div>
+            <div style="font-size:13px;color:var(--muted);display:flex;align-items:start;gap:10px;"><span style="color:var(--gold);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">02</span><span>Merancang UI/UX intuitif dengan fokus pada pengalaman pengguna yang luar biasa.</span></div>
+            <div style="font-size:13px;color:var(--muted);display:flex;align-items:start;gap:10px;"><span style="color:var(--gold);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">03</span><span>Mengembangkan API dan sistem backend yang skalabel dan aman.</span></div>
+          </div>
+          <!-- ← EDIT: Sesuaikan layanan Anda -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TOOLS ══ -->
+    <section id="tools" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">02 — Keahlian</div>
+          <div class="sec-title">Tools &<br><em>Tech Stack</em></div>
+        </div>
+        <div class="sec-tag">// Skills</div>
+      </div>
+
+      <div class="card">
+        <div class="c-label">Frontend</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-emoji">⚛️</span><span class="t-name">React.js</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-bar-f" data-w="95%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">💚</span><span class="t-name">Vue.js</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="80%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🔷</span><span class="t-name">TypeScript</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-bar-f" data-w="90%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🎨</span><span class="t-name">Tailwind CSS</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-bar-f" data-w="93%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">▲</span><span class="t-name">Next.js</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="85%"></div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="c-label">Backend</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-emoji">🟢</span><span class="t-name">Node.js</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-bar-f" data-w="90%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🐍</span><span class="t-name">Python</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="78%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🐘</span><span class="t-name">PostgreSQL</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="82%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🍃</span><span class="t-name">MongoDB</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-bar-f" data-w="70%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🔴</span><span class="t-name">Redis</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-bar-f" data-w="65%"></div></div></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="c-label">DevOps & Tools</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-emoji">🐳</span><span class="t-name">Docker</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="80%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">☁️</span><span class="t-name">AWS</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-bar-f" data-w="68%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🐙</span><span class="t-name">Git & GitHub</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-bar-f" data-w="95%"></div></div></div>
+          <div class="tool-pill"><span class="t-emoji">🎭</span><span class="t-name">Figma</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-bar-f" data-w="85%"></div></div></div>
+        </div>
+      </div>
+      <!-- ← EDIT: Tambah/hapus tool-pill sesuai keahlian Anda -->
+    </section>
+
+    <!-- ══ PROJECTS ══ -->
+    <section id="projects" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">03 — Karya</div>
+          <div class="sec-title">Proyek<br><em>Pilihan</em></div>
+        </div>
+        <div class="sec-tag">// Projects</div>
+      </div>
+
+      <div class="proj-grid">
+
+        <!-- PROJECT 1 -->
+        <!-- ← EDIT: Ganti semua data proyek di bawah dengan proyek nyata Anda -->
+        <div class="proj-card">
+          <div class="proj-thumb">
+            <!-- CARA PAKAI FOTO: hapus emoji di bawah, uncomment tag img dan isi src dengan path gambar Anda -->
+            🖥️
+            <!-- <img class="proj-thumb-img" src="gambar-proyek-1.jpg" alt="Nama Proyek"> -->
+            <span class="proj-badge live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Pertama</div>
+            <p class="proj-desc">Deskripsi singkat proyek — apa masalah yang diselesaikan, siapa penggunanya, dan apa yang membuat proyek ini menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span>
+              <span class="proj-tag">Node.js</span>
+              <span class="proj-tag">PostgreSQL</span>
+              <!-- ← EDIT: Teknologi yang digunakan -->
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+              <!-- ← EDIT: Ganti href dengan URL asli -->
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 2 -->
+        <div class="proj-card">
+          <div class="proj-thumb">
+            📱
+            <!-- <img class="proj-thumb-img" src="gambar-proyek-2.jpg" alt="Nama Proyek"> -->
+            <span class="proj-badge live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Kedua</div>
+            <p class="proj-desc">Deskripsi singkat proyek — apa masalah yang diselesaikan, siapa penggunanya, dan apa yang membuat proyek ini menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Vue.js</span>
+              <span class="proj-tag">TypeScript</span>
+              <span class="proj-tag">Tailwind</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 3 -->
+        <div class="proj-card">
+          <div class="proj-thumb">
+            🛒
+            <!-- <img class="proj-thumb-img" src="gambar-proyek-3.jpg" alt="Nama Proyek"> -->
+            <span class="proj-badge wip">In Progress</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Ketiga</div>
+            <p class="proj-desc">Deskripsi singkat proyek — apa masalah yang diselesaikan, siapa penggunanya, dan apa yang membuat proyek ini menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js</span>
+              <span class="proj-tag">MongoDB</span>
+              <span class="proj-tag">Docker</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- PROJECT 4 -->
+        <div class="proj-card">
+          <div class="proj-thumb">
+            📊
+            <!-- <img class="proj-thumb-img" src="gambar-proyek-4.jpg" alt="Nama Proyek"> -->
+            <span class="proj-badge live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Keempat</div>
+            <p class="proj-desc">Deskripsi singkat proyek — apa masalah yang diselesaikan, siapa penggunanya, dan apa yang membuat proyek ini menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span>
+              <span class="proj-tag">FastAPI</span>
+              <span class="proj-tag">AWS</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ← EDIT: Tambah proj-card sesuai kebutuhan, atau hapus yang tidak diperlukan -->
+    </section>
+
+    <!-- ══ ACHIEVEMENT / SERTIFIKAT ══ -->
+    <section id="achievement" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">04 — Sertifikasi</div>
+          <div class="sec-title">Sertifikat &<br><em>Penghargaan</em></div>
+        </div>
+        <div class="sec-tag">// Achievement</div>
+      </div>
+
+      <div class="card" style="padding:16px 20px;">
+        <p style="font-size:12px;color:var(--muted);font-family:var(--font-m);letter-spacing:.3px;">
+          💡 Klik gambar sertifikat untuk memperbesar. 
+          Untuk menambah gambar: ganti <code style="color:var(--gold);">src=""</code> pada setiap cert-card dengan path file sertifikat Anda.
+        </p>
+      </div>
+
+      <div class="cert-grid">
+
+        <!-- SERTIFIKAT 1 -->
+        <!-- ← EDIT: Isi src="" dengan path gambar sertifikat Anda, mis: src="sertifikat/cert1.jpg" -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- Jika sudah ada gambar: -->
+            <!-- <img src="sertifikat/cert1.jpg" alt="Nama Sertifikat"> -->
+            <!-- Jika belum ada gambar, placeholder tampil otomatis: -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">🏆</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Google · Coursera</div>
+            <!-- ← EDIT: Lembaga penerbit sertifikat -->
+            <div class="cert-title">Nama Sertifikat Pertama</div>
+            <!-- ← EDIT: Nama sertifikat -->
+            <div class="cert-year-row">
+              <span class="cert-year">2024</span>
+              <!-- ← EDIT: Tahun -->
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Sertifikasi Profesional</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERTIFIKAT 2 -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- <img src="sertifikat/cert2.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">🥇</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Meta · Facebook</div>
+            <div class="cert-title">Nama Sertifikat Kedua</div>
+            <div class="cert-year-row">
+              <span class="cert-year">2023</span>
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Sertifikasi Profesional</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERTIFIKAT 3 -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- <img src="sertifikat/cert3.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">☁️</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Amazon Web Services</div>
+            <div class="cert-title">Nama Sertifikat Ketiga</div>
+            <div class="cert-year-row">
+              <span class="cert-year">2023</span>
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Cloud Certification</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERTIFIKAT 4 -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- <img src="sertifikat/cert4.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">🎓</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Dicoding · Bangkit</div>
+            <div class="cert-title">Nama Sertifikat Keempat</div>
+            <div class="cert-year-row">
+              <span class="cert-year">2022</span>
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Program Beasiswa</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERTIFIKAT 5 -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- <img src="sertifikat/cert5.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">🚀</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Hackathon Nasional</div>
+            <div class="cert-title">Nama Sertifikat Kelima</div>
+            <div class="cert-year-row">
+              <span class="cert-year">2022</span>
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Award</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- SERTIFIKAT 6 -->
+        <div class="cert-card">
+          <div class="cert-img-wrap" onclick="openLightbox(this)">
+            <!-- <img src="sertifikat/cert6.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-placeholder">
+              <div class="cert-placeholder-icon">⭐</div>
+              <div class="cert-placeholder-txt">Upload Foto Sertifikat</div>
+            </div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Udemy · Platzi</div>
+            <div class="cert-title">Nama Sertifikat Keenam</div>
+            <div class="cert-year-row">
+              <span class="cert-year">2021</span>
+              <span class="cert-type" style="font-size:10px;color:var(--muted2);">Online Course</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ← EDIT: Tambah cert-card sesuai jumlah sertifikat Anda -->
+    </section>
+
+    <!-- ══ SOCIAL ══ -->
+    <section id="social" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">05 — Kontak</div>
+          <div class="sec-title">Mari<br><em>Terhubung</em></div>
+        </div>
+        <div class="sec-tag">// Social</div>
+      </div>
+
+      <div class="soc-grid">
+        <!-- ← EDIT: Ganti semua href dan handle dengan akun nyata Anda -->
+        <a href="https://github.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico-wrap">🐙</div>
+          <div><div class="soc-name">GitHub</div><div class="soc-handle">@username</div></div>
+          <div class="soc-stat">★ N repositories</div>
+        </a>
+        <a href="https://linkedin.com/in/username" class="soc-card" target="_blank">
+          <div class="soc-ico-wrap">💼</div>
+          <div><div class="soc-name">LinkedIn</div><div class="soc-handle">Nama Lengkap</div></div>
+          <div class="soc-stat">N+ Connections</div>
+        </a>
+        <a href="https://instagram.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico-wrap">📸</div>
+          <div><div class="soc-name">Instagram</div><div class="soc-handle">@username</div></div>
+          <div class="soc-stat">N Followers</div>
+        </a>
+        <a href="https://twitter.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico-wrap">🐦</div>
+          <div><div class="soc-name">Twitter / X</div><div class="soc-handle">@username</div></div>
+          <div class="soc-stat">N Followers</div>
+        </a>
+        <a href="https://youtube.com/@channel" class="soc-card" target="_blank">
+          <div class="soc-ico-wrap">▶️</div>
+          <div><div class="soc-name">YouTube</div><div class="soc-handle">Nama Channel</div></div>
+          <div class="soc-stat">N Subscribers</div>
+        </a>
+        <a href="mailto:email@domain.com" class="soc-card">
+          <div class="soc-ico-wrap">✉️</div>
+          <div><div class="soc-name">Email</div><div class="soc-handle">email@domain.com</div></div>
+          <!-- ← EDIT: Ganti email -->
+          <div class="soc-stat">Open for inquiries</div>
+        </a>
+      </div>
+
+      <div class="contact-box">
+        <div class="line-deco" style="margin:0 auto;"></div>
+        <div class="cb-title">Siap Berkolaborasi?</div>
+        <p class="cb-sub">Saya selalu terbuka untuk peluang baru — proyek freelance, full-time, atau sekadar ngobrol soal teknologi. Jangan ragu hubungi saya!</p>
+        <a class="cb-email" href="mailto:email@domain.com">email@domain.com</a>
+        <!-- ← EDIT: Email Anda -->
+        <button class="btn-solid" style="margin-top:6px;" onclick="window.location.href='mailto:email@domain.com'">✉ Kirim Pesan</button>
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// ── NAVIGATION ──
+const labels={profile:'Profil',tools:'Tools & Skills',projects:'Projects',achievement:'Sertifikat',social:'Social Media'};
+function nav(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-a').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-a').forEach(a=>{
+    if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+id+"'"))a.classList.add('active');
+  });
+  document.getElementById('bc').textContent=labels[id]||id;
+  if(id==='tools')setTimeout(animBars,120);
+  if(id==='profile')setTimeout(animCounters,120);
+  document.querySelector('.main').scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── COUNTERS ──
+let cDone=false;
+function animCounters(){
+  if(cDone)return;cDone=true;
+  document.querySelectorAll('.counter').forEach(el=>{
+    const t=+el.dataset.target,dur=1400,s=performance.now();
+    function u(now){const p=Math.min((now-s)/dur,1),e=1-Math.pow(1-p,3);el.textContent=Math.floor(e*t);if(p<1)requestAnimationFrame(u);else el.textContent=t;}
+    requestAnimationFrame(u);
+  });
+}
+
+// ── TOOL BARS ──
+let bDone=false;
+function animBars(){
+  if(bDone)return;bDone=true;
+  document.querySelectorAll('.t-bar-f').forEach((b,i)=>{
+    b.style.width='0%';
+    setTimeout(()=>{b.style.width=b.dataset.w||'0%';},i*55);
+  });
+}
+
+// ── LIGHTBOX ──
+function openLightbox(wrap){
+  const img=wrap.querySelector('img');
+  if(!img){return;}// Tidak ada gambar, tidak buka lightbox
+  const lb=document.getElementById('lightbox');
+  const lbImg=document.getElementById('lb-img');
+  const lbCap=document.getElementById('lb-cap');
+  lbImg.src=img.src;
+  // Ambil judul sertifikat dari card-body
+  const card=wrap.closest('.cert-card');
+  const title=card?card.querySelector('.cert-title')?.textContent:'';
+  const issuer=card?card.querySelector('.cert-issuer')?.textContent:'';
+  lbCap.textContent=issuer&&title?issuer+' — '+title:title||'';
+  lb.classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLightbox(e){
+  if(e&&e.target!==document.getElementById('lightbox')&&!e.target.classList.contains('lightbox-close'))return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{if(e.key==='Escape')document.getElementById('lightbox').classList.remove('open'),document.body.style.overflow='';});
+
+// ── DOWNLOAD CV ──
+function downloadCV(){
+  // ← EDIT: Ganti dengan window.open('https://domain.com/cv.pdf','_blank');
+  alert('⬇ Download CV\n\nEdit fungsi downloadCV() dan isi dengan link PDF CV Anda.');
+}
+
+// ── INIT ──
+window.addEventListener('load',()=>{
+  setTimeout(animCounters,300);
+});
+</script>
+</body>
+</html>
