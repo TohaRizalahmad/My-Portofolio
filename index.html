@@ -1,0 +1,1400 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Portfolio — Web Developer</title>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   DESIGN TOKENS — Professional Blue
+════════════════════════════════════════ */
+:root {
+  /* Backgrounds — deep navy, not black */
+  --bg-root:   #050914;
+  --bg-deep:   #070c18;
+  --bg-panel:  #0a1020;
+  --bg-card:   #0d1526;
+  --bg-hover:  #111d32;
+
+  /* Borders */
+  --border:      rgba(99,144,255,0.08);
+  --border-lit:  rgba(99,144,255,0.18);
+  --border-glow: rgba(99,144,255,0.35);
+
+  /* Blue accent palette */
+  --blue:        #4f8eff;
+  --blue-bright: #6fa3ff;
+  --blue-dim:    rgba(79,142,255,0.10);
+  --blue-glow:   rgba(79,142,255,0.06);
+  --blue-ring:   rgba(79,142,255,0.22);
+
+  /* Secondary accent — electric cyan */
+  --cyan:        #38d9f5;
+  --cyan-dim:    rgba(56,217,245,0.08);
+
+  /* Text */
+  --text:   #e8eeff;
+  --muted:  rgba(180,196,240,0.5);
+  --muted2: rgba(140,165,220,0.28);
+
+  /* Status */
+  --success: #34d399;
+
+  /* Fonts */
+  --font-b: 'Plus Jakarta Sans', sans-serif;
+  --font-m: 'JetBrains Mono', monospace;
+
+  /* Shadows */
+  --shadow-card: 0 8px 48px rgba(0,0,8,0.6);
+  --shadow-blue: 0 4px 32px rgba(79,142,255,0.15);
+}
+
+/* ════════════════════════════════════════
+   RESET
+════════════════════════════════════════ */
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  background:var(--bg-root);
+  color:var(--text);
+  font-family:var(--font-b);
+  font-weight:400;
+  line-height:1.6;
+  min-height:100vh;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ════════════════════════════════════════
+   BACKGROUND ATMOSPHERE
+════════════════════════════════════════ */
+.bg-atm{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden;}
+.orb{position:absolute;border-radius:50%;filter:blur(100px);opacity:.7;}
+.orb1{
+  width:700px;height:700px;top:-300px;left:-200px;
+  background:radial-gradient(circle,rgba(40,80,200,.22) 0%,transparent 65%);
+  animation:da 24s ease-in-out infinite alternate;
+}
+.orb2{
+  width:600px;height:600px;bottom:-250px;right:-150px;
+  background:radial-gradient(circle,rgba(20,120,240,.18) 0%,transparent 65%);
+  animation:db 30s ease-in-out infinite alternate;
+}
+.orb3{
+  width:400px;height:400px;top:35%;left:45%;
+  background:radial-gradient(circle,rgba(56,217,245,.07) 0%,transparent 65%);
+  animation:dc 20s ease-in-out infinite alternate;
+}
+@keyframes da{to{transform:translate(80px,100px);}}
+@keyframes db{to{transform:translate(-80px,-100px);}}
+@keyframes dc{to{transform:translate(-60px,80px);}}
+
+/* Dot grid */
+.bg-dots{
+  position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(rgba(79,142,255,.12) 1px,transparent 1px);
+  background-size:32px 32px;
+}
+
+/* Noise */
+.bg-noise{
+  position:fixed;inset:0;z-index:1;pointer-events:none;opacity:.018;
+  background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-size:180px 180px;
+}
+
+/* ════════════════════════════════════════
+   LAYOUT
+════════════════════════════════════════ */
+.shell{
+  position:relative;z-index:2;
+  display:grid;
+  grid-template-columns:272px 1fr;
+  min-height:100vh;
+}
+
+/* ════════════════════════════════════════
+   SIDEBAR
+════════════════════════════════════════ */
+.sidebar{
+  position:sticky;top:0;
+  height:100vh;
+  overflow-y:auto;overflow-x:hidden;
+  background:rgba(7,12,24,.92);
+  backdrop-filter:blur(32px);
+  border-right:1px solid var(--border);
+  display:flex;flex-direction:column;
+}
+.sidebar::-webkit-scrollbar{width:0;}
+
+/* Brand */
+.sb-top{padding:32px 24px 26px;border-bottom:1px solid var(--border);}
+.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
+.brand-icon{
+  width:32px;height:32px;
+  background:var(--blue);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 0 20px rgba(79,142,255,.35);
+}
+.brand-icon svg{width:16px;height:16px;color:#fff;}
+.brand-name{
+  font-size:14px;font-weight:700;
+  color:var(--text);letter-spacing:-.2px;
+}
+.brand-dot{
+  width:6px;height:6px;
+  background:var(--blue);
+  border-radius:50%;
+  margin-left:auto;
+  box-shadow:0 0 8px var(--blue);
+  animation:blink 2s infinite;
+}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+
+/* Profile */
+.sb-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;}
+.av-wrap{position:relative;width:82px;height:82px;}
+.av-ring{
+  position:absolute;inset:-3px;border-radius:50%;
+  background:conic-gradient(var(--blue) 0deg,var(--cyan) 90deg,transparent 160deg,transparent 200deg,var(--blue) 280deg,var(--cyan) 360deg);
+  animation:spin 8s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+.av-bg{
+  position:absolute;inset:3px;border-radius:50%;
+  background:var(--bg-card);
+  display:flex;align-items:center;justify-content:center;
+  font-size:26px;font-weight:800;
+  color:var(--blue);
+  font-family:var(--font-b);
+  overflow:hidden;
+}
+/* Foto: tambahkan background-image:url('foto.jpg');background-size:cover pada .av-bg */
+
+.sb-name{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.3px;}
+.sb-role{
+  font-family:var(--font-m);font-size:9px;
+  color:var(--blue-bright);letter-spacing:2px;text-transform:uppercase;
+}
+.avail-pill{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:10px;color:var(--success);
+  background:rgba(52,211,153,.07);
+  border:1px solid rgba(52,211,153,.2);
+  padding:4px 12px;border-radius:20px;
+  font-family:var(--font-m);letter-spacing:.3px;
+}
+.avail-dot{
+  width:5px;height:5px;background:var(--success);border-radius:50%;
+  animation:pulse-g 2s infinite;
+}
+@keyframes pulse-g{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.5);}50%{box-shadow:0 0 0 5px rgba(52,211,153,0);}}
+
+/* Nav */
+.sb-nav{padding:20px 12px;flex:1;}
+.nav-section{
+  font-family:var(--font-m);font-size:9px;letter-spacing:2.5px;
+  text-transform:uppercase;color:var(--muted2);
+  padding:0 10px;margin-bottom:5px;margin-top:16px;
+}
+.nav-section:first-child{margin-top:0;}
+
+.nav-a{
+  display:flex;align-items:center;gap:10px;
+  padding:10px 12px;
+  border-radius:10px;
+  font-size:13px;font-weight:500;
+  color:var(--muted);
+  text-decoration:none;
+  border:1px solid transparent;
+  transition:all .2s cubic-bezier(.4,0,.2,1);
+  position:relative;overflow:hidden;
+  margin-bottom:2px;
+}
+.nav-a::after{
+  content:'';
+  position:absolute;left:0;top:20%;bottom:20%;
+  width:2.5px;
+  background:linear-gradient(180deg,var(--blue),var(--cyan));
+  border-radius:0 2px 2px 0;
+  transform:scaleY(0);
+  transition:transform .2s;
+}
+.nav-a:hover{
+  color:var(--text);
+  background:rgba(79,142,255,.05);
+  border-color:var(--border);
+}
+.nav-a.active{
+  color:var(--blue-bright);
+  background:var(--blue-dim);
+  border-color:var(--blue-ring);
+}
+.nav-a.active::after{transform:scaleY(1);}
+.nav-icon{width:16px;height:16px;flex-shrink:0;opacity:.6;}
+.nav-a.active .nav-icon{opacity:1;color:var(--blue-bright);}
+.nav-badge{
+  margin-left:auto;
+  font-family:var(--font-m);font-size:9px;
+  color:var(--blue-bright);
+  background:var(--blue-dim);
+  padding:2px 7px;border-radius:8px;
+  border:1px solid var(--blue-ring);
+}
+
+/* Sidebar bottom */
+.sb-bot{padding:18px 20px;border-top:1px solid var(--border);}
+.sb-cta{
+  width:100%;padding:12px;
+  background:linear-gradient(135deg,var(--blue),#3a6fd8);
+  color:#fff;border:none;
+  border-radius:10px;
+  font-family:var(--font-b);font-size:13px;font-weight:600;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  transition:all .22s;cursor:pointer;
+  box-shadow:0 4px 20px rgba(79,142,255,.25);
+  letter-spacing:.2px;
+}
+.sb-cta:hover{
+  background:linear-gradient(135deg,var(--blue-bright),var(--blue));
+  box-shadow:0 8px 28px rgba(79,142,255,.4);
+  transform:translateY(-1px);
+}
+
+/* ════════════════════════════════════════
+   TOPBAR
+════════════════════════════════════════ */
+.main{display:flex;flex-direction:column;min-height:100vh;}
+.topbar{
+  position:sticky;top:0;z-index:50;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 40px;height:62px;
+  background:rgba(5,9,20,.85);
+  backdrop-filter:blur(24px);
+  border-bottom:1px solid var(--border);
+}
+.breadcrumb{
+  display:flex;align-items:center;gap:8px;
+  font-family:var(--font-m);font-size:11px;color:var(--muted2);
+}
+.breadcrumb .b-root{color:var(--muted);}
+.breadcrumb .b-sep{color:var(--muted2);}
+.breadcrumb .b-curr{color:var(--blue-bright);}
+.tb-right{display:flex;gap:10px;align-items:center;}
+.btn{
+  padding:7px 17px;border-radius:8px;
+  font-family:var(--font-b);font-size:12px;font-weight:500;
+  border:1px solid var(--border-lit);background:transparent;
+  color:var(--muted);transition:all .2s;cursor:pointer;
+}
+.btn:hover{color:var(--text);border-color:var(--border-glow);background:rgba(79,142,255,.05);}
+.btn-blue{
+  background:linear-gradient(135deg,var(--blue),#3a6fd8);
+  color:#fff;border-color:var(--blue);font-weight:600;
+  box-shadow:0 2px 16px rgba(79,142,255,.2);
+}
+.btn-blue:hover{
+  background:linear-gradient(135deg,var(--blue-bright),var(--blue));
+  box-shadow:0 4px 24px rgba(79,142,255,.35);
+  border-color:var(--blue-bright);
+}
+
+/* ════════════════════════════════════════
+   SECTIONS
+════════════════════════════════════════ */
+.section{
+  display:none;flex-direction:column;gap:24px;
+  padding:38px 40px;flex:1;
+  animation:si .32s cubic-bezier(.4,0,.2,1);
+}
+.section.active{display:flex;}
+@keyframes si{from{opacity:0;transform:translateY(14px);}to{opacity:1;transform:translateY(0);}}
+
+/* Section header */
+.sec-head{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding-bottom:20px;border-bottom:1px solid var(--border);gap:20px;
+}
+.sec-eyebrow{
+  font-family:var(--font-m);font-size:9px;
+  letter-spacing:3px;text-transform:uppercase;
+  color:var(--blue-bright);margin-bottom:8px;
+  display:flex;align-items:center;gap:8px;
+}
+.sec-eyebrow::before{
+  content:'';width:20px;height:1px;
+  background:linear-gradient(90deg,var(--blue),transparent);
+}
+.sec-title{
+  font-size:36px;font-weight:800;
+  line-height:1.1;letter-spacing:-1.2px;
+  color:var(--text);
+}
+.sec-title em{
+  font-style:normal;
+  background:linear-gradient(135deg,var(--blue-bright),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.sec-chip{
+  flex-shrink:0;
+  font-family:var(--font-m);font-size:9px;
+  letter-spacing:1.5px;text-transform:uppercase;
+  color:var(--muted2);
+  background:var(--blue-glow);
+  border:1px solid var(--border);
+  padding:6px 14px;border-radius:20px;
+  align-self:flex-end;
+}
+
+/* ════════════════════════════════════════
+   CARD BASE
+════════════════════════════════════════ */
+.card{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:16px;padding:24px;
+  transition:border-color .25s,box-shadow .25s,transform .2s;
+  position:relative;overflow:hidden;
+}
+.card::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(79,142,255,.03) 0%,transparent 55%);
+  opacity:0;transition:opacity .25s;
+}
+.card:hover{
+  border-color:var(--border-lit);
+  box-shadow:var(--shadow-card);
+  transform:translateY(-2px);
+}
+.card:hover::before{opacity:1;}
+
+.c-label{
+  font-family:var(--font-m);font-size:9px;
+  letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--blue-bright);margin-bottom:16px;
+  display:flex;align-items:center;gap:8px;
+}
+.c-label::after{
+  content:'';flex:1;height:1px;
+  background:linear-gradient(90deg,var(--border-lit),transparent);
+}
+
+/* ════════════════════════════════════════
+   PROFILE SECTION
+════════════════════════════════════════ */
+.prof-hero{
+  background:var(--bg-card);
+  border:1px solid var(--border);
+  border-radius:20px;padding:44px;
+  display:grid;grid-template-columns:160px 1fr;gap:44px;
+  align-items:start;position:relative;overflow:hidden;
+}
+.prof-hero::before{
+  content:'';position:absolute;top:-60px;right:-60px;
+  width:280px;height:280px;
+  background:radial-gradient(circle,rgba(79,142,255,.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.prof-hero::after{
+  content:'';position:absolute;bottom:-40px;left:120px;
+  width:200px;height:200px;
+  background:radial-gradient(circle,rgba(56,217,245,.04) 0%,transparent 65%);
+  pointer-events:none;
+}
+
+/* Photo */
+.photo-wrap{position:relative;width:150px;height:150px;}
+.photo-deco{
+  position:absolute;
+  border:1px solid rgba(79,142,255,.15);
+  border-radius:18px;
+  inset:0;top:10px;left:10px;right:-10px;bottom:-10px;
+  z-index:0;
+}
+.photo-box{
+  position:relative;z-index:1;
+  width:150px;height:150px;border-radius:16px;
+  background:linear-gradient(135deg,rgba(79,142,255,.14),rgba(56,217,245,.07));
+  border:1px solid var(--border-lit);
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:6px;overflow:hidden;
+}
+/* Foto nyata: set background-image:url('foto.jpg');background-size:cover ke .photo-box, hapus children */
+.photo-init{
+  font-size:52px;font-weight:800;
+  color:var(--blue);line-height:1;
+}
+.photo-hint{
+  font-family:var(--font-m);font-size:9px;
+  color:var(--muted2);letter-spacing:.8px;
+}
+
+/* Profile text */
+.p-greet{
+  font-family:var(--font-m);font-size:10px;
+  color:var(--blue-bright);letter-spacing:2.5px;
+  text-transform:uppercase;margin-bottom:10px;
+}
+.p-name{
+  font-size:40px;font-weight:800;
+  letter-spacing:-1.5px;line-height:1.05;
+  color:var(--text);margin-bottom:6px;
+}
+.p-title{font-size:14px;color:var(--muted);font-weight:400;margin-bottom:16px;}
+.p-bio{
+  font-size:13px;color:rgba(180,196,240,.5);
+  line-height:1.85;max-width:480px;margin-bottom:24px;
+}
+.p-meta{display:flex;flex-wrap:wrap;gap:16px;margin-bottom:24px;}
+.meta-i{
+  display:flex;align-items:center;gap:6px;
+  font-size:12px;color:var(--muted);
+  font-family:var(--font-m);
+}
+.p-cta{display:flex;gap:12px;}
+.btn-primary{
+  padding:10px 24px;
+  background:linear-gradient(135deg,var(--blue),#3a6fd8);
+  color:#fff;border:none;border-radius:9px;
+  font-size:13px;font-weight:600;
+  font-family:var(--font-b);cursor:pointer;
+  transition:all .2s;letter-spacing:.2px;
+  box-shadow:0 4px 20px rgba(79,142,255,.25);
+}
+.btn-primary:hover{
+  background:linear-gradient(135deg,var(--blue-bright),var(--blue));
+  box-shadow:0 6px 28px rgba(79,142,255,.4);
+  transform:translateY(-1px);
+}
+.btn-secondary{
+  padding:10px 20px;
+  border:1px solid var(--border-lit);
+  background:transparent;border-radius:9px;
+  font-size:13px;font-weight:500;color:var(--muted);
+  font-family:var(--font-b);cursor:pointer;
+  transition:all .2s;
+}
+.btn-secondary:hover{color:var(--blue-bright);border-color:var(--border-glow);}
+
+/* Stats */
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;}
+.stat-box{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;padding:20px 18px;
+  position:relative;overflow:hidden;
+  transition:border-color .2s,transform .2s;
+}
+.stat-box:hover{border-color:var(--border-lit);transform:translateY(-2px);}
+.stat-box::after{
+  content:'';position:absolute;
+  bottom:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan),transparent);
+  opacity:0;transition:opacity .2s;
+}
+.stat-box:hover::after{opacity:1;}
+.s-num{
+  font-size:34px;font-weight:800;
+  color:var(--text);letter-spacing:-1px;line-height:1;
+}
+.s-suf{
+  background:linear-gradient(135deg,var(--blue-bright),var(--cyan));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;font-size:24px;
+}
+.s-lbl{
+  font-family:var(--font-m);font-size:9px;
+  color:var(--muted2);letter-spacing:1px;
+  text-transform:uppercase;margin-top:5px;
+}
+.s-ico{position:absolute;top:14px;right:14px;font-size:16px;opacity:.2;}
+
+/* About 2 col */
+.about-2{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+
+/* ════════════════════════════════════════
+   TOOLS
+════════════════════════════════════════ */
+.tools-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(122px,1fr));gap:10px;}
+.tool-pill{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:12px;padding:15px 12px;text-align:center;
+  transition:all .22s;position:relative;overflow:hidden;
+}
+.tool-pill::after{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(79,142,255,.06),transparent);
+  opacity:0;transition:opacity .22s;
+}
+.tool-pill:hover{
+  border-color:var(--border-glow);
+  transform:translateY(-3px);
+  box-shadow:0 12px 32px rgba(0,0,0,.4),0 0 0 1px rgba(79,142,255,.1);
+}
+.tool-pill:hover::after{opacity:1;}
+.t-ico{font-size:24px;display:block;margin-bottom:8px;line-height:1;}
+.t-name{font-size:12px;font-weight:600;color:var(--text);display:block;margin-bottom:2px;}
+.t-lvl{font-family:var(--font-m);font-size:9px;color:var(--muted2);}
+.t-bar{height:2px;background:rgba(79,142,255,.1);border-radius:2px;margin-top:10px;overflow:hidden;}
+.t-fill{
+  height:100%;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  border-radius:2px;
+  transition:width 1.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ════════════════════════════════════════
+   PROJECTS
+════════════════════════════════════════ */
+.proj-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(296px,1fr));gap:16px;}
+.proj-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:16px;overflow:hidden;
+  transition:all .25s;position:relative;
+}
+.proj-card:hover{
+  border-color:var(--border-lit);
+  transform:translateY(-4px);
+  box-shadow:0 20px 56px rgba(0,0,12,.6),0 0 0 1px rgba(79,142,255,.12);
+}
+.proj-thumb{
+  width:100%;height:168px;
+  background:linear-gradient(135deg,rgba(79,142,255,.1),rgba(56,217,245,.06));
+  display:flex;align-items:center;justify-content:center;
+  font-size:44px;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+/* Foto proyek: set background-image:url('ss.jpg');background-size:cover, hapus emoji */
+.proj-thumb-img{width:100%;height:100%;object-fit:cover;display:block;}
+
+/* Subtle shimmer on thumb */
+.proj-thumb::before{
+  content:'';position:absolute;inset:0;
+  background:linear-gradient(135deg,rgba(79,142,255,.05),transparent,rgba(56,217,245,.03));
+}
+.proj-status{
+  position:absolute;top:12px;right:12px;
+  font-family:var(--font-m);font-size:9px;letter-spacing:1px;
+  text-transform:uppercase;padding:3px 10px;border-radius:20px;border:1px solid;
+}
+.proj-status.live{color:var(--success);background:rgba(52,211,153,.08);border-color:rgba(52,211,153,.25);}
+.proj-status.wip{color:var(--blue-bright);background:var(--blue-dim);border-color:var(--blue-ring);}
+
+.proj-body{padding:20px;}
+.proj-title{
+  font-size:17px;font-weight:700;color:var(--text);
+  margin-bottom:6px;letter-spacing:-.3px;
+}
+.proj-desc{font-size:12px;color:var(--muted);line-height:1.7;margin-bottom:14px;}
+.proj-tags{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:14px;}
+.proj-tag{
+  font-family:var(--font-m);font-size:9px;letter-spacing:.6px;
+  color:var(--blue-bright);
+  background:var(--blue-dim);border:1px solid var(--blue-ring);
+  padding:3px 9px;border-radius:6px;
+}
+.proj-links{display:flex;gap:12px;}
+.proj-link{
+  font-family:var(--font-m);font-size:10px;
+  color:var(--muted);text-decoration:none;
+  display:flex;align-items:center;gap:5px;
+  transition:color .2s;letter-spacing:.4px;
+}
+.proj-link:hover{color:var(--blue-bright);}
+
+/* ════════════════════════════════════════
+   SERTIFIKAT
+════════════════════════════════════════ */
+.cert-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(252px,1fr));gap:16px;}
+.cert-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:14px;overflow:hidden;
+  transition:all .25s;
+}
+.cert-card:hover{
+  border-color:var(--border-glow);
+  transform:translateY(-4px);
+  box-shadow:0 16px 48px rgba(0,0,12,.55),0 0 0 1px rgba(79,142,255,.15);
+}
+
+.cert-img{
+  width:100%;aspect-ratio:4/3;
+  background:linear-gradient(135deg,rgba(79,142,255,.08),rgba(56,217,245,.04));
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  gap:10px;position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+.cert-img img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s;}
+.cert-card:hover .cert-img img{transform:scale(1.04);}
+
+.cert-ph{display:flex;flex-direction:column;align-items:center;gap:10px;opacity:.55;}
+.cert-ph-ico{font-size:36px;line-height:1;}
+.cert-ph-txt{
+  font-family:var(--font-m);font-size:9px;
+  letter-spacing:1.5px;text-transform:uppercase;color:var(--muted2);
+}
+
+/* Overlay */
+.cert-overlay{
+  position:absolute;inset:0;
+  background:rgba(5,9,20,.7);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;transition:opacity .25s;cursor:pointer;
+}
+.cert-card:hover .cert-overlay{opacity:1;}
+.cert-overlay-btn{
+  font-family:var(--font-m);font-size:10px;letter-spacing:1.5px;
+  color:var(--blue-bright);
+  border:1px solid rgba(79,142,255,.5);
+  padding:8px 18px;border-radius:7px;
+  background:rgba(5,9,20,.85);
+  text-transform:uppercase;
+}
+
+.cert-body{padding:16px 18px;}
+.cert-issuer{
+  font-family:var(--font-m);font-size:9px;
+  color:var(--blue-bright);letter-spacing:1.2px;
+  text-transform:uppercase;margin-bottom:4px;
+}
+.cert-title{font-size:14px;font-weight:700;color:var(--text);margin-bottom:10px;letter-spacing:-.2px;}
+.cert-footer{display:flex;align-items:center;justify-content:space-between;}
+.cert-year{
+  font-family:var(--font-m);font-size:9px;color:var(--muted2);
+  background:rgba(79,142,255,.06);
+  border:1px solid var(--border);
+  padding:3px 10px;border-radius:20px;
+}
+.cert-type{font-size:10px;color:var(--muted2);}
+
+/* ════════════════════════════════════════
+   SOCIAL
+════════════════════════════════════════ */
+.soc-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+.soc-card{
+  background:var(--bg-card);border:1px solid var(--border);
+  border-radius:16px;padding:24px 20px;
+  text-decoration:none;
+  display:flex;flex-direction:column;gap:12px;
+  transition:all .25s;position:relative;overflow:hidden;
+}
+.soc-card::after{
+  content:'↗';position:absolute;top:18px;right:18px;
+  font-size:13px;color:var(--muted2);
+  transition:transform .2s,color .2s;
+}
+.soc-card:hover{
+  border-color:var(--border-lit);
+  transform:translateY(-4px);
+  box-shadow:var(--shadow-card);
+}
+.soc-card:hover::after{transform:translate(3px,-3px);color:var(--blue-bright);}
+.soc-ico{
+  width:44px;height:44px;border-radius:10px;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+  border:1px solid var(--border);background:rgba(79,142,255,.04);
+  transition:border-color .2s;
+}
+.soc-card:hover .soc-ico{border-color:var(--border-lit);}
+.soc-name{font-size:15px;font-weight:700;color:var(--text);}
+.soc-handle{font-family:var(--font-m);font-size:10px;color:var(--muted);margin-top:-5px;}
+.soc-count{
+  font-size:11px;color:var(--success);
+  font-family:var(--font-m);margin-top:auto;letter-spacing:.3px;
+}
+
+/* Contact CTA */
+.cta-box{
+  background:linear-gradient(135deg,rgba(79,142,255,.07) 0%,rgba(56,217,245,.04) 100%);
+  border:1px solid var(--border-lit);
+  border-radius:18px;padding:40px;
+  text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:14px;
+  position:relative;overflow:hidden;
+}
+.cta-box::before{
+  content:'';position:absolute;top:-80px;left:50%;transform:translateX(-50%);
+  width:300px;height:300px;
+  background:radial-gradient(circle,rgba(79,142,255,.08) 0%,transparent 65%);
+  pointer-events:none;
+}
+.cta-title{font-size:26px;font-weight:800;color:var(--text);letter-spacing:-.5px;}
+.cta-sub{font-size:13px;color:var(--muted);max-width:400px;line-height:1.75;}
+.cta-email{
+  font-family:var(--font-m);font-size:13px;color:var(--blue-bright);
+  text-decoration:none;
+  border-bottom:1px solid rgba(79,142,255,.3);padding-bottom:2px;
+  transition:border-color .2s;
+}
+.cta-email:hover{border-color:var(--blue-bright);}
+
+/* Divider */
+.line-blue{
+  width:48px;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--cyan));
+  border-radius:2px;margin:0 auto 4px;
+}
+
+/* ════════════════════════════════════════
+   LIGHTBOX
+════════════════════════════════════════ */
+.lightbox{
+  position:fixed;inset:0;z-index:1000;
+  background:rgba(3,6,16,.96);
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;padding:24px;
+}
+.lightbox.open{opacity:1;pointer-events:all;}
+.lb-img{
+  max-width:88vw;max-height:84vh;object-fit:contain;
+  border-radius:12px;border:1px solid var(--border-lit);
+  box-shadow:0 24px 80px rgba(0,0,0,.85),0 0 0 1px rgba(79,142,255,.1);
+}
+.lb-close{
+  position:absolute;top:24px;right:28px;
+  font-size:26px;color:var(--muted);cursor:pointer;
+  background:none;border:none;line-height:1;
+  transition:color .2s;
+}
+.lb-close:hover{color:var(--text);}
+.lb-cap{
+  position:absolute;bottom:28px;left:50%;transform:translateX(-50%);
+  font-family:var(--font-m);font-size:10px;color:var(--muted2);
+  letter-spacing:1px;text-align:center;white-space:nowrap;
+}
+
+/* ════════════════════════════════════════
+   RESPONSIVE
+════════════════════════════════════════ */
+@media(max-width:1100px){
+  .stats-row{grid-template-columns:repeat(2,1fr);}
+  .soc-grid{grid-template-columns:repeat(2,1fr);}
+}
+@media(max-width:768px){
+  .shell{grid-template-columns:1fr;}
+  .sidebar{position:fixed;left:-272px;z-index:200;transition:left .3s;height:100vh;}
+  .sidebar.open{left:0;}
+  .section{padding:24px 18px;}
+  .prof-hero{grid-template-columns:1fr;text-align:center;padding:28px;}
+  .photo-wrap{margin:0 auto;}
+  .p-meta{justify-content:center;}
+  .p-cta{justify-content:center;}
+  .sec-title{font-size:28px;}
+  .about-2{grid-template-columns:1fr;}
+  .soc-grid{grid-template-columns:1fr;}
+  .topbar{padding:0 18px;}
+}
+
+/* Scrollbar */
+::-webkit-scrollbar{width:4px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:rgba(79,142,255,.15);border-radius:2px;}
+::-webkit-scrollbar-thumb:hover{background:rgba(79,142,255,.35);}
+</style>
+</head>
+<body>
+
+<!-- BG -->
+<div class="bg-atm">
+  <div class="orb orb1"></div>
+  <div class="orb orb2"></div>
+  <div class="orb orb3"></div>
+</div>
+<div class="bg-dots"></div>
+<div class="bg-noise"></div>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLb(event)">
+  <button class="lb-close" onclick="closeLb()">✕</button>
+  <img class="lb-img" id="lb-img" src="" alt="">
+  <div class="lb-cap" id="lb-cap"></div>
+</div>
+
+<div class="shell">
+
+  <!-- ══════════ SIDEBAR ══════════ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sb-top">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        </div>
+        <span class="brand-name">Dev.Portfolio</span>
+        <div class="brand-dot"></div>
+      </div>
+
+      <div class="sb-profile">
+        <div class="av-wrap">
+          <div class="av-ring"></div>
+          <div class="av-bg" id="av-init">YN</div>
+          <!-- ← EDIT: Ganti "YN" dengan inisial. Foto: background-image:url('foto.jpg');background-size:cover ke .av-bg -->
+        </div>
+        <div class="sb-name">Nama Anda</div>
+        <!-- ← EDIT: Nama lengkap -->
+        <div class="sb-role">Web Developer</div>
+        <!-- ← EDIT: Peran Anda -->
+        <div class="avail-pill">
+          <div class="avail-dot"></div>Open to work
+        </div>
+        <!-- ← EDIT: Hapus jika tidak open to work -->
+      </div>
+    </div>
+
+    <nav class="sb-nav">
+      <div class="nav-section">Menu</div>
+
+      <a class="nav-a active" onclick="nav('profile',this)" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+        </svg>
+        Profil
+      </a>
+
+      <a class="nav-a" onclick="nav('tools',this)" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+        </svg>
+        Tools & Skills
+        <span class="nav-badge">14</span>
+        <!-- ← EDIT: Sesuaikan angka -->
+      </a>
+
+      <a class="nav-a" onclick="nav('projects',this)" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+        </svg>
+        Projects
+        <span class="nav-badge">4</span>
+        <!-- ← EDIT: Sesuaikan angka -->
+      </a>
+
+      <a class="nav-a" onclick="nav('achievement',this)" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+        </svg>
+        Sertifikat
+        <span class="nav-badge">6</span>
+        <!-- ← EDIT: Sesuaikan angka -->
+      </a>
+
+      <a class="nav-a" onclick="nav('social',this)" href="#">
+        <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+          <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+          <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+        </svg>
+        Social Media
+      </a>
+    </nav>
+
+    <div class="sb-bot">
+      <button class="sb-cta" onclick="nav('social',null)">
+        ✉ Hubungi Saya
+      </button>
+    </div>
+  </aside>
+
+  <!-- ══════════ MAIN ══════════ -->
+  <main class="main">
+
+    <header class="topbar">
+      <div class="breadcrumb">
+        <span class="b-root">Portfolio</span>
+        <span class="b-sep">/</span>
+        <span class="b-curr" id="bc">Profil</span>
+      </div>
+      <div class="tb-right">
+        <button class="btn" onclick="downloadCV()">↓ Download CV</button>
+        <button class="btn btn-blue" onclick="nav('social',null)">Hire Me</button>
+      </div>
+    </header>
+
+    <!-- ══ PROFIL ══ -->
+    <section id="profile" class="section active">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">01 — Tentang Saya</div>
+          <div class="sec-title">Halo, Saya<br><em>Nama Anda</em></div>
+          <!-- ← EDIT: Ganti nama -->
+        </div>
+        <div class="sec-chip">// Profile</div>
+      </div>
+
+      <div class="prof-hero">
+        <div class="photo-wrap">
+          <div class="photo-deco"></div>
+          <div class="photo-box">
+            <div class="photo-init">YN</div>
+            <div class="photo-hint">Foto </div>
+            <!-- ← Foto: background-image:url('foto.jpg');background-size:cover pada .photo-box, hapus photo-init & photo-hint -->
+          </div>
+        </div>
+        <div>
+          <div class="p-greet">Selamat Datang di Portofolio Saya</div>
+          <div class="p-name">Nama Anda</div>
+          <!-- ← EDIT -->
+          <div class="p-title">Full Stack Web Developer · UI Enthusiast</div>
+          <!-- ← EDIT -->
+          <p class="p-bio">Seorang web developer yang passionate dalam membangun produk digital yang fungsional sekaligus indah. Saya percaya bahwa kode yang baik adalah kode yang menghadirkan nilai nyata bagi penggunanya.</p>
+          <!-- ← EDIT: Bio singkat Anda -->
+          <div class="p-meta">
+            <div class="meta-i">📍 Kota, Indonesia</div>
+            <div class="meta-i">🎓 Universitas Anda</div>
+            <div class="meta-i">💼 N+ Tahun Pengalaman</div>
+            <div class="meta-i">🌐 website-anda.com</div>
+            <!-- ← EDIT semua meta -->
+          </div>
+          <div class="p-cta">
+            <button class="btn-primary" onclick="downloadCV()">↓ Download CV</button>
+            <button class="btn-secondary" onclick="nav('social',null)">Kontak Saya</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-row">
+        <div class="stat-box">
+          <div class="s-ico">📁</div>
+          <div class="s-num"><span class="counter" data-target="50">0</span><span class="s-suf">+</span></div>
+          <!-- ← EDIT: data-target sesuai jumlah proyek -->
+          <div class="s-lbl">Proyek Selesai</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-ico">🤝</div>
+          <div class="s-num"><span class="counter" data-target="30">0</span><span class="s-suf">+</span></div>
+          <div class="s-lbl">Klien Puas</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-ico">⚡</div>
+          <div class="s-num"><span class="counter" data-target="5">0</span><span class="s-suf">+</span></div>
+          <div class="s-lbl">Tahun Pengalaman</div>
+        </div>
+        <div class="stat-box">
+          <div class="s-ico">⭐</div>
+          <div class="s-num"><span class="counter" data-target="100">0</span><span class="s-suf">%</span></div>
+          <div class="s-lbl">Client Satisfaction</div>
+        </div>
+      </div>
+
+      <!-- About 2 col -->
+      <div class="about-2">
+        <div class="card">
+          <div class="c-label">Tentang Saya</div>
+          <p style="font-size:13px;color:var(--muted);line-height:1.85;">
+            Saya memulai perjalanan sebagai web developer sejak [tahun]. Sejak itu, saya telah terlibat dalam berbagai proyek mulai dari startup lokal hingga klien internasional. Saya senang menghadapi tantangan teknis dan mengubahnya menjadi solusi yang elegan.
+          </p>
+          <!-- ← EDIT: Ganti dengan cerita Anda -->
+        </div>
+        <div class="card">
+          <div class="c-label">Yang Saya Kerjakan</div>
+          <div style="display:flex;flex-direction:column;gap:11px;">
+            <div style="display:flex;align-items:start;gap:10px;">
+              <span style="color:var(--blue);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">01</span>
+              <span style="font-size:13px;color:var(--muted);">Membangun web application responsif dan performant dengan teknologi modern.</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+              <span style="color:var(--blue);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">02</span>
+              <span style="font-size:13px;color:var(--muted);">Merancang UI/UX yang intuitif dengan fokus pada pengalaman pengguna terbaik.</span>
+            </div>
+            <div style="display:flex;align-items:start;gap:10px;">
+              <span style="color:var(--blue);font-family:var(--font-m);font-size:11px;flex-shrink:0;margin-top:1px;">03</span>
+              <span style="font-size:13px;color:var(--muted);">Mengembangkan API dan sistem backend yang skalabel, aman, dan efisien.</span>
+            </div>
+          </div>
+          <!-- ← EDIT: Sesuaikan layanan Anda -->
+        </div>
+      </div>
+    </section>
+
+    <!-- ══ TOOLS ══ -->
+    <section id="tools" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">02 — Keahlian</div>
+          <div class="sec-title">Tools &<br><em>Tech Stack</em></div>
+        </div>
+        <div class="sec-chip">// Skills</div>
+      </div>
+
+      <div class="card">
+        <div class="c-label">Frontend</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-ico">⚛️</span><span class="t-name">React.js</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-fill" data-w="95%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">💚</span><span class="t-name">Vue.js</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="80%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🔷</span><span class="t-name">TypeScript</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-fill" data-w="90%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🎨</span><span class="t-name">Tailwind CSS</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-fill" data-w="93%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">▲</span><span class="t-name">Next.js</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="85%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="c-label">Backend</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-ico">🟢</span><span class="t-name">Node.js</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-fill" data-w="90%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🐍</span><span class="t-name">Python</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="78%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🐘</span><span class="t-name">PostgreSQL</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="82%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🍃</span><span class="t-name">MongoDB</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-fill" data-w="70%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🔴</span><span class="t-name">Redis</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-fill" data-w="65%"></div></div></div>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="c-label">DevOps & Tools</div>
+        <div class="tools-grid">
+          <div class="tool-pill"><span class="t-ico">🐳</span><span class="t-name">Docker</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="80%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">☁️</span><span class="t-name">AWS</span><span class="t-lvl">Intermediate</span><div class="t-bar"><div class="t-fill" data-w="68%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🐙</span><span class="t-name">Git & GitHub</span><span class="t-lvl">Expert</span><div class="t-bar"><div class="t-fill" data-w="95%"></div></div></div>
+          <div class="tool-pill"><span class="t-ico">🎭</span><span class="t-name">Figma</span><span class="t-lvl">Advanced</span><div class="t-bar"><div class="t-fill" data-w="85%"></div></div></div>
+        </div>
+      </div>
+      <!-- ← EDIT: Tambah/hapus tool-pill sesuai keahlian Anda -->
+    </section>
+
+    <!-- ══ PROJECTS ══ -->
+    <section id="projects" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">03 — Karya</div>
+          <div class="sec-title">Proyek<br><em>Pilihan</em></div>
+        </div>
+        <div class="sec-chip">// Projects</div>
+      </div>
+
+      <div class="proj-grid">
+
+        <div class="proj-card">
+          <div class="proj-thumb">
+            🖥️
+            <!-- ← Foto: <img class="proj-thumb-img" src="ss1.jpg" alt=""> + hapus emoji -->
+            <span class="proj-status live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Pertama</div>
+            <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span class="proj-tag">PostgreSQL</span>
+              <!-- ← EDIT: Teknologi yang digunakan -->
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+              <!-- ← EDIT: Ganti href -->
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-thumb">
+            📱
+            <!-- ← Foto: <img class="proj-thumb-img" src="ss2.jpg" alt=""> -->
+            <span class="proj-status live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Kedua</div>
+            <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Vue.js</span><span class="proj-tag">TypeScript</span><span class="proj-tag">Tailwind</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-thumb">
+            🛒
+            <!-- ← Foto: <img class="proj-thumb-img" src="ss3.jpg" alt=""> -->
+            <span class="proj-status wip">In Progress</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Ketiga</div>
+            <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Next.js</span><span class="proj-tag">MongoDB</span><span class="proj-tag">Docker</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="proj-card">
+          <div class="proj-thumb">
+            📊
+            <!-- ← Foto: <img class="proj-thumb-img" src="ss4.jpg" alt=""> -->
+            <span class="proj-status live">Live</span>
+          </div>
+          <div class="proj-body">
+            <div class="proj-title">Nama Proyek Keempat</div>
+            <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang menarik secara teknis.</p>
+            <div class="proj-tags">
+              <span class="proj-tag">Python</span><span class="proj-tag">FastAPI</span><span class="proj-tag">AWS</span>
+            </div>
+            <div class="proj-links">
+              <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
+              <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ← EDIT: Tambah proj-card sesuai kebutuhan -->
+    </section>
+
+    <!-- ══ SERTIFIKAT ══ -->
+    <section id="achievement" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">04 — Sertifikasi</div>
+          <div class="sec-title">Sertifikat &<br><em>Penghargaan</em></div>
+        </div>
+        <div class="sec-chip">// Achievement</div>
+      </div>
+
+      <div class="card" style="padding:14px 18px;">
+        <p style="font-size:11px;color:var(--muted);font-family:var(--font-m);letter-spacing:.3px;">
+          💡 Klik gambar untuk memperbesar · Isi <code style="color:var(--blue-bright);">src=""</code> pada setiap cert-card dengan path file sertifikat Anda
+        </p>
+      </div>
+
+      <div class="cert-grid">
+
+        <!-- ← EDIT: Ganti data semua sertifikat dengan data nyata Anda -->
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert1.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">🏆</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Google · Coursera</div>
+            <!-- ← EDIT: Lembaga -->
+            <div class="cert-title">Nama Sertifikat Pertama</div>
+            <!-- ← EDIT: Nama sertifikat -->
+            <div class="cert-footer">
+              <span class="cert-year">2024</span>
+              <!-- ← EDIT: Tahun -->
+              <span class="cert-type">Sertifikasi Profesional</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert2.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">🥇</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Meta · Facebook</div>
+            <div class="cert-title">Nama Sertifikat Kedua</div>
+            <div class="cert-footer"><span class="cert-year">2023</span><span class="cert-type">Sertifikasi Profesional</span></div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert3.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">☁️</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Amazon Web Services</div>
+            <div class="cert-title">Nama Sertifikat Ketiga</div>
+            <div class="cert-footer"><span class="cert-year">2023</span><span class="cert-type">Cloud Certification</span></div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert4.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">🎓</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Dicoding · Bangkit</div>
+            <div class="cert-title">Nama Sertifikat Keempat</div>
+            <div class="cert-footer"><span class="cert-year">2022</span><span class="cert-type">Program Beasiswa</span></div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert5.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">🚀</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Hackathon Nasional</div>
+            <div class="cert-title">Nama Sertifikat Kelima</div>
+            <div class="cert-footer"><span class="cert-year">2022</span><span class="cert-type">Award</span></div>
+          </div>
+        </div>
+
+        <div class="cert-card">
+          <div class="cert-img" onclick="openLb(this)">
+            <!-- <img src="sertifikat/cert6.jpg" alt="Nama Sertifikat"> -->
+            <div class="cert-ph"><div class="cert-ph-ico">⭐</div><div class="cert-ph-txt">Upload Foto Sertifikat</div></div>
+            <div class="cert-overlay"><div class="cert-overlay-btn">🔍 Perbesar</div></div>
+          </div>
+          <div class="cert-body">
+            <div class="cert-issuer">Udemy · Platzi</div>
+            <div class="cert-title">Nama Sertifikat Keenam</div>
+            <div class="cert-footer"><span class="cert-year">2021</span><span class="cert-type">Online Course</span></div>
+          </div>
+        </div>
+
+      </div>
+      <!-- ← EDIT: Tambah cert-card sesuai jumlah sertifikat Anda -->
+    </section>
+
+    <!-- ══ SOCIAL ══ -->
+    <section id="social" class="section">
+      <div class="sec-head">
+        <div>
+          <div class="sec-eyebrow">05 — Kontak</div>
+          <div class="sec-title">Mari<br><em>Terhubung</em></div>
+        </div>
+        <div class="sec-chip">// Social</div>
+      </div>
+
+      <div class="soc-grid">
+        <!-- ← EDIT: Ganti semua href dan handle dengan akun nyata Anda -->
+        <a href="https://github.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico">🐙</div>
+          <div><div class="soc-name">GitHub</div><div class="soc-handle">@username</div></div>
+          <div class="soc-count">★ N repositories</div>
+        </a>
+        <a href="https://linkedin.com/in/username" class="soc-card" target="_blank">
+          <div class="soc-ico">💼</div>
+          <div><div class="soc-name">LinkedIn</div><div class="soc-handle">Nama Lengkap</div></div>
+          <div class="soc-count">N+ Connections</div>
+        </a>
+        <a href="https://instagram.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico">📸</div>
+          <div><div class="soc-name">Instagram</div><div class="soc-handle">@username</div></div>
+          <div class="soc-count">N Followers</div>
+        </a>
+        <a href="https://twitter.com/username" class="soc-card" target="_blank">
+          <div class="soc-ico">🐦</div>
+          <div><div class="soc-name">Twitter / X</div><div class="soc-handle">@username</div></div>
+          <div class="soc-count">N Followers</div>
+        </a>
+        <a href="https://youtube.com/@channel" class="soc-card" target="_blank">
+          <div class="soc-ico">▶️</div>
+          <div><div class="soc-name">YouTube</div><div class="soc-handle">Nama Channel</div></div>
+          <div class="soc-count">N Subscribers</div>
+        </a>
+        <a href="mailto:email@domain.com" class="soc-card">
+          <div class="soc-ico">✉️</div>
+          <div><div class="soc-name">Email</div><div class="soc-handle">email@domain.com</div></div>
+          <!-- ← EDIT: Ganti email -->
+          <div class="soc-count">Open for inquiries</div>
+        </a>
+      </div>
+
+      <div class="cta-box">
+        <div class="line-blue"></div>
+        <div class="cta-title">Siap Berkolaborasi?</div>
+        <p class="cta-sub">Saya selalu terbuka untuk peluang baru — proyek freelance, full-time, atau sekadar ngobrol soal teknologi. Jangan ragu hubungi saya!</p>
+        <!-- ← EDIT: Sesuaikan teks -->
+        <a class="cta-email" href="mailto:email@domain.com">email@domain.com</a>
+        <!-- ← EDIT: Email Anda -->
+        <button class="btn-primary" style="margin-top:6px;" onclick="window.location.href='mailto:email@domain.com'">✉ Kirim Pesan</button>
+        <!-- ← EDIT: Ganti email -->
+      </div>
+    </section>
+
+  </main>
+</div>
+
+<script>
+// ── NAVIGATION ──────────────────────
+const labels={profile:'Profil',tools:'Tools & Skills',projects:'Projects',achievement:'Sertifikat',social:'Social Media'};
+
+function nav(id,el){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.querySelectorAll('.nav-a').forEach(n=>n.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  document.querySelectorAll('.nav-a').forEach(a=>{
+    if(a.getAttribute('onclick')&&a.getAttribute('onclick').includes("'"+id+"'"))
+      a.classList.add('active');
+  });
+  document.getElementById('bc').textContent=labels[id]||id;
+  if(id==='tools')setTimeout(animBars,100);
+  if(id==='profile')setTimeout(animCounters,100);
+  document.querySelector('.main').scrollTo({top:0,behavior:'smooth'});
+}
+
+// ── COUNTERS ──────────────────────
+let cDone=false;
+function animCounters(){
+  if(cDone)return; cDone=true;
+  document.querySelectorAll('.counter').forEach(el=>{
+    const t=+el.dataset.target,dur=1500,s=performance.now();
+    function u(now){
+      const p=Math.min((now-s)/dur,1);
+      const e=1-Math.pow(1-p,3);
+      el.textContent=Math.floor(e*t);
+      if(p<1)requestAnimationFrame(u); else el.textContent=t;
+    }
+    requestAnimationFrame(u);
+  });
+}
+
+// ── TOOL BARS ──────────────────────
+let bDone=false;
+function animBars(){
+  if(bDone)return; bDone=true;
+  document.querySelectorAll('.t-fill').forEach((b,i)=>{
+    b.style.width='0%';
+    setTimeout(()=>{ b.style.width=b.dataset.w||'0%'; },i*60);
+  });
+}
+
+// ── LIGHTBOX ──────────────────────
+function openLb(wrap){
+  const img=wrap.querySelector('img');
+  if(!img)return;
+  const card=wrap.closest('.cert-card');
+  const title=card?.querySelector('.cert-title')?.textContent||'';
+  const issuer=card?.querySelector('.cert-issuer')?.textContent||'';
+  document.getElementById('lb-img').src=img.src;
+  document.getElementById('lb-cap').textContent=issuer&&title?issuer+' — '+title:title;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+}
+function closeLb(e){
+  if(e&&e.target!==document.getElementById('lightbox')&&!e.target.classList.contains('lb-close'))return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow='';
+  }
+});
+
+// ── DOWNLOAD CV ──────────────────────
+function downloadCV(){
+  // ← EDIT: Ganti dengan: window.open('https://domain.com/cv.pdf','_blank');
+  alert('⬇ Download CV\n\nEdit fungsi downloadCV() dengan link PDF CV Anda.');
+}
+
+// ── INIT ──────────────────────
+window.addEventListener('load',()=>{
+  setTimeout(animCounters,400);
+  document.querySelectorAll('.t-fill').forEach(b=>{
+    b.dataset.w=b.getAttribute('data-w')||'0%';
+    b.style.width='0%';
+  });
+});
+</script>
+</body>
+</html>
