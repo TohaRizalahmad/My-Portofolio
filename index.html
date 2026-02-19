@@ -171,6 +171,12 @@ body{
   font-family:var(--font-b);
   overflow:hidden;
 }
+.av-bg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
 /* Foto: tambahkan background-image:url('foto.jpg');background-size:cover pada .av-bg */
 
 .sb-name{font-size:17px;font-weight:700;color:var(--text);letter-spacing:-.3px;}
@@ -421,6 +427,12 @@ body{
   border:1px solid var(--border-lit);
   display:flex;flex-direction:column;align-items:center;justify-content:center;
   gap:6px;overflow:hidden;
+}
+.photo-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 16px;
 }
 /* Foto nyata: set background-image:url('foto.jpg');background-size:cover ke .photo-box, hapus children */
 .photo-init{
@@ -926,8 +938,7 @@ body{
         <div class="photo-wrap">
           <div class="photo-deco"></div>
           <div class="photo-box">
-            <div class="photo-init">YN</div>
-            <div class="photo-hint">Foto Anda</div>
+            <img src="img/Foto Saya.jpg" alt="Foto Profil">
             <!-- ← Foto: background-image:url('foto.jpg');background-size:cover pada .photo-box, hapus photo-init & photo-hint -->
           </div>
         </div>
