@@ -130,28 +130,6 @@ body{
 
 /* Brand */
 .sb-top{padding:32px 24px 26px;border-bottom:1px solid var(--border);}
-.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
-.brand-icon{
-  width:32px;height:32px;
-  background:var(--blue);
-  border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 20px rgba(79,142,255,.35);
-}
-.brand-icon svg{width:16px;height:16px;color:#fff;}
-.brand-name{
-  font-size:14px;font-weight:700;
-  color:var(--text);letter-spacing:-.2px;
-}
-.brand-dot{
-  width:6px;height:6px;
-  background:var(--blue);
-  border-radius:50%;
-  margin-left:auto;
-  box-shadow:0 0 8px var(--blue);
-  animation:blink 2s infinite;
-}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 
 /* Profile */
 .sb-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;}
@@ -199,7 +177,7 @@ body{
 @keyframes pulse-g{0%,100%{box-shadow:0 0 0 0 rgba(52,211,153,.5);}50%{box-shadow:0 0 0 5px rgba(52,211,153,0);}}
 
 /* Nav */
-.sb-nav{padding:20px 12px;flex:1;}
+.sb-nav{padding:12px 8px;flex:0;overflow-y:auto;}
 .nav-section{
   font-family:var(--font-m);font-size:9px;letter-spacing:2.5px;
   text-transform:uppercase;color:var(--muted2);
@@ -251,23 +229,15 @@ body{
 }
 
 /* Sidebar bottom */
-.sb-bot{padding:18px 20px;border-top:1px solid var(--border);}
-.sb-cta{
-  width:100%;padding:12px;
-  background:linear-gradient(135deg,var(--blue),#3a6fd8);
-  color:#fff;border:none;
-  border-radius:10px;
-  font-family:var(--font-b);font-size:13px;font-weight:600;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all .22s;cursor:pointer;
-  box-shadow:0 4px 20px rgba(79,142,255,.25);
-  letter-spacing:.2px;
+
+/* Sidebar overlay */
+.sidebar-overlay{
+  position:fixed;inset:0;z-index:150;
+  background:rgba(0,0,0,.5);
+  opacity:0;pointer-events:none;
+  transition:opacity .3s;
 }
-.sb-cta:hover{
-  background:linear-gradient(135deg,var(--blue-bright),var(--blue));
-  box-shadow:0 8px 28px rgba(79,142,255,.4);
-  transform:translateY(-1px);
-}
+.sidebar-overlay.active{opacity:1;pointer-events:all;}
 
 /* ════════════════════════════════════════
    TOPBAR
@@ -276,10 +246,12 @@ body{
 .topbar{
   position:sticky;top:0;z-index:50;
   display:flex;align-items:center;justify-content:space-between;
-  padding:0 40px;height:62px;
-  background:rgba(5,9,20,.85);
+  padding:0 40px;height:60px;
+  background:rgba(5,9,20,.95);
   backdrop-filter:blur(24px);
   border-bottom:1px solid var(--border);
+  flex-wrap:nowrap;
+  gap:12px;
 }
 .breadcrumb{
   display:flex;align-items:center;gap:8px;
@@ -289,6 +261,24 @@ body{
 .breadcrumb .b-sep{color:var(--muted2);}
 .breadcrumb .b-curr{color:var(--blue-bright);}
 .tb-right{display:flex;gap:10px;align-items:center;}
+.hamburger{
+  display:none;
+  flex-direction:column;gap:4px;
+  background:none;border:none;
+  cursor:pointer;padding:8px;
+  border-radius:6px;
+  transition:background .2s;
+}
+.hamburger:hover{background:rgba(79,142,255,.1);}
+.hamburger span{
+  width:20px;height:2px;
+  background:var(--muted);
+  transition:all .2s;
+  border-radius:1px;
+}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2){opacity:0;}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(7px,-6px);}
 .btn{
   padding:7px 17px;border-radius:8px;
   font-family:var(--font-b);font-size:12px;font-weight:500;
@@ -787,9 +777,24 @@ body{
 }
 @media(max-width:768px){
   .shell{grid-template-columns:1fr;}
-  .sidebar{position:fixed;left:-272px;z-index:200;transition:left .3s;height:100vh;}
+  .sidebar{position:fixed;left:-272px;z-index:200;transition:left .3s;height:100vh;overflow-y:hidden;display:flex;flex-direction:column;}
   .sidebar.open{left:0;}
-  .section{padding:24px 18px;}
+  .sb-top{padding:10px 12px 8px;border-bottom:1px solid var(--border);}
+  .sb-profile{gap:3px;}
+  .av-wrap{width:45px;height:45px;}
+  .av-ring{inset:-1px;}
+  .av-bg{inset:1px;font-size:16px;}
+  .sb-name{font-size:11px;margin-bottom:0;}
+  .sb-role{font-size:7px;letter-spacing:0.5px;}
+  .avail-pill{font-size:7px;padding:1px 6px;}
+  .avail-dot{width:3px;height:3px;}
+  .sb-nav{padding:6px 4px;flex:1;overflow:hidden;min-height:0;}
+  .nav-section{font-size:6px;padding:0 4px;margin-bottom:1px;margin-top:4px;letter-spacing:1px;}
+  .nav-section:first-child{margin-top:0;}
+  .nav-a{padding:5px 4px;font-size:10px;margin-bottom:0;}
+  .nav-icon{width:13px;height:13px;}
+  .nav-badge{font-size:6px;padding:0 3px;}
+  .section{padding:20px 16px;}
   .prof-hero{grid-template-columns:1fr;text-align:center;padding:28px;}
   .photo-wrap{margin:0 auto;}
   .p-meta{justify-content:center;}
@@ -797,7 +802,12 @@ body{
   .sec-title{font-size:28px;}
   .about-2{grid-template-columns:1fr;}
   .soc-grid{grid-template-columns:1fr;}
-  .topbar{padding:0 18px;}
+  .topbar{padding:0 12px;height:56px;gap:6px;}
+  .hamburger{display:flex;padding:4px;}
+  .hamburger span{width:18px;height:1.5px;}
+  .breadcrumb{display:none;}
+  .tb-right{gap:6px;}
+  .btn{padding:6px 12px;font-size:10px;}
 }
 
 /* Scrollbar */
@@ -830,14 +840,6 @@ body{
   <!-- ══════════ SIDEBAR ══════════ -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-top">
-      <div class="brand">
-        <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <span class="brand-name">Dev.Portfolio</span>
-        <div class="brand-dot"></div>
-      </div>
-
       <div class="sb-profile">
         <div class="av-wrap">
           <div class="av-ring"></div>
@@ -900,18 +902,18 @@ body{
         Social Media
       </a>
     </nav>
-
-    <div class="sb-bot">
-      <button class="sb-cta" onclick="nav('social',null)">
-        ✉ Hubungi Saya
-      </button>
-    </div>
   </aside>
+
+  <!-- OVERLAY FOR SIDEBAR -->
+  <div class="sidebar-overlay" onclick="closeSidebar()"></div>
 
   <!-- ══════════ MAIN ══════════ -->
   <main class="main">
 
     <header class="topbar">
+      <button class="hamburger" onclick="toggleSidebar()" aria-label="Toggle Menu">
+        <span></span><span></span><span></span>
+      </button>
       <div class="breadcrumb">
         <span class="b-root">Portfolio</span>
         <span class="b-sep">/</span>
@@ -1312,6 +1314,10 @@ body{
         <button class="btn-primary" style="margin-top:6px;" onclick="window.location.href='mailto:email@domain.com'">✉ Kirim Pesan</button>
         <!-- ← EDIT: Ganti email -->
       </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <button class="btn-primary" onclick="window.location.href='mailto:email@domain.com'" style="width:100%;padding:12px 24px;font-size:14px;">✉ Hubungi Saya</button>
+      </div>
     </section>
 
   </main>
@@ -1384,6 +1390,24 @@ document.addEventListener('keydown',e=>{
     document.body.style.overflow='';
   }
 });
+
+// ── SIDEBAR TOGGLE ──────────────────────
+function toggleSidebar(){
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.querySelector('.sidebar-overlay');
+  const hamburger = document.querySelector('.hamburger');
+  sidebar.classList.toggle('open');
+  overlay.classList.toggle('active');
+  hamburger.classList.toggle('active');
+}
+function closeSidebar(){
+  const sidebar = document.getElementById('sidebar');
+  const overlay = document.querySelector('.sidebar-overlay');
+  const hamburger = document.querySelector('.hamburger');
+  sidebar.classList.remove('open');
+  overlay.classList.remove('active');
+  hamburger.classList.remove('active');
+}
 
 // ── DOWNLOAD CV ──────────────────────
 function downloadCV(){
