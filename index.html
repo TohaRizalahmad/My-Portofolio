@@ -130,28 +130,6 @@ body{
 
 /* Brand */
 .sb-top{padding:32px 24px 26px;border-bottom:1px solid var(--border);}
-.brand{display:flex;align-items:center;gap:10px;margin-bottom:28px;}
-.brand-icon{
-  width:32px;height:32px;
-  background:var(--blue);
-  border-radius:8px;
-  display:flex;align-items:center;justify-content:center;
-  box-shadow:0 0 20px rgba(79,142,255,.35);
-}
-.brand-icon svg{width:16px;height:16px;color:#fff;}
-.brand-name{
-  font-size:14px;font-weight:700;
-  color:var(--text);letter-spacing:-.2px;
-}
-.brand-dot{
-  width:6px;height:6px;
-  background:var(--blue);
-  border-radius:50%;
-  margin-left:auto;
-  box-shadow:0 0 8px var(--blue);
-  animation:blink 2s infinite;
-}
-@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
 
 /* Profile */
 .sb-profile{display:flex;flex-direction:column;align-items:center;text-align:center;gap:11px;}
@@ -864,14 +842,6 @@ body{
   <!-- ══════════ SIDEBAR ══════════ -->
   <aside class="sidebar" id="sidebar">
     <div class="sb-top">
-      <div class="brand">
-        <div class="brand-icon">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
-        </div>
-        <span class="brand-name">Dev.Portfolio</span>
-        <div class="brand-dot"></div>
-      </div>
-
       <div class="sb-profile">
         <div class="av-wrap">
           <div class="av-ring"></div>
