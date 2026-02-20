@@ -229,23 +229,6 @@ body{
 }
 
 /* Sidebar bottom */
-.sb-bot{padding:18px 20px;border-top:1px solid var(--border);}
-.sb-cta{
-  width:100%;padding:12px;
-  background:linear-gradient(135deg,var(--blue),#3a6fd8);
-  color:#fff;border:none;
-  border-radius:10px;
-  font-family:var(--font-b);font-size:13px;font-weight:600;
-  display:flex;align-items:center;justify-content:center;gap:8px;
-  transition:all .22s;cursor:pointer;
-  box-shadow:0 4px 20px rgba(79,142,255,.25);
-  letter-spacing:.2px;
-}
-.sb-cta:hover{
-  background:linear-gradient(135deg,var(--blue-bright),var(--blue));
-  box-shadow:0 8px 28px rgba(79,142,255,.4);
-  transform:translateY(-1px);
-}
 
 /* Sidebar overlay */
 .sidebar-overlay{
@@ -811,8 +794,6 @@ body{
   .nav-a{padding:5px 4px;font-size:10px;margin-bottom:0;}
   .nav-icon{width:13px;height:13px;}
   .nav-badge{font-size:6px;padding:0 3px;}
-  .sb-bot{padding:6px 10px;border-top:1px solid var(--border);flex-shrink:0;}
-  .sb-cta{padding:6px;font-size:10px;gap:3px;}
   .section{padding:20px 16px;}
   .prof-hero{grid-template-columns:1fr;text-align:center;padding:28px;}
   .photo-wrap{margin:0 auto;}
@@ -921,12 +902,6 @@ body{
         Social Media
       </a>
     </nav>
-
-    <div class="sb-bot">
-      <button class="sb-cta" onclick="nav('social',null)">
-        ✉ Hubungi Saya
-      </button>
-    </div>
   </aside>
 
   <!-- OVERLAY FOR SIDEBAR -->
@@ -1338,6 +1313,10 @@ body{
         <!-- ← EDIT: Email Anda -->
         <button class="btn-primary" style="margin-top:6px;" onclick="window.location.href='mailto:email@domain.com'">✉ Kirim Pesan</button>
         <!-- ← EDIT: Ganti email -->
+      </div>
+
+      <div style="margin-top:24px;text-align:center;">
+        <button class="btn-primary" onclick="window.location.href='mailto:email@domain.com'" style="width:100%;padding:12px 24px;font-size:14px;">✉ Hubungi Saya</button>
       </div>
     </section>
 
