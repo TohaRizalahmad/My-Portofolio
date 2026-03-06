@@ -1490,7 +1490,49 @@
     .dash-card img {
       max-width: 100%;
       height: auto;
+      border-radius: 12px;
+      display: block;
+    }
+
+    .github-graph {
+      width: 100%;
+      padding: 24px 16px 12px 16px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+      background: rgba(79, 142, 255, 0.02);
       border-radius: 14px;
+    }
+
+    .github-graph img {
+      filter: saturate(1.2) brightness(1.1);
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+    }
+
+    .graph-legend {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 10px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-box {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
     }
 
     @media(min-width: 900px) {
@@ -2439,10 +2481,19 @@
 
         <div class="stats-grid" style="grid-template-columns: 1fr;">
           <!-- Achievement Graph Card -->
-          <div class="dash-card" style="padding: 10px; width: 100%;">
-            <img
-              src="https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0f172a&color=4f8eff&line=4f8eff&point=4f8eff&area=true&hide_border=true&theme=dracula"
-              alt="GitHub Activity Graph" style="width: 100%; height: auto; display: block;" loading="lazy">
+          <div class="dash-card">
+            <div class="github-graph">
+              <img src="https://ghchart.rshah.org/4f8eff/TohaRizalahmad" alt="GitHub Contribution Graph">
+
+              <div class="graph-legend">
+                <span class="legend-item">Less</span>
+                <div class="legend-box" style="background: rgba(79, 142, 255, 0.1);"></div>
+                <div class="legend-box" style="background: rgba(79, 142, 255, 0.3);"></div>
+                <div class="legend-box" style="background: rgba(79, 142, 255, 0.6);"></div>
+                <div class="legend-box" style="background: rgba(79, 142, 255, 1);"></div>
+                <span class="legend-item">More</span>
+              </div>
+            </div>
           </div>
         </div>
       </section>
