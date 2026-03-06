@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -1409,74 +1409,57 @@
     .soc-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px 20px;
+      border-radius: 14px;
+      padding: 16px 20px;
       text-decoration: none;
       display: flex;
-      flex-direction: column;
-      gap: 12px;
+      align-items: center;
+      gap: 16px;
       transition: all .25s;
       position: relative;
-      overflow: hidden;
     }
 
     .soc-card::after {
       content: '↗';
       position: absolute;
-      top: 18px;
-      right: 18px;
-      font-size: 13px;
+      top: 50%;
+      right: 20px;
+      transform: translateY(-50%);
+      font-size: 12px;
       color: var(--muted2);
-      transition: transform .2s, color .2s;
+      transition: all .2s;
+      opacity: 0;
     }
 
     .soc-card:hover {
       border-color: var(--border-lit);
-      transform: translateY(-4px);
-      box-shadow: var(--shadow-card);
+      background: var(--bg-deep);
+      transform: translateX(4px);
     }
 
     .soc-card:hover::after {
-      transform: translate(3px, -3px);
+      opacity: 1;
+      transform: translate(3px, -50%);
       color: var(--blue-bright);
     }
 
     .soc-ico {
-      width: 44px;
-      height: 44px;
-      border-radius: 10px;
+      width: 38px;
+      height: 38px;
+      border-radius: 8px;
       display: flex;
       align-items: center;
       justify-content: center;
-      font-size: 20px;
+      font-size: 18px;
       border: 1px solid var(--border);
       background: rgba(79, 142, 255, .04);
-      transition: border-color .2s;
-    }
-
-    .soc-card:hover .soc-ico {
-      border-color: var(--border-lit);
+      flex-shrink: 0;
     }
 
     .soc-name {
-      font-size: 15px;
-      font-weight: 700;
+      font-size: 14px;
+      font-weight: 600;
       color: var(--text);
-    }
-
-    .soc-handle {
-      font-family: var(--font-m);
-      font-size: 10px;
-      color: var(--muted);
-      margin-top: -5px;
-    }
-
-    .soc-count {
-      font-size: 11px;
-      color: var(--success);
-      font-family: var(--font-m);
-      margin-top: auto;
-      letter-spacing: .3px;
     }
 
     /* Contact CTA */
@@ -2458,63 +2441,38 @@
 
         <div class="soc-grid">
           <!-- INSTAGRAM -->
-          <a href="https://instagram.com/TohaRizalahmad" class="soc-card" target="_blank">
-            <div class="soc-ico">�</div>
-            <div>
-              <div class="soc-name">Instagram</div>
-              <div class="soc-handle">@TohaRizalahmad</div>
-            </div>
-            <div class="soc-count">Lihat Galeri Saya</div>
+          <a href='https://instagram.com/TohaRizalahmad' class='soc-card' target='_blank'>
+            <div class='soc-ico'>📷</div>
+            <div class='soc-name'>Instagram</div>
           </a>
 
           <!-- FACEBOOK -->
-          <a href="https://facebook.com/TohaRizalahmad" class="soc-card" target="_blank">
-            <div class="soc-ico">�</div>
-            <div>
-              <div class="soc-name">Facebook</div>
-              <div class="soc-handle">Toha Rizal Ahmad</div>
-            </div>
-            <div class="soc-count">Mari Berteman</div>
+          <a href='https://facebook.com/TohaRizalahmad' class='soc-card' target='_blank'>
+            <div class='soc-ico'>📘</div>
+            <div class='soc-name'>Facebook</div>
           </a>
 
           <!-- WHATSAPP -->
-          <a href="https://wa.me/6281234567890" class="soc-card" target="_blank">
-            <div class="soc-ico">�</div>
-            <div>
-              <div class="soc-name">WhatsApp</div>
-              <div class="soc-handle">+62 812-3456-7890</div>
-            </div>
-            <div class="soc-count">Chat Langsung</div>
+          <a href='https://wa.me/6281234567890' class='soc-card' target='_blank'>
+            <div class='soc-ico'>💬</div>
+            <div class='soc-name'>WhatsApp</div>
           </a>
 
           <!-- GITHUB -->
-          <a href="https://github.com/TohaRizalahmad" class="soc-card" target="_blank">
-            <div class="soc-ico">�</div>
-            <div>
-              <div class="soc-name">GitHub</div>
-              <div class="soc-handle">@TohaRizalahmad</div>
-            </div>
-            <div class="soc-count">Lihat Kode Sumber</div>
+          <a href='https://github.com/TohaRizalahmad' class='soc-card' target='_blank'>
+            <div class='soc-ico'>🐙</div>
+            <div class='soc-name'>GitHub</div>
           </a>
-
           <!-- LINKEDIN -->
           <a href="https://linkedin.com/in/toharizalahmad" class="soc-card" target="_blank">
             <div class="soc-ico">💼</div>
-            <div>
-              <div class="soc-name">LinkedIn</div>
-              <div class="soc-handle">Toha Rizal Ahmad</div>
-            </div>
-            <div class="soc-count">Jejaring Profesional</div>
+            <div class="soc-name">LinkedIn</div>
           </a>
 
           <!-- EMAIL -->
           <a href="mailto:toharizalahmad@gmail.com" class="soc-card">
             <div class="soc-ico">✉️</div>
-            <div>
-              <div class="soc-name">Email</div>
-              <div class="soc-handle">toharizalahmad@gmail.com</div>
-            </div>
-            <div class="soc-count">Tanya Proyek / Diskusi</div>
+            <div class="soc-name">Email</div>
           </a>
         </div>
 
