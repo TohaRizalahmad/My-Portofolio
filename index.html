@@ -1810,6 +1810,134 @@
     ::-webkit-scrollbar-thumb:hover {
       background: rgba(79, 142, 255, .35);
     }
+
+    /* ════════════════════════════════════════
+   TIMELINE (Karier & Pendidikan)
+════════════════════════════════════════ */
+    .timeline {
+      position: relative;
+      margin-top: 10px;
+      padding-left: 20px;
+    }
+
+    .timeline-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 24px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .timeline-title::before {
+      content: '';
+      width: 12px;
+      height: 12px;
+      background: var(--blue-bright);
+      border-radius: 50%;
+      box-shadow: 0 0 10px var(--blue-glow);
+    }
+
+    .timeline::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 2px;
+      background: var(--border-lit);
+      border-radius: 2px;
+    }
+
+    .tl-item {
+      position: relative;
+      padding-bottom: 24px;
+    }
+
+    .tl-item:last-child {
+      padding-bottom: 0;
+    }
+
+    .tl-dot {
+      position: absolute;
+      left: -25px;
+      top: 3px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--bg-card);
+      border: 2px solid var(--blue);
+      box-shadow: 0 0 10px var(--blue-glow);
+      z-index: 1;
+      transition: all .3s;
+    }
+
+    .tl-item:hover .tl-dot {
+      background: var(--blue-bright);
+      border-color: var(--blue-bright);
+      box-shadow: 0 0 15px var(--blue-ring);
+    }
+
+    .tl-content {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 20px;
+      transition: all .3s;
+    }
+
+    .tl-item:hover .tl-content {
+      border-color: var(--border-glow);
+      transform: translateX(4px);
+    }
+
+    .tl-date {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--blue-bright);
+      margin-bottom: 8px;
+      display: inline-block;
+      background: var(--blue-dim);
+      padding: 4px 10px;
+      border-radius: 6px;
+    }
+
+    .tl-title {
+      font-size: 16px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 4px;
+    }
+
+    .tl-org {
+      font-size: 13px;
+      color: var(--muted);
+      margin-bottom: 12px;
+      font-weight: 500;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .tl-desc {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .tl-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 24px;
+      margin-top: 32px;
+    }
+
+    @media (max-width: 768px) {
+      .tl-grid {
+        grid-template-columns: 1fr;
+      }
+    }
   </style>
 </head>
 
@@ -1853,7 +1981,7 @@
         <div class="sec-head">
           <div>
             <div class="sec-eyebrow">01 — Tentang Saya</div>
-            <!-- ← EDIT: Ganti nama -->
+            <div class="sec-title">Tentang<br><em>Saya</em></div>
           </div>
           <div class="sec-chip">// Profile</div>
         </div>
@@ -1914,6 +2042,63 @@
               </div>
             </div>
             <!-- ← EDIT: Sesuaikan layanan Anda -->
+          </div>
+        </div>
+
+        <!-- Timeline Karier & Pendidikan -->
+        <div class="tl-grid">
+          <!-- KARIER -->
+          <div>
+            <div class="timeline-title">Karier Profesional</div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-date">2023 - Sekarang</div>
+                  <div class="tl-title">Web Developer Spesialis</div>
+                  <div class="tl-org">🏢 Perusahaan Tech XYZ</div>
+                  <div class="tl-desc">Mengembangkan antarmuka pengguna responsif dan terintegrasi penuh. Aktif membuat
+                    inovasi berkelanjutan dan meningkatkan alur operasional web.</div>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-date">2021 - 2023</div>
+                  <div class="tl-title">Freelance Web Developer</div>
+                  <div class="tl-org">🌍 Berbagai Klien & Upwork</div>
+                  <div class="tl-desc">Membangun website portofolio, company profile, dan e-commerce sederhana untuk
+                    klien dari awal hingga fase server (Deployment).</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- PENDIDIKAN -->
+          <div>
+            <div class="timeline-title">Riwayat Pendidikan</div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-date">2019 - 2023</div>
+                  <div class="tl-title">Sarjana Sistem Informasi</div>
+                  <div class="tl-org">🎓 Universitas Teknologi Modern</div>
+                  <div class="tl-desc">Fokus riset tugas akhir pada pengembangan aplikasi web. Ikut serta secara
+                    intensif di berbagai Bootcamps UI/UX dan Front-End Web Engineering.</div>
+                </div>
+              </div>
+              <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-content">
+                  <div class="tl-date">2016 - 2019</div>
+                  <div class="tl-title">Rekayasa Perangkat Lunak</div>
+                  <div class="tl-org">🏫 SMK Negeri Kejuruan</div>
+                  <div class="tl-desc">Memperdalam algoritma fundamental, perakitan perangkat lunak dan arsitektur
+                    database, di mana talenta coding saya pertama kali bertunas.</div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
@@ -2215,65 +2400,7 @@
                   Certification</span></div>
             </div>
           </div>
-
-          <div class="cert-card">
-            <div class="cert-img" onclick="openLb(this)">
-              <!-- <img src="sertifikat/cert4.jpg" alt="Nama Sertifikat"> -->
-              <div class="cert-ph">
-                <div class="cert-ph-ico">🎓</div>
-                <div class="cert-ph-txt">Upload Foto Sertifikat</div>
-              </div>
-              <div class="cert-overlay">
-                <div class="cert-overlay-btn">🔍 Perbesar</div>
-              </div>
-            </div>
-            <div class="cert-body">
-              <div class="cert-issuer">Dicoding · Bangkit</div>
-              <div class="cert-title">Nama Sertifikat Keempat</div>
-              <div class="cert-footer"><span class="cert-year">2022</span><span class="cert-type">Program
-                  Beasiswa</span></div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-img" onclick="openLb(this)">
-              <!-- <img src="sertifikat/cert5.jpg" alt="Nama Sertifikat"> -->
-              <div class="cert-ph">
-                <div class="cert-ph-ico">🚀</div>
-                <div class="cert-ph-txt">Upload Foto Sertifikat</div>
-              </div>
-              <div class="cert-overlay">
-                <div class="cert-overlay-btn">🔍 Perbesar</div>
-              </div>
-            </div>
-            <div class="cert-body">
-              <div class="cert-issuer">Hackathon Nasional</div>
-              <div class="cert-title">Nama Sertifikat Kelima</div>
-              <div class="cert-footer"><span class="cert-year">2022</span><span class="cert-type">Award</span></div>
-            </div>
-          </div>
-
-          <div class="cert-card">
-            <div class="cert-img" onclick="openLb(this)">
-              <!-- <img src="sertifikat/cert6.jpg" alt="Nama Sertifikat"> -->
-              <div class="cert-ph">
-                <div class="cert-ph-ico">⭐</div>
-                <div class="cert-ph-txt">Upload Foto Sertifikat</div>
-              </div>
-              <div class="cert-overlay">
-                <div class="cert-overlay-btn">🔍 Perbesar</div>
-              </div>
-            </div>
-            <div class="cert-body">
-              <div class="cert-issuer">Udemy · Platzi</div>
-              <div class="cert-title">Nama Sertifikat Keenam</div>
-              <div class="cert-footer"><span class="cert-year">2021</span><span class="cert-type">Online Course</span>
-              </div>
-            </div>
-          </div>
-
         </div>
-        <!-- ← EDIT: Tambah cert-card sesuai jumlah sertifikat Anda -->
       </section>
 
       <!-- ══ SOCIAL ══ -->
