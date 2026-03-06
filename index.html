@@ -1462,6 +1462,47 @@
       color: var(--text);
     }
 
+    /* GitHub Dashboard */
+    .stats-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 20px;
+    }
+
+    .dash-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 4px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      transition: all .3s;
+    }
+
+    .dash-card:hover {
+      border-color: var(--border-lit);
+      background: var(--bg-deep);
+      transform: translateY(-2px);
+    }
+
+    .dash-card img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 14px;
+    }
+
+    @media(min-width: 900px) {
+      .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .dash-card:first-child {
+        grid-column: span 2;
+      }
+    }
+
     /* Contact CTA */
     .cta-box {
       background: linear-gradient(135deg, rgba(79, 142, 255, .07) 0%, rgba(56, 217, 245, .04) 100%);
@@ -2391,40 +2432,17 @@
         <div class="sec-head">
           <div>
             <div class="sec-eyebrow">05 — Statistik</div>
-            <div class="sec-title">Dashboard<br><em>My Activity</em></div>
+            <div class="sec-title">GitHub<br><em>Activity Graph</em></div>
           </div>
-          <div class="sec-chip">// Dashboard</div>
+          <div class="sec-chip">// Activity</div>
         </div>
 
-        <div style="display: grid; grid-template-columns: 1fr; gap: 20px;">
-          <!-- GitHub Stats Card -->
-          <div class="card"
-            style="padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: var(--bg-deep);">
+        <div class="stats-grid" style="grid-template-columns: 1fr;">
+          <!-- Achievement Graph Card -->
+          <div class="dash-card" style="padding: 10px; width: 100%;">
             <img
-              src="https://github-readme-stats.vercel.app/api?username=TohaRizalahmad&show_icons=true&theme=dracula&hide_border=true&bg_color=0f172a&cache_seconds=86400">
-          </div>
-
-          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
-            <!-- Top Languages Card -->
-            <div class="card"
-              style="padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: var(--bg-deep);">
-              <img
-                src="https://github-readme-stats.vercel.app/api/top-langs/?username=TohaRizalahmad&layout=compact&theme=dracula&hide_border=true&bg_color=0f172a&cache_seconds=86400">
-            </div>
-
-            <!-- GitHub Streak Card -->
-            <div class="card"
-              style="padding: 0; overflow: hidden; display: flex; justify-content: center; align-items: center; background: var(--bg-deep);">
-              <img
-                src="https://github-readme-streak-stats.herokuapp.com/?user=TohaRizalahmad&theme=dracula&hide_border=true&background=0f172a"
-                alt="GitHub Streak" style="max-width: 100%; height: auto;">
-            </div>
-          </div>
-          <div class="card" style="padding:14px 18px; text-align: center;">
-            <p style="font-size:11px;color:var(--muted);font-family:var(--font-m);letter-spacing:.3px;">
-              💡 Ganti <code style="color:var(--blue-bright);">username=username</code> dengan username GitHub Anda di
-              file HTML.
-            </p>
+              src="https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0f172a&color=4f8eff&line=4f8eff&point=4f8eff&area=true&hide_border=true&theme=dracula"
+              alt="GitHub Activity Graph" style="width: 100%; height: auto; display: block;" loading="lazy">
           </div>
         </div>
       </section>
@@ -2479,7 +2497,8 @@
         <div class="cta-box">
           <div class="line-blue"></div>
           <div class="cta-title">Siap Berkolaborasi?</div>
-          <p class="cta-sub">Saya selalu terbuka untuk peluang baru — proyek freelance, full-time, atau sekadar ngobrol
+          <p class="cta-sub">Saya selalu terbuka untuk peluang baru — proyek freelance, full-time, atau sekadar
+            ngobrol
             soal teknologi. Jangan ragu hubungi saya!</p>
           <a class="cta-email" href="mailto:toharizalahmad@gmail.com">toharizalahmad@gmail.com</a>
           <button class="btn-primary" style="margin-top:6px;"
