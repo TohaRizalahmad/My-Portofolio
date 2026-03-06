@@ -10,47 +10,47 @@
     rel="stylesheet">
   <style>
     /* ════════════════════════════════════════
-   DESIGN TOKENS — Professional Blue
+   DESIGN TOKENS — Professional Dark Slate
 ════════════════════════════════════════ */
     :root {
-      /* Backgrounds — deep navy, not black */
-      --bg-root: #050914;
-      --bg-deep: #070c18;
-      --bg-panel: #0a1020;
-      --bg-card: #0d1526;
-      --bg-hover: #111d32;
+      /* Backgrounds — slate dark, elegant */
+      --bg-root: #0B0E14;
+      --bg-deep: #0F172A;
+      --bg-panel: #1E293B;
+      --bg-card: #1E293B;
+      --bg-hover: #334155;
 
       /* Borders */
-      --border: rgba(99, 144, 255, 0.08);
-      --border-lit: rgba(99, 144, 255, 0.18);
-      --border-glow: rgba(99, 144, 255, 0.35);
+      --border: rgba(255, 255, 255, 0.08);
+      --border-lit: rgba(255, 255, 255, 0.15);
+      --border-glow: rgba(96, 165, 250, 0.35);
 
-      /* Blue accent palette */
-      --blue: #4f8eff;
-      --blue-bright: #6fa3ff;
-      --blue-dim: rgba(79, 142, 255, 0.10);
-      --blue-glow: rgba(79, 142, 255, 0.06);
-      --blue-ring: rgba(79, 142, 255, 0.22);
+      /* Blue accent palette — Indigo/Sky */
+      --blue: #3B82F6;
+      --blue-bright: #60A5FA;
+      --blue-dim: rgba(59, 130, 246, 0.15);
+      --blue-glow: rgba(59, 130, 246, 0.08);
+      --blue-ring: rgba(96, 165, 250, 0.3);
 
-      /* Secondary accent — electric cyan */
-      --cyan: #38d9f5;
-      --cyan-dim: rgba(56, 217, 245, 0.08);
+      /* Secondary accent — softer cyan */
+      --cyan: #22D3EE;
+      --cyan-dim: rgba(34, 211, 238, 0.10);
 
       /* Text */
-      --text: #e8eeff;
-      --muted: rgba(180, 196, 240, 0.5);
-      --muted2: rgba(140, 165, 220, 0.28);
+      --text: #F8FAFC;
+      --muted: #94A3B8;
+      --muted2: #64748B;
 
       /* Status */
-      --success: #34d399;
+      --success: #10B981;
 
       /* Fonts */
       --font-b: 'Plus Jakarta Sans', sans-serif;
       --font-m: 'JetBrains Mono', monospace;
 
       /* Shadows */
-      --shadow-card: 0 8px 48px rgba(0, 0, 8, 0.6);
-      --shadow-blue: 0 4px 32px rgba(79, 142, 255, 0.15);
+      --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
+      --shadow-blue: 0 4px 32px rgba(59, 130, 246, 0.2);
     }
 
     /* ════════════════════════════════════════
@@ -93,8 +93,8 @@
     .orb {
       position: absolute;
       border-radius: 50%;
-      filter: blur(100px);
-      opacity: .7;
+      filter: blur(120px);
+      opacity: .5;
     }
 
     .orb1 {
@@ -102,7 +102,7 @@
       height: 700px;
       top: -300px;
       left: -200px;
-      background: radial-gradient(circle, rgba(40, 80, 200, .22) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(59, 130, 246, .15) 0%, transparent 65%);
       animation: da 24s ease-in-out infinite alternate;
     }
 
@@ -111,7 +111,7 @@
       height: 600px;
       bottom: -250px;
       right: -150px;
-      background: radial-gradient(circle, rgba(20, 120, 240, .18) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(96, 165, 250, .12) 0%, transparent 65%);
       animation: db 30s ease-in-out infinite alternate;
     }
 
@@ -120,7 +120,7 @@
       height: 400px;
       top: 35%;
       left: 45%;
-      background: radial-gradient(circle, rgba(56, 217, 245, .07) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(34, 211, 238, .08) 0%, transparent 65%);
       animation: dc 20s ease-in-out infinite alternate;
     }
 
@@ -148,7 +148,7 @@
       inset: 0;
       z-index: 0;
       pointer-events: none;
-      background-image: radial-gradient(rgba(79, 142, 255, .12) 1px, transparent 1px);
+      background-image: radial-gradient(rgba(255, 255, 255, .04) 1px, transparent 1px);
       background-size: 32px 32px;
     }
 
@@ -158,7 +158,7 @@
       inset: 0;
       z-index: 1;
       pointer-events: none;
-      opacity: .018;
+      opacity: .015;
       background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
       background-size: 180px 180px;
     }
