@@ -2155,6 +2155,202 @@
         grid-template-columns: 1fr;
       }
     }
+
+    /* ════════════════════════════════════════
+       LINKEDIN-STYLE JOB CARDS
+    ════════════════════════════════════════ */
+    .job-list {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      margin-top: 10px;
+    }
+
+    .job-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px 20px;
+      transition: border-color .25s, box-shadow .25s;
+    }
+
+    .job-card:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 6px 28px rgba(37, 99, 235, .1);
+    }
+
+    .job-card-top {
+      display: flex;
+      gap: 14px;
+      align-items: flex-start;
+    }
+
+    .job-logo {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: #fff;
+      border: 1px solid rgba(255, 255, 255, .15);
+      object-fit: contain;
+      padding: 5px;
+      flex-shrink: 0;
+    }
+
+    .job-logo-ph {
+      width: 52px;
+      height: 52px;
+      border-radius: 10px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 22px;
+      flex-shrink: 0;
+    }
+
+    .job-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .job-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 3px;
+    }
+
+    .job-company {
+      font-size: 12px;
+      color: var(--muted);
+      font-weight: 500;
+      margin-bottom: 3px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .job-company .sep {
+      color: var(--muted2);
+    }
+
+    .job-meta {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      flex-wrap: wrap;
+    }
+
+    .job-meta .sep {
+      color: var(--muted2);
+    }
+
+    .job-badge {
+      font-size: 10px;
+      font-family: var(--font-m);
+      padding: 2px 8px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+
+    .badge-blue {
+      color: var(--blue-bright);
+      background: var(--blue-dim);
+      border-color: var(--blue-ring);
+    }
+
+    .badge-gray {
+      color: var(--muted);
+      background: rgba(255, 255, 255, .04);
+      border-color: var(--border-lit);
+    }
+
+    .job-toggle {
+      background: none;
+      border: none;
+      color: var(--muted);
+      font-size: 12px;
+      font-family: var(--font-b);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 10px 0 4px;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      transition: color .2s;
+    }
+
+    .job-toggle:hover {
+      color: var(--blue-bright);
+    }
+
+    .job-toggle svg {
+      width: 14px;
+      height: 14px;
+      transition: transform .25s;
+    }
+
+    .job-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
+    .job-detail {
+      overflow: hidden;
+      max-height: 0;
+      transition: max-height .35s ease, opacity .3s ease;
+      opacity: 0;
+    }
+
+    .job-detail.open {
+      max-height: 600px;
+      opacity: 1;
+    }
+
+    .job-detail-inner {
+      padding-top: 14px;
+      border-top: 1px solid var(--border);
+      margin-top: 4px;
+    }
+
+    .job-section-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue-bright);
+      font-family: var(--font-m);
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .job-tasks {
+      display: flex;
+      flex-direction: column;
+      gap: 7px;
+    }
+
+    .job-task {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .job-task-check {
+      color: var(--blue-bright);
+      font-size: 13px;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
   </style>
 </head>
 
@@ -2267,54 +2463,136 @@
           <!-- KARIER -->
           <div>
             <div class="timeline-title">Karier Profesional</div>
-            <div class="timeline">
-              <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                  <div class="tl-date">2023 - Sekarang</div>
-                  <div class="tl-title">Web Developer Spesialis</div>
-                  <div class="tl-org">🏢 Perusahaan Tech XYZ</div>
-                  <div class="tl-desc">Mengembangkan antarmuka pengguna responsif dan terintegrasi penuh. Aktif membuat
-                    inovasi berkelanjutan dan meningkatkan alur operasional web.</div>
+            <div class="job-list">
+
+              <div class="job-card">
+                <div class="job-card-top">
+                  <div class="job-logo-ph">🏢</div>
+                  <div class="job-info">
+                    <div class="job-title">Backend Golang Developer</div>
+                    <div class="job-company">
+                      Pt. Affan Technology Indonesia (Parto.id)
+                      <span class="sep">•</span>
+                      Jambi, Indonesia 🇮🇩
+                    </div>
+                    <div class="job-meta">
+                      Jul 2025 - Sep 2025
+                      <span class="sep">•</span>
+                      2 bulan
+                      <span class="sep">•</span>
+                      <span class="job-badge badge-blue">Internship</span>
+                      <span class="job-badge badge-gray">Hybrid</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="job-toggle" onclick="toggleJob(this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <span class="job-toggle-text">Tampilkan detail</span>
+                </button>
+                <div class="job-detail">
+                  <div class="job-detail-inner">
+                    <div class="job-section-label">≡ Tugas</div>
+                    <div class="job-tasks">
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Developed and maintained backend
+                          services using Golang for Parto.id's internal attendance application.</span></div>
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Implemented efficient data
+                          handling and secure API integrations to support daily attendance workflows.</span></div>
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Collaborated with frontend and
+                          product teams to ensure smooth functionality and seamless user experience.</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                  <div class="tl-date">2021 - 2023</div>
-                  <div class="tl-title">Freelance Web Developer</div>
-                  <div class="tl-org">🌍 Berbagai Klien & Upwork</div>
-                  <div class="tl-desc">Membangun website portofolio, company profile, dan e-commerce sederhana untuk
-                    klien dari awal hingga fase server (Deployment).</div>
+
+              <div class="job-card">
+                <div class="job-card-top">
+                  <div class="job-logo-ph">🌍</div>
+                  <div class="job-info">
+                    <div class="job-title">Freelance Web Developer</div>
+                    <div class="job-company">
+                      Berbagai Klien
+                      <span class="sep">•</span>
+                      Remote 🌐
+                    </div>
+                    <div class="job-meta">
+                      2024 - Sekarang
+                      <span class="sep">•</span>
+                      <span class="job-badge badge-blue">Freelance</span>
+                      <span class="job-badge badge-gray">Remote</span>
+                    </div>
+                  </div>
+                </div>
+                <button class="job-toggle" onclick="toggleJob(this)">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                  <span class="job-toggle-text">Tampilkan detail</span>
+                </button>
+                <div class="job-detail">
+                  <div class="job-detail-inner">
+                    <div class="job-section-label">≡ Tugas</div>
+                    <div class="job-tasks">
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Membangun website portofolio,
+                          company profile, dan landing page untuk berbagai klien.</span></div>
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Mengembangkan antarmuka responsif
+                          menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.</span></div>
+                      <div class="job-task"><span class="job-task-check">✓</span><span>Melakukan deployment ke Vercel
+                          dan Netlify serta konfigurasi domain Niagahoster.</span></div>
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
 
           <!-- PENDIDIKAN -->
           <div>
             <div class="timeline-title">Riwayat Pendidikan</div>
-            <div class="timeline">
-              <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                  <div class="tl-date">2019 - 2023</div>
-                  <div class="tl-title">Sarjana Sistem Informasi</div>
-                  <div class="tl-org">🎓 Universitas Teknologi Modern</div>
-                  <div class="tl-desc">Fokus riset tugas akhir pada pengembangan aplikasi web. Ikut serta secara
-                    intensif di berbagai Bootcamps UI/UX dan Front-End Web Engineering.</div>
+            <div class="job-list">
+
+              <div class="job-card">
+                <div class="job-card-top">
+                  <div class="job-logo-ph">🎓</div>
+                  <div class="job-info">
+                    <div class="job-title">Universitas Jambi</div>
+                    <div class="job-company">
+                      Bachelor's degree
+                      <span class="sep">•</span>
+                      Information Systems, (S.Kom)
+                      <span class="sep">•</span>
+                      GPA: 3.80/4.00
+                    </div>
+                    <div class="job-meta">
+                      2022 - 2026
+                      <span class="sep">•</span>
+                      Jambi, Indonesia 🇮🇩
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div class="tl-item">
-                <div class="tl-dot"></div>
-                <div class="tl-content">
-                  <div class="tl-date">2016 - 2019</div>
-                  <div class="tl-title">Rekayasa Perangkat Lunak</div>
-                  <div class="tl-org">🏫 SMK Negeri Kejuruan</div>
-                  <div class="tl-desc">Memperdalam algoritma fundamental, perakitan perangkat lunak dan arsitektur
-                    database, di mana talenta coding saya pertama kali bertunas.</div>
+
+              <div class="job-card">
+                <div class="job-card-top">
+                  <div class="job-logo-ph">🏫</div>
+                  <div class="job-info">
+                    <div class="job-title">SMAN 1 Tanjung Jabung Barat</div>
+                    <div class="job-company">
+                      Senior High School
+                      <span class="sep">•</span>
+                      Science
+                    </div>
+                    <div class="job-meta">
+                      2019 - 2022
+                      <span class="sep">•</span>
+                      Tanjung Jabung Barat, Jambi, Indonesia 🇮🇩
+                    </div>
+                  </div>
                 </div>
               </div>
+
             </div>
           </div>
         </div>
@@ -2826,6 +3104,15 @@
   </nav>
 
   <script>
+    // ── TOGGLE JOB DETAIL ──────────────────────
+    function toggleJob(btn) {
+      const detail = btn.nextElementSibling;
+      const isOpen = detail.classList.contains('open');
+      detail.classList.toggle('open');
+      btn.classList.toggle('open');
+      btn.querySelector('.job-toggle-text').textContent = isOpen ? 'Tampilkan detail' : 'Sembunyikan detail';
+    }
+
     // ── NAVIGATION ──────────────────────
     const labels = { profile: 'Profil', tools: 'Tools & Skills', projects: 'Projects', achievement: 'Sertifikat', dashboard: 'Dashboard', social: 'Social Media' };
 
