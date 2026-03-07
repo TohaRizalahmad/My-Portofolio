@@ -1091,6 +1091,18 @@
       line-height: 1;
     }
 
+    .t-ico img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      display: block;
+    }
+
+    /* Ikon yang berwarna gelap perlu diinvert di dark mode */
+    .t-ico img.icon-invert {
+      filter: invert(1) brightness(1.8);
+    }
+
     .t-name {
       font-size: 12px;
       font-weight: 600;
@@ -2280,71 +2292,170 @@
           <div class="sec-chip">// Skills</div>
         </div>
 
+        <!-- FRONTEND -->
         <div class="card">
           <div class="c-label">Frontend</div>
           <div class="tools-grid">
-            <div class="tool-pill"><span class="t-ico">⚛️</span><span class="t-name">React.js</span><span
-                class="t-lvl">Expert</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
+                  alt="HTML"></span>
+              <span class="t-name">HTML</span><span class="t-lvl">Expert</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="95%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">💚</span><span class="t-name">Vue.js</span><span
-                class="t-lvl">Advanced</span>
-              <div class="t-bar">
-                <div class="t-fill" data-w="80%"></div>
-              </div>
-            </div>
-            <div class="tool-pill"><span class="t-ico">🔷</span><span class="t-name">TypeScript</span><span
-                class="t-lvl">Expert</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                  alt="CSS"></span>
+              <span class="t-name">CSS</span><span class="t-lvl">Expert</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="90%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">🎨</span><span class="t-name">Tailwind CSS</span><span
-                class="t-lvl">Expert</span>
-              <div class="t-bar">
-                <div class="t-fill" data-w="93%"></div>
-              </div>
-            </div>
-            <div class="tool-pill"><span class="t-ico">▲</span><span class="t-name">Next.js</span><span
-                class="t-lvl">Advanced</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                  alt="JavaScript"></span>
+              <span class="t-name">JavaScript</span><span class="t-lvl">Advanced</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="85%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                  alt="TypeScript"></span>
+              <span class="t-name">TypeScript</span><span class="t-lvl">Intermediate</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="70%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                  alt="Tailwind CSS"></span>
+              <span class="t-name">Tailwind CSS</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="82%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"
+                  class="icon-invert"></span>
+              <span class="t-name">Next.js</span><span class="t-lvl">Intermediate</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="68%"></div>
               </div>
             </div>
           </div>
         </div>
 
+        <!-- BACKEND -->
         <div class="card">
           <div class="c-label">Backend</div>
           <div class="tools-grid">
-            <div class="tool-pill"><span class="t-ico">🟢</span><span class="t-name">Node.js</span><span
-                class="t-lvl">Expert</span>
-              <div class="t-bar">
-                <div class="t-fill" data-w="90%"></div>
-              </div>
-            </div>
-            <div class="tool-pill"><span class="t-ico">🐍</span><span class="t-name">Python</span><span
-                class="t-lvl">Advanced</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                  alt="Python"></span>
+              <span class="t-name">Python</span><span class="t-lvl">Advanced</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="78%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">🐘</span><span class="t-name">PostgreSQL</span><span
-                class="t-lvl">Advanced</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                  alt="PHP"></span>
+              <span class="t-name">PHP</span><span class="t-lvl">Advanced</span>
               <div class="t-bar">
-                <div class="t-fill" data-w="82%"></div>
+                <div class="t-fill" data-w="80%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">🍃</span><span class="t-name">MongoDB</span><span
-                class="t-lvl">Intermediate</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                  alt="Java"></span>
+              <span class="t-name">Java</span><span class="t-lvl">Intermediate</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="65%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                  alt="MySQL"></span>
+              <span class="t-name">MySQL</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="80%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+                  alt="Laravel"></span>
+              <span class="t-name">Laravel</span><span class="t-lvl">Intermediate</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="70%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">🔴</span><span class="t-name">Redis</span><span
-                class="t-lvl">Intermediate</span>
+          </div>
+        </div>
+
+        <!-- DEVOPS & TOOLS -->
+        <div class="card">
+          <div class="c-label">DevOps &amp; Tools</div>
+          <div class="tools-grid">
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                  alt="VS Code"></span>
+              <span class="t-name">VS Code</span><span class="t-lvl">Expert</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="95%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/antdesign/60A5FA" alt="Antigrafity"></span>
+              <span class="t-name">Antigrafity</span><span class="t-lvl">Intermediate</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="65%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                  alt="Git"></span>
+              <span class="t-name">Git</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="83%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+                  class="icon-invert"></span>
+              <span class="t-name">GitHub</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="85%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img
+                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel"
+                  class="icon-invert"></span>
+              <span class="t-name">Vercel</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="80%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify"></span>
+              <span class="t-name">Netlify</span><span class="t-lvl">Intermediate</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="70%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico">🌐</span>
+              <span class="t-name">Niagahoster</span><span class="t-lvl">Intermediate</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="65%"></div>
               </div>
@@ -2352,36 +2463,56 @@
           </div>
         </div>
 
+        <!-- AI ASSISTANT -->
         <div class="card">
-          <div class="c-label">DevOps & Tools</div>
+          <div class="c-label">AI Assistant</div>
           <div class="tools-grid">
-            <div class="tool-pill"><span class="t-ico">🐳</span><span class="t-name">Docker</span><span
-                class="t-lvl">Advanced</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/githubcopilot/60A5FA"
+                  alt="GitHub Copilot"></span>
+              <span class="t-name">GitHub Copilot</span><span class="t-lvl">Advanced</span>
               <div class="t-bar">
-                <div class="t-fill" data-w="80%"></div>
+                <div class="t-fill" data-w="82%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">☁️</span><span class="t-name">AWS</span><span
-                class="t-lvl">Intermediate</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/openai/ffffff" alt="ChatGPT"></span>
+              <span class="t-name">ChatGPT</span><span class="t-lvl">Expert</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="90%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude"></span>
+              <span class="t-name">Claude</span><span class="t-lvl">Expert</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="90%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/cursor/ffffff" alt="Cursor"></span>
+              <span class="t-name">Cursor</span><span class="t-lvl">Advanced</span>
+              <div class="t-bar">
+                <div class="t-fill" data-w="78%"></div>
+              </div>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico">💗</span>
+              <span class="t-name">Lovable</span><span class="t-lvl">Intermediate</span>
               <div class="t-bar">
                 <div class="t-fill" data-w="68%"></div>
               </div>
             </div>
-            <div class="tool-pill"><span class="t-ico">🐙</span><span class="t-name">Git & GitHub</span><span
-                class="t-lvl">Expert</span>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/amazonaws/FF9900" alt="CodeWhisperer"></span>
+              <span class="t-name">CodeWhisperer</span><span class="t-lvl">Intermediate</span>
               <div class="t-bar">
-                <div class="t-fill" data-w="95%"></div>
-              </div>
-            </div>
-            <div class="tool-pill"><span class="t-ico">🎭</span><span class="t-name">Figma</span><span
-                class="t-lvl">Advanced</span>
-              <div class="t-bar">
-                <div class="t-fill" data-w="85%"></div>
+                <div class="t-fill" data-w="65%"></div>
               </div>
             </div>
           </div>
         </div>
-        <!-- ← EDIT: Tambah/hapus tool-pill sesuai keahlian Anda -->
+
       </section>
 
       <!-- ══ PROJECTS ══ -->
