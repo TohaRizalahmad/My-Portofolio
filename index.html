@@ -1050,7 +1050,7 @@
 ════════════════════════════════════════ */
     .tools-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(122px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
       gap: 10px;
     }
 
@@ -1058,11 +1058,15 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 12px;
-      padding: 15px 12px;
+      padding: 14px 10px 12px;
       text-align: center;
       transition: all .22s;
       position: relative;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
     }
 
     .tool-pill::after {
@@ -1085,10 +1089,13 @@
     }
 
     .t-ico {
-      font-size: 24px;
-      display: block;
-      margin-bottom: 8px;
+      font-size: 26px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       line-height: 1;
+      width: 32px;
+      height: 32px;
     }
 
     .t-ico img {
@@ -1104,11 +1111,12 @@
     }
 
     .t-name {
-      font-size: 12px;
+      font-size: 11px;
       font-weight: 600;
       color: var(--text);
       display: block;
-      margin-bottom: 2px;
+      line-height: 1.3;
+      word-break: break-word;
     }
 
     .t-lvl {
@@ -1651,6 +1659,36 @@
 
       .stats-grid {
         grid-template-columns: 1fr;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+      }
+
+      .tool-pill {
+        padding: 12px 8px 10px;
+      }
+
+      .t-ico img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .t-ico {
+        font-size: 22px;
+        width: 26px;
+        height: 26px;
+      }
+
+      .t-name {
+        font-size: 10px;
+      }
+    }
+
+    @media(max-width: 400px) {
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -2299,41 +2337,41 @@
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
                   alt="HTML"></span>
-              <span class="t-name">HTML</span><span class="t-lvl">Expert</span>
+              <span class="t-name">HTML</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
                   alt="CSS"></span>
-              <span class="t-name">CSS</span><span class="t-lvl">Expert</span>
+              <span class="t-name">CSS</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
                   alt="JavaScript"></span>
-              <span class="t-name">JavaScript</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">JavaScript</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
                   alt="TypeScript"></span>
-              <span class="t-name">TypeScript</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">TypeScript</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
                   alt="Tailwind CSS"></span>
-              <span class="t-name">Tailwind CSS</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">Tailwind CSS</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"
                   class="icon-invert"></span>
-              <span class="t-name">Next.js</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Next.js</span>
 
             </div>
           </div>
@@ -2347,32 +2385,32 @@
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
                   alt="Python"></span>
-              <span class="t-name">Python</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">Python</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
                   alt="PHP"></span>
-              <span class="t-name">PHP</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">PHP</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
                   alt="Java"></span>
-              <span class="t-name">Java</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Java</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
                   alt="MySQL"></span>
-              <span class="t-name">MySQL</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">MySQL</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
                   alt="Laravel"></span>
-              <span class="t-name">Laravel</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Laravel</span>
 
             </div>
           </div>
@@ -2386,42 +2424,42 @@
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
                   alt="VS Code"></span>
-              <span class="t-name">VS Code</span><span class="t-lvl">Expert</span>
+              <span class="t-name">VS Code</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.simpleicons.org/antdesign/60A5FA" alt="Antigrafity"></span>
-              <span class="t-name">Antigrafity</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Antigrafity</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
                   alt="Git"></span>
-              <span class="t-name">Git</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">Git</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
                   class="icon-invert"></span>
-              <span class="t-name">GitHub</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">GitHub</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img
                   src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel"
                   class="icon-invert"></span>
-              <span class="t-name">Vercel</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">Vercel</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify"></span>
-              <span class="t-name">Netlify</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Netlify</span>
 
             </div>
             <div class="tool-pill">
               <span class="t-ico">🌐</span>
-              <span class="t-name">Niagahoster</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Niagahoster</span>
 
             </div>
           </div>
@@ -2434,19 +2472,23 @@
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.simpleicons.org/githubcopilot/60A5FA"
                   alt="GitHub Copilot"></span>
-              <span class="t-name">GitHub Copilot</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">GitHub Copilot</span>
+            </div>
+            <div class="tool-pill">
+              <span class="t-ico"><img src="https://cdn.simpleicons.org/chatgpt/74AA9C" alt="ChatGPT"></span>
+              <span class="t-name">ChatGPT</span>
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.simpleicons.org/anthropic/ffffff" alt="Claude"></span>
-              <span class="t-name">Claude</span><span class="t-lvl">Expert</span>
+              <span class="t-name">Claude</span>
             </div>
             <div class="tool-pill">
               <span class="t-ico"><img src="https://cdn.simpleicons.org/cursor/ffffff" alt="Cursor"></span>
-              <span class="t-name">Cursor</span><span class="t-lvl">Advanced</span>
+              <span class="t-name">Cursor</span>
             </div>
             <div class="tool-pill">
               <span class="t-ico">💗</span>
-              <span class="t-name">Lovable</span><span class="t-lvl">Intermediate</span>
+              <span class="t-name">Lovable</span>
             </div>
           </div>
         </div>
