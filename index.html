@@ -13,32 +13,32 @@
    DESIGN TOKENS — Professional Dark Slate
 ════════════════════════════════════════ */
     :root {
-      /* Backgrounds — slate dark, elegant */
-      --bg-root: #0B0E14;
-      --bg-deep: #0F172A;
-      --bg-panel: #1E293B;
-      --bg-card: #1E293B;
-      --bg-hover: #334155;
+      /* ── Cobalt Midnight — Backgrounds ── */
+      --bg-root: #050A14;
+      --bg-deep: #060C18;
+      --bg-panel: #0D1525;
+      --bg-card: #0D1525;
+      --bg-hover: #162035;
 
       /* Borders */
-      --border: rgba(255, 255, 255, 0.08);
-      --border-lit: rgba(255, 255, 255, 0.15);
-      --border-glow: rgba(167, 139, 250, 0.35);
+      --border: rgba(255, 255, 255, 0.07);
+      --border-lit: rgba(255, 255, 255, 0.14);
+      --border-glow: rgba(59, 130, 246, 0.4);
 
-      /* Blue accent palette — Indigo/Sky */
-      --blue: #8B5CF6;
-      --blue-bright: #A78BFA;
-      --blue-dim: rgba(139, 92, 246, 0.15);
-      --blue-glow: rgba(139, 92, 246, 0.08);
-      --blue-ring: rgba(167, 139, 250, 0.3);
+      /* Cobalt Blue accent */
+      --blue: #2563EB;
+      --blue-bright: #60A5FA;
+      --blue-dim: rgba(37, 99, 235, 0.15);
+      --blue-glow: rgba(37, 99, 235, 0.08);
+      --blue-ring: rgba(96, 165, 250, 0.3);
 
-      /* Secondary accent — softer cyan */
-      --cyan: #C084FC;
-      --cyan-dim: rgba(192, 132, 252, 0.10);
+      /* Secondary accent — sky */
+      --cyan: #93C5FD;
+      --cyan-dim: rgba(147, 197, 253, 0.10);
 
-      /* Text */
-      --text: #F8FAFC;
-      --muted: #94A3B8;
+      /* Text — Cobalt Midnight */
+      --text: #F1F5F9;
+      --muted: #CBD5E1;
       --muted2: #64748B;
 
       /* Status */
@@ -49,8 +49,8 @@
       --font-m: 'JetBrains Mono', monospace;
 
       /* Shadows */
-      --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.5);
-      --shadow-blue: 0 4px 32px rgba(139, 92, 246, 0.2);
+      --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+      --shadow-blue: 0 4px 32px rgba(37, 99, 235, 0.25);
     }
 
     /* ════════════════════════════════════════
@@ -1643,6 +1643,23 @@
       }
     }
 
+    /* ════════════════════════════════════════
+       EMERALD OBSIDIAN — Hanya pada Gambar Dashboard
+    ════════════════════════════════════════ */
+
+    /* Contribution Graph image */
+    #dashboard .github-graph img {
+      filter: hue-rotate(100deg) saturate(1.5) brightness(1.08);
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      border-radius: 8px;
+    }
+
+    /* Streak Stats image */
+    #dashboard .streak-wrap img {
+      border: 1px solid rgba(16, 185, 129, 0.15);
+      border-radius: 12px;
+    }
+
     /* Contact CTA */
     .cta-box {
       background: linear-gradient(135deg, rgba(139, 92, 246, .07) 0%, rgba(192, 132, 252, .04) 100%);
@@ -2595,16 +2612,16 @@
                   <span>Wed</span>
                   <span>Fri</span>
                 </div>
-                <img src="https://ghchart.rshah.org/216e39/TohaRizalahmad" alt="GitHub Contribution Graph">
+                <img src="https://ghchart.rshah.org/10B981/TohaRizalahmad" alt="GitHub Contribution Graph">
               </div>
               <div class="graph-footer">
                 <span class="graph-tip">Kontribusi dihitung dari commits, PRs, issues & reviews</span>
                 <div class="graph-legend">
                   <span>Less</span>
-                  <div class="legend-box" style="background: rgba(33,110,57,0.3);"></div>
-                  <div class="legend-box" style="background: rgba(33,110,57,0.55);"></div>
-                  <div class="legend-box" style="background: rgba(33,110,57,0.8);"></div>
-                  <div class="legend-box" style="background: #216e39;"></div>
+                  <div class="legend-box" style="background: rgba(16,185,129,0.2);"></div>
+                  <div class="legend-box" style="background: rgba(16,185,129,0.45);"></div>
+                  <div class="legend-box" style="background: rgba(16,185,129,0.75);"></div>
+                  <div class="legend-box" style="background: #10B981;"></div>
                   <span>More</span>
                 </div>
               </div>
@@ -2625,9 +2642,9 @@
             </div>
             <div class="streak-wrap">
               <img
-                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=dracula&hide_border=true&background=0F172A&stroke=8B5CF6&ring=8B5CF6&fire=C084FC&currStreakLabel=A78BFA&sideNums=A78BFA&sideLabels=94A3B8&dates=64748B"
+                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=dark&hide_border=true&background=051009&stroke=10B981&ring=10B981&fire=34D399&currStreakLabel=6EE7B7&sideNums=6EE7B7&sideLabels=A7F3D0&dates=4B5563"
                 alt="GitHub Streak Stats" loading="lazy"
-                onerror="this.onerror=null;this.src='https://ghchart.rshah.org/8B5CF6/TohaRizalahmad';this.style.opacity='0.6'">
+                onerror="this.onerror=null;this.src='https://ghchart.rshah.org/10B981/TohaRizalahmad';this.style.opacity='0.6'">
             </div>
           </div>
 
