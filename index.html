@@ -1576,7 +1576,6 @@
     }
 
     .github-graph img {
-      filter: saturate(1.3) brightness(1.1);
       width: 100%;
       flex: 1;
       min-width: 0;
@@ -1621,7 +1620,6 @@
       justify-content: center;
       align-items: center;
       min-height: 160px;
-      background: rgba(139, 92, 246, .03);
       border-radius: 12px;
     }
 
@@ -1643,22 +1641,7 @@
       }
     }
 
-    /* ════════════════════════════════════════
-       EMERALD OBSIDIAN — Hanya pada Gambar Dashboard
-    ════════════════════════════════════════ */
 
-    /* Contribution Graph image */
-    #dashboard .github-graph img {
-      filter: hue-rotate(100deg) saturate(1.5) brightness(1.08);
-      border: 1px solid rgba(16, 185, 129, 0.15);
-      border-radius: 8px;
-    }
-
-    /* Streak Stats image */
-    #dashboard .streak-wrap img {
-      border: 1px solid rgba(16, 185, 129, 0.15);
-      border-radius: 12px;
-    }
 
     /* Contact CTA */
     .cta-box {
@@ -2612,16 +2595,17 @@
                   <span>Wed</span>
                   <span>Fri</span>
                 </div>
-                <img src="https://ghchart.rshah.org/10B981/TohaRizalahmad" alt="GitHub Contribution Graph">
+                <img src="https://ghchart.rshah.org/TohaRizalahmad" alt="GitHub Contribution Graph">
               </div>
               <div class="graph-footer">
                 <span class="graph-tip">Kontribusi dihitung dari commits, PRs, issues & reviews</span>
                 <div class="graph-legend">
                   <span>Less</span>
-                  <div class="legend-box" style="background: rgba(16,185,129,0.2);"></div>
-                  <div class="legend-box" style="background: rgba(16,185,129,0.45);"></div>
-                  <div class="legend-box" style="background: rgba(16,185,129,0.75);"></div>
-                  <div class="legend-box" style="background: #10B981;"></div>
+                  <div class="legend-box" style="background: #161b22;border:1px solid rgba(255,255,255,.1)"></div>
+                  <div class="legend-box" style="background: #0e4429;"></div>
+                  <div class="legend-box" style="background: #006d32;"></div>
+                  <div class="legend-box" style="background: #26a641;"></div>
+                  <div class="legend-box" style="background: #39d353;"></div>
                   <span>More</span>
                 </div>
               </div>
@@ -2641,10 +2625,9 @@
               <span class="dc-badge">// Live</span>
             </div>
             <div class="streak-wrap">
-              <img
-                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=dark&hide_border=true&background=051009&stroke=10B981&ring=10B981&fire=34D399&currStreakLabel=6EE7B7&sideNums=6EE7B7&sideLabels=A7F3D0&dates=4B5563"
-                alt="GitHub Streak Stats" loading="lazy"
-                onerror="this.onerror=null;this.src='https://ghchart.rshah.org/10B981/TohaRizalahmad';this.style.opacity='0.6'">
+              <img src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=dark" alt="GitHub Streak Stats"
+                loading="lazy"
+                onerror="this.onerror=null;this.src='https://ghchart.rshah.org/TohaRizalahmad';this.style.opacity='0.6'">
             </div>
           </div>
 
