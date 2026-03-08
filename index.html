@@ -1652,45 +1652,7 @@
       overflow: hidden;
     }
 
-    @media(max-width: 768px) {
-      .dash-card {
-        padding: 18px;
-      }
 
-      .stats-grid {
-        grid-template-columns: 1fr;
-      }
-
-      .tools-grid {
-        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
-        gap: 8px;
-      }
-
-      .tool-pill {
-        padding: 12px 8px 10px;
-      }
-
-      .t-ico img {
-        width: 24px;
-        height: 24px;
-      }
-
-      .t-ico {
-        font-size: 22px;
-        width: 26px;
-        height: 26px;
-      }
-
-      .t-name {
-        font-size: 10px;
-      }
-    }
-
-    @media(max-width: 400px) {
-      .tools-grid {
-        grid-template-columns: repeat(3, 1fr);
-      }
-    }
 
 
 
@@ -1822,6 +1784,8 @@
     /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
+
+    /* ── Tablet ── */
     @media(max-width:1100px) {
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
@@ -1830,18 +1794,27 @@
       .soc-grid {
         grid-template-columns: repeat(2, 1fr);
       }
+
+      .proj-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
     }
 
+    /* ── Mobile ── */
     @media(max-width:768px) {
+
+      /* Bottom nav */
       .bottom-nav {
         justify-content: flex-start;
         padding: 0 10px;
-        gap: 6px;
+        gap: 4px;
+        height: 64px;
       }
 
       .bnav-a {
-        padding: 8px 12px;
-        min-width: 68px;
+        padding: 7px 10px;
+        min-width: 60px;
+        gap: 4px;
       }
 
       .bnav-icon {
@@ -1854,9 +1827,10 @@
       }
 
       .main {
-        padding-bottom: 80px;
+        padding-bottom: 74px;
       }
 
+      /* Shell / Sidebar */
       .shell {
         grid-template-columns: 1fr;
       }
@@ -1878,7 +1852,6 @@
 
       .sb-top {
         padding: 10px 12px 8px;
-        border-bottom: 1px solid var(--border);
       }
 
       .sb-profile {
@@ -1954,43 +1927,10 @@
         padding: 0 3px;
       }
 
-      .section {
-        padding: 20px 16px;
-      }
-
-      .prof-hero {
-        grid-template-columns: 1fr;
-        text-align: center;
-        padding: 28px;
-      }
-
-      .photo-wrap {
-        margin: 0 auto;
-      }
-
-      .p-meta {
-        justify-content: center;
-      }
-
-      .p-cta {
-        justify-content: center;
-      }
-
-      .sec-title {
-        font-size: 28px;
-      }
-
-      .about-2 {
-        grid-template-columns: 1fr;
-      }
-
-      .soc-grid {
-        grid-template-columns: 1fr;
-      }
-
+      /* Topbar */
       .topbar {
         padding: 0 16px;
-        height: 56px;
+        height: 52px;
         gap: 6px;
       }
 
@@ -2005,6 +1945,326 @@
       .btn {
         padding: 6px 12px;
         font-size: 10px;
+      }
+
+      /* Section */
+      .section {
+        padding: 20px 14px;
+        gap: 16px;
+      }
+
+      .sec-title {
+        font-size: 26px;
+      }
+
+      .sec-head {
+        padding-bottom: 14px;
+        gap: 12px;
+      }
+
+      /* Profile hero */
+      .prof-hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+        padding: 22px 18px;
+        gap: 24px;
+      }
+
+      .photo-wrap {
+        margin: 0 auto;
+      }
+
+      .p-name {
+        font-size: 28px;
+        letter-spacing: -1px;
+      }
+
+      .p-title {
+        font-size: 12px;
+      }
+
+      .p-bio {
+        font-size: 12px;
+        margin-bottom: 18px;
+      }
+
+      .p-meta {
+        justify-content: center;
+        gap: 10px;
+      }
+
+      .p-cta {
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+
+      .btn-primary {
+        padding: 9px 18px;
+        font-size: 12px;
+      }
+
+      .btn-secondary {
+        padding: 9px 16px;
+        font-size: 12px;
+      }
+
+      /* Stats row */
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
+      }
+
+      .stat-box {
+        padding: 16px 14px;
+      }
+
+      .s-num {
+        font-size: 28px;
+      }
+
+      .s-suf {
+        font-size: 20px;
+      }
+
+      /* About 2-col */
+      .about-2 {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      /* Timeline karier & pendidikan */
+      .pro-tl-section {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .pro-col-header {
+        padding: 12px 14px;
+      }
+
+      .pro-col-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 16px;
+      }
+
+      .pro-col-label {
+        font-size: 13px;
+      }
+
+      .pro-tl-track {
+        padding-left: 22px;
+      }
+
+      .pro-tl-dot {
+        left: -22px;
+        width: 14px;
+        height: 14px;
+        top: 16px;
+      }
+
+      .pro-tl-dot::after {
+        width: 5px;
+        height: 5px;
+      }
+
+      .pro-card-top {
+        padding: 14px 14px 0;
+        gap: 11px;
+      }
+
+      .pro-logo {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+      }
+
+      .pro-job-title {
+        font-size: 13px;
+      }
+
+      .job-company {
+        font-size: 11px;
+      }
+
+      .job-meta {
+        font-size: 10px;
+        flex-wrap: wrap;
+        gap: 4px;
+      }
+
+      .pro-meta-row {
+        padding: 8px 14px;
+        gap: 5px;
+      }
+
+      .pro-toggle {
+        padding: 7px 14px;
+        font-size: 10px;
+      }
+
+      .pro-detail-inner {
+        padding: 12px 14px 14px;
+      }
+
+      .pro-task {
+        font-size: 11px;
+      }
+
+      /* tl-grid old (fallback) */
+      .tl-grid {
+        grid-template-columns: 1fr;
+      }
+
+      /* Tools */
+      .tools-grid {
+        grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
+        gap: 8px;
+      }
+
+      .tool-pill {
+        padding: 12px 8px 10px;
+      }
+
+      .t-ico img {
+        width: 24px;
+        height: 24px;
+      }
+
+      .t-ico {
+        font-size: 22px;
+        width: 26px;
+        height: 26px;
+      }
+
+      .t-name {
+        font-size: 10px;
+      }
+
+      /* Projects */
+      .proj-grid {
+        grid-template-columns: 1fr;
+        gap: 12px;
+      }
+
+      .proj-thumb {
+        height: 150px;
+      }
+
+      .proj-title {
+        font-size: 15px;
+      }
+
+      .proj-body {
+        padding: 16px;
+      }
+
+      /* Sertifikat */
+      .cert-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
+
+      .cert-title {
+        font-size: 12px;
+      }
+
+      .cert-body {
+        padding: 12px 14px;
+      }
+
+      /* Dashboard */
+      .stats-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .dash-card {
+        padding: 16px;
+      }
+
+      /* Social */
+      .soc-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+      }
+
+      .soc-card {
+        padding: 14px 16px;
+      }
+
+      .soc-name {
+        font-size: 13px;
+      }
+
+      /* CTA box */
+      .cta-box {
+        padding: 28px 20px;
+        gap: 10px;
+      }
+
+      .cta-title {
+        font-size: 20px;
+      }
+
+      .cta-sub {
+        font-size: 12px;
+      }
+
+      .cta-email {
+        font-size: 11px;
+      }
+    }
+
+    /* ── Small phones ── */
+    @media(max-width:480px) {
+      .section {
+        padding: 16px 12px;
+      }
+
+      .sec-title {
+        font-size: 22px;
+      }
+
+      .prof-hero {
+        padding: 18px 14px;
+      }
+
+      .p-name {
+        font-size: 24px;
+      }
+
+      .stats-row {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .cert-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .bottom-nav {
+        gap: 2px;
+      }
+
+      .bnav-a {
+        padding: 6px 8px;
+        min-width: 52px;
+      }
+
+      .bnav-label {
+        font-size: 8px;
+      }
+
+      .pro-tl-track {
+        padding-left: 18px;
+      }
+
+      .pro-tl-dot {
+        left: -18px;
+      }
+
+      .tools-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
     }
 
@@ -2149,9 +2409,7 @@
     }
 
     @media (max-width: 768px) {
-
-      .tl-grid,
-      .stats-grid {
+      .tl-grid {
         grid-template-columns: 1fr;
       }
     }
