@@ -4661,7 +4661,7 @@
           let last = -1;
           weeks.forEach((week, wi) => {
             if (!week[0]?.date) return;
-            const m = new Date(week[0].date).getMonth();
+            const m = new Date(week[0].date + 'T00:00:00').getMonth();
             if (m !== last) {
               last = m;
               const s = document.createElement('span');
@@ -4673,12 +4673,19 @@
         }
       }
 
+      function localDateKey(d) {
+        const y = d.getFullYear();
+        const m = String(d.getMonth() + 1).padStart(2, '0');
+        const day = String(d.getDate()).padStart(2, '0');
+        return y + '-' + m + '-' + day;
+      }
+
       function buildWeeks(contributions) {
         if (!contributions.length) return null;
         const byDate = {};
         contributions.forEach(d => { byDate[d.date] = d; });
 
-        // Anchor to today, go back to the Sunday that starts our 53-week window
+        // Anchor to today (local time), go back to Sunday that starts 53-week window
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const startSunday = new Date(today);
@@ -4689,7 +4696,7 @@
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
           for (let d = 0; d < 7; d++) {
-            const key = cur.toISOString().slice(0, 10);
+            const key = localDateKey(cur);   // local date, no UTC shift
             week.push(byDate[key] || { date: key, count: 0 });
             cur.setDate(cur.getDate() + 1);
           }
@@ -4708,7 +4715,7 @@
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
           for (let d = 0; d < 7; d++) {
-            const key = cur.toISOString().slice(0, 10);
+            const key = localDateKey(cur);   // local date, no UTC shift
             week.push({ count: 0, date: key });
             cur.setDate(cur.getDate() + 1);
           }
