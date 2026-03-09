@@ -2638,6 +2638,81 @@
       }
     }
 
+    /* ── GitHub Contribution Widget (GitHub dark mode clone) ── */
+    .gh-widget {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      width: 100%;
+    }
+
+    .gh-widget-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 13px;
+      color: #e6edf3;
+      font-family: var(--font-b);
+    }
+
+    .gh-count-text {
+      font-weight: 600;
+      color: #e6edf3;
+    }
+
+    .gh-settings-link {
+      font-size: 11px;
+      color: #8b949e;
+      font-family: var(--font-m);
+      letter-spacing: 1px;
+    }
+
+    .gh-widget-box {
+      background: #0d1117;
+      border: 1px solid #30363d;
+      border-radius: 6px;
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      overflow: hidden;
+    }
+
+    .gh-widget-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 10px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .gh-footer-link {
+      font-size: 11px;
+      color: #8b949e;
+      text-decoration: none;
+      font-family: var(--font-b);
+    }
+
+    .gh-footer-link:hover {
+      color: #58a6ff;
+      text-decoration: underline;
+    }
+
+    #gh-canvas-wrap {
+      overflow-x: auto;
+      overflow-y: hidden;
+    }
+
+    #gh-canvas-wrap::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    #gh-canvas-wrap::-webkit-scrollbar-thumb {
+      background: #30363d;
+      border-radius: 2px;
+    }
+
     /* Scrollbar */
     ::-webkit-scrollbar {
       width: 4px;
@@ -3985,35 +4060,43 @@
               </div>
               <span class="dc-badge">// 2025–2026</span>
             </div>
-            <div class="github-graph">
-              <div class="graph-body" style="flex-direction:column;gap:6px;">
-                <!-- Month labels -->
-                <div id="gh-months"
-                  style="display:flex;padding-left:28px;gap:0;font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;height:18px;position:relative;">
-                </div>
-                <div style="display:flex;gap:4px;align-items:flex-start;">
-                  <!-- Day labels -->
-                  <div
-                    style="display:flex;flex-direction:column;justify-content:space-between;height:94px;padding:1px 0;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;min-width:24px;text-align:right;padding-right:4px;gap:0;">
-                    <span style="height:13px;line-height:13px;">Mon</span>
-                    <span style="height:13px;line-height:13px;">Wed</span>
-                    <span style="height:13px;line-height:13px;">Fri</span>
-                  </div>
-                  <!-- Graph canvas -->
-                  <canvas id="gh-graph"
-                    style="border-radius:4px;display:block;max-width:100%;image-rendering:pixelated;"></canvas>
-                </div>
+            <!-- GitHub-style contribution widget -->
+            <div class="gh-widget">
+              <!-- Header: contribution count -->
+              <div class="gh-widget-header">
+                <span id="gh-count" class="gh-count-text">— contributions in the last year</span>
+                <span class="gh-settings-link">Contribution Graph</span>
               </div>
-              <div class="graph-footer">
-                <span class="graph-tip">Kontribusi dihitung dari commits, PRs, issues & reviews</span>
-                <div class="graph-legend">
-                  <span>Less</span>
-                  <div class="legend-box" style="background:#161b22;border:1px solid rgba(255,255,255,.15)"></div>
-                  <div class="legend-box" style="background:#0e4429;"></div>
-                  <div class="legend-box" style="background:#006d32;"></div>
-                  <div class="legend-box" style="background:#26a641;"></div>
-                  <div class="legend-box" style="background:#39d353;"></div>
-                  <span>More</span>
+              <!-- Inner bordered box (persis GitHub) -->
+              <div class="gh-widget-box">
+                <!-- Month row -->
+                <div style="display:flex;padding-left:32px;">
+                  <div id="gh-months" style="position:relative;flex:1;height:20px;"></div>
+                </div>
+                <!-- Grid area: day labels + canvas -->
+                <div style="display:flex;align-items:flex-start;gap:0;">
+                  <!-- Day labels: hanya Mon/Wed/Fri -->
+                  <div id="gh-day-labels"
+                    style="display:flex;flex-direction:column;min-width:32px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;flex-shrink:0;">
+                  </div>
+                  <!-- Canvas -->
+                  <div style="flex:1;overflow-x:auto;overflow-y:hidden;" id="gh-canvas-wrap">
+                    <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
+                  </div>
+                </div>
+                <!-- Footer -->
+                <div class="gh-widget-footer">
+                  <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"
+                    target="_blank" class="gh-footer-link">Learn how we count contributions</a>
+                  <div class="graph-legend">
+                    <span>Less</span>
+                    <div class="legend-box" style="background:#161b22;border:1px solid #30363d;"></div>
+                    <div class="legend-box" style="background:#0e4429;"></div>
+                    <div class="legend-box" style="background:#006d32;"></div>
+                    <div class="legend-box" style="background:#26a641;"></div>
+                    <div class="legend-box" style="background:#39d353;"></div>
+                    <span>More</span>
+                  </div>
                 </div>
               </div>
             </div>
@@ -4360,81 +4443,26 @@
       const USERNAME = 'TohaRizalahmad';
       const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
       const WEEKS = 53, ROWS = 7;
+      const CELL = 11, GAP = 2, STEP = CELL + GAP;
 
       const canvas = document.getElementById('gh-graph');
       const monthsEl = document.getElementById('gh-months');
+      const dayEl = document.getElementById('gh-day-labels');
+      const countEl = document.getElementById('gh-count');
       if (!canvas) return;
       const ctx = canvas.getContext('2d');
 
-      let cachedWeeks = null;
-
-      function getCellSize() {
-        const container = canvas.parentElement;
-        if (!container) return 11;
-        const dayLabelW = 28;
-        const availW = container.offsetWidth - dayLabelW - 8;
-        const gap = 2;
-        const cell = Math.floor((availW - (WEEKS - 1) * gap) / WEEKS);
-        return Math.max(6, Math.min(13, cell));
-      }
-
-      function levelFromCount(c) {
+      function level(c) {
         if (c === 0) return 0;
-        if (c <= 2) return 1;
-        if (c <= 5) return 2;
+        if (c <= 3) return 1;
+        if (c <= 6) return 2;
         if (c <= 9) return 3;
         return 4;
       }
 
-      function drawGraph(weeks) {
-        cachedWeeks = weeks;
-        const CELL = getCellSize();
-        const GAP = 2;
-        const STEP = CELL + GAP;
-        const W = weeks.length * STEP - GAP;
-        const H = ROWS * STEP - GAP;
-
-        const dpr = window.devicePixelRatio || 1;
-        canvas.width = W * dpr;
-        canvas.height = H * dpr;
-        canvas.style.width = W + 'px';
-        canvas.style.height = H + 'px';
-        ctx.scale(dpr, dpr);
-
-        weeks.forEach((week, wi) => {
-          week.forEach((day, di) => {
-            const lvl = levelFromCount(day ? day.count : 0);
-            ctx.fillStyle = COLORS[lvl];
-            roundRect(ctx, wi * STEP, di * STEP, CELL, CELL, 2);
-            ctx.fill();
-          });
-        });
-
-        // Month labels
-        if (monthsEl) {
-          monthsEl.innerHTML = '';
-          const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-          let lastMonth = -1;
-          weeks.forEach((week, wi) => {
-            if (!week[0]) return;
-            const d = new Date(week[0].date);
-            const m = d.getMonth();
-            if (m !== lastMonth) {
-              lastMonth = m;
-              const span = document.createElement('span');
-              span.textContent = MONTHS[m];
-              span.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;white-space:nowrap;`;
-              monthsEl.appendChild(span);
-            }
-          });
-          monthsEl.style.cssText = 'position:relative;height:18px;';
-        }
-      }
-
-      function roundRect(ctx, x, y, w, h, r) {
+      function rr(x, y, w, h, r) {
         ctx.beginPath();
-        ctx.moveTo(x + r, y);
-        ctx.lineTo(x + w - r, y);
+        ctx.moveTo(x + r, y); ctx.lineTo(x + w - r, y);
         ctx.quadraticCurveTo(x + w, y, x + w, y + r);
         ctx.lineTo(x + w, y + h - r);
         ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
@@ -4445,15 +4473,62 @@
         ctx.closePath();
       }
 
+      function draw(weeks) {
+        const W = WEEKS * STEP - GAP, H = ROWS * STEP - GAP;
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = W * dpr; canvas.height = H * dpr;
+        canvas.style.width = W + 'px'; canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        ctx.clearRect(0, 0, W, H);
+
+        weeks.forEach((week, wi) => {
+          week.forEach((day, di) => {
+            ctx.fillStyle = COLORS[level(day ? day.count : 0)];
+            rr(wi * STEP, di * STEP, CELL, CELL, 2);
+            ctx.fill();
+          });
+        });
+
+        // Day labels: Mon=row1, Wed=row3, Fri=row5
+        if (dayEl) {
+          dayEl.innerHTML = '';
+          dayEl.style.cssText = `position:relative;height:${H}px;min-width:32px;flex-shrink:0;`;
+          [['Mon', 1], ['Wed', 3], ['Fri', 5]].forEach(([lbl, row]) => {
+            const s = document.createElement('span');
+            s.textContent = lbl;
+            s.style.cssText = `position:absolute;top:${row * STEP + Math.floor(CELL / 2) - 5}px;right:6px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;line-height:1;`;
+            dayEl.appendChild(s);
+          });
+        }
+
+        // Month labels
+        if (monthsEl) {
+          monthsEl.innerHTML = '';
+          monthsEl.style.cssText = 'position:relative;height:20px;';
+          const M = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          let last = -1;
+          weeks.forEach((week, wi) => {
+            if (!week[0]?.date) return;
+            const m = new Date(week[0].date).getMonth();
+            if (m !== last) {
+              last = m;
+              const s = document.createElement('span');
+              s.textContent = M[m];
+              s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
+              monthsEl.appendChild(s);
+            }
+          });
+        }
+      }
+
       function buildWeeks(contributions) {
         if (!contributions.length) return null;
         const first = new Date(contributions[0].date);
-        const start = new Date(first);
-        start.setDate(start.getDate() - first.getDay());
+        const cur = new Date(first);
+        cur.setDate(cur.getDate() - first.getDay());
         const byDate = {};
         contributions.forEach(d => { byDate[d.date] = d; });
         const weeks = [];
-        const cur = new Date(start);
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
           for (let d = 0; d < 7; d++) {
@@ -4466,32 +4541,30 @@
         return weeks;
       }
 
-      function drawFallback() {
-        const fakeWeeks = Array.from({ length: WEEKS }, (_, wi) =>
+      function fallback() {
+        const today = new Date();
+        draw(Array.from({ length: WEEKS }, (_, wi) =>
           Array.from({ length: ROWS }, (_, di) => {
-            const d = new Date(); d.setDate(d.getDate() - (WEEKS - wi) * 7 + di);
+            const d = new Date(today);
+            d.setDate(d.getDate() - (WEEKS - wi) * 7 + di);
             return { count: 0, date: d.toISOString().slice(0, 10) };
           })
-        );
-        drawGraph(fakeWeeks);
+        ));
       }
-
-      // Responsive resize
-      let resizeTimer;
-      window.addEventListener('resize', () => {
-        clearTimeout(resizeTimer);
-        resizeTimer = setTimeout(() => {
-          if (cachedWeeks) drawGraph(cachedWeeks);
-        }, 150);
-      });
 
       fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
         .then(r => r.json())
         .then(data => {
-          const weeks = buildWeeks(data.contributions || []);
-          if (weeks) drawGraph(weeks); else drawFallback();
+          const contributions = data.contributions || [];
+          const total = contributions.reduce((s, d) => s + d.count, 0);
+          if (countEl) countEl.textContent = `${total.toLocaleString()} contributions in the last year`;
+          const weeks = buildWeeks(contributions);
+          if (weeks) draw(weeks); else fallback();
         })
-        .catch(() => drawFallback());
+        .catch(() => {
+          if (countEl) countEl.textContent = 'Contribution Graph';
+          fallback();
+        });
     })();
   </script>
 </body>
