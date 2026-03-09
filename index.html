@@ -2188,6 +2188,8 @@
       .card {
         border-radius: 14px;
         padding: 18px 16px;
+        overflow: visible;
+        /* jangan potong teks yang wrap */
       }
 
       /* About 2-col */
@@ -2284,6 +2286,48 @@
       /* tl-grid old (fallback) */
       .tl-grid {
         grid-template-columns: 1fr;
+      }
+
+      /* ── FIX: Karier & Pendidikan — teks terpotong ── */
+      /* Ubah flex → block agar teks panjang bisa wrap normal */
+      .job-company,
+      .job-meta {
+        display: block;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .job-company .sep,
+      .job-meta .sep {
+        display: inline;
+        margin: 0 3px;
+        color: var(--muted2);
+      }
+
+      .job-badge {
+        display: inline-block;
+        margin-top: 4px;
+        vertical-align: middle;
+      }
+
+      /* Pro card body — pastikan semua teks bisa wrap */
+      .pro-card-body {
+        overflow: hidden;
+        overflow-wrap: break-word;
+        word-break: break-word;
+      }
+
+      .pro-job-title {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal;
+      }
+
+      /* Inline styles pada job-company di HTML juga perlu ini */
+      .pro-card-top .pro-card-body>div {
+        overflow-wrap: break-word;
+        word-break: break-word;
+        white-space: normal !important;
       }
 
       /* Tools */
@@ -2506,6 +2550,16 @@
       .btn-secondary {
         padding: 9px 16px;
         font-size: 12px;
+      }
+
+      /* Teks karier & pendidikan di layar sangat kecil */
+      .pro-job-title {
+        font-size: 13px;
+      }
+
+      .job-company,
+      .job-meta {
+        font-size: 11px;
       }
     }
 
