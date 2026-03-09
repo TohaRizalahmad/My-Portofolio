@@ -2612,6 +2612,25 @@
       }
     }
 
+    /* ── Desktop/Mobile text toggle ── */
+    .mob-only {
+      display: none;
+    }
+
+    .desk-only {
+      display: inline;
+    }
+
+    @media(max-width:768px) {
+      .mob-only {
+        display: inline;
+      }
+
+      .desk-only {
+        display: none;
+      }
+    }
+
     /* Scrollbar */
     ::-webkit-scrollbar {
       width: 4px;
@@ -3473,9 +3492,9 @@
                   <div class="pro-card-body">
                     <div class="pro-job-title">Backend Golang Developer</div>
                     <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      PT. Affan Technology Indonesia (Parto.id)
-                      <span class="sep" style="color:var(--muted2);opacity:0.5;">•</span>
-                      Jambi, Indonesia 🇮🇩
+                      <span class="desk-only">PT. Affan Technology Indonesia (Parto.id) <span
+                          style="color:var(--muted2);opacity:0.5;">•</span> Jambi, Indonesia 🇮🇩</span>
+                      <span class="mob-only">Parto.id · Jambi 🇮🇩</span>
                     </div>
                     <div class="job-meta"
                       style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
@@ -3519,9 +3538,9 @@
                   <div class="pro-card-body">
                     <div class="pro-job-title">Freelance Web Developer</div>
                     <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      Berbagai Klien
-                      <span class="sep" style="color:var(--muted2);opacity:0.5;">•</span>
-                      Remote 🌐
+                      <span class="desk-only">Berbagai Klien <span style="color:var(--muted2);opacity:0.5;">•</span>
+                        Remote 🌐</span>
+                      <span class="mob-only">Berbagai Klien · Remote 🌐</span>
                     </div>
                     <div class="job-meta"
                       style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
@@ -3572,18 +3591,17 @@
                   <div class="pro-card-body">
                     <div class="pro-job-title">Universitas Terbuka</div>
                     <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      Bachelor's Degree
-                      <span class="sep" style="color:var(--muted2);opacity:0.5;">•</span>
-                      Information Systems (S.Kom)
-                      <span class="sep" style="color:var(--muted2);opacity:0.5;">•</span>
-                      GPA: 3.80/4.00
+                      <span class="desk-only">Bachelor's Degree <span style="color:var(--muted2);opacity:0.5;">•</span>
+                        Information Systems (S.Kom) <span style="color:var(--muted2);opacity:0.5;">•</span> GPA:
+                        3.80/4.00</span>
+                      <span class="mob-only">S.Kom – Sistem Informasi · GPA 3.80</span>
                     </div>
                     <div class="job-meta"
                       style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
                       2025 – Sekarang
                       <span class="sep">•</span>
-                      Lampung Tengah, Indonesia 🇮🇩
-                      <span class="sep">•</span>
+                      <span class="desk-only">Lampung Tengah, Indonesia 🇮🇩 <span class="sep">•</span></span>
+                      <span class="mob-only">Lampung 🇮🇩 ·</span>
                       <span class="job-badge badge-blue">● Aktif</span>
                     </div>
                   </div>
@@ -3599,15 +3617,16 @@
                   <div class="pro-card-body">
                     <div class="pro-job-title">SMK AL-FALAH RUMBIA</div>
                     <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      Senior High School
-                      <span class="sep" style="color:var(--muted2);opacity:0.5;">•</span>
-                      Office Administration and Business Services
+                      <span class="desk-only">Senior High School <span style="color:var(--muted2);opacity:0.5;">•</span>
+                        Office Administration and Business Services</span>
+                      <span class="mob-only">SMK · Adm. Perkantoran</span>
                     </div>
                     <div class="job-meta"
                       style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
                       2021 – 2025
                       <span class="sep">•</span>
-                      Lampung Tengah, Indonesia 🇮🇩
+                      <span class="desk-only">Lampung Tengah, Indonesia 🇮🇩</span>
+                      <span class="mob-only">Lampung 🇮🇩</span>
                     </div>
                   </div>
                 </div>
