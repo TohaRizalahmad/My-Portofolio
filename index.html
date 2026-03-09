@@ -1561,6 +1561,95 @@
       align-items: stretch;
     }
 
+    .stats-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      align-items: stretch;
+    }
+
+    @media (max-width: 768px) {
+      .stats-row {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Most Used Languages card */
+    .lang-bar-wrap {
+      margin-bottom: 18px;
+    }
+
+    .lang-bar-track {
+      display: flex;
+      height: 8px;
+      border-radius: 20px;
+      overflow: hidden;
+      gap: 2px;
+      background: rgba(255, 255, 255, .05);
+    }
+
+    .lang-bar-seg {
+      height: 100%;
+      border-radius: 20px;
+      transition: width .8s cubic-bezier(.4, 0, .2, 1);
+      width: 0%;
+    }
+
+    .lang-list {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px 16px;
+      margin-top: 16px;
+    }
+
+    .lang-item {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    .lang-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .lang-name {
+      font-weight: 600;
+      color: var(--text);
+      font-size: 12px;
+    }
+
+    .lang-pct {
+      margin-left: auto;
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--muted2);
+    }
+
+    .lang-loading {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 120px;
+      color: var(--muted2);
+      font-size: 12px;
+      font-family: var(--font-m);
+      gap: 8px;
+    }
+
+    .lang-spinner {
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(96, 165, 250, .2);
+      border-top-color: var(--blue-bright);
+      border-radius: 50%;
+      animation: spin 0.8s linear infinite;
+    }
+
     .dash-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -4102,25 +4191,50 @@
             </div>
           </div>
 
-          <!-- Streak Stats Card -->
-          <div class="dash-card">
-            <div class="dc-header">
-              <div class="dc-title-wrap">
-                <div class="dc-icon">🔥</div>
-                <div>
-                  <div class="dc-title">Streak & Stats</div>
-                  <div class="dc-sub">Streak commit & total kontribusi</div>
+          <!-- Streak + Languages Row -->
+          <div class="stats-row">
+
+            <!-- Streak Stats Card -->
+            <div class="dash-card">
+              <div class="dc-header">
+                <div class="dc-title-wrap">
+                  <div class="dc-icon">🔥</div>
+                  <div>
+                    <div class="dc-title">Streak & Stats</div>
+                    <div class="dc-sub">Streak commit & total kontribusi</div>
+                  </div>
+                </div>
+                <span class="dc-badge">// Live</span>
+              </div>
+              <div class="streak-wrap">
+                <img
+                  src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0d1117&ring=1f6feb&fire=ff6b35&currStreakLabel=58a6ff&sideLabels=58a6ff&dates=8b949e&stroke=30363d"
+                  alt="GitHub Streak Stats" loading="lazy"
+                  onerror="this.onerror=null;this.src='https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&hide_border=true';this.style.opacity='0.6'">
+              </div>
+            </div>
+
+            <!-- Most Used Languages Card -->
+            <div class="dash-card">
+              <div class="dc-header">
+                <div class="dc-title-wrap">
+                  <div class="dc-icon">💻</div>
+                  <div>
+                    <div class="dc-title">Most Used Languages</div>
+                    <div class="dc-sub">Berdasarkan repository publik</div>
+                  </div>
+                </div>
+                <span class="dc-badge">// GitHub</span>
+              </div>
+              <div id="lang-content">
+                <div class="lang-loading">
+                  <div class="lang-spinner"></div>
+                  <span>Memuat data bahasa...</span>
                 </div>
               </div>
-              <span class="dc-badge">// Live</span>
             </div>
-            <div class="streak-wrap">
-              <img
-                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0d1117&ring=1f6feb&fire=ff6b35&currStreakLabel=58a6ff&sideLabels=58a6ff&dates=8b949e&stroke=30363d"
-                alt="GitHub Streak Stats" loading="lazy"
-                onerror="this.onerror=null;this.src='https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&hide_border=true';this.style.opacity='0.6'">
-            </div>
-          </div>
+
+          </div><!-- end stats-row -->
 
         </div>
       </section>
@@ -4438,6 +4552,44 @@
       initObserver();
     });
 
+
+    // ── MOST USED LANGUAGES ──────────────────────
+    (function () {
+      const USERNAME = 'TohaRizalahmad';
+      const LANG_COLORS = {
+        'HTML': '#e34c26', 'CSS': '#563d7c', 'JavaScript': '#f1e05a',
+        'TypeScript': '#3178c6', 'Python': '#3572A5', 'Java': '#b07219',
+        'PHP': '#4F5D95', 'Vue': '#41b883', 'C': '#555555',
+        'C++': '#f34b7d', 'C#': '#178600', 'Go': '#00ADD8',
+        'Rust': '#dea584', 'Kotlin': '#A97BFF', 'Swift': '#F05138',
+        'Shell': '#89e051', 'Dockerfile': '#384d54', 'SCSS': '#c6538c',
+        'default': '#8b949e'
+      };
+      fetch("https://api.github.com/users/" + USERNAME + "/repos?per_page=100&type=public")
+        .then(function (r) { return r.json(); })
+        .then(function (repos) {
+          if (!Array.isArray(repos)) throw new Error("invalid");
+          var langFetches = repos.filter(function (r) { return !r.fork; }).map(function (r) { return fetch(r.languages_url).then(function (x) { return x.json(); }).catch(function () { return {}; }); });
+          return Promise.all(langFetches);
+        })
+        .then(function (results) {
+          var totals = {};
+          results.forEach(function (langs) { Object.entries(langs).forEach(function (e) { totals[e[0]] = (totals[e[0]] || 0) + e[1]; }); });
+          var grand = Object.values(totals).reduce(function (a, b) { return a + b; }, 0);
+          if (!grand) throw new Error("no data");
+          var sorted = Object.entries(totals).sort(function (a, b) { return b[1] - a[1]; }).slice(0, 6).map(function (e) { return { name: e[0], pct: +((e[1] / grand) * 100).toFixed(2), color: LANG_COLORS[e[0]] || LANG_COLORS["default"] }; });
+          var el = document.getElementById("lang-content");
+          if (!el) return;
+          var segs = sorted.map(function (l) { return '<div class="lang-bar-seg" data-w="' + l.pct + '%" style="background:' + l.color + ';width:0%;flex:' + l.pct + '"></div>'; }).join("");
+          var items = sorted.map(function (l) { return '<div class="lang-item"><span class="lang-dot" style="background:' + l.color + '"></span><span class="lang-name">' + l.name + '</span><span class="lang-pct">' + l.pct + '%</span></div>'; }).join("");
+          el.innerHTML = '<div class="lang-bar-wrap"><div class="lang-bar-track">' + segs + '</div></div><div class="lang-list">' + items + '</div>';
+          requestAnimationFrame(function () { el.querySelectorAll(".lang-bar-seg").forEach(function (seg, i) { setTimeout(function () { seg.style.width = seg.dataset.w; }, i * 80); }); });
+        })
+        .catch(function () {
+          var el = document.getElementById("lang-content");
+          if (el) el.innerHTML = '<div class="lang-loading" style="flex-direction:column;gap:12px;"><span style="font-size:22px">⚠️</span><span style="color:var(--muted2);font-size:12px;text-align:center;">Tidak dapat memuat data.<br>Cek koneksi atau GitHub API.</span></div>';
+        });
+    })();
     // ── GITHUB CONTRIBUTION GRAPH ──────────────────────
     (function () {
       const USERNAME = 'TohaRizalahmad';
