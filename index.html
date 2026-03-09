@@ -2188,8 +2188,20 @@
       .card {
         border-radius: 14px;
         padding: 18px 16px;
-        overflow: visible;
-        /* jangan potong teks yang wrap */
+        overflow: hidden;
+        /* tetap hidden agar stacking context card normal */
+      }
+
+      /* Pastikan tombol toggle bisa diklik di atas ::before overlay card */
+      .pro-toggle {
+        position: relative;
+        z-index: 2;
+        pointer-events: auto;
+      }
+
+      .pro-detail {
+        position: relative;
+        z-index: 1;
       }
 
       /* About 2-col */
@@ -4201,10 +4213,12 @@
     // ── PRO TOGGLE ──────────────────────
     function proToggle(btn) {
       const detail = btn.nextElementSibling;
+      if (!detail) return;
       const isOpen = detail.classList.contains('open');
       detail.classList.toggle('open');
       btn.classList.toggle('open');
-      btn.querySelector('span').textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
+      const label = btn.querySelector('span');
+      if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
     }
 
     // ── NAVIGATION ──────────────────────
