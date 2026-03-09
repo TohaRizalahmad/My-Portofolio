@@ -4675,11 +4675,16 @@
 
       function buildWeeks(contributions) {
         if (!contributions.length) return null;
-        const first = new Date(contributions[0].date);
-        const cur = new Date(first);
-        cur.setDate(cur.getDate() - first.getDay());
         const byDate = {};
         contributions.forEach(d => { byDate[d.date] = d; });
+
+        // Anchor to today, go back to the Sunday that starts our 53-week window
+        const today = new Date();
+        today.setHours(0, 0, 0, 0);
+        const startSunday = new Date(today);
+        startSunday.setDate(today.getDate() - today.getDay() - (WEEKS - 1) * 7);
+
+        const cur = new Date(startSunday);
         const weeks = [];
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
@@ -4695,13 +4700,21 @@
 
       function fallback() {
         const today = new Date();
-        draw(Array.from({ length: WEEKS }, (_, wi) =>
-          Array.from({ length: ROWS }, (_, di) => {
-            const d = new Date(today);
-            d.setDate(d.getDate() - (WEEKS - wi) * 7 + di);
-            return { count: 0, date: d.toISOString().slice(0, 10) };
-          })
-        ));
+        today.setHours(0, 0, 0, 0);
+        const startSunday = new Date(today);
+        startSunday.setDate(today.getDate() - today.getDay() - (WEEKS - 1) * 7);
+        const cur = new Date(startSunday);
+        const weeks = [];
+        for (let w = 0; w < WEEKS; w++) {
+          const week = [];
+          for (let d = 0; d < 7; d++) {
+            const key = cur.toISOString().slice(0, 10);
+            week.push({ count: 0, date: key });
+            cur.setDate(cur.getDate() + 1);
+          }
+          weeks.push(week);
+        }
+        draw(weeks);
       }
 
       fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
