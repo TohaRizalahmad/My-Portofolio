@@ -1649,28 +1649,22 @@
       display: flex;
       gap: 8px;
       width: 100%;
+      overflow-x: auto;
     }
 
-    .days-axis {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-around;
-      padding: 6px 0;
-      font-size: 10px;
-      color: var(--muted);
-      text-align: right;
-      line-height: 1;
-      min-width: 28px;
+    .graph-body::-webkit-scrollbar {
+      height: 3px;
+    }
+
+    .graph-body::-webkit-scrollbar-thumb {
+      background: rgba(139, 92, 246, .2);
+      border-radius: 2px;
+    }
+
+    #gh-graph {
+      display: block;
+      border-radius: 4px;
       flex-shrink: 0;
-    }
-
-    .github-graph img {
-      width: 100%;
-      flex: 1;
-      min-width: 0;
-      height: auto;
-      object-fit: contain;
-      border-radius: 8px;
     }
 
     .graph-footer {
@@ -4365,14 +4359,24 @@
     (function () {
       const USERNAME = 'TohaRizalahmad';
       const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
-      const CELL = 11, GAP = 2, STEP = CELL + GAP;
       const WEEKS = 53, ROWS = 7;
 
       const canvas = document.getElementById('gh-graph');
       const monthsEl = document.getElementById('gh-months');
       if (!canvas) return;
-
       const ctx = canvas.getContext('2d');
+
+      let cachedWeeks = null;
+
+      function getCellSize() {
+        const container = canvas.parentElement;
+        if (!container) return 11;
+        const dayLabelW = 28;
+        const availW = container.offsetWidth - dayLabelW - 8;
+        const gap = 2;
+        const cell = Math.floor((availW - (WEEKS - 1) * gap) / WEEKS);
+        return Math.max(6, Math.min(13, cell));
+      }
 
       function levelFromCount(c) {
         if (c === 0) return 0;
@@ -4383,10 +4387,13 @@
       }
 
       function drawGraph(weeks) {
+        cachedWeeks = weeks;
+        const CELL = getCellSize();
+        const GAP = 2;
+        const STEP = CELL + GAP;
         const W = weeks.length * STEP - GAP;
         const H = ROWS * STEP - GAP;
 
-        // HiDPI
         const dpr = window.devicePixelRatio || 1;
         canvas.width = W * dpr;
         canvas.height = H * dpr;
@@ -4394,13 +4401,11 @@
         canvas.style.height = H + 'px';
         ctx.scale(dpr, dpr);
 
-        // Draw cells
         weeks.forEach((week, wi) => {
           week.forEach((day, di) => {
             const lvl = levelFromCount(day ? day.count : 0);
             ctx.fillStyle = COLORS[lvl];
-            const rx = wi * STEP, ry = di * STEP;
-            roundRect(ctx, rx, ry, CELL, CELL, 2);
+            roundRect(ctx, wi * STEP, di * STEP, CELL, CELL, 2);
             ctx.fill();
           });
         });
@@ -4418,12 +4423,11 @@
               lastMonth = m;
               const span = document.createElement('span');
               span.textContent = MONTHS[m];
-              span.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;`;
+              span.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;white-space:nowrap;`;
               monthsEl.appendChild(span);
             }
           });
-          monthsEl.style.position = 'relative';
-          monthsEl.style.height = '18px';
+          monthsEl.style.cssText = 'position:relative;height:18px;';
         }
       }
 
@@ -4441,43 +4445,51 @@
         ctx.closePath();
       }
 
+      function buildWeeks(contributions) {
+        if (!contributions.length) return null;
+        const first = new Date(contributions[0].date);
+        const start = new Date(first);
+        start.setDate(start.getDate() - first.getDay());
+        const byDate = {};
+        contributions.forEach(d => { byDate[d.date] = d; });
+        const weeks = [];
+        const cur = new Date(start);
+        for (let w = 0; w < WEEKS; w++) {
+          const week = [];
+          for (let d = 0; d < 7; d++) {
+            const key = cur.toISOString().slice(0, 10);
+            week.push(byDate[key] || { date: key, count: 0 });
+            cur.setDate(cur.getDate() + 1);
+          }
+          weeks.push(week);
+        }
+        return weeks;
+      }
+
       function drawFallback() {
-        // Draw empty grid as fallback
-        const fakeWeeks = Array.from({ length: WEEKS }, () =>
-          Array.from({ length: ROWS }, () => ({ count: 0, date: '' }))
+        const fakeWeeks = Array.from({ length: WEEKS }, (_, wi) =>
+          Array.from({ length: ROWS }, (_, di) => {
+            const d = new Date(); d.setDate(d.getDate() - (WEEKS - wi) * 7 + di);
+            return { count: 0, date: d.toISOString().slice(0, 10) };
+          })
         );
         drawGraph(fakeWeeks);
       }
 
-      // Fetch from contributions API
+      // Responsive resize
+      let resizeTimer;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeTimer);
+        resizeTimer = setTimeout(() => {
+          if (cachedWeeks) drawGraph(cachedWeeks);
+        }, 150);
+      });
+
       fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
         .then(r => r.json())
         .then(data => {
-          // Build weeks array (Sun-Sat, 7 rows)
-          const contributions = data.contributions || [];
-          if (!contributions.length) { drawFallback(); return; }
-
-          // Find the start (first Sunday before first entry)
-          const first = new Date(contributions[0].date);
-          const startOffset = first.getDay(); // 0=Sun
-          const start = new Date(first);
-          start.setDate(start.getDate() - startOffset);
-
-          const byDate = {};
-          contributions.forEach(d => { byDate[d.date] = d; });
-
-          const weeks = [];
-          let cur = new Date(start);
-          for (let w = 0; w < WEEKS; w++) {
-            const week = [];
-            for (let d = 0; d < 7; d++) {
-              const key = cur.toISOString().slice(0, 10);
-              week.push(byDate[key] || { date: key, count: 0 });
-              cur.setDate(cur.getDate() + 1);
-            }
-            weeks.push(week);
-          }
-          drawGraph(weeks);
+          const weeks = buildWeeks(data.contributions || []);
+          if (weeks) drawGraph(weeks); else drawFallback();
         })
         .catch(() => drawFallback());
     })();
