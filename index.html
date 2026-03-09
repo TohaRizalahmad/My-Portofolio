@@ -3992,18 +3992,33 @@
               <span class="dc-badge">// 2025–2026</span>
             </div>
             <div class="github-graph">
-              <div class="graph-body">
-                <img src="https://ghchart.rshah.org/TohaRizalahmad" alt="GitHub Contribution Graph">
+              <div class="graph-body" style="flex-direction:column;gap:6px;">
+                <!-- Month labels -->
+                <div id="gh-months"
+                  style="display:flex;padding-left:28px;gap:0;font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;height:18px;position:relative;">
+                </div>
+                <div style="display:flex;gap:4px;align-items:flex-start;">
+                  <!-- Day labels -->
+                  <div
+                    style="display:flex;flex-direction:column;justify-content:space-between;height:94px;padding:1px 0;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;min-width:24px;text-align:right;padding-right:4px;gap:0;">
+                    <span style="height:13px;line-height:13px;">Mon</span>
+                    <span style="height:13px;line-height:13px;">Wed</span>
+                    <span style="height:13px;line-height:13px;">Fri</span>
+                  </div>
+                  <!-- Graph canvas -->
+                  <canvas id="gh-graph"
+                    style="border-radius:4px;display:block;max-width:100%;image-rendering:pixelated;"></canvas>
+                </div>
               </div>
               <div class="graph-footer">
                 <span class="graph-tip">Kontribusi dihitung dari commits, PRs, issues & reviews</span>
                 <div class="graph-legend">
                   <span>Less</span>
-                  <div class="legend-box" style="background: #161b22;border:1px solid rgba(255,255,255,.1)"></div>
-                  <div class="legend-box" style="background: #0e4429;"></div>
-                  <div class="legend-box" style="background: #006d32;"></div>
-                  <div class="legend-box" style="background: #26a641;"></div>
-                  <div class="legend-box" style="background: #39d353;"></div>
+                  <div class="legend-box" style="background:#161b22;border:1px solid rgba(255,255,255,.15)"></div>
+                  <div class="legend-box" style="background:#0e4429;"></div>
+                  <div class="legend-box" style="background:#006d32;"></div>
+                  <div class="legend-box" style="background:#26a641;"></div>
+                  <div class="legend-box" style="background:#39d353;"></div>
                   <span>More</span>
                 </div>
               </div>
@@ -4023,9 +4038,10 @@
               <span class="dc-badge">// Live</span>
             </div>
             <div class="streak-wrap">
-              <img src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=dark" alt="GitHub Streak Stats"
-                loading="lazy"
-                onerror="this.onerror=null;this.src='https://ghchart.rshah.org/TohaRizalahmad';this.style.opacity='0.6'">
+              <img
+                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0d1117&ring=1f6feb&fire=ff6b35&currStreakLabel=58a6ff&sideLabels=58a6ff&dates=8b949e&stroke=30363d"
+                alt="GitHub Streak Stats" loading="lazy"
+                onerror="this.onerror=null;this.src='https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&hide_border=true';this.style.opacity='0.6'">
             </div>
           </div>
 
@@ -4344,6 +4360,127 @@
       });
       initObserver();
     });
+
+    // ── GITHUB CONTRIBUTION GRAPH ──────────────────────
+    (function () {
+      const USERNAME = 'TohaRizalahmad';
+      const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+      const CELL = 11, GAP = 2, STEP = CELL + GAP;
+      const WEEKS = 53, ROWS = 7;
+
+      const canvas = document.getElementById('gh-graph');
+      const monthsEl = document.getElementById('gh-months');
+      if (!canvas) return;
+
+      const ctx = canvas.getContext('2d');
+
+      function levelFromCount(c) {
+        if (c === 0) return 0;
+        if (c <= 2) return 1;
+        if (c <= 5) return 2;
+        if (c <= 9) return 3;
+        return 4;
+      }
+
+      function drawGraph(weeks) {
+        const W = weeks.length * STEP - GAP;
+        const H = ROWS * STEP - GAP;
+
+        // HiDPI
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = W * dpr;
+        canvas.height = H * dpr;
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.scale(dpr, dpr);
+
+        // Draw cells
+        weeks.forEach((week, wi) => {
+          week.forEach((day, di) => {
+            const lvl = levelFromCount(day ? day.count : 0);
+            ctx.fillStyle = COLORS[lvl];
+            const rx = wi * STEP, ry = di * STEP;
+            roundRect(ctx, rx, ry, CELL, CELL, 2);
+            ctx.fill();
+          });
+        });
+
+        // Month labels
+        if (monthsEl) {
+          monthsEl.innerHTML = '';
+          const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+          let lastMonth = -1;
+          weeks.forEach((week, wi) => {
+            if (!week[0]) return;
+            const d = new Date(week[0].date);
+            const m = d.getMonth();
+            if (m !== lastMonth) {
+              lastMonth = m;
+              const span = document.createElement('span');
+              span.textContent = MONTHS[m];
+              span.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;`;
+              monthsEl.appendChild(span);
+            }
+          });
+          monthsEl.style.position = 'relative';
+          monthsEl.style.height = '18px';
+        }
+      }
+
+      function roundRect(ctx, x, y, w, h, r) {
+        ctx.beginPath();
+        ctx.moveTo(x + r, y);
+        ctx.lineTo(x + w - r, y);
+        ctx.quadraticCurveTo(x + w, y, x + w, y + r);
+        ctx.lineTo(x + w, y + h - r);
+        ctx.quadraticCurveTo(x + w, y + h, x + w - r, y + h);
+        ctx.lineTo(x + r, y + h);
+        ctx.quadraticCurveTo(x, y + h, x, y + h - r);
+        ctx.lineTo(x, y + r);
+        ctx.quadraticCurveTo(x, y, x + r, y);
+        ctx.closePath();
+      }
+
+      function drawFallback() {
+        // Draw empty grid as fallback
+        const fakeWeeks = Array.from({ length: WEEKS }, () =>
+          Array.from({ length: ROWS }, () => ({ count: 0, date: '' }))
+        );
+        drawGraph(fakeWeeks);
+      }
+
+      // Fetch from contributions API
+      fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
+        .then(r => r.json())
+        .then(data => {
+          // Build weeks array (Sun-Sat, 7 rows)
+          const contributions = data.contributions || [];
+          if (!contributions.length) { drawFallback(); return; }
+
+          // Find the start (first Sunday before first entry)
+          const first = new Date(contributions[0].date);
+          const startOffset = first.getDay(); // 0=Sun
+          const start = new Date(first);
+          start.setDate(start.getDate() - startOffset);
+
+          const byDate = {};
+          contributions.forEach(d => { byDate[d.date] = d; });
+
+          const weeks = [];
+          let cur = new Date(start);
+          for (let w = 0; w < WEEKS; w++) {
+            const week = [];
+            for (let d = 0; d < 7; d++) {
+              const key = cur.toISOString().slice(0, 10);
+              week.push(byDate[key] || { date: key, count: 0 });
+              cur.setDate(cur.getDate() + 1);
+            }
+            weeks.push(week);
+          }
+          drawGraph(weeks);
+        })
+        .catch(() => drawFallback());
+    })();
   </script>
 </body>
 
