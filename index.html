@@ -4214,7 +4214,6 @@
               </div>
             </div>
 
-            <!-- Most Used Languages Card -->
             <div class="dash-card">
               <div class="dc-header">
                 <div class="dc-title-wrap">
@@ -4234,12 +4233,11 @@
               </div>
             </div>
 
-          </div><!-- end stats-row -->
+          </div>
 
         </div>
       </section>
 
-      <!-- ══ SOCIAL ══ -->
       <section id="social" class="section">
         <div class="sec-head">
           <div>
@@ -4251,7 +4249,6 @@
 
         <div class="soc-grid">
 
-          <!-- EMAIL — full width -->
           <a href="mailto:toharizalahmad@gmail.com" class="soc-card soc-full c-email">
             <div class="soc-title">Stay in Touch</div>
             <div class="soc-desc">Hubungi saya untuk inquiries atau kolaborasi.</div>
@@ -4265,7 +4262,6 @@
             </div>
           </a>
 
-          <!-- INSTAGRAM -->
           <a href="https://instagram.com/TohaRizalahmad" class="soc-card c-instagram" target="_blank">
             <div class="soc-title">Follow My Journey</div>
             <div class="soc-desc">Ikuti perjalanan kreatif saya.</div>
@@ -4278,7 +4274,6 @@
             </div>
           </a>
 
-          <!-- LINKEDIN -->
           <a href="https://linkedin.com/in/toharizalahmad" class="soc-card c-linkedin" target="_blank">
             <div class="soc-title">Let's Connect</div>
             <div class="soc-desc">Terhubung secara profesional.</div>
@@ -4291,7 +4286,6 @@
             </div>
           </a>
 
-          <!-- FACEBOOK -->
           <a href="https://facebook.com/TohaRizalahmad" class="soc-card c-facebook" target="_blank">
             <div class="soc-title">Join the Community</div>
             <div class="soc-desc">Temukan saya di Facebook.</div>
@@ -4304,7 +4298,6 @@
             </div>
           </a>
 
-          <!-- GITHUB -->
           <a href="https://github.com/TohaRizalahmad" class="soc-card c-github" target="_blank">
             <div class="soc-title">Explore the Code</div>
             <div class="soc-desc">Lihat proyek open-source saya.</div>
@@ -4317,7 +4310,6 @@
             </div>
           </a>
 
-          <!-- WHATSAPP -->
           <a href="https://wa.me/6281234567890" class="soc-card c-whatsapp" target="_blank">
             <div class="soc-title">Chat on WhatsApp</div>
             <div class="soc-desc">Kirim pesan langsung ke WhatsApp saya.</div>
@@ -4353,7 +4345,6 @@
     </main>
   </div>
 
-  <!-- ══════════ BOTTOM NAV ══════════ -->
   <nav class="bottom-nav">
     <a class="bnav-a active" onclick="nav('profile',this)">
       <div class="bnav-bg"></div>
@@ -4409,7 +4400,6 @@
   </nav>
 
   <script>
-    // ── TOGGLE JOB DETAIL ──────────────────────
     function toggleJob(btn) {
       const detail = btn.nextElementSibling;
       const isOpen = detail.classList.contains('open');
@@ -4418,7 +4408,6 @@
       btn.querySelector('.job-toggle-text').textContent = isOpen ? 'Tampilkan detail' : 'Sembunyikan detail';
     }
 
-    // ── PRO TOGGLE ──────────────────────
     function proToggle(btn) {
       const detail = btn.nextElementSibling;
       if (!detail) return;
@@ -4429,7 +4418,6 @@
       if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
     }
 
-    // ── NAVIGATION ──────────────────────
     const labels = { profile: 'Profil', tools: 'Tools & Skills', projects: 'Projects', achievement: 'Sertifikat', dashboard: 'Dashboard', social: 'Social Media' };
 
     function nav(id, el) {
@@ -4451,7 +4439,6 @@
       }
     }
 
-    // ── SCROLL OBSERVER ──────────────────────
     function initObserver() {
       const sections = document.querySelectorAll('.section');
       const navLinks = document.querySelectorAll('.bnav-a');
@@ -4484,7 +4471,6 @@
       sections.forEach(sec => observer.observe(sec));
     }
 
-    // ── COUNTERS ──────────────────────
     let cDone = false;
     function animCounters() {
       if (cDone) return; cDone = true;
@@ -4500,7 +4486,6 @@
       });
     }
 
-    // ── TOOL BARS ──────────────────────
     let bDone = false;
     function animBars() {
       if (bDone) return; bDone = true;
@@ -4510,7 +4495,6 @@
       });
     }
 
-    // ── LIGHTBOX ──────────────────────
     function openLb(wrap) {
       const img = wrap.querySelector('img');
       if (!img) return;
@@ -4534,15 +4518,10 @@
       }
     });
 
-    // ── LIGHTBOX ──────────────────────
-
-    // ── DOWNLOAD CV ──────────────────────
     function downloadCV() {
-      // ← EDIT: Ganti dengan: window.open('https://domain.com/cv.pdf','_blank');
       alert('⬇ Download CV\n\nEdit fungsi downloadCV() dengan link PDF CV Anda.');
     }
 
-    // ── INIT ──────────────────────
     window.addEventListener('load', () => {
       setTimeout(animCounters, 400);
       document.querySelectorAll('.t-fill').forEach(b => {
@@ -4553,7 +4532,6 @@
     });
 
 
-    // ── MOST USED LANGUAGES ──────────────────────
     (function () {
       const USERNAME = 'TohaRizalahmad';
       const LANG_COLORS = {
@@ -4590,7 +4568,6 @@
           if (el) el.innerHTML = '<div class="lang-loading" style="flex-direction:column;gap:12px;"><span style="font-size:22px">⚠️</span><span style="color:var(--muted2);font-size:12px;text-align:center;">Tidak dapat memuat data.<br>Cek koneksi atau GitHub API.</span></div>';
         });
     })();
-    // ── GITHUB CONTRIBUTION GRAPH ──────────────────────
     (function () {
       const USERNAME = 'TohaRizalahmad';
       const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
@@ -4641,7 +4618,6 @@
           });
         });
 
-        // Day labels: Mon=row1, Wed=row3, Fri=row5
         if (dayEl) {
           dayEl.innerHTML = '';
           dayEl.style.cssText = `position:relative;height:${H}px;min-width:32px;flex-shrink:0;`;
@@ -4653,7 +4629,6 @@
           });
         }
 
-        // Month labels
         if (monthsEl) {
           monthsEl.innerHTML = '';
           monthsEl.style.cssText = 'position:relative;height:20px;';
@@ -4685,7 +4660,6 @@
         const byDate = {};
         contributions.forEach(d => { byDate[d.date] = d; });
 
-        // Anchor to today (local time), go back to Sunday that starts 53-week window
         const today = new Date();
         today.setHours(0, 0, 0, 0);
         const startSunday = new Date(today);
@@ -4696,7 +4670,7 @@
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
           for (let d = 0; d < 7; d++) {
-            const key = localDateKey(cur);   // local date, no UTC shift
+            const key = localDateKey(cur);
             week.push(byDate[key] || { date: key, count: 0 });
             cur.setDate(cur.getDate() + 1);
           }
@@ -4715,7 +4689,7 @@
         for (let w = 0; w < WEEKS; w++) {
           const week = [];
           for (let d = 0; d < 7; d++) {
-            const key = localDateKey(cur);   // local date, no UTC shift
+            const key = localDateKey(cur);
             week.push({ count: 0, date: key });
             cur.setDate(cur.getDate() + 1);
           }
