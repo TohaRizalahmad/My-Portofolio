@@ -4,58 +4,45 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portfolio — Web Developer</title>
+  <title>Toha.Rizalahmad_ • Portofolio</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
     rel="stylesheet">
   <style>
-    /* ════════════════════════════════════════
-   DESIGN TOKENS — Professional Dark Slate
-════════════════════════════════════════ */
+    
     :root {
-      /* ── Cobalt Midnight — Backgrounds ── */
       --bg-root: #050A14;
       --bg-deep: #060C18;
       --bg-panel: #0D1525;
       --bg-card: #0D1525;
       --bg-hover: #162035;
 
-      /* Borders */
       --border: rgba(255, 255, 255, 0.07);
       --border-lit: rgba(255, 255, 255, 0.14);
       --border-glow: rgba(59, 130, 246, 0.4);
 
-      /* Cobalt Blue accent */
       --blue: #2563EB;
       --blue-bright: #60A5FA;
       --blue-dim: rgba(37, 99, 235, 0.15);
       --blue-glow: rgba(37, 99, 235, 0.08);
       --blue-ring: rgba(96, 165, 250, 0.3);
 
-      /* Secondary accent — sky */
       --cyan: #93C5FD;
       --cyan-dim: rgba(147, 197, 253, 0.10);
 
-      /* Text — Cobalt Midnight */
       --text: #F1F5F9;
       --muted: #CBD5E1;
       --muted2: #64748B;
 
-      /* Status */
       --success: #10B981;
 
-      /* Fonts */
       --font-b: 'Plus Jakarta Sans', sans-serif;
       --font-m: 'JetBrains Mono', monospace;
 
-      /* Shadows */
       --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
       --shadow-blue: 0 4px 32px rgba(37, 99, 235, 0.25);
     }
 
-    /* ════════════════════════════════════════
-   RESET
-════════════════════════════════════════ */
     *,
     *::before,
     *::after {
@@ -79,9 +66,6 @@
       -webkit-font-smoothing: antialiased;
     }
 
-    /* ════════════════════════════════════════
-   BACKGROUND ATMOSPHERE
-════════════════════════════════════════ */
     .bg-atm {
       position: fixed;
       inset: 0;
@@ -142,7 +126,6 @@
       }
     }
 
-    /* Dot grid */
     .bg-dots {
       position: fixed;
       inset: 0;
@@ -152,7 +135,6 @@
       background-size: 32px 32px;
     }
 
-    /* Noise */
     .bg-noise {
       position: fixed;
       inset: 0;
@@ -163,9 +145,6 @@
       background-size: 180px 180px;
     }
 
-    /* ════════════════════════════════════════
-   LAYOUT
-════════════════════════════════════════ */
     .shell {
       position: relative;
       z-index: 2;
@@ -174,9 +153,6 @@
       min-height: 100vh;
     }
 
-    /* ════════════════════════════════════════
-   SIDEBAR
-════════════════════════════════════════ */
     .sidebar {
       position: sticky;
       top: 0;
@@ -194,13 +170,11 @@
       width: 0;
     }
 
-    /* Brand */
     .sb-top {
       padding: 32px 24px 26px;
       border-bottom: 1px solid var(--border);
     }
 
-    /* Profile */
     .sb-profile {
       display: flex;
       flex-direction: column;
@@ -251,8 +225,6 @@
       border-radius: 50%;
     }
 
-    /* Foto: tambahkan background-image:url('foto.jpg');background-size:cover pada .av-bg */
-
     .sb-name {
       font-size: 17px;
       font-weight: 700;
@@ -302,7 +274,6 @@
       }
     }
 
-    /* Nav */
     .sb-nav {
       padding: 12px 8px;
       flex: 0;
@@ -393,9 +364,6 @@
       border: 1px solid var(--blue-ring);
     }
 
-    /* Sidebar bottom */
-
-    /* Sidebar overlay */
     .sidebar-overlay {
       position: fixed;
       inset: 0;
@@ -411,12 +379,6 @@
       pointer-events: all;
     }
 
-    /* ════════════════════════════════════════
-   TOPBAR
-════════════════════════════════════════ */
-    /* ════════════════════════════════════════
-   BOTTOM NAV
-════════════════════════════════════════ */
     .bottom-nav {
       position: fixed;
       bottom: 0;
@@ -644,9 +606,6 @@
       border-color: var(--blue-bright);
     }
 
-    /* ════════════════════════════════════════
-   SECTIONS
-════════════════════════════════════════ */
     .section {
       display: flex;
       flex-direction: column;
@@ -668,7 +627,6 @@
       }
     }
 
-    /* Section header */
     .sec-head {
       display: flex;
       align-items: flex-start;
@@ -713,10 +671,6 @@
       background-clip: text;
     }
 
-
-    /* ════════════════════════════════════════
-   CARD BASE
-════════════════════════════════════════ */
     .card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -766,9 +720,6 @@
       background: linear-gradient(90deg, var(--border-lit), transparent);
     }
 
-    /* ════════════════════════════════════════
-   PROFILE SECTION
-════════════════════════════════════════ */
     .prof-hero {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -804,7 +755,6 @@
       pointer-events: none;
     }
 
-    /* Photo */
     .photo-wrap {
       position: relative;
       width: 150px;
@@ -846,7 +796,6 @@
       border-radius: 16px;
     }
 
-    /* Foto nyata: set background-image:url('foto.jpg');background-size:cover ke .photo-box, hapus children */
     .photo-init {
       font-size: 52px;
       font-weight: 800;
@@ -861,7 +810,6 @@
       letter-spacing: .8px;
     }
 
-    /* Profile text */
     .p-greet {
       font-family: var(--font-m);
       font-size: 10px;
@@ -955,7 +903,6 @@
       border-color: var(--border-glow);
     }
 
-    /* Stats */
     .stats-row {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -1026,16 +973,12 @@
       opacity: .2;
     }
 
-    /* About 2 col */
     .about-2 {
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 12px;
     }
 
-    /* ════════════════════════════════════════
-   TOOLS
-════════════════════════════════════════ */
     .tools-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
@@ -1093,7 +1036,6 @@
       display: block;
     }
 
-    /* Ikon yang berwarna gelap perlu diinvert di dark mode */
     .t-ico img.icon-invert {
       filter: invert(1) brightness(1.8);
     }
@@ -1128,9 +1070,6 @@
       transition: width 1.3s cubic-bezier(.4, 0, .2, 1);
     }
 
-    /* ════════════════════════════════════════
-   PROJECTS
-════════════════════════════════════════ */
     .proj-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(296px, 1fr));
@@ -1165,7 +1104,6 @@
       border-bottom: 1px solid var(--border);
     }
 
-    /* Foto proyek: set background-image:url('ss.jpg');background-size:cover, hapus emoji */
     .proj-thumb-img {
       width: 100%;
       height: 100%;
@@ -1173,7 +1111,6 @@
       display: block;
     }
 
-    /* Subtle shimmer on thumb */
     .proj-thumb::before {
       content: '';
       position: absolute;
@@ -1263,10 +1200,7 @@
     .proj-link:hover {
       color: var(--blue-bright);
     }
-
-    /* ════════════════════════════════════════
-   SERTIFIKAT
-════════════════════════════════════════ */
+   
     .cert-grid {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
@@ -1334,7 +1268,6 @@
       color: var(--muted2);
     }
 
-    /* Overlay */
     .cert-overlay {
       position: absolute;
       inset: 0;
@@ -1405,10 +1338,6 @@
       color: var(--muted2);
     }
 
-    /* ════════════════════════════════════════
-   SOCIAL
-════════════════════════════════════════ */
-    /* ── Social Cards (bento style) ── */
     .soc-grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -1429,7 +1358,6 @@
       cursor: pointer;
     }
 
-    /* Email — span full width */
     .soc-card.soc-full {
       grid-column: 1 / -1;
       min-height: 110px;
@@ -1529,7 +1457,6 @@
       fill: #fff;
     }
 
-    /* legacy unused but keep to avoid breaking anything */
     .soc-ico {
       display: none;
     }
@@ -1538,9 +1465,6 @@
       display: none;
     }
 
-    /* ════════════════════════════════════════
-   GITHUB DASHBOARD
-════════════════════════════════════════ */
     .stats-grid {
       display: grid;
       grid-template-columns: 1fr;
@@ -1561,7 +1485,6 @@
       }
     }
 
-    /* Most Used Languages card */
     .lang-bar-wrap {
       margin-bottom: 18px;
     }
@@ -1662,7 +1585,6 @@
       transform: translateY(-3px);
     }
 
-    /* Card inner header */
     .dc-header {
       display: flex;
       align-items: center;
@@ -1713,7 +1635,6 @@
       letter-spacing: .5px;
     }
 
-    /* Contribution graph */
     .github-graph {
       width: 100%;
       display: flex;
@@ -1773,7 +1694,6 @@
       border-radius: 2px;
     }
 
-    /* Streak card */
     .streak-wrap {
       display: flex;
       justify-content: center;
@@ -1791,11 +1711,6 @@
       overflow: hidden;
     }
 
-
-
-
-
-    /* Contact CTA */
     .cta-box {
       background: linear-gradient(135deg, rgba(139, 92, 246, .07) 0%, rgba(192, 132, 252, .04) 100%);
       border: 1px solid var(--border-lit);
@@ -1850,7 +1765,6 @@
       border-color: var(--blue-bright);
     }
 
-    /* Divider */
     .line-blue {
       width: 48px;
       height: 2px;
@@ -1859,9 +1773,6 @@
       margin: 0 auto 4px;
     }
 
-    /* ════════════════════════════════════════
-   LIGHTBOX
-════════════════════════════════════════ */
     .lightbox {
       position: fixed;
       inset: 0;
@@ -1920,9 +1831,6 @@
       white-space: nowrap;
     }
 
-    /* ════════════════════════════════════════
-   GITHUB UNIFIED CARD
-════════════════════════════════════════ */
     .gh-unified {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -1946,7 +1854,6 @@
       box-shadow: 0 8px 40px rgba(37, 99, 235, .10);
     }
 
-    /* Top header bar */
     .gh-card-header {
       display: flex;
       align-items: center;
@@ -1990,7 +1897,6 @@
       color: #fff;
     }
 
-    /* Block = each sub-section */
     .gh-block {
       padding: 22px 28px;
     }
@@ -2024,7 +1930,6 @@
       margin-bottom: 16px;
     }
 
-    /* Contribution count row */
     .gh-contrib-row {
       display: flex;
       align-items: center;
@@ -2046,7 +1951,6 @@
       font-family: var(--font-m);
     }
 
-    /* Bottom 2-col (streak + lang) */
     .gh-bottom {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -2061,7 +1965,6 @@
       border-left: 1px solid var(--border);
     }
 
-    /* Streak image full width */
     .gh-streak-img {
       width: 100%;
       height: auto;
@@ -2072,7 +1975,6 @@
       object-fit: contain;
     }
 
-    /* Lang content inside unified card */
     .gh-unified .lang-bar-wrap {
       margin-top: 14px;
     }
@@ -2122,11 +2024,6 @@
       }
     }
 
-    /* ════════════════════════════════════════
-   RESPONSIVE
-════════════════════════════════════════ */
-
-    /* ── Tablet ── */
     @media(max-width:1100px) {
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
@@ -2141,15 +2038,12 @@
       }
     }
 
-    /* ── Mobile ── */
     @media(max-width:768px) {
 
-      /* Safe area support for notch/home bar */
       body {
         padding-bottom: env(safe-area-inset-bottom);
       }
 
-      /* Bottom nav — pill/app-style */
       .bottom-nav {
         justify-content: space-around;
         padding: 0 4px;
@@ -2207,7 +2101,6 @@
         padding-bottom: calc(72px + env(safe-area-inset-bottom));
       }
 
-      /* Shell / Sidebar */
       .shell {
         grid-template-columns: 1fr;
       }
@@ -2304,7 +2197,6 @@
         padding: 0 3px;
       }
 
-      /* Topbar */
       .topbar {
         padding: 0 16px;
         padding-top: env(safe-area-inset-top);
@@ -2348,7 +2240,6 @@
         border-radius: 10px;
       }
 
-      /* Section */
       .section {
         padding: 20px 16px;
         gap: 16px;
@@ -2370,7 +2261,6 @@
       }
 
 
-      /* Profile hero — mobile-first layout */
       .prof-hero {
         grid-template-columns: 1fr;
         text-align: center;
@@ -2430,7 +2320,6 @@
         border-radius: 12px;
       }
 
-      /* Stats row */
       .stats-row {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -2453,15 +2342,12 @@
         font-size: 10px;
       }
 
-      /* Cards */
       .card {
         border-radius: 14px;
         padding: 18px 16px;
         overflow: hidden;
-        /* tetap hidden agar stacking context card normal */
       }
 
-      /* Pastikan tombol toggle bisa diklik di atas ::before overlay card */
       .pro-toggle {
         position: relative;
         z-index: 2;
@@ -2473,13 +2359,11 @@
         z-index: 1;
       }
 
-      /* About 2-col */
       .about-2 {
         grid-template-columns: 1fr;
         gap: 12px;
       }
 
-      /* Timeline karier & pendidikan */
       .pro-tl-section {
         grid-template-columns: 1fr;
         gap: 24px;
@@ -2564,13 +2448,10 @@
         font-size: 12px;
       }
 
-      /* tl-grid old (fallback) */
       .tl-grid {
         grid-template-columns: 1fr;
       }
 
-      /* ── FIX: Karier & Pendidikan — teks terpotong ── */
-      /* Ubah flex → block agar teks panjang bisa wrap normal */
       .job-company,
       .job-meta {
         display: block;
@@ -2591,7 +2472,6 @@
         vertical-align: middle;
       }
 
-      /* Pro card body — pastikan semua teks bisa wrap */
       .pro-card-body {
         overflow: hidden;
         overflow-wrap: break-word;
@@ -2604,14 +2484,12 @@
         white-space: normal;
       }
 
-      /* Inline styles pada job-company di HTML juga perlu ini */
       .pro-card-top .pro-card-body>div {
         overflow-wrap: break-word;
         word-break: break-word;
         white-space: normal !important;
       }
 
-      /* Tools */
       .tools-grid {
         grid-template-columns: repeat(auto-fill, minmax(80px, 1fr));
         gap: 10px;
@@ -2638,7 +2516,6 @@
         margin-top: 2px;
       }
 
-      /* Projects */
       .proj-grid {
         grid-template-columns: 1fr;
         gap: 14px;
@@ -2661,7 +2538,6 @@
         border-radius: 14px;
       }
 
-      /* Sertifikat */
       .cert-grid {
         grid-template-columns: repeat(2, 1fr);
         gap: 10px;
@@ -2680,7 +2556,6 @@
         border-radius: 12px;
       }
 
-      /* Dashboard */
       .stats-grid {
         grid-template-columns: 1fr;
         gap: 12px;
@@ -2691,7 +2566,6 @@
         border-radius: 14px;
       }
 
-      /* Social */
       .soc-grid {
         grid-template-columns: 1fr;
         gap: 10px;
@@ -2731,7 +2605,6 @@
         height: 24px;
       }
 
-      /* CTA box */
       .cta-box {
         padding: 28px 20px;
         gap: 12px;
@@ -2753,7 +2626,6 @@
       }
     }
 
-    /* ── Small phones ── */
     @media(max-width:480px) {
       .section {
         padding: 16px 12px;
@@ -2833,7 +2705,6 @@
         font-size: 12px;
       }
 
-      /* Teks karier & pendidikan di layar sangat kecil */
       .pro-job-title {
         font-size: 13px;
       }
@@ -2844,10 +2715,8 @@
       }
     }
 
-    /* ── Touch / Tap enhancements ── */
     @media(hover: none) and (pointer: coarse) {
 
-      /* Remove hover transforms on touch — use tap instead */
       .card:hover,
       .proj-card:hover,
       .pro-tl-item:hover .pro-tl-card,
@@ -2855,7 +2724,6 @@
         transform: none;
       }
 
-      /* Active tap feedback */
       .card:active {
         transform: scale(0.985);
         border-color: var(--border-lit);
@@ -2879,7 +2747,6 @@
         transition: background .1s;
       }
 
-      /* Bigger tap targets */
       .pro-toggle {
         min-height: 44px;
         display: flex;
@@ -2893,7 +2760,6 @@
       }
     }
 
-    /* ── Desktop/Mobile text toggle ── */
     .mob-only {
       display: none;
     }
@@ -2912,7 +2778,6 @@
       }
     }
 
-    /* ── GitHub Contribution Widget (GitHub dark mode clone) ── */
     .gh-widget {
       display: flex;
       flex-direction: column;
@@ -2987,7 +2852,6 @@
       border-radius: 2px;
     }
 
-    /* Scrollbar */
     ::-webkit-scrollbar {
       width: 4px;
     }
@@ -3005,9 +2869,6 @@
       background: rgba(139, 92, 246, .35);
     }
 
-    /* ════════════════════════════════════════
-   TIMELINE (Karier & Pendidikan)
-════════════════════════════════════════ */
     .timeline {
       position: relative;
       margin-top: 10px;
@@ -3133,9 +2994,6 @@
       }
     }
 
-    /* ════════════════════════════════════════
-       LINKEDIN-STYLE JOB CARDS
-    ════════════════════════════════════════ */
     .job-list {
       display: flex;
       flex-direction: column;
@@ -3329,9 +3187,6 @@
       margin-top: 1px;
     }
 
-    /* ════════════════════════════════════════
-       PROFESSIONAL TIMELINE REDESIGN
-    ════════════════════════════════════════ */
     .pro-tl-section {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -3351,7 +3206,6 @@
       gap: 0;
     }
 
-    /* Column header */
     .pro-col-header {
       display: flex;
       align-items: center;
@@ -3403,7 +3257,6 @@
       margin-top: 1px;
     }
 
-    /* Timeline track */
     .pro-tl-track {
       position: relative;
       padding-left: 28px;
@@ -3423,7 +3276,6 @@
       border-radius: 2px;
     }
 
-    /* Individual timeline item */
     .pro-tl-item {
       position: relative;
       padding-bottom: 20px;
@@ -3433,7 +3285,6 @@
       padding-bottom: 0;
     }
 
-    /* Timeline dot */
     .pro-tl-dot {
       position: absolute;
       left: -28px;
@@ -3469,7 +3320,6 @@
       transform: scale(1.2);
     }
 
-    /* Card */
     .pro-tl-card {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -3562,7 +3412,6 @@
       gap: 4px;
     }
 
-    /* Date + badges row */
     .pro-meta-row {
       padding: 10px 18px;
       display: flex;
@@ -3625,7 +3474,6 @@
       border-color: rgba(251, 191, 36, .2);
     }
 
-    /* Expand toggle */
     .pro-toggle {
       width: 100%;
       background: none;
@@ -3664,7 +3512,6 @@
       color: var(--blue-bright);
     }
 
-    /* Detail expand */
     .pro-detail {
       overflow: hidden;
       max-height: 0;
@@ -3716,7 +3563,6 @@
       margin-top: 6px;
     }
 
-    /* Duration label */
     .pro-duration {
       margin-left: auto;
       font-family: var(--font-m);
@@ -3724,9 +3570,6 @@
       color: var(--muted2);
     }
 
-    /* ════════════════════════════════════════
-   UNIFIED CAREER CARD
-════════════════════════════════════════ */
     .career-unified {
       background: var(--bg-card);
       border: 1px solid var(--border);
@@ -3750,7 +3593,6 @@
       box-shadow: 0 8px 40px rgba(37, 99, 235, .08);
     }
 
-    /* Header */
     .career-header {
       display: flex;
       align-items: center;
@@ -3785,7 +3627,6 @@
       white-space: nowrap;
     }
 
-    /* 2-column body */
     .career-body {
       display: grid;
       grid-template-columns: 1fr 1fr;
@@ -3802,7 +3643,6 @@
       border-left: 1px solid var(--border);
     }
 
-    /* Column label */
     .career-col-label {
       font-size: 11px;
       font-weight: 700;
@@ -3830,7 +3670,6 @@
       margin-bottom: 18px;
     }
 
-    /* Job item inside unified card */
     .career-item {
       border: 1px solid var(--border);
       border-radius: 14px;
@@ -3947,7 +3786,6 @@
       border-color: var(--blue-ring);
     }
 
-    /* Toggle button inside career item */
     .career-toggle {
       width: 100%;
       background: none;
@@ -3987,7 +3825,6 @@
       transform: rotate(180deg);
     }
 
-    /* Expand detail */
     .career-detail {
       overflow: hidden;
       max-height: 0;
@@ -4005,7 +3842,6 @@
       border-top: 1px solid var(--border);
     }
 
-    /* Responsive */
     @media (max-width: 900px) {
       .career-body {
         grid-template-columns: 1fr;
@@ -4050,9 +3886,7 @@
         font-size: 12px;
       }
     }
-    /* ════════════════════════════════════════
-   PORTFOLIO FOOTER
-════════════════════════════════════════ */
+    
     .port-footer {
       margin-top: 16px;
       padding: 28px 0 8px;
@@ -4151,7 +3985,6 @@
 
 <body>
 
-  <!-- BG -->
   <div class="bg-atm">
     <div class="orb orb1"></div>
     <div class="orb orb2"></div>
@@ -4160,7 +3993,6 @@
   <div class="bg-dots"></div>
   <div class="bg-noise"></div>
 
-  <!-- LIGHTBOX -->
   <div class="lightbox" id="lightbox" onclick="closeLb(event)">
     <button class="lb-close" onclick="closeLb()">✕</button>
     <img class="lb-img" id="lb-img" src="" alt="">
@@ -4169,7 +4001,6 @@
 
   <div class="shell">
 
-    <!-- ══════════ MAIN ══════════ -->
     <main class="main">
 
       <header class="topbar">
@@ -4184,7 +4015,6 @@
         </div>
       </header>
 
-      <!-- ══ PROFIL ══ -->
       <section id="profile" class="section active">
         <div class="sec-head">
           <div>
@@ -4198,7 +4028,6 @@
             <div class="photo-deco"></div>
             <div class="photo-box">
               <img src="img/Foto Saya.jpg" alt="Foto Profil">
-              <!-- ← Foto: background-image:url('foto.jpg');background-size:cover pada .photo-box, hapus photo-init & photo-hint -->
             </div>
           </div>
           <div>
@@ -4214,7 +4043,6 @@
           </div>
         </div>
 
-        <!-- About 2 col -->
         <div class="about-2">
           <div class="card">
             <div class="c-label">Tentang Saya</div>
@@ -4224,7 +4052,6 @@
               proyek mulai dari startup lokal hingga klien internasional. Saya senang menghadapi tantangan teknis dan
               mengubahnya menjadi solusi yang elegan.
             </p>
-            <!-- ← EDIT: Ganti dengan cerita Anda -->
           </div>
           <div class="card">
             <div class="c-label">Yang Saya Kerjakan</div>
@@ -4248,14 +4075,11 @@
                   aman, dan efisien.</span>
               </div>
             </div>
-            <!-- ← EDIT: Sesuaikan layanan Anda -->
           </div>
         </div>
 
-        <!-- Karier & Pendidikan — Unified Card -->
         <div class="career-unified">
 
-          <!-- Header -->
           <div class="career-header">
             <div>
               <div class="career-header-title">Karier & Pendidikan</div>
@@ -4264,15 +4088,12 @@
             <span class="career-header-badge">2021 – Sekarang</span>
           </div>
 
-          <!-- 2-col body -->
           <div class="career-body">
 
-            <!-- ── Kolom Karier ── -->
             <div class="career-col">
               <div class="career-col-label">Karier Profesional</div>
               <div class="career-col-sub">Pengalaman kerja</div>
 
-              <!-- Job 1: Parto.id -->
               <div class="career-item">
                 <div class="career-item-top">
                   <div class="career-logo">
@@ -4310,7 +4131,6 @@
                 </div>
               </div>
 
-              <!-- Job 2: Freelance -->
               <div class="career-item">
                 <div class="career-item-top">
                   <div class="career-logo">👨‍💻</div>
@@ -4345,12 +4165,10 @@
               </div>
             </div>
 
-            <!-- ── Kolom Pendidikan ── -->
             <div class="career-col">
               <div class="career-col-label">Riwayat Pendidikan</div>
               <div class="career-col-sub">Latar belakang akademik</div>
 
-              <!-- Edu 1: Universitas Terbuka -->
               <div class="career-item">
                 <div class="career-item-top">
                   <div class="career-logo career-logo-edu">
@@ -4371,7 +4189,6 @@
                 </div>
               </div>
 
-              <!-- Edu 2: SMK -->
               <div class="career-item">
                 <div class="career-item-top">
                   <div class="career-logo career-logo-edu">🏫</div>
@@ -4392,7 +4209,6 @@
         </div>
       </section>
 
-      <!-- ══ TOOLS ══ -->
       <section id="tools" class="section">
         <div class="sec-head">
           <div>
@@ -4401,7 +4217,6 @@
           </div>
         </div>
 
-        <!-- FRONTEND -->
         <div class="card">
           <div class="c-label">Frontend</div>
           <div class="tools-grid">
@@ -4487,7 +4302,6 @@
           </div>
         </div>
 
-        <!-- DEVOPS & TOOLS -->
         <div class="card">
           <div class="c-label">DevOps &amp; Tools</div>
           <div class="tools-grid">
@@ -4536,7 +4350,6 @@
           </div>
         </div>
 
-        <!-- AI ASSISTANT -->
         <div class="card">
           <div class="c-label">AI Assistant</div>
           <div class="tools-grid">
@@ -4566,7 +4379,6 @@
 
       </section>
 
-      <!-- ══ PROJECTS ══ -->
       <section id="projects" class="section">
         <div class="sec-head">
           <div>
@@ -4579,81 +4391,16 @@
 
           <div class="proj-card">
             <div class="proj-thumb">
-              🖥️
-              <!-- ← Foto: <img class="proj-thumb-img" src="ss1.jpg" alt=""> + hapus emoji -->
-              <span class="proj-status live">Live</span>
-            </div>
-            <div class="proj-body">
-              <div class="proj-title">Nama Proyek Pertama</div>
-              <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang
-                menarik secara teknis.</p>
-              <div class="proj-tags">
-                <span class="proj-tag">React</span><span class="proj-tag">Node.js</span><span
-                  class="proj-tag">PostgreSQL</span>
-                <!-- ← EDIT: Teknologi yang digunakan -->
-              </div>
-              <div class="proj-links">
-                <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
-                <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
-                <!-- ← EDIT: Ganti href -->
-              </div>
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <div class="proj-thumb">
-              📱
-              <!-- ← Foto: <img class="proj-thumb-img" src="ss2.jpg" alt=""> -->
-              <span class="proj-status live">Live</span>
-            </div>
-            <div class="proj-body">
-              <div class="proj-title">Nama Proyek Kedua</div>
-              <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang
-                menarik secara teknis.</p>
-              <div class="proj-tags">
-                <span class="proj-tag">Vue.js</span><span class="proj-tag">TypeScript</span><span
-                  class="proj-tag">Tailwind</span>
-              </div>
-              <div class="proj-links">
-                <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
-                <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <div class="proj-thumb">
               🛒
-              <!-- ← Foto: <img class="proj-thumb-img" src="ss3.jpg" alt=""> -->
               <span class="proj-status wip">In Progress</span>
             </div>
             <div class="proj-body">
-              <div class="proj-title">Nama Proyek Ketiga</div>
+              <div class="proj-title">Nama Proyek </div>
               <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang
                 menarik secara teknis.</p>
               <div class="proj-tags">
-                <span class="proj-tag">Next.js</span><span class="proj-tag">MongoDB</span><span
-                  class="proj-tag">Docker</span>
-              </div>
-              <div class="proj-links">
-                <a href="#" class="proj-link" target="_blank">🐙 Source Code</a>
-              </div>
-            </div>
-          </div>
-
-          <div class="proj-card">
-            <div class="proj-thumb">
-              📊
-              <!-- ← Foto: <img class="proj-thumb-img" src="ss4.jpg" alt=""> -->
-              <span class="proj-status live">Live</span>
-            </div>
-            <div class="proj-body">
-              <div class="proj-title">Nama Proyek Keempat</div>
-              <p class="proj-desc">Deskripsi singkat proyek — masalah yang diselesaikan, siapa penggunanya, dan apa yang
-                menarik secara teknis.</p>
-              <div class="proj-tags">
-                <span class="proj-tag">Python</span><span class="proj-tag">FastAPI</span><span
-                  class="proj-tag">AWS</span>
+                <span class="proj-tag">Html</span><span class="proj-tag">CSS</span><span
+                  class="proj-tag">Js</span>
               </div>
               <div class="proj-links">
                 <a href="#" class="proj-link" target="_blank">🔗 Live Demo</a>
@@ -4661,12 +4408,9 @@
               </div>
             </div>
           </div>
-
         </div>
-        <!-- ← EDIT: Tambah proj-card sesuai kebutuhan -->
       </section>
 
-      <!-- ══ SERTIFIKAT ══ -->
       <section id="achievement" class="section">
         <div class="sec-head">
           <div>
@@ -4681,7 +4425,6 @@
 
           <div class="cert-card">
             <div class="cert-img" onclick="openLb(this)">
-              <!-- <img src="sertifikat/cert1.jpg" alt="Nama Sertifikat"> -->
               <div class="cert-ph">
                 <div class="cert-ph-ico">🏆</div>
                 <div class="cert-ph-txt">None</div>
@@ -4692,12 +4435,9 @@
             </div>
             <div class="cert-body">
               <div class="cert-issuer">None · None</div>
-              <!-- ← EDIT: Lembaga -->
               <div class="cert-title">None</div>
-              <!-- ← EDIT: Nama sertifikat -->
               <div class="cert-footer">
                 <span class="cert-year">None</span>
-                <!-- ← EDIT: Tahun -->
                 <span class="cert-type">None</span>
               </div>
             </div>
@@ -4706,7 +4446,6 @@
         </div>
       </section>
 
-      <!-- ══ DASHBOARD ══ -->
       <section id="dashboard" class="section">
         <div class="sec-head">
           <div>
@@ -4715,10 +4454,8 @@
           </div>
         </div>
 
-        <!-- ── Unified GitHub Card ── -->
         <div class="gh-unified">
 
-          <!-- Card Header -->
           <div class="gh-card-header">
             <div>
               <div class="gh-card-title">GitHub Activity Overview</div>
@@ -4727,12 +4464,10 @@
             <a href="https://github.com/TohaRizalahmad" target="_blank" class="gh-card-badge">@TohaRizalahmad ↗</a>
           </div>
 
-          <!-- Block 1: Contribution Graph -->
           <div class="gh-block">
             <div class="gh-block-title">Contribution Graph</div>
             <div class="gh-block-sub">Aktivitas commit harian di GitHub</div>
 
-            <!-- Contribution count -->
             <div class="gh-contrib-row">
               <span id="gh-count" class="gh-contrib-count">— contributions in the last year</span>
               <div class="graph-legend">
@@ -4746,13 +4481,10 @@
               </div>
             </div>
 
-            <!-- Graph widget box -->
             <div class="gh-widget-box">
-              <!-- Month row -->
               <div style="display:flex;padding-left:32px;">
                 <div id="gh-months" style="position:relative;flex:1;height:20px;"></div>
               </div>
-              <!-- Grid: day labels + canvas -->
               <div style="display:flex;align-items:flex-start;gap:0;">
                 <div id="gh-day-labels"
                   style="display:flex;flex-direction:column;min-width:32px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;flex-shrink:0;">
@@ -4761,7 +4493,6 @@
                   <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
                 </div>
               </div>
-              <!-- Footer -->
               <div class="gh-widget-footer" style="padding-top:12px;">
                 <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"
                   target="_blank" class="gh-footer-link">Learn how we count contributions</a>
@@ -4770,10 +4501,8 @@
             </div>
           </div>
 
-          <!-- Block 2 + 3: Streak & Languages side by side -->
           <div class="gh-bottom">
 
-            <!-- Streak & Stats -->
             <div class="gh-bottom-col">
               <div class="gh-block-title">Streak & Stats</div>
               <div class="gh-block-sub">Streak commit & total kontribusi</div>
@@ -4784,7 +4513,6 @@
                 onerror="this.style.opacity='0.5';this.alt='Streak tidak dapat dimuat';">
             </div>
 
-            <!-- Most Used Languages -->
             <div class="gh-bottom-col">
               <div class="gh-block-title">Most Used Languages</div>
               <div class="gh-block-sub">Berdasarkan repository publik</div>
