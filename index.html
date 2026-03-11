@@ -1934,6 +1934,201 @@
     }
 
     /* ════════════════════════════════════════
+   GITHUB UNIFIED CARD
+════════════════════════════════════════ */
+    .gh-unified {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color .3s, box-shadow .3s;
+    }
+
+    .gh-unified::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .04) 0%, transparent 55%);
+      pointer-events: none;
+      border-radius: 20px;
+    }
+
+    .gh-unified:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 8px 40px rgba(37, 99, 235, .10);
+    }
+
+    /* Top header bar */
+    .gh-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .gh-card-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .gh-card-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      margin-top: 2px;
+    }
+
+    .gh-card-badge {
+      font-family: var(--font-m);
+      font-size: 10px;
+      color: var(--blue-bright);
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    /* Block = each sub-section */
+    .gh-block {
+      padding: 22px 28px;
+    }
+
+    .gh-block + .gh-block {
+      border-top: 1px solid var(--border);
+    }
+
+    .gh-block-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--blue-bright);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-m);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .gh-block-title::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-lit), transparent);
+    }
+
+    .gh-block-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      margin-bottom: 16px;
+    }
+
+    /* Contribution count row */
+    .gh-contrib-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 14px;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .gh-contrib-count {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text);
+    }
+
+    .gh-contrib-label {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+    }
+
+    /* Bottom 2-col (streak + lang) */
+    .gh-bottom {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--border);
+    }
+
+    .gh-bottom-col {
+      padding: 22px 28px;
+    }
+
+    .gh-bottom-col + .gh-bottom-col {
+      border-left: 1px solid var(--border);
+    }
+
+    /* Streak image full width */
+    .gh-streak-img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin-top: 14px;
+      min-height: 120px;
+      object-fit: contain;
+    }
+
+    /* Lang content inside unified card */
+    .gh-unified .lang-bar-wrap {
+      margin-top: 14px;
+    }
+
+    .gh-unified .lang-list {
+      margin-top: 14px;
+    }
+
+    @media (max-width: 768px) {
+      .gh-card-header {
+        padding: 18px 18px 14px;
+      }
+
+      .gh-block {
+        padding: 18px 18px;
+      }
+
+      .gh-bottom {
+        grid-template-columns: 1fr;
+      }
+
+      .gh-bottom-col {
+        padding: 18px 18px;
+      }
+
+      .gh-bottom-col + .gh-bottom-col {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+
+      .gh-card-title {
+        font-size: 14px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .gh-card-header {
+        padding: 14px 14px 12px;
+      }
+
+      .gh-block {
+        padding: 14px 14px;
+      }
+
+      .gh-bottom-col {
+        padding: 14px 14px;
+      }
+    }
+
+    /* ════════════════════════════════════════
    RESPONSIVE
 ════════════════════════════════════════ */
 
@@ -4135,96 +4330,79 @@
           <div class="sec-chip">// Activity</div>
         </div>
 
-        <div class="stats-grid">
+        <!-- ── Unified GitHub Card ── -->
+        <div class="gh-unified">
 
-          <!-- Activity Graph Card -->
-          <div class="dash-card">
-            <div class="dc-header">
-              <div class="dc-title-wrap">
-                <div class="dc-icon">📊</div>
-                <div>
-                  <div class="dc-title">Contribution Graph</div>
-                  <div class="dc-sub">Aktivitas commit harian di GitHub</div>
-                </div>
-              </div>
-              <span class="dc-badge">// 2025–2026</span>
+          <!-- Card Header -->
+          <div class="gh-card-header">
+            <div>
+              <div class="gh-card-title">GitHub Activity Overview</div>
+              <div class="gh-card-sub">Data real-time dari repository publik · TohaRizalahmad</div>
             </div>
-            <!-- GitHub-style contribution widget -->
-            <div class="gh-widget">
-              <!-- Header: contribution count -->
-              <div class="gh-widget-header">
-                <span id="gh-count" class="gh-count-text">— contributions in the last year</span>
-                <span class="gh-settings-link">Contribution Graph</span>
+            <span class="gh-card-badge">2025 – 2026</span>
+          </div>
+
+          <!-- Block 1: Contribution Graph -->
+          <div class="gh-block">
+            <div class="gh-block-title">Contribution Graph</div>
+            <div class="gh-block-sub">Aktivitas commit harian di GitHub</div>
+
+            <!-- Contribution count -->
+            <div class="gh-contrib-row">
+              <span id="gh-count" class="gh-contrib-count">— contributions in the last year</span>
+              <div class="graph-legend">
+                <span class="gh-contrib-label">Less</span>
+                <div class="legend-box" style="background:#161b22;border:1px solid #30363d;"></div>
+                <div class="legend-box" style="background:#0e4429;"></div>
+                <div class="legend-box" style="background:#006d32;"></div>
+                <div class="legend-box" style="background:#26a641;"></div>
+                <div class="legend-box" style="background:#39d353;"></div>
+                <span class="gh-contrib-label">More</span>
               </div>
-              <!-- Inner bordered box (persis GitHub) -->
-              <div class="gh-widget-box">
-                <!-- Month row -->
-                <div style="display:flex;padding-left:32px;">
-                  <div id="gh-months" style="position:relative;flex:1;height:20px;"></div>
+            </div>
+
+            <!-- Graph widget box -->
+            <div class="gh-widget-box">
+              <!-- Month row -->
+              <div style="display:flex;padding-left:32px;">
+                <div id="gh-months" style="position:relative;flex:1;height:20px;"></div>
+              </div>
+              <!-- Grid: day labels + canvas -->
+              <div style="display:flex;align-items:flex-start;gap:0;">
+                <div id="gh-day-labels"
+                  style="display:flex;flex-direction:column;min-width:32px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;flex-shrink:0;">
                 </div>
-                <!-- Grid area: day labels + canvas -->
-                <div style="display:flex;align-items:flex-start;gap:0;">
-                  <!-- Day labels: hanya Mon/Wed/Fri -->
-                  <div id="gh-day-labels"
-                    style="display:flex;flex-direction:column;min-width:32px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;flex-shrink:0;">
-                  </div>
-                  <!-- Canvas -->
-                  <div style="flex:1;overflow-x:auto;overflow-y:hidden;" id="gh-canvas-wrap">
-                    <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
-                  </div>
+                <div style="flex:1;overflow-x:auto;overflow-y:hidden;" id="gh-canvas-wrap">
+                  <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
                 </div>
-                <!-- Footer -->
-                <div class="gh-widget-footer">
-                  <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"
-                    target="_blank" class="gh-footer-link">Learn how we count contributions</a>
-                  <div class="graph-legend">
-                    <span>Less</span>
-                    <div class="legend-box" style="background:#161b22;border:1px solid #30363d;"></div>
-                    <div class="legend-box" style="background:#0e4429;"></div>
-                    <div class="legend-box" style="background:#006d32;"></div>
-                    <div class="legend-box" style="background:#26a641;"></div>
-                    <div class="legend-box" style="background:#39d353;"></div>
-                    <span>More</span>
-                  </div>
-                </div>
+              </div>
+              <!-- Footer -->
+              <div class="gh-widget-footer" style="padding-top:12px;">
+                <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"
+                  target="_blank" class="gh-footer-link">Learn how we count contributions</a>
+                <a href="https://github.com/TohaRizalahmad" target="_blank" class="gh-footer-link">github.com/TohaRizalahmad ↗</a>
               </div>
             </div>
           </div>
 
-          <!-- Streak + Languages Row -->
-          <div class="stats-row">
+          <!-- Block 2 + 3: Streak & Languages side by side -->
+          <div class="gh-bottom">
 
-            <!-- Streak Stats Card -->
-            <div class="dash-card">
-              <div class="dc-header">
-                <div class="dc-title-wrap">
-                  <div class="dc-icon">🔥</div>
-                  <div>
-                    <div class="dc-title">Streak & Stats</div>
-                    <div class="dc-sub">Streak commit & total kontribusi</div>
-                  </div>
-                </div>
-                <span class="dc-badge">// Live</span>
-              </div>
-              <div class="streak-wrap">
-                <img
-                  src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0d1117&ring=1f6feb&fire=ff6b35&currStreakLabel=58a6ff&sideLabels=58a6ff&dates=8b949e&stroke=30363d"
-                  alt="GitHub Streak Stats" loading="lazy"
-                  onerror="this.onerror=null;this.src='https://github-readme-activity-graph.vercel.app/graph?username=TohaRizalahmad&bg_color=0d1117&color=58a6ff&line=1f6feb&point=58a6ff&hide_border=true';this.style.opacity='0.6'">
-              </div>
+            <!-- Streak & Stats -->
+            <div class="gh-bottom-col">
+              <div class="gh-block-title">Streak & Stats</div>
+              <div class="gh-block-sub">Streak commit & total kontribusi</div>
+              <img class="gh-streak-img"
+                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0D1525&ring=2563EB&fire=60A5FA&currStreakLabel=60A5FA&sideLabels=60A5FA&dates=64748B&stroke=1e293b"
+                alt="GitHub Streak Stats"
+                loading="lazy"
+                onerror="this.style.opacity='0.5';this.alt='Streak tidak dapat dimuat';">
             </div>
 
-            <div class="dash-card">
-              <div class="dc-header">
-                <div class="dc-title-wrap">
-                  <div class="dc-icon">💻</div>
-                  <div>
-                    <div class="dc-title">Most Used Languages</div>
-                    <div class="dc-sub">Berdasarkan repository publik</div>
-                  </div>
-                </div>
-                <span class="dc-badge">// GitHub</span>
-              </div>
+            <!-- Most Used Languages -->
+            <div class="gh-bottom-col">
+              <div class="gh-block-title">Most Used Languages</div>
+              <div class="gh-block-sub">Berdasarkan repository publik</div>
               <div id="lang-content">
                 <div class="lang-loading">
                   <div class="lang-spinner"></div>
