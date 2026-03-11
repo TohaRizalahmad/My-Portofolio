@@ -1992,6 +1992,15 @@
       border-radius: 20px;
       letter-spacing: .5px;
       white-space: nowrap;
+      text-decoration: none;
+      transition: background .2s, border-color .2s, color .2s;
+      flex-shrink: 0;
+    }
+
+    .gh-card-badge:hover {
+      background: rgba(37, 99, 235, .22);
+      border-color: var(--blue-bright);
+      color: #fff;
     }
 
     /* Block = each sub-section */
@@ -2004,12 +2013,10 @@
     }
 
     .gh-block-title {
-      font-size: 12px;
+      font-size: 13px;
       font-weight: 700;
-      color: var(--blue-bright);
-      letter-spacing: 2px;
-      text-transform: uppercase;
-      font-family: var(--font-m);
+      color: var(--text);
+      letter-spacing: -.2px;
       margin-bottom: 4px;
       display: flex;
       align-items: center;
@@ -3733,6 +3740,333 @@
       font-size: 10px;
       color: var(--muted2);
     }
+
+    /* ════════════════════════════════════════
+   UNIFIED CAREER CARD
+════════════════════════════════════════ */
+    .career-unified {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      overflow: hidden;
+      position: relative;
+      transition: border-color .3s, box-shadow .3s;
+    }
+
+    .career-unified::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(37, 99, 235, .04) 0%, transparent 55%);
+      pointer-events: none;
+      border-radius: 20px;
+    }
+
+    .career-unified:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 8px 40px rgba(37, 99, 235, .08);
+    }
+
+    /* Header */
+    .career-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .career-header-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.3px;
+    }
+
+    .career-header-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      margin-top: 2px;
+    }
+
+    .career-header-badge {
+      font-family: var(--font-m);
+      font-size: 10px;
+      color: var(--blue-bright);
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: .5px;
+      white-space: nowrap;
+    }
+
+    /* 2-column body */
+    .career-body {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .career-col {
+      padding: 22px 28px;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+
+    .career-col + .career-col {
+      border-left: 1px solid var(--border);
+    }
+
+    /* Column label */
+    .career-col-label {
+      font-size: 11px;
+      font-weight: 700;
+      color: var(--blue-bright);
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      font-family: var(--font-m);
+      margin-bottom: 4px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .career-col-label::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--border-lit), transparent);
+    }
+
+    .career-col-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      margin-bottom: 18px;
+    }
+
+    /* Job item inside unified card */
+    .career-item {
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      background: rgba(255,255,255,.01);
+      transition: border-color .25s, box-shadow .2s;
+      margin-bottom: 12px;
+    }
+
+    .career-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .career-item:hover {
+      border-color: var(--border-glow);
+      box-shadow: 0 4px 20px rgba(37, 99, 235, .08);
+    }
+
+    .career-item-top {
+      padding: 16px 16px 14px;
+      display: flex;
+      gap: 12px;
+      align-items: flex-start;
+    }
+
+    .career-logo {
+      width: 44px;
+      height: 44px;
+      border-radius: 10px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 20px;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .career-logo img {
+      width: 80%;
+      height: 80%;
+      object-fit: contain;
+    }
+
+    .career-logo-edu {
+      background: rgba(16, 185, 129, .08);
+      border-color: rgba(16, 185, 129, .22);
+    }
+
+    .career-info {
+      flex: 1;
+      min-width: 0;
+    }
+
+    .career-job-title {
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -.15px;
+      line-height: 1.3;
+      margin-bottom: 3px;
+      overflow-wrap: break-word;
+    }
+
+    .career-company {
+      font-size: 11px;
+      color: var(--blue-bright);
+      font-weight: 600;
+      margin-bottom: 5px;
+      overflow-wrap: break-word;
+      word-break: break-word;
+      white-space: normal;
+      line-height: 1.5;
+    }
+
+    .career-company-edu {
+      color: #34d399;
+    }
+
+    .career-meta {
+      font-size: 10px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      align-items: center;
+    }
+
+    .career-badge {
+      font-size: 9px;
+      font-family: var(--font-m);
+      padding: 2px 7px;
+      border-radius: 20px;
+      border: 1px solid;
+    }
+
+    .cbadge-blue {
+      color: var(--blue-bright);
+      background: var(--blue-dim);
+      border-color: var(--blue-ring);
+    }
+
+    .cbadge-gray {
+      color: var(--muted);
+      background: rgba(255,255,255,.04);
+      border-color: var(--border-lit);
+    }
+
+    .cbadge-green {
+      color: #34d399;
+      background: rgba(16, 185, 129, .08);
+      border-color: rgba(16, 185, 129, .2);
+    }
+
+    /* Toggle button inside career item */
+    .career-toggle {
+      width: 100%;
+      background: none;
+      border: none;
+      border-top: 1px solid var(--border);
+      color: var(--muted2);
+      font-size: 10px;
+      font-family: var(--font-m);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 8px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color .2s, background .2s;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+    }
+
+    .career-toggle:hover {
+      color: var(--blue-bright);
+      background: var(--blue-glow);
+    }
+
+    .career-toggle.open {
+      color: var(--blue-bright);
+    }
+
+    .career-toggle svg {
+      width: 13px;
+      height: 13px;
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+
+    .career-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
+    /* Expand detail */
+    .career-detail {
+      overflow: hidden;
+      max-height: 0;
+      opacity: 0;
+      transition: max-height .4s ease, opacity .3s ease;
+    }
+
+    .career-detail.open {
+      max-height: 500px;
+      opacity: 1;
+    }
+
+    .career-detail-inner {
+      padding: 12px 16px 14px;
+      border-top: 1px solid var(--border);
+    }
+
+    /* Responsive */
+    @media (max-width: 900px) {
+      .career-body {
+        grid-template-columns: 1fr;
+      }
+
+      .career-col + .career-col {
+        border-left: none;
+        border-top: 1px solid var(--border);
+      }
+    }
+
+    @media (max-width: 768px) {
+      .career-header {
+        padding: 18px 18px 14px;
+      }
+
+      .career-col {
+        padding: 18px 18px;
+      }
+
+      .career-item-top {
+        padding: 14px 14px 12px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .career-header {
+        padding: 14px 14px 12px;
+      }
+
+      .career-col {
+        padding: 14px 14px;
+      }
+
+      .career-logo {
+        width: 38px;
+        height: 38px;
+        font-size: 17px;
+      }
+
+      .career-job-title {
+        font-size: 12px;
+      }
+    }
   </style>
 </head>
 
@@ -3840,166 +4174,143 @@
           </div>
         </div>
 
-        <!-- Karier & Pendidikan — Individual Cards -->
-        <div class="about-2">
+        <!-- Karier & Pendidikan — Unified Card -->
+        <div class="career-unified">
 
-          <!-- ── KARIER PROFESIONAL ── -->
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div class="c-label" style="margin-left:10px;">Karier Profesional</div>
+          <!-- Header -->
+          <div class="career-header">
+            <div>
+              <div class="career-header-title">Karier & Pendidikan</div>
+              <div class="career-header-sub">Pengalaman profesional &amp; riwayat pendidikan</div>
+            </div>
+            <span class="career-header-badge">2021 – Sekarang</span>
+          </div>
 
-            <!-- Job 1 -->
-            <div class="card">
-              <div class="pro-item">
-                <div class="pro-card-top" style="padding:0; margin-bottom:12px;">
-                  <div class="pro-logo">
-                    <img src="https://jabar.parto.id/asset/logo/LOGO_MASTER_COLOR-01.png" alt="Parto.id"
-                      style="width: 80%; height: 80%; object-fit: contain;">
+          <!-- 2-col body -->
+          <div class="career-body">
+
+            <!-- ── Kolom Karier ── -->
+            <div class="career-col">
+              <div class="career-col-label">Karier Profesional</div>
+              <div class="career-col-sub">Pengalaman kerja</div>
+
+              <!-- Job 1: Parto.id -->
+              <div class="career-item">
+                <div class="career-item-top">
+                  <div class="career-logo">
+                    <img src="https://jabar.parto.id/asset/logo/LOGO_MASTER_COLOR-01.png" alt="Parto.id">
                   </div>
-                  <div class="pro-card-body">
-                    <div class="pro-job-title">Backend Golang Developer</div>
-                    <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      <span class="desk-only">PT. Affan Technology Indonesia (Parto.id) <span
-                          style="color:var(--muted2);opacity:0.5;">•</span> Jambi, Indonesia 🇮🇩</span>
-                      <span class="mob-only">Parto.id · Jambi 🇮🇩</span>
-                    </div>
-                    <div class="job-meta"
-                      style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                  <div class="career-info">
+                    <div class="career-job-title">Backend Golang Developer</div>
+                    <div class="career-company">PT. Affan Technology Indonesia (Parto.id)</div>
+                    <div class="career-meta">
                       Jul 2025 – Sep 2025
-                      <span class="sep">•</span>
+                      <span>•</span>
                       2 bulan
-                      <span class="sep">•</span>
-                      <span class="job-badge badge-blue">Internship</span>
-                      <span class="job-badge badge-gray">Hybrid</span>
+                      <span>•</span>
+                      Jambi 🇮🇩
+                      <span class="career-badge cbadge-blue">Internship</span>
+                      <span class="career-badge cbadge-gray">Hybrid</span>
                     </div>
                   </div>
                 </div>
-                <button class="pro-toggle" onclick="proToggle(this)"
-                  style="border: 1px solid var(--border);border-radius:10px;margin-top:4px;">
+                <button class="career-toggle" onclick="careerToggle(this)">
                   <span>Lihat Detail Pekerjaan</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="m6 9 6 6 6-6" />
+                    <path d="m6 9 6 6 6-6"/>
                   </svg>
                 </button>
-                <div class="pro-detail">
-                  <div class="pro-detail-inner" style="border-top:none;padding:12px 4px 0;">
+                <div class="career-detail">
+                  <div class="career-detail-inner">
                     <div class="pro-task-label">Tanggung Jawab</div>
                     <div class="pro-task-list">
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Developed and maintained backend
-                          services using Golang for Parto.id's internal attendance application.</span></div>
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Implemented efficient data
-                          handling and secure API integrations to support daily attendance workflows.</span></div>
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Collaborated with frontend and
-                          product teams to ensure smooth functionality and seamless user experience.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Developed and maintained backend services using Golang for Parto.id's internal attendance application.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Implemented efficient data handling and secure API integrations to support daily attendance workflows.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Collaborated with frontend and product teams to ensure smooth functionality and seamless user experience.</span></div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Job 2 -->
-            <div class="card">
-              <div class="pro-item">
-                <div class="pro-card-top" style="padding:0; margin-bottom:12px;">
-                  <div class="pro-logo">👨‍💻</div>
-                  <div class="pro-card-body">
-                    <div class="pro-job-title">Freelance Web Developer</div>
-                    <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      <span class="desk-only">Berbagai Klien <span style="color:var(--muted2);opacity:0.5;">•</span>
-                        Remote 🌐</span>
-                      <span class="mob-only">Berbagai Klien · Remote 🌐</span>
-                    </div>
-                    <div class="job-meta"
-                      style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <!-- Job 2: Freelance -->
+              <div class="career-item">
+                <div class="career-item-top">
+                  <div class="career-logo">👨‍💻</div>
+                  <div class="career-info">
+                    <div class="career-job-title">Freelance Web Developer</div>
+                    <div class="career-company">Berbagai Klien</div>
+                    <div class="career-meta">
                       2024 – Sekarang
-                      <span class="sep">•</span>
-                      <span class="job-badge badge-blue">Freelance</span>
-                      <span class="job-badge badge-gray">Remote</span>
+                      <span>•</span>
+                      Remote 🌐
+                      <span class="career-badge cbadge-blue">Freelance</span>
+                      <span class="career-badge cbadge-gray">Remote</span>
                     </div>
                   </div>
                 </div>
-                <button class="pro-toggle" onclick="proToggle(this)"
-                  style="border: 1px solid var(--border);border-radius:10px;margin-top:4px;">
+                <button class="career-toggle" onclick="careerToggle(this)">
                   <span>Lihat Detail Pekerjaan</span>
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="m6 9 6 6 6-6" />
+                    <path d="m6 9 6 6 6-6"/>
                   </svg>
                 </button>
-                <div class="pro-detail">
-                  <div class="pro-detail-inner" style="border-top:none;padding:12px 4px 0;">
+                <div class="career-detail">
+                  <div class="career-detail-inner">
                     <div class="pro-task-label">Tanggung Jawab</div>
                     <div class="pro-task-list">
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Membangun website portofolio,
-                          company profile, dan landing page untuk berbagai klien.</span></div>
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Mengembangkan antarmuka responsif
-                          menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.</span></div>
-                      <div class="pro-task"><span class="pro-task-dot"></span><span>Melakukan deployment ke Vercel dan
-                          Netlify serta konfigurasi domain Niagahoster.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Membangun website portofolio, company profile, dan landing page untuk berbagai klien.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Mengembangkan antarmuka responsif menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.</span></div>
+                      <div class="pro-task"><span class="pro-task-dot"></span><span>Melakukan deployment ke Vercel dan Netlify serta konfigurasi domain Niagahoster.</span></div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
-          <!-- ── RIWAYAT PENDIDIKAN ── -->
-          <div style="display:flex;flex-direction:column;gap:14px;">
-            <div class="c-label" style="margin-left:10px;">Riwayat Pendidikan</div>
+            <!-- ── Kolom Pendidikan ── -->
+            <div class="career-col">
+              <div class="career-col-label">Riwayat Pendidikan</div>
+              <div class="career-col-sub">Latar belakang akademik</div>
 
-            <!-- Edu 1 -->
-            <div class="card">
-              <div class="pro-item">
-                <div class="pro-card-top" style="padding:0;">
-                  <div class="pro-logo pro-logo-edu">
-                    <img
-                      src="https://dnlbo7fgjcc7f.cloudfront.net/cpkhe-rzykd2ili8buc70/image/upload/7hREJy8ayY/LOGO-UT-BULAT.png"
-                      alt="Universitas Terbuka" style="width: 80%; height: 80%; object-fit: contain;">
+              <!-- Edu 1: Universitas Terbuka -->
+              <div class="career-item">
+                <div class="career-item-top">
+                  <div class="career-logo career-logo-edu">
+                    <img src="https://dnlbo7fgjcc7f.cloudfront.net/cpkhe-rzykd2ili8buc70/image/upload/7hREJy8ayY/LOGO-UT-BULAT.png" alt="Universitas Terbuka">
                   </div>
-                  <div class="pro-card-body">
-                    <div class="pro-job-title">Universitas Terbuka</div>
-                    <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      <span class="desk-only">Bachelor's Degree <span style="color:var(--muted2);opacity:0.5;">•</span>
-                        Information Systems (S.Kom) <span style="color:var(--muted2);opacity:0.5;">•</span> GPA:
-                        3.80/4.00</span>
-                      <span class="mob-only">S.Kom – Sistem Informasi · GPA 3.80</span>
-                    </div>
-                    <div class="job-meta"
-                      style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+                  <div class="career-info">
+                    <div class="career-job-title">Universitas Terbuka</div>
+                    <div class="career-company career-company-edu">Bachelor's Degree · Sistem Informasi (S.Kom)</div>
+                    <div class="career-meta">
                       2025 – Sekarang
-                      <span class="sep">•</span>
-                      <span class="desk-only">Lampung Tengah, Indonesia 🇮🇩 <span class="sep">•</span></span>
-                      <span class="mob-only">Lampung 🇮🇩 ·</span>
-                      <span class="job-badge badge-blue">● Aktif</span>
+                      <span>•</span>
+                      GPA 3.80/4.00
+                      <span>•</span>
+                      Lampung 🇮🇩
+                      <span class="career-badge cbadge-green">● Aktif</span>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
 
-            <!-- Edu 2 -->
-            <div class="card">
-              <div class="pro-item">
-                <div class="pro-card-top" style="padding:0;">
-                  <div class="pro-logo pro-logo-edu">🏫</div>
-                  <div class="pro-card-body">
-                    <div class="pro-job-title">SMK AL-FALAH RUMBIA</div>
-                    <div class="job-company" style="font-size:12px;color:var(--blue-bright);margin-bottom:4px;">
-                      <span class="desk-only">Senior High School <span style="color:var(--muted2);opacity:0.5;">•</span>
-                        Office Administration and Business Services</span>
-                      <span class="mob-only">SMK · Adm. Perkantoran</span>
-                    </div>
-                    <div class="job-meta"
-                      style="font-size:11px;color:var(--muted2);display:flex;gap:8px;flex-wrap:wrap;align-items:center;">
+              <!-- Edu 2: SMK -->
+              <div class="career-item">
+                <div class="career-item-top">
+                  <div class="career-logo career-logo-edu">🏫</div>
+                  <div class="career-info">
+                    <div class="career-job-title">SMK AL-FALAH RUMBIA</div>
+                    <div class="career-company career-company-edu">Senior High School · Administrasi Perkantoran</div>
+                    <div class="career-meta">
                       2021 – 2025
-                      <span class="sep">•</span>
-                      <span class="desk-only">Lampung Tengah, Indonesia 🇮🇩</span>
-                      <span class="mob-only">Lampung 🇮🇩</span>
+                      <span>•</span>
+                      Lampung Tengah 🇮🇩
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-          </div>
 
+          </div>
         </div>
       </section>
 
@@ -4339,7 +4650,7 @@
               <div class="gh-card-title">GitHub Activity Overview</div>
               <div class="gh-card-sub">Data real-time dari repository publik · TohaRizalahmad</div>
             </div>
-            <span class="gh-card-badge">2025 – 2026</span>
+            <a href="https://github.com/TohaRizalahmad" target="_blank" class="gh-card-badge">@TohaRizalahmad ↗</a>
           </div>
 
           <!-- Block 1: Contribution Graph -->
@@ -4587,6 +4898,16 @@
     }
 
     function proToggle(btn) {
+      const detail = btn.nextElementSibling;
+      if (!detail) return;
+      const isOpen = detail.classList.contains('open');
+      detail.classList.toggle('open');
+      btn.classList.toggle('open');
+      const label = btn.querySelector('span');
+      if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
+    }
+
+    function careerToggle(btn) {
       const detail = btn.nextElementSibling;
       if (!detail) return;
       const isOpen = detail.classList.contains('open');
