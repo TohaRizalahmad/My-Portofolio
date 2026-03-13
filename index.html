@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="id">
 
 <head>
@@ -4488,14 +4488,15 @@
             </div>
 
             <div class="gh-widget-box">
-              <div style="display:flex;padding-left:32px;">
-                <div id="gh-months" style="position:relative;flex:1;height:20px;"></div>
-              </div>
               <div style="display:flex;align-items:flex-start;gap:0;">
-                <div id="gh-day-labels"
-                  style="display:flex;flex-direction:column;min-width:32px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;flex-shrink:0;">
+                <div style="display:flex;flex-direction:column;min-width:32px;flex-shrink:0;">
+                  <div style="height:20px;"></div>
+                  <div id="gh-day-labels"
+                    style="display:flex;flex-direction:column;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;">
+                  </div>
                 </div>
-                <div style="flex:1;overflow-x:auto;overflow-y:hidden;" id="gh-canvas-wrap">
+                <div style="flex:1;overflow-x:auto;overflow-y:hidden;padding-bottom:12px;" id="gh-canvas-wrap">
+                  <div id="gh-months" style="position:relative;height:20px;"></div>
                   <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
                 </div>
               </div>
@@ -4952,6 +4953,14 @@
               s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
               monthsEl.appendChild(s);
             }
+          });
+        }
+        
+        const wrap = document.getElementById('gh-canvas-wrap');
+        if (wrap) {
+          // ensure it scrolls to the very end
+          requestAnimationFrame(() => {
+            wrap.scrollLeft = wrap.scrollWidth;
           });
         }
       }
