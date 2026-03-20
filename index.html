@@ -628,7 +628,7 @@
 
     .sec-head {
       display: flex;
-      align-items: flex-start;
+      align-items: flex-end;
       justify-content: space-between;
       padding-bottom: 20px;
       border-bottom: 1px solid var(--border);
@@ -637,28 +637,35 @@
 
     .sec-eyebrow {
       font-family: var(--font-m);
-      font-size: 9px;
-      letter-spacing: 3px;
+      font-size: 10px;
+      letter-spacing: 2px;
       text-transform: uppercase;
       color: var(--blue-bright);
-      margin-bottom: 8px;
-      display: flex;
+      margin-bottom: 10px;
+      display: inline-flex;
       align-items: center;
       gap: 8px;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      padding: 4px 12px 4px 10px;
+      border-radius: 20px;
+      width: fit-content;
     }
 
     .sec-eyebrow::before {
       content: '';
-      width: 20px;
-      height: 1px;
-      background: linear-gradient(90deg, var(--blue), transparent);
+      width: 6px;
+      height: 6px;
+      border-radius: 50%;
+      background: var(--blue-bright);
+      flex-shrink: 0;
     }
 
     .sec-title {
-      font-size: 36px;
+      font-size: 30px;
       font-weight: 800;
-      line-height: 1.1;
-      letter-spacing: -1.2px;
+      line-height: 1.15;
+      letter-spacing: -1px;
       color: var(--text);
     }
 
@@ -668,6 +675,15 @@
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
+    }
+
+    .sec-head-desc {
+      font-size: 12px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+      text-align: right;
+      line-height: 1.6;
+      max-width: 200px;
     }
 
     .card {
@@ -2245,12 +2261,15 @@
       }
 
       .sec-title {
-        font-size: 28px;
-        letter-spacing: -0.8px;
+        font-size: 24px;
+        letter-spacing: -0.6px;
       }
 
       .sec-eyebrow {
         font-size: 8px;
+        letter-spacing: 1.5px;
+        padding: 3px 10px 3px 8px;
+        margin-bottom: 8px;
       }
 
       .sec-head {
@@ -2679,7 +2698,8 @@
       }
 
       .sec-title {
-        font-size: 24px;
+        font-size: 21px;
+        letter-spacing: -0.5px;
       }
 
       .prof-hero {
@@ -4066,8 +4086,8 @@
       <section id="profile" class="section active">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">01 — Tentang Saya</div>
-            <div class="sec-title">Tentang<br><em>Saya</em></div>
+            <div class="sec-eyebrow">01 — About Me</div>
+            <div class="sec-title">Tentang <em>Saya</em></div>
           </div>
         </div>
 
@@ -4269,8 +4289,8 @@
       <section id="tools" class="section">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">02 — Keahlian</div>
-            <div class="sec-title">Tools &<br><em>Tech Stack</em></div>
+            <div class="sec-eyebrow">02 — Skills</div>
+            <div class="sec-title">Tech <em>Stack</em></div>
           </div>
         </div>
 
@@ -4439,8 +4459,8 @@
       <section id="projects" class="section">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">03 — Karya</div>
-            <div class="sec-title">Proyek<br><em>Pilihan</em></div>
+            <div class="sec-eyebrow">03 — Portfolio</div>
+            <div class="sec-title">Proyek <em>Pilihan</em></div>
           </div>
         </div>
 
@@ -4519,8 +4539,8 @@
       <section id="achievement" class="section">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">04 — Sertifikasi</div>
-            <div class="sec-title">Sertifikat &<br><em>Penghargaan</em></div>
+            <div class="sec-eyebrow">04 — Achievements</div>
+            <div class="sec-title">Sertifikat <em>&amp; Penghargaan</em></div>
           </div>
         </div>
 
@@ -4554,8 +4574,8 @@
       <section id="dashboard" class="section">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">05 — Statistik</div>
-            <div class="sec-title">GitHub<br><em>Dashboard</em></div>
+            <div class="sec-eyebrow">05 — GitHub</div>
+            <div class="sec-title">Activity <em>Dashboard</em></div>
           </div>
         </div>
 
@@ -4636,8 +4656,8 @@
       <section id="social" class="section">
         <div class="sec-head">
           <div>
-            <div class="sec-eyebrow">06 — Kontak</div>
-            <div class="sec-title">Mari<br><em>Terhubung</em></div>
+            <div class="sec-eyebrow">06 — Contact</div>
+            <div class="sec-title">Mari <em>Terhubung</em></div>
           </div>
         </div>
 
