@@ -1071,7 +1071,7 @@
 
     .proj-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(296px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
       gap: 16px;
     }
 
@@ -1202,7 +1202,7 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(252px, 1fr));
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
       gap: 16px;
     }
 
@@ -2516,21 +2516,50 @@
       }
 
       .proj-grid {
-        grid-template-columns: 1fr;
-        gap: 14px;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
       }
 
       .proj-thumb {
-        height: 180px;
+        height: 110px;
         border-radius: 12px 12px 0 0;
       }
 
       .proj-title {
-        font-size: 16px;
+        font-size: 13px;
+        margin-bottom: 4px;
       }
 
       .proj-body {
-        padding: 16px;
+        padding: 11px 12px 14px;
+      }
+
+      .proj-desc {
+        font-size: 11px;
+        line-height: 1.55;
+        margin-bottom: 10px;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .proj-tags {
+        gap: 4px;
+        margin-bottom: 10px;
+      }
+
+      .proj-tag {
+        font-size: 8px;
+        padding: 2px 7px;
+      }
+
+      .proj-links {
+        gap: 8px;
+      }
+
+      .proj-link {
+        font-size: 9px;
       }
 
       .proj-card {
@@ -2547,8 +2576,27 @@
         line-height: 1.4;
       }
 
+      .cert-issuer {
+        font-size: 8px;
+        letter-spacing: 1px;
+        margin-bottom: 3px;
+      }
+
       .cert-body {
-        padding: 12px 12px;
+        padding: 10px 11px 12px;
+      }
+
+      .cert-year {
+        font-size: 8px;
+        padding: 2px 8px;
+      }
+
+      .cert-type {
+        font-size: 9px;
+      }
+
+      .cert-ph-ico {
+        font-size: 26px;
       }
 
       .cert-card {
@@ -2661,7 +2709,8 @@
       }
 
       .cert-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 8px;
       }
 
       .bottom-nav {
@@ -4429,9 +4478,6 @@
               </div>
             </div>
           </div>
-        </div>
-
-        <div class="proj-grid">
 
           <div class="proj-card">
             <div class="proj-thumb">
@@ -4465,6 +4511,7 @@
               </div>
             </div>
           </div>
+
         </div>
 
       </section>
