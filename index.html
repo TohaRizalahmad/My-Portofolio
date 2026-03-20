@@ -1098,6 +1098,8 @@
       overflow: hidden;
       transition: all .25s;
       position: relative;
+      display: flex;
+      flex-direction: column;
     }
 
     .proj-card:hover {
@@ -1160,6 +1162,9 @@
 
     .proj-body {
       padding: 20px;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
     }
 
     .proj-title {
@@ -1175,6 +1180,7 @@
       color: var(--muted);
       line-height: 1.7;
       margin-bottom: 14px;
+      flex: 1;
     }
 
     .proj-tags {
