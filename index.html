@@ -50,7 +50,10 @@
       box-sizing: border-box;
     }
 
-    html {
+    html, body {
+      overflow-x: hidden;
+      width: 100%;
+      position: relative;
       scroll-behavior: smooth;
     }
 
@@ -61,7 +64,6 @@
       font-weight: 400;
       line-height: 1.6;
       min-height: 100vh;
-      overflow-x: hidden;
       -webkit-font-smoothing: antialiased;
     }
 
@@ -1479,30 +1481,66 @@
     @media(max-width:768px) {
       .shell {
         padding: 0;
+        width: 100%;
+        overflow-x: hidden;
       }
       .sidebar {
         width: 280px;
       }
       .section {
-        padding: 40px 16px;
+        padding: 60px 16px 40px; /* added top padding for sticky header */
+        width: 100%;
+        box-sizing: border-box;
       }
       .prof-hero {
         padding: 30px 20px;
+        width: 100%;
+        box-sizing: border-box;
       }
       .prof-hero .sec-title {
         font-size: 24px;
+        word-break: break-word;
       }
       .gh-stats-grid.secondary {
-         gap: 8px;
+         grid-template-columns: repeat(2, 1fr) !important;
+         gap: 10px;
       }
       .gh-stat-card {
-         padding: 10px;
+         padding: 12px;
       }
       .gh-stat-val {
-         font-size: 16px !important;
+         font-size: 18px !important;
       }
       .soc-grid {
         grid-template-columns: 1fr;
+      }
+      #gh-canvas-wrap {
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        padding-bottom: 10px;
+        width: 100%;
+      }
+      #gh-graph {
+        flex-shrink: 0;
+      }
+      .gh-graph-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 14px;
+      }
+      #gh-graph-pill {
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+    
+    @media (max-width: 480px) {
+      .gh-stats-grid.secondary {
+         grid-template-columns: 1fr !important;
+      }
+      .sec-title {
+         font-size: 22px;
       }
     }
 
