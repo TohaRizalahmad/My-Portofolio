@@ -3682,7 +3682,7 @@
 
     .career-body {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
     }
 
     .career-col {
@@ -3693,7 +3693,7 @@
     }
 
     .career-col+.career-col {
-      border-left: 1px solid var(--border);
+      border-top: 1px solid var(--border);
     }
 
     .career-col-label {
@@ -3896,14 +3896,6 @@
     }
 
     @media (max-width: 900px) {
-      .career-body {
-        grid-template-columns: 1fr;
-      }
-
-      .career-col+.career-col {
-        border-left: none;
-        border-top: 1px solid var(--border);
-      }
     }
 
     @media (max-width: 768px) {
@@ -4209,23 +4201,12 @@
               </div>
             </div>
           </div>
-        </div>
+              <div class="career-cards-wrap" style="display:grid; grid-template-columns:1fr; gap:12px;">
 
-        <div class="career-unified">
-
-          <div class="career-header">
-            <div>
-              <div class="career-header-title">Karier & Pendidikan</div>
-            </div>
-            <span class="career-header-badge">2021 – Sekarang</span>
-          </div>
-
-          <div class="career-body">
-
-            <div class="career-col">
-              <div class="career-col-label">Karier Profesional</div>
-
-              <div class="career-item">
+          <div class="card">
+            <div class="c-label">Karier Profesional</div>
+            <div class="career-body" style="padding:0;">
+              <div class="career-item" style="margin-top:10px;">
                 <div class="career-item-top">
                   <div class="career-logo">
                     <img src="img/Taskeginer Logo.jpg" alt="Freelance">
@@ -4263,10 +4244,11 @@
                 </div>
               </div>
             </div>
+          </div>
 
-            <div class="career-col">
-              <div class="career-col-label">Riwayat Pendidikan</div>
-
+          <div class="card">
+            <div class="c-label">Riwayat Pendidikan</div>
+            <div class="career-body" style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
               <div class="career-item">
                 <div class="career-item-top">
                   <div class="career-logo career-logo-edu">
@@ -4305,8 +4287,8 @@
                 </div>
               </div>
             </div>
-
           </div>
+
         </div>
       </section>
 
