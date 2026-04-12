@@ -144,369 +144,364 @@
       background-size: 180px 180px;
     }
 
+    /* ======= LAYOUT SHELL ======= */
     .shell {
       position: relative;
       z-index: 2;
       display: flex;
-      flex-direction: column;
       min-height: 100vh;
     }
 
+    /* ======= PERMANENT SIDEBAR ======= */
     .sidebar {
-      position: sticky;
+      position: fixed;
       top: 0;
+      left: 0;
+      width: 260px;
       height: 100vh;
-      overflow-y: auto;
-      overflow-x: hidden;
-      background: rgba(7, 12, 24, .92);
+      background: rgba(6, 9, 20, 0.97);
       backdrop-filter: blur(32px);
+      -webkit-backdrop-filter: blur(32px);
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      overflow-y: auto;
+      overflow-x: hidden;
+      z-index: 100;
+      flex-shrink: 0;
     }
 
-    .sidebar::-webkit-scrollbar {
-      width: 0;
-    }
+    .sidebar::-webkit-scrollbar { width: 0; }
 
-    .sb-top {
-      padding: 32px 24px 26px;
-      border-bottom: 1px solid var(--border);
-    }
-
-    .sb-profile {
+    /* Profile area at top */
+    .sb-profile-area {
       display: flex;
       flex-direction: column;
       align-items: center;
       text-align: center;
-      gap: 11px;
+      padding: 28px 20px 20px;
+      border-bottom: 1px solid var(--border);
+      gap: 10px;
     }
 
-    .av-wrap {
+    .sb-photo-wrap {
       position: relative;
-      width: 82px;
-      height: 82px;
+      width: 80px;
+      height: 80px;
+      flex-shrink: 0;
     }
 
-    .av-ring {
+    .sb-photo-ring {
       position: absolute;
       inset: -3px;
       border-radius: 50%;
-      background: conic-gradient(var(--blue) 0deg, var(--cyan) 90deg, transparent 160deg, transparent 200deg, var(--blue) 280deg, var(--cyan) 360deg);
+      background: conic-gradient(var(--blue) 0deg, var(--cyan) 120deg, transparent 200deg, var(--blue) 280deg, var(--cyan) 360deg);
       animation: spin 8s linear infinite;
     }
 
-    @keyframes spin {
-      to {
-        transform: rotate(360deg);
-      }
-    }
-
-    .av-bg {
+    .sb-photo-inner {
       position: absolute;
       inset: 3px;
       border-radius: 50%;
-      background: var(--bg-card);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 26px;
-      font-weight: 800;
-      color: var(--blue);
-      font-family: var(--font-b);
       overflow: hidden;
+      background: var(--bg-card);
     }
 
-    .av-bg img {
+    .sb-photo-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
-      border-radius: 50%;
+    }
+
+    .sb-name-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
     }
 
     .sb-name {
-      font-size: 17px;
+      font-size: 15px;
       font-weight: 700;
       color: var(--text);
       letter-spacing: -.3px;
     }
 
+    .sb-verified {
+      width: 16px;
+      height: 16px;
+      color: var(--blue-bright);
+      flex-shrink: 0;
+    }
+
     .sb-role {
       font-family: var(--font-m);
       font-size: 9px;
-      color: var(--blue-bright);
-      letter-spacing: 2px;
+      color: var(--muted2);
+      letter-spacing: 1.5px;
       text-transform: uppercase;
     }
 
-    .avail-pill {
+    .sb-avail {
       display: inline-flex;
       align-items: center;
       gap: 6px;
       font-size: 10px;
       color: var(--success);
-      background: rgba(52, 211, 153, .07);
-      border: 1px solid rgba(52, 211, 153, .2);
-      padding: 4px 12px;
+      background: rgba(16, 185, 129, .08);
+      border: 1px solid rgba(16, 185, 129, .25);
+      padding: 5px 13px;
       border-radius: 20px;
       font-family: var(--font-m);
-      letter-spacing: .3px;
+      font-weight: 500;
     }
 
-    .avail-dot {
+    .sb-avail-dot {
       width: 5px;
       height: 5px;
       background: var(--success);
       border-radius: 50%;
       animation: pulse-g 2s infinite;
+      flex-shrink: 0;
     }
 
-    @keyframes pulse-g {
-
-      0%,
-      100% {
-        box-shadow: 0 0 0 0 rgba(52, 211, 153, .5);
-      }
-
-      50% {
-        box-shadow: 0 0 0 5px rgba(52, 211, 153, 0);
-      }
+    /* Social icons row */
+    .sb-socials {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      padding: 14px 16px;
+      border-bottom: 1px solid var(--border);
+      flex-wrap: wrap;
     }
 
+    .sb-soc-link {
+      width: 32px;
+      height: 32px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--muted2);
+      text-decoration: none;
+      transition: all .2s;
+      flex-shrink: 0;
+    }
+
+    .sb-soc-link:hover {
+      border-color: var(--border-glow);
+      color: var(--blue-bright);
+      background: var(--blue-dim);
+    }
+
+    .sb-soc-link svg {
+      width: 14px;
+      height: 14px;
+    }
+
+    /* Nav items */
     .sb-nav {
-      padding: 12px 8px;
-      flex: 0;
-      overflow-y: auto;
+      display: flex;
+      flex-direction: column;
+      padding: 12px 10px;
+      gap: 2px;
+      flex: 1;
     }
 
-    .nav-section {
+    .sb-nav-label {
       font-family: var(--font-m);
       font-size: 9px;
       letter-spacing: 2.5px;
       text-transform: uppercase;
       color: var(--muted2);
-      padding: 0 10px;
-      margin-bottom: 5px;
-      margin-top: 16px;
+      padding: 4px 10px 8px;
+      margin-top: 4px;
     }
 
-    .nav-section:first-child {
-      margin-top: 0;
-    }
-
-    .nav-a {
+    .sb-a {
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 12px;
       padding: 10px 12px;
       border-radius: 10px;
-      font-size: 13px;
-      font-weight: 500;
       color: var(--muted);
       text-decoration: none;
+      transition: all .22s cubic-bezier(.4, 0, .2, 1);
+      cursor: pointer;
       border: 1px solid transparent;
-      transition: all .2s cubic-bezier(.4, 0, .2, 1);
       position: relative;
       overflow: hidden;
-      margin-bottom: 2px;
+      font-size: 13px;
+      font-weight: 500;
     }
 
-    .nav-a::after {
+    .sb-a::before {
       content: '';
       position: absolute;
       left: 0;
-      top: 20%;
-      bottom: 20%;
-      width: 2.5px;
+      top: 16%;
+      bottom: 16%;
+      width: 3px;
       background: linear-gradient(180deg, var(--blue), var(--cyan));
-      border-radius: 0 2px 2px 0;
+      border-radius: 0 3px 3px 0;
       transform: scaleY(0);
-      transition: transform .2s;
+      transition: transform .22s;
     }
 
-    .nav-a:hover {
+    .sb-a:hover {
       color: var(--text);
-      background: rgba(139, 92, 246, .05);
+      background: rgba(96, 165, 250, .05);
       border-color: var(--border);
     }
 
-    .nav-a.active {
+    .sb-a.active {
       color: var(--blue-bright);
       background: var(--blue-dim);
       border-color: var(--blue-ring);
     }
 
-    .nav-a.active::after {
+    .sb-a.active::before {
       transform: scaleY(1);
     }
 
-    .nav-icon {
-      width: 16px;
-      height: 16px;
+    .sb-icon {
+      width: 18px;
+      height: 18px;
+      opacity: .55;
       flex-shrink: 0;
-      opacity: .6;
+      transition: all .22s;
     }
 
-    .nav-a.active .nav-icon {
+    .sb-a.active .sb-icon,
+    .sb-a:hover .sb-icon {
       opacity: 1;
-      color: var(--blue-bright);
     }
 
-    .nav-badge {
+    .sb-a.active .sb-icon {
+      color: var(--blue-bright);
+      filter: drop-shadow(0 0 6px rgba(96, 165, 250, .4));
+    }
+
+    .sb-badge {
       margin-left: auto;
       font-family: var(--font-m);
       font-size: 9px;
       color: var(--blue-bright);
       background: var(--blue-dim);
       padding: 2px 7px;
-      border-radius: 8px;
+      border-radius: 20px;
       border: 1px solid var(--blue-ring);
     }
 
-    .sidebar-overlay {
-      position: fixed;
-      inset: 0;
-      z-index: 150;
-      background: rgba(0, 0, 0, .5);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .3s;
-    }
-
-    .sidebar-overlay.active {
-      opacity: 1;
-      pointer-events: all;
-    }
-
-    .bottom-nav {
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      height: 72px;
-      background: rgba(5, 9, 20, 0.85);
-      backdrop-filter: blur(24px);
-      -webkit-backdrop-filter: blur(24px);
-      border-top: 1px solid var(--border);
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      gap: 12px;
-      z-index: 200;
-      padding: 0 20px;
-      overflow-x: auto;
-    }
-
-    .bottom-nav::-webkit-scrollbar {
+    /* Responsive mobile overlay */
+    .sb-mobile-overlay {
       display: none;
-    }
-
-    .bnav-a {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 5px;
-      padding: 8px 16px;
-      border-radius: 12px;
-      color: var(--muted);
-      text-decoration: none;
-      transition: all .3s cubic-bezier(.4, 0, .2, 1);
-      position: relative;
-      cursor: pointer;
-    }
-
-    .bnav-a:hover {
-      color: var(--text);
-      background: rgba(139, 92, 246, .05);
-    }
-
-    .bnav-a.active {
-      color: var(--blue-bright);
-    }
-
-    .bnav-a::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 50%;
-      transform: translateX(-50%) scaleX(0);
-      width: 24px;
-      height: 3px;
-      background: linear-gradient(90deg, var(--blue), var(--cyan));
-      border-radius: 0 0 4px 4px;
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-    }
-
-    .bnav-a.active::before {
-      transform: translateX(-50%) scaleX(1);
-    }
-
-    .bnav-bg {
-      position: absolute;
+      position: fixed;
       inset: 0;
-      background: radial-gradient(circle at center, rgba(139, 92, 246, .15) 0%, transparent 70%);
-      opacity: 0;
-      transition: opacity .3s;
-      border-radius: 12px;
-      pointer-events: none;
+      z-index: 90;
+      background: rgba(0,0,0,.55);
+      backdrop-filter: blur(2px);
     }
 
-    .bnav-a.active .bnav-bg {
-      opacity: 1;
+    .sb-mobile-overlay.open { display: block; }
+
+    .sidebar::-webkit-scrollbar {
+      width: 0;
     }
 
-    .bnav-icon {
-      width: 22px;
-      height: 22px;
-      opacity: .6;
-      transition: all .3s;
-      position: relative;
-      z-index: 1;
-    }
 
-    .bnav-a.active .bnav-icon {
-      opacity: 1;
-      transform: translateY(-2px);
-      filter: drop-shadow(0 4px 8px rgba(139, 92, 246, .4));
-    }
 
-    .bnav-label {
-      font-size: 10px;
-      font-weight: 500;
-      opacity: .7;
-      transition: all .3s;
-      position: relative;
-      z-index: 1;
-    }
-
-    .bnav-a.active .bnav-label {
-      opacity: 1;
-      font-weight: 600;
-      text-shadow: 0 0 12px rgba(139, 92, 246, .5);
-    }
-
+    /* ======= MAIN CONTENT ======= */
     .main {
+      margin-left: 260px;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
-      padding-bottom: 90px;
+      padding-bottom: 40px;
+      flex: 1;
     }
 
-    .topbar {
+    /* Mobile topbar (hamburger) */
+    .mobile-topbar {
+      display: none;
       position: sticky;
       top: 0;
-      z-index: 50;
-      display: flex;
+      z-index: 80;
       align-items: center;
       justify-content: space-between;
-      padding: 0 40px;
-      height: 60px;
-      background: rgba(5, 9, 20, .95);
-      backdrop-filter: blur(24px);
+      padding: 0 20px;
+      height: 56px;
+      background: rgba(6, 9, 20, .97);
+      backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
-      flex-wrap: nowrap;
-      gap: 12px;
+    }
+
+    .mobbar-brand {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text);
+    }
+
+    .mobbar-hamburger {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: 1px solid var(--border);
+      cursor: pointer;
+      padding: 7px 9px;
+      border-radius: 8px;
+      transition: all .2s;
+    }
+
+    .mobbar-hamburger:hover {
+      border-color: var(--border-glow);
+      background: var(--blue-dim);
+    }
+
+    .mobbar-hamburger span {
+      width: 18px;
+      height: 2px;
+      background: var(--muted);
+      border-radius: 2px;
+      display: block;
+      transition: all .25s cubic-bezier(.4,0,.2,1);
+    }
+
+    .mobbar-hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+    .mobbar-hamburger.active span:nth-child(2) { opacity: 0; }
+    .mobbar-hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -5px); }
+
+    /* On mobile, sidebar off-canvas */
+    @media (max-width: 768px) {
+      .sidebar {
+        transform: translateX(-100%);
+        transition: transform .32s cubic-bezier(.4,0,.2,1);
+        z-index: 110;
+      }
+      .sidebar.sb-open {
+        transform: translateX(0);
+      }
+      .sb-mobile-overlay {
+        display: none;
+      }
+      .sb-mobile-overlay.open {
+        display: block;
+      }
+      .main {
+        margin-left: 0;
+      }
+      .mobile-topbar {
+        display: flex;
+      }
+    }
+
+    /* topbar hidden on desktop – keep breadcrumb area as page header */
+    .topbar {
+      display: none;
     }
 
     .breadcrumb {
@@ -537,27 +532,29 @@
     }
 
     .hamburger {
-      display: none;
+      display: flex;
       flex-direction: column;
-      gap: 4px;
+      gap: 5px;
       background: none;
-      border: none;
+      border: 1px solid var(--border);
       cursor: pointer;
-      padding: 8px;
-      border-radius: 6px;
-      transition: background .2s;
+      padding: 8px 10px;
+      border-radius: 8px;
+      transition: all .2s;
     }
 
     .hamburger:hover {
-      background: rgba(139, 92, 246, .1);
+      background: rgba(139, 92, 246, .08);
+      border-color: var(--border-glow);
     }
 
     .hamburger span {
       width: 20px;
       height: 2px;
       background: var(--muted);
-      transition: all .2s;
-      border-radius: 1px;
+      transition: all .25s cubic-bezier(.4, 0, .2, 1);
+      border-radius: 2px;
+      display: block;
     }
 
     .hamburger.active span:nth-child(1) {
@@ -566,6 +563,7 @@
 
     .hamburger.active span:nth-child(2) {
       opacity: 0;
+      transform: scaleX(0);
     }
 
     .hamburger.active span:nth-child(3) {
@@ -739,11 +737,11 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       border-radius: 20px;
-      padding: 44px;
-      display: grid;
-      grid-template-columns: 160px 1fr;
-      gap: 44px;
-      align-items: start;
+      padding: 50px 44px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
       position: relative;
       overflow: hidden;
     }
@@ -770,60 +768,7 @@
       pointer-events: none;
     }
 
-    .photo-wrap {
-      position: relative;
-      width: 150px;
-      height: 150px;
-    }
 
-    .photo-deco {
-      position: absolute;
-      border: 1px solid rgba(139, 92, 246, .15);
-      border-radius: 18px;
-      inset: 0;
-      top: 10px;
-      left: 10px;
-      right: -10px;
-      bottom: -10px;
-      z-index: 0;
-    }
-
-    .photo-box {
-      position: relative;
-      z-index: 1;
-      width: 150px;
-      height: 150px;
-      border-radius: 16px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, .14), rgba(192, 132, 252, .07));
-      border: 1px solid var(--border-lit);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      overflow: hidden;
-    }
-
-    .photo-box img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 16px;
-    }
-
-    .photo-init {
-      font-size: 52px;
-      font-weight: 800;
-      color: var(--blue);
-      line-height: 1;
-    }
-
-    .photo-hint {
-      font-family: var(--font-m);
-      font-size: 9px;
-      color: var(--muted2);
-      letter-spacing: .8px;
-    }
 
     .p-greet {
       font-family: var(--font-m);
@@ -851,33 +796,14 @@
     }
 
     .p-bio {
-      font-size: 13px;
-      color: rgba(180, 196, 240, .5);
-      line-height: 1.85;
-      max-width: 480px;
-      margin-bottom: 24px;
-    }
-
-    .p-meta {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 16px;
-      margin-bottom: 24px;
-    }
-
-    .meta-i {
-      display: flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 12px;
+      font-size: 14px;
       color: var(--muted);
-      font-family: var(--font-m);
+      line-height: 1.85;
+      max-width: 680px;
+      margin: 0 0 24px;
     }
 
-    .p-cta {
-      display: flex;
-      gap: 12px;
-    }
+
 
     .btn-primary {
       padding: 10px 24px;
@@ -990,7 +916,7 @@
 
     .about-2 {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr;
       gap: 12px;
     }
 
@@ -4128,18 +4054,107 @@
 
   <div class="shell">
 
+    <!-- Permanent Left Sidebar -->
+    <aside class="sidebar" id="mainSidebar">
+
+      <!-- Profile -->
+      <div class="sb-profile-area">
+        <div class="sb-photo-wrap">
+          <div class="sb-photo-ring"></div>
+          <div class="sb-photo-inner">
+            <img src="img/Foto Saya.png" alt="Foto Profil">
+          </div>
+        </div>
+        <div class="sb-name-row">
+          <span class="sb-name">Toha Rizal Ahmad</span>
+          <svg class="sb-verified" viewBox="0 0 24 24" fill="none">
+            <circle cx="12" cy="12" r="10" fill="#2563EB" opacity=".9"/>
+            <path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </div>
+        <div class="sb-role">Front-end · AI Dev</div>
+        <div class="sb-avail">
+          <div class="sb-avail-dot"></div>
+          Terbuka untuk Bekerja
+        </div>
+      </div>
+
+      <!-- Social Icons -->
+      <div class="sb-socials">
+        <a href="https://github.com/TohaRizalahmad" target="_blank" class="sb-soc-link" title="GitHub">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
+        </a>
+        <a href="https://www.linkedin.com/in/toha-rizal-ahmad-9455603a1/" target="_blank" class="sb-soc-link" title="LinkedIn">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+        </a>
+        <a href="https://instagram.com/TohaRizalahmad" target="_blank" class="sb-soc-link" title="Instagram">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
+        </a>
+        <a href="mailto:toharizalahmad24@gmail.com" class="sb-soc-link" title="Email">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        </a>
+        <a href="https://wa.me/6282184692988" target="_blank" class="sb-soc-link" title="WhatsApp">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
+        </a>
+      </div>
+
+      <!-- Navigation -->
+      <nav class="sb-nav">
+        <div class="sb-nav-label">Menu</div>
+        <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
+          </svg>
+          Profil
+        </a>
+        <a class="sb-a" id="sba-tools" onclick="navTo('tools',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+          </svg>
+          Tools &amp; Skills
+        </a>
+        <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
+          </svg>
+          Projects
+        </a>
+        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
+          </svg>
+          Sertifikat
+          <span class="sb-badge" id="sb-cert-count">—</span>
+        </a>
+        <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+            <line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
+          </svg>
+          Dashboard
+        </a>
+        <a class="sb-a" id="sba-social" onclick="navTo('social',this)">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
+            <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
+          </svg>
+          Social Media
+        </a>
+      </nav>
+
+    </aside>
+
+    <!-- Mobile overlay -->
+    <div class="sb-mobile-overlay" id="sbOverlay" onclick="closeSidebar()"></div>
+
     <main class="main">
 
-      <header class="topbar">
-        <div class="breadcrumb">
-          <span class="b-root">Portfolio</span>
-          <span class="b-sep">/</span>
-          <span class="b-curr" id="bc">Profil</span>
-        </div>
-        <div class="tb-right">
-          <button class="btn" onclick="downloadCV()">↓ Download CV</button>
-          <button class="btn btn-blue" onclick="nav('social',null)">Hire Me</button>
-        </div>
+      <!-- Mobile topbar -->
+      <header class="mobile-topbar">
+        <span class="mobbar-brand">Toha.Rizalahmad_</span>
+        <button class="mobbar-hamburger" id="mobHamburger" onclick="toggleMobileSidebar()" aria-label="Menu">
+          <span></span><span></span><span></span>
+        </button>
       </header>
 
       <section id="profile" class="section active">
@@ -4151,25 +4166,13 @@
         </div>
 
         <div class="prof-hero">
-          <div class="photo-wrap">
-            <div class="photo-deco"></div>
-            <div class="photo-box">
-              <img src="img/Foto Saya.png" alt="Foto Profil">
-            </div>
-          </div>
-          <div>
-            <div class="p-greet">Selamat Datang di Portofolio Saya</div>
-            <div class="p-name">TOHA RIZAL AHMAD</div>
-            <div class="p-title">Frond-end Web Developer · AI-Powered Developer</div>
-            <p class="p-bio">Seorang Web Developer yang berfokus pada pengembangan antarmuka web yang fungsional,
-              responsif, dan memiliki desain yang modern. Berpengalaman memanfaatkan berbagai AI tools untuk
-              meningkatkan efisiensi proses pengembangan, mempercepat penulisan kode, serta menghasilkan solusi digital
-              yang lebih optimal dan berkualitas.</p>
-            <div class="p-cta">
-              <button class="btn-primary" onclick="downloadCV()">↓ Download CV</button>
-              <button class="btn-secondary" onclick="nav('social',null)">Kontak Saya</button>
-            </div>
-          </div>
+          <div class="p-greet">Selamat Datang di Portofolio Saya</div>
+          <div class="p-name">TOHA RIZAL AHMAD</div>
+          <div class="p-title">Frond-end Web Developer · AI-Powered Developer</div>
+          <p class="p-bio">Seorang Web Developer yang berfokus pada pengembangan antarmuka web yang fungsional,
+            responsif, dan memiliki desain yang modern. Berpengalaman memanfaatkan berbagai AI tools untuk
+            meningkatkan efisiensi proses pengembangan, mempercepat penulisan kode, serta menghasilkan solusi digital
+            yang lebih optimal dan berkualitas.</p>
         </div>
 
         <div class="about-2">
@@ -4713,59 +4716,7 @@
     </main>
   </div>
 
-  <nav class="bottom-nav">
-    <a class="bnav-a active" onclick="nav('profile',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="12" cy="8" r="4" />
-        <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
-      </svg>
-      <span class="bnav-label">Profil</span>
-    </a>
-    <a class="bnav-a" onclick="nav('tools',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <path
-          d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
-      </svg>
-      <span class="bnav-label">Tools &amp; Skills</span>
-    </a>
-    <a class="bnav-a" onclick="nav('projects',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="2" y="3" width="20" height="14" rx="2" />
-        <path d="M8 21h8M12 17v4" />
-      </svg>
-      <span class="bnav-label">Projects</span>
-    </a>
-    <a class="bnav-a" onclick="nav('achievement',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="12" cy="8" r="6" />
-        <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
-      </svg>
-      <span class="bnav-label">Sertifikat</span>
-    </a>
-    <a class="bnav-a" onclick="nav('dashboard',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-        <line x1="3" y1="9" x2="21" y2="9" />
-        <line x1="9" y1="21" x2="9" y2="9" />
-      </svg>
-      <span class="bnav-label">Dashboard</span>
-    </a>
-    <a class="bnav-a" onclick="nav('social',this)">
-      <div class="bnav-bg"></div>
-      <svg class="bnav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-        <circle cx="18" cy="5" r="3" />
-        <circle cx="6" cy="12" r="3" />
-        <circle cx="18" cy="19" r="3" />
-        <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" />
-      </svg>
-      <span class="bnav-label">Social Media</span>
-    </a>
-  </nav>
+
 
   <script>
     function toggleJob(btn) {
@@ -4796,50 +4747,73 @@
       if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
     }
 
-    const labels = { profile: 'Profil', tools: 'Tools & Skills', projects: 'Projects', achievement: 'Sertifikat', dashboard: 'Dashboard', social: 'Social Media' };
+    /* ---- Mobile sidebar toggle ---- */
+    function toggleMobileSidebar() {
+      const sb = document.getElementById('mainSidebar');
+      const ov = document.getElementById('sbOverlay');
+      const hb = document.getElementById('mobHamburger');
+      const isOpen = sb.classList.contains('sb-open');
+      sb.classList.toggle('sb-open');
+      ov.classList.toggle('open');
+      if (hb) hb.classList.toggle('active');
+      document.body.style.overflow = isOpen ? '' : 'hidden';
+    }
 
-    function nav(id, el) {
+    function closeSidebar() {
+      const sb = document.getElementById('mainSidebar');
+      const ov = document.getElementById('sbOverlay');
+      const hb = document.getElementById('mobHamburger');
+      sb.classList.remove('sb-open');
+      ov.classList.remove('open');
+      if (hb) hb.classList.remove('active');
+      document.body.style.overflow = '';
+    }
+
+    /* ---- Navigate to section and highlight nav item ---- */
+    function navTo(id, el) {
       if (id === 'tools') setTimeout(animBars, 100);
       if (id === 'profile') setTimeout(animCounters, 100);
 
+      // Update active state
+      document.querySelectorAll('.sb-a').forEach(a => a.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      // Scroll to section
       const target = document.getElementById(id);
       if (target) {
-        const offset = 80;
+        const offset = 20;
         const bodyRect = document.body.getBoundingClientRect().top;
         const elementRect = target.getBoundingClientRect().top;
         const elementPosition = elementRect - bodyRect;
         const offsetPosition = elementPosition - offset;
-
-        window.scrollTo({
-          top: offsetPosition,
-          behavior: 'smooth'
-        });
+        window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
+
+      // Close sidebar on mobile after nav
+      if (window.innerWidth <= 768) setTimeout(closeSidebar, 200);
     }
+
+    /* Keep nav() alias for any existing refs */
+    function nav(id, el) { navTo(id, el); }
 
     function initObserver() {
       const sections = document.querySelectorAll('.section');
-      const navLinks = document.querySelectorAll('.bnav-a');
+      const navLinks = document.querySelectorAll('.sb-a');
 
       const observerOptions = {
         root: null,
-        rootMargin: '-20% 0px -60% 0px',
+        rootMargin: '-20% 0px -50% 0px',
         threshold: 0
       };
 
       const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
-            navLinks.forEach(link => link.classList.remove('active'));
-            let activeId = entry.target.id;
-
+            const activeId = entry.target.id;
             navLinks.forEach(link => {
-              if (link.getAttribute('onclick') && link.getAttribute('onclick').includes("'" + activeId + "'")) {
-                link.classList.add('active');
-                document.getElementById('bc').textContent = labels[activeId] || activeId;
-              }
+              const isActive = link.id === 'sba-' + activeId;
+              link.classList.toggle('active', isActive);
             });
-
             if (activeId === 'tools') animBars();
             if (activeId === 'profile') animCounters();
           }
@@ -4892,6 +4866,7 @@
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
         document.getElementById('lightbox').classList.remove('open');
+        closeSidebar();
         document.body.style.overflow = '';
       }
     });
@@ -4907,6 +4882,10 @@
         b.style.width = '0%';
       });
       initObserver();
+      // Update cert count badge in sidebar
+      const certCount = document.querySelectorAll('.cert-card').length;
+      const badge = document.getElementById('sb-cert-count');
+      if (badge && certCount > 0) badge.textContent = certCount;
     });
 
 
