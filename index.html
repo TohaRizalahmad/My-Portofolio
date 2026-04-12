@@ -4994,12 +4994,27 @@
               console.warn(`Gagal mengambil README untuk ${repo.name}`);
             }
 
+            // Ambil bahasa pemrograman
+            let languages = [];
+            try {
+              const langRes = await fetch(repo.languages_url);
+              if (langRes.ok) {
+                const langData = await langRes.json();
+                languages = Object.keys(langData).slice(0, 3);
+              }
+            } catch (e) {
+              console.warn(`Gagal mengambil bahasa untuk ${repo.name}`);
+            }
+
             if (description.length > 130) description = description.substring(0, 127) + '...';
 
             const topics = repo.topics || [];
-            const tags = topics.length > 0
-              ? topics.slice(0, 3).map(t => `<span class="proj-tag">${t}</span>`).join('')
-              : `<span class="proj-tag">${repo.language || 'Project'}</span>`;
+            let tags = languages.map(l => `<span class="proj-tag">${l}</span>`).join('');
+            if (!tags) {
+              tags = topics.length > 0
+                ? topics.slice(0, 3).map(t => `<span class="proj-tag">${t}</span>`).join('')
+                : `<span class="proj-tag">${repo.language || 'Project'}</span>`;
+            }
 
             const imgUrl = `https://opengraph.githubassets.com/1/${USERNAME}/${repo.name}`;
             const status = repo.stargazers_count > 0 ? 'Featured' : 'WIP';
@@ -5042,7 +5057,8 @@
       const USERNAME = 'TohaRizalahmad';
       const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
       const WEEKS = 53, ROWS = 7;
-      const CELL = 16, GAP = 5, STEP = CELL + GAP;
+      const isMobile = window.innerWidth <= 768;
+      const CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
 
       const canvas = document.getElementById('gh-graph');
       const monthsEl = document.getElementById('gh-months');
@@ -5094,7 +5110,7 @@
           [['Mon', 1], ['Wed', 3], ['Fri', 5]].forEach(([lbl, row]) => {
             const s = document.createElement('span');
             s.textContent = lbl;
-            s.style.cssText = `position:absolute;top:${row * STEP + Math.floor(CELL / 2) - 5}px;right:6px;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;line-height:1;`;
+            s.style.cssText = `position:absolute;top:${row * STEP + Math.floor(CELL / 2) - 5}px;right:6px;font-size:${isMobile ? '8px' : '10px'};color:#8b949e;font-family:'JetBrains Mono',monospace;line-height:1;`;
             dayEl.appendChild(s);
           });
         }
@@ -5111,7 +5127,7 @@
               last = m;
               const s = document.createElement('span');
               s.textContent = M[m];
-              s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:11px;color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
+              s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:${isMobile ? '9px' : '11px'};color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
               monthsEl.appendChild(s);
             }
           });
