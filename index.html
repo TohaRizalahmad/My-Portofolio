@@ -201,10 +201,11 @@
 
     .sb-photo-inner {
       position: absolute;
-      inset: 3px;
+      inset: 0;
       border-radius: 50%;
       overflow: hidden;
       background: var(--bg-card);
+      border: 2px solid var(--border);
     }
 
     .sb-photo-inner img {
@@ -242,27 +243,65 @@
       text-transform: uppercase;
     }
 
-    .sb-avail {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      font-size: 10px;
-      color: var(--success);
-      background: rgba(16, 185, 129, .08);
-      border: 1px solid rgba(16, 185, 129, .25);
-      padding: 5px 13px;
-      border-radius: 20px;
-      font-family: var(--font-m);
-      font-weight: 500;
+    /* Theme Toggle */
+    .theme-toggle {
+      margin-top: 15px;
+      display: flex;
+      justify-content: center;
     }
 
-    .sb-avail-dot {
-      width: 5px;
-      height: 5px;
-      background: var(--success);
+    .theme-pill {
+      display: flex;
+      background: rgba(255, 255, 255, .05);
+      border: 1px solid var(--border);
+      padding: 3px;
+      border-radius: 30px;
+      position: relative;
+      gap: 2px;
+    }
+
+    .theme-btn {
+      width: 34px;
+      height: 34px;
       border-radius: 50%;
-      animation: pulse-g 2s infinite;
-      flex-shrink: 0;
+      border: none;
+      background: transparent;
+      color: var(--muted2);
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all .3s;
+      position: relative;
+      z-index: 2;
+    }
+
+    .theme-btn svg {
+      width: 16px;
+      height: 16px;
+    }
+
+    .theme-btn.active {
+      color: #fff;
+      background: var(--blue);
+      box-shadow: 0 4px 12px rgba(37, 99, 235, .3);
+    }
+
+    body.light-mode .theme-btn.active {
+       background: var(--blue-bright);
+    }
+
+    /* Light Mode Variables Override */
+    body.light-mode {
+      --bg: #f8fafc;
+      --bg-side: #ffffff;
+      --bg-card: #fdfdfd;
+      --text: #0f172a;
+      --muted: #475569;
+      --muted2: #94a3b8;
+      --border: #e2e8f0;
+      --border-lit: #cbd5e1;
+      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
     /* Social icons row */
@@ -496,6 +535,17 @@
       }
       .mobile-topbar {
         display: flex;
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: var(--bg-side);
+        border-bottom: 1px solid var(--border);
+        padding: 12px 16px;
+        align-items: center;
+        justify-content: space-between;
+      }
+      .main {
+        padding-top: 0;
       }
     }
 
@@ -1426,8 +1476,32 @@
       align-items: stretch;
     }
 
-    @media (max-width: 768px) {
-      .stats-row {
+    @media(max-width:768px) {
+      .shell {
+        padding: 0;
+      }
+      .sidebar {
+        width: 280px;
+      }
+      .section {
+        padding: 40px 16px;
+      }
+      .prof-hero {
+        padding: 30px 20px;
+      }
+      .prof-hero .sec-title {
+        font-size: 24px;
+      }
+      .gh-stats-grid.secondary {
+         gap: 8px;
+      }
+      .gh-stat-card {
+         padding: 10px;
+      }
+      .gh-stat-val {
+         font-size: 16px !important;
+      }
+      .soc-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -3991,6 +4065,145 @@
       margin-bottom: 16px;
     }
 
+    .gh-unified {
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .gh-header-wrap {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .gh-title-row {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--text);
+    }
+
+    .gh-title-icon {
+      width: 22px;
+      height: 22px;
+    }
+
+    .gh-title-text {
+      font-size: 18px;
+      font-weight: 700;
+    }
+
+    .gh-subtitle-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .gh-subtitle-text {
+      font-size: 13px;
+      color: var(--muted2);
+      max-width: 500px;
+      line-height: 1.5;
+    }
+
+    .gh-subtitle-user {
+      font-size: 12px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+    }
+
+    .gh-stats-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+
+    .gh-stats-grid.secondary {
+      grid-template-columns: repeat(4, 1fr);
+    }
+
+    .gh-stat-card {
+      background: rgba(255, 255, 255, .02);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 16px 12px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 4px;
+      transition: all .2s;
+    }
+
+    .gh-stat-card:hover {
+      background: rgba(255, 255, 255, .04);
+      border-color: var(--border-lit);
+    }
+
+    .gh-stat-lbl {
+      font-family: var(--font-m);
+      font-size: 11px;
+      color: var(--muted2);
+    }
+
+    .gh-stat-val {
+      font-size: 24px;
+      font-weight: 800;
+      color: #FACC15; /* Yellow/Amber from reference */
+      letter-spacing: -0.5px;
+    }
+
+    .gh-stat-val span {
+      font-size: 12px;
+      color: var(--muted2);
+      font-weight: 400;
+      margin-left: 2px;
+    }
+
+    .gh-graph-box {
+      background: rgba(255, 255, 255, .01);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 24px;
+      overflow: hidden;
+    }
+
+    .gh-graph-footer {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .gh-graph-footer span {
+      font-size: 11px;
+      color: var(--muted2);
+      font-family: var(--font-m);
+    }
+
+    .gh-footer-legend {
+      display: flex;
+      gap: 3px;
+    }
+
+    .gh-leg-dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 2px;
+    }
+
+    @media (max-width: 600px) {
+      .gh-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+      .gh-stats-grid.secondary {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
     .pf-bottom {
       display: flex;
       align-items: center;
@@ -4052,7 +4265,6 @@
       <!-- Profile -->
       <div class="sb-profile-area">
         <div class="sb-photo-wrap">
-          <div class="sb-photo-ring"></div>
           <div class="sb-photo-inner">
             <img src="img/Foto Saya.png" alt="Foto Profil">
           </div>
@@ -4065,9 +4277,15 @@
           </svg>
         </div>
         <div class="sb-role">Front-end · AI Dev</div>
-        <div class="sb-avail">
-          <div class="sb-avail-dot"></div>
-          Terbuka untuk Bekerja
+        <div class="theme-toggle">
+          <div class="theme-pill">
+            <button class="theme-btn active" id="btn-dark" title="Dark Mode">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            </button>
+            <button class="theme-btn" id="btn-light" title="Light Mode">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+            </button>
+          </div>
         </div>
       </div>
 
@@ -4533,77 +4751,65 @@
           <div class="sec-title">Dashboard</div>
         </div>
 
-        <div class="gh-unified">
-
-          <div class="gh-card-header">
-            <div>
-              <div class="gh-card-title">GitHub Activity Overview</div>
-              <div class="gh-card-sub">Data real-time dari repository publik · TohaRizalahmad</div>
+        <div class="card" style="padding:24px; margin-bottom:12px;">
+          <div class="gh-header-wrap">
+            <div class="gh-title-row">
+              <svg class="gh-title-icon" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/>
+              </svg>
+              <span class="gh-title-text" style="font-size:16px;">Statistik Akun GitHub</span>
             </div>
-            <a href="https://github.com/TohaRizalahmad" target="_blank" class="gh-card-badge">@TohaRizalahmad ↗</a>
-          </div>
-
-          <div class="gh-block">
-            <div class="gh-block-title">Contribution Graph</div>
-            <div class="gh-block-sub">Aktivitas commit harian di GitHub</div>
-
-            <div class="gh-contrib-row">
-              <span id="gh-count" class="gh-contrib-count">— contributions in the last year</span>
-              <div class="graph-legend">
-                <span class="gh-contrib-label">Less</span>
-                <div class="legend-box" style="background:#161b22;border:1px solid #30363d;"></div>
-                <div class="legend-box" style="background:#0e4429;"></div>
-                <div class="legend-box" style="background:#006d32;"></div>
-                <div class="legend-box" style="background:#26a641;"></div>
-                <div class="legend-box" style="background:#39d353;"></div>
-                <span class="gh-contrib-label">More</span>
-              </div>
-            </div>
-
-            <div class="gh-widget-box">
-              <div style="display:flex;align-items:flex-start;gap:0;">
-                <div style="display:flex;flex-direction:column;min-width:32px;flex-shrink:0;">
-                  <div style="height:20px;"></div>
-                  <div id="gh-day-labels"
-                    style="display:flex;flex-direction:column;font-size:10px;color:#8b949e;font-family:'JetBrains Mono',monospace;text-align:right;padding-right:6px;">
-                  </div>
-                </div>
-                <div style="flex:1;overflow-x:auto;overflow-y:hidden;padding-bottom:12px;" id="gh-canvas-wrap">
-                  <div id="gh-months" style="position:relative;height:20px;"></div>
-                  <canvas id="gh-graph" style="display:block;border-radius:2px;"></canvas>
-                </div>
-              </div>
-              <div class="gh-widget-footer" style="padding-top:12px;">
-                <a href="https://docs.github.com/articles/why-are-my-contributions-not-showing-up-on-my-profile"
-                  target="_blank" class="gh-footer-link">Learn how we count contributions</a>
-                <a href="https://github.com/TohaRizalahmad" target="_blank"
-                  class="gh-footer-link">github.com/TohaRizalahmad ↗</a>
-              </div>
+            <div class="gh-subtitle-row" style="margin-bottom:12px;">
+              <span class="gh-subtitle-text" style="font-size:12px;">Ringkasan aktivitas repositori dan kontribusi publik.</span>
+              <span class="gh-subtitle-user">@TohaRizalahmad</span>
             </div>
           </div>
+          <div class="gh-stats-grid secondary" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
+            <div class="gh-stat-card"><span class="gh-stat-lbl">Repositori</span><span class="gh-stat-val" id="gh-vals-repos" style="font-size:20px;">0</span></div>
+            <div class="gh-stat-card"><span class="gh-stat-lbl">Kontribusi</span><span class="gh-stat-val" id="gh-vals-total" style="font-size:20px;">0</span></div>
+            <div class="gh-stat-card"><span class="gh-stat-lbl">Minggu Ini</span><span class="gh-stat-val" id="gh-vals-week" style="font-size:20px;">0</span></div>
+            <div class="gh-stat-card"><span class="gh-stat-lbl">Hari Terbaik</span><span class="gh-stat-val" id="gh-vals-best" style="font-size:20px;">0</span></div>
+            <div class="gh-stat-card"><span class="gh-stat-lbl">Rata-rata</span><span class="gh-stat-val" id="gh-vals-avg" style="font-size:20px;">0<span>/hr</span></span></div>
+          </div>
+        </div>
 
-          <div class="gh-bottom">
-
-            <div class="gh-bottom-col">
-              <div class="gh-block-title">Streak commit</div>
-              <img class="gh-streak-img"
-                src="https://streak-stats.demolab.com/?user=TohaRizalahmad&theme=github-dark-blue&hide_border=true&background=0D1525&ring=2563EB&fire=60A5FA&currStreakLabel=60A5FA&sideLabels=60A5FA&dates=64748B&stroke=1e293b"
-                alt="GitHub Streak Stats" loading="lazy"
-                onerror="this.style.opacity='0.5';this.alt='Streak tidak dapat dimuat';">
-            </div>
-
-            <div class="gh-bottom-col">
-              <div class="gh-block-title">Most Used Languages</div>
-              <div id="lang-content">
-                <div class="lang-loading">
-                  <div class="lang-spinner"></div>
-                  <span>Memuat data bahasa...</span>
-                </div>
+        <div class="card" style="padding:24px; margin-bottom:12px;">
+          <div class="c-label" style="margin-bottom:15px;">Grafik Kontribusi</div>
+          <div class="gh-graph-box" style="border:none; background:none; padding:0;">
+            <div style="display:flex;align-items:flex-start;gap:0;">
+              <div id="gh-day-labels" style="min-width:32px;"></div>
+              <div style="flex:1;overflow-x:auto;padding-bottom:12px;" id="gh-canvas-wrap">
+                <div id="gh-months"></div>
+                <canvas id="gh-graph"></canvas>
               </div>
             </div>
-
+            <div class="gh-graph-footer" style="justify-content: space-between;">
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span>Sedikit</span>
+                <div class="gh-footer-legend">
+                  <div class="gh-leg-dot" style="background:#161b22;border:1px solid #30363d;"></div>
+                  <div class="gh-leg-dot" style="background:#0e4429;"></div>
+                  <div class="gh-leg-dot" style="background:#006d32;"></div>
+                  <div class="gh-leg-dot" style="background:#26a641;"></div>
+                  <div class="gh-leg-dot" style="background:#39d353;"></div>
+                </div>
+                <span>Banyak</span>
+              </div>
+              <div id="gh-graph-pill" style="opacity:0; transition:opacity .2s; background: rgba(51, 65, 85, .8); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: #fff; font-family: var(--font-m); border: 1px solid rgba(255,255,255,.1);">
+                0 kontribusi pada —
+              </div>
+            </div>
           </div>
+        </div>
 
+        <div class="card" style="padding:24px;">
+           <div class="c-label" style="margin-bottom:15px;">Bahasa yang Sering Digunakan</div>
+           <div id="lang-content">
+              <div class="lang-loading">
+                <div class="lang-spinner"></div>
+                <span>Memuat data bahasa...</span>
+              </div>
+           </div>
         </div>
       </section>
 
@@ -4769,6 +4975,31 @@
       document.querySelectorAll('.sb-a').forEach(a => a.classList.remove('active'));
       if (el) el.classList.add('active');
 
+      // Theme logic
+      const btnDark = document.getElementById('btn-dark');
+      const btnLight = document.getElementById('btn-light');
+      
+      function setTheme(mode) {
+        if (mode === 'light') {
+          document.body.classList.add('light-mode');
+          btnLight.classList.add('active');
+          btnDark.classList.remove('active');
+          localStorage.setItem('portfolio-theme', 'light');
+        } else {
+          document.body.classList.remove('light-mode');
+          btnDark.classList.add('active');
+          btnLight.classList.remove('active');
+          localStorage.setItem('portfolio-theme', 'dark');
+        }
+      }
+
+      if (btnDark) btnDark.onclick = () => setTheme('dark');
+      if (btnLight) btnLight.onclick = () => setTheme('light');
+
+      // Init theme
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme === 'light') setTheme('light');
+
       // Scroll to section
       const target = document.getElementById(id);
       if (target) {
@@ -4879,7 +5110,6 @@
       if (badge && certCount > 0) badge.textContent = certCount;
     });
 
-
     (function () {
       const USERNAME = 'TohaRizalahmad';
       const LANG_COLORS = {
@@ -4916,7 +5146,6 @@
           if (el) el.innerHTML = '<div class="lang-loading" style="flex-direction:column;gap:12px;"><span style="font-size:22px">⚠️</span><span style="color:var(--muted2);font-size:12px;text-align:center;">Tidak dapat memuat data.<br>Cek koneksi atau GitHub API.</span></div>';
         });
     })();
-
     (function () {
       const USERNAME = 'TohaRizalahmad';
       const projGrid = document.querySelector('.proj-grid');
@@ -5066,8 +5295,10 @@
         ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
         ctx.clearRect(0, 0, W, H);
 
+        const todayStr = localDateKey(new Date());
         weeks.forEach((week, wi) => {
           week.forEach((day, di) => {
+            if (day.date > todayStr) return; 
             ctx.fillStyle = COLORS[level(day ? day.count : 0)];
             rr(wi * STEP, di * STEP, CELL, CELL, 2);
             ctx.fill();
@@ -5162,17 +5393,71 @@
         draw(weeks);
       }
 
+      // Fetch User Repo count
+      fetch(`https://api.github.com/users/${USERNAME}`)
+        .then(r => r.json())
+        .then(data => {
+            if(data.public_repos !== undefined) document.getElementById('gh-vals-repos').textContent = data.public_repos;
+        }).catch(err => console.error(err));
+
       fetch(`https://github-contributions-api.jogruber.de/v4/${USERNAME}?y=last`)
         .then(r => r.json())
         .then(data => {
           const contributions = data.contributions || [];
           const total = contributions.reduce((s, d) => s + d.count, 0);
-          if (countEl) countEl.textContent = `${total.toLocaleString()} contributions in the last year`;
+          
+          let best = 0;
+          contributions.forEach(d => { if(d.count > best) best = d.count; });
+          
+          let weekSum = 0;
+          const oneWeekAgo = new Date();
+          oneWeekAgo.setDate(oneWeekAgo.getDate() - 7);
+          contributions.forEach(d => {
+             const dt = new Date(d.date);
+             if(dt >= oneWeekAgo) weekSum += d.count;
+          });
+
+          const avg = (total / 365).toFixed(1);
+
+          if (document.getElementById('gh-vals-total')) document.getElementById('gh-vals-total').textContent = total.toLocaleString();
+          if (document.getElementById('gh-vals-week')) document.getElementById('gh-vals-week').textContent = weekSum;
+          if (document.getElementById('gh-vals-best')) document.getElementById('gh-vals-best').textContent = best;
+          if (document.getElementById('gh-vals-avg')) document.getElementById('gh-vals-avg').innerHTML = `${avg}<span>/hr</span>`;
+
           const weeks = buildWeeks(contributions);
-          if (weeks) draw(weeks); else fallback();
+          if (weeks) {
+            draw(weeks);
+            
+            // Interaction logic
+            const pill = document.getElementById('gh-graph-pill');
+            const canvas = document.getElementById('gh-graph');
+            if(canvas && pill) {
+                canvas.addEventListener('mousemove', (e) => {
+                    const rect = canvas.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    
+                    const isMobile = window.innerWidth <= 768;
+                    const CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
+                    
+                    const wi = Math.floor(x / STEP);
+                    const di = Math.floor(y / STEP);
+                    
+                    if(weeks[wi] && weeks[wi][di]) {
+                        const day = weeks[wi][di];
+                        pill.style.opacity = '1';
+                        pill.textContent = `${day.count} kontribusi pada ${day.date}`;
+                    } else {
+                        pill.style.opacity = '0';
+                    }
+                });
+                canvas.addEventListener('mouseleave', () => {
+                    pill.style.opacity = '0';
+                });
+            }
+          } else fallback();
         })
         .catch(() => {
-          if (countEl) countEl.textContent = 'Contribution Graph';
           fallback();
         });
     })();
