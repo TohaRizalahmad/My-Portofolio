@@ -3026,8 +3026,6 @@
               console.warn(`Gagal mengambil bahasa untuk ${repo.name}`);
             }
 
-            if (description.length > 130) description = description.substring(0, 127) + '...';
-
             const topics = repo.topics || [];
             let tags = languages.map(l => `<span class="proj-tag">${l}</span>`).join('');
             if (!tags) {
@@ -3036,15 +3034,10 @@
                 : `<span class="proj-tag">${repo.language || 'Project'}</span>`;
             }
 
-            const status = repo.stargazers_count > 0 ? 'Featured' : 'WIP';
-            const statusClass = status === 'Featured' ? 'live' : 'wip';
-
             return `
               <div class="proj-card">
                 <div class="proj-body">
-                  <span class="proj-status ${statusClass}" style="position:static;align-self:flex-start;display:inline-block;margin-bottom:8px;">${status}</span>
                   <div class="proj-title">${title}</div>
-                  <p class="proj-desc">${description}</p>
                   <div class="proj-tags">${tags}</div>
                   <div class="proj-links">
                     ${repo.homepage ? `
