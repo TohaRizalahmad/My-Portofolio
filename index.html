@@ -1004,124 +1004,23 @@
       color: var(--muted2);
     }
 
-    .soc-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
 
-    .soc-card {
-      border-radius: 18px;
-      padding: 28px 32px;
-      text-decoration: none;
-      display: flex;
-      flex-direction: column;
-      gap: 8px;
-      position: relative;
-      overflow: hidden;
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1), box-shadow .3s;
-      min-height: 130px;
-      cursor: pointer;
-    }
 
-    .soc-card.soc-full {
-      grid-column: 1 / -1;
-      min-height: 110px;
-    }
 
-    .soc-card:hover {
-      transform: translateY(-4px) scale(1.01);
-      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
-    }
 
-    .soc-card:hover .soc-brand-icon {
-      transform: translateY(-50%) rotate(-6deg) scale(1.1);
-    }
 
     /* Color themes */
-    .soc-card.c-email {
-      background: linear-gradient(135deg, #c0392b 0%, #7b0e0e 100%);
-    }
 
-    .soc-card.c-instagram {
-      background: linear-gradient(135deg, #833ab4 0%, #fd1d1d 55%, #fcb045 100%);
-    }
 
-    .soc-card.c-linkedin {
-      background: linear-gradient(135deg, #0f6d9b 0%, #0a4a70 100%);
-    }
 
-    .soc-card.c-facebook {
-      background: linear-gradient(135deg, #1877F2 0%, #0d5bbf 100%);
-    }
 
-    .soc-card.c-github {
-      background: linear-gradient(135deg, #1a2540 0%, #0d1626 100%);
-      border: 1px solid #253050;
-    }
 
-    .soc-card.c-whatsapp {
-      background: linear-gradient(135deg, #1a6b35 0%, #0d3d1e 100%);
-    }
 
-    .soc-title {
-      font-family: var(--font-b);
-      font-size: 1.15rem;
-      font-weight: 800;
-      color: #fff;
-      line-height: 1.2;
-    }
 
-    .soc-desc {
-      font-size: 0.8rem;
-      color: rgba(255, 255, 255, 0.72);
-      margin-bottom: 4px;
-    }
 
-    .soc-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 6px;
-      background: rgba(255, 255, 255, 0.15);
-      backdrop-filter: blur(8px);
-      border: 1.5px solid rgba(255, 255, 255, 0.25);
-      color: #fff;
-      font-family: var(--font-b);
-      font-size: 0.78rem;
-      font-weight: 600;
-      padding: 7px 14px;
-      border-radius: 40px;
-      width: fit-content;
-      transition: background .2s, border-color .2s;
-    }
 
-    .soc-card:hover .soc-btn {
-      background: rgba(255, 255, 255, 0.26);
-      border-color: rgba(255, 255, 255, 0.5);
-    }
 
-    .soc-brand-icon {
-      position: absolute;
-      right: 28px;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 58px;
-      height: 58px;
-      border-radius: 14px;
-      border: 2px solid rgba(255, 255, 255, 0.28);
-      background: rgba(255, 255, 255, 0.08);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.6rem;
-      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
-    }
 
-    .soc-brand-icon svg {
-      width: 28px;
-      height: 28px;
-      fill: #fff;
-    }
 
     @media (max-width:768px) {
       .shell {
@@ -1170,9 +1069,6 @@
         grid-column: 1 / -1;
       }
 
-      .soc-grid {
-        grid-template-columns: 1fr;
-      }
 
       #gh-canvas-wrap {
         overflow-x: auto;
@@ -1367,9 +1263,6 @@
 
     @media (max-width:1100px) {
 
-      .soc-grid {
-        grid-template-columns: repeat(2, 1fr);
-      }
 
       .proj-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -1443,13 +1336,7 @@
         color: var(--muted);
       }
 
-      .soc-title {
-        font-size: 1rem;
-      }
 
-      .soc-desc {
-        font-size: 0.75rem;
-      }
 
       .t-name {
         font-size: 10px;
@@ -1604,44 +1491,12 @@
         border-radius: 12px;
       }
 
-      .soc-grid {
-        grid-template-columns: 1fr;
-        gap: 10px;
-      }
 
-      .soc-card.soc-full {
-        grid-column: 1;
-      }
 
-      .soc-card {
-        padding: 20px 18px;
-        min-height: 100px;
-        border-radius: 14px;
-      }
 
-      .soc-title {
-        font-size: 15px;
-        font-weight: 700;
-        margin-bottom: 4px;
-      }
 
-      .soc-desc {
-        font-size: 12px;
-      }
 
-      .soc-brand-icon {
-        width: 52px;
-        height: 52px;
-        right: 16px;
-        top: 50%;
-        transform: translateY(-50%);
-        border-radius: 12px;
-      }
 
-      .soc-brand-icon svg {
-        width: 24px;
-        height: 24px;
-      }
 
     }
 
@@ -2136,6 +1991,301 @@
         flex-direction: column;
         align-items: flex-start;
         gap: 4px;
+      }
+    }
+
+    /* ======= LINKTREE (dari Linktree-main) ======= */
+    .soc-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: 760px;
+      margin: 0 auto;
+    }
+
+    .soc-card {
+      border-radius: 16px;
+      padding: 24px 28px;
+      text-decoration: none;
+      color: #fff;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1), box-shadow .3s;
+      min-height: 130px;
+      cursor: pointer;
+      min-width: 0;
+    }
+
+    .soc-card.soc-full {
+      grid-column: 1 / -1;
+      min-height: 110px;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .soc-card:hover {
+        transform: translateY(-4px) scale(1.01);
+        box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.16), 0 20px 50px rgba(0, 0, 0, 0.55);
+      }
+
+      .soc-card:hover .soc-brand-icon {
+        transform: translateY(-50%) rotate(-6deg) scale(1.1);
+      }
+
+      .soc-card:hover .soc-btn {
+        background: rgba(255, 255, 255, 0.26);
+        border-color: rgba(255, 255, 255, 0.5);
+      }
+
+      .copy:hover {
+        background: rgba(255, 255, 255, 0.26);
+      }
+    }
+
+    .soc-card:active {
+      transform: scale(0.98);
+    }
+
+    .soc-card:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 3px;
+    }
+
+    .grid-title {
+      grid-column: 1 / -1;
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #94a3b8;
+      margin: -2px 0 -2px 2px;
+    }
+
+    .divider {
+      grid-column: 1 / -1;
+      border: 0;
+      height: 1px;
+      background: rgba(255, 255, 255, 0.09);
+      margin: 6px 0;
+    }
+
+    .c-spotify {
+      background: linear-gradient(135deg, #1aa34a 0%, #0b4a24 60%, #06180e 100%);
+    }
+
+    .c-steam {
+      background: linear-gradient(135deg, #2a475e 0%, #16202d 70%, #0b1118 100%);
+    }
+
+    .c-pubg {
+      background: linear-gradient(135deg, #b5651d 0%, #4a2a0c 65%, #1c1007 100%);
+    }
+
+    .c-ml {
+      background: linear-gradient(135deg, #1e3a8a 0%, #172554 60%, #0b1020 100%);
+    }
+
+    .c-saweria {
+      background: linear-gradient(135deg, #f59e0b 0%, #b45309 60%, #451a03 100%);
+    }
+
+    .c-trakteer {
+      background: linear-gradient(135deg, #be123c 0%, #5c0a21 65%, #1c0610 100%);
+    }
+
+    .c-epic {
+      background: linear-gradient(135deg, #3a3f4b 0%, #1b1e26 65%, #0b0c10 100%);
+    }
+
+    .c-shop {
+      background: linear-gradient(135deg, #14b8a6 0%, #0f766e 55%, #123f3c 100%);
+    }
+
+    .c-email {
+      background: linear-gradient(135deg, #f0502e 0%, #cf2a1f 50%, #86160f 100%);
+    }
+
+    .c-instagram {
+      background: linear-gradient(135deg, #6d2f95 0%, #c2203a 60%, #d98a2f 100%);
+    }
+
+    .c-threads {
+      background: linear-gradient(135deg, #4a4a4a 0%, #171717 55%, #000000 100%);
+    }
+
+    .c-tiktok {
+      background: linear-gradient(135deg, #0e7c86 0%, #3a1030 55%, #a3123f 100%);
+    }
+
+    .c-linkedin {
+      background: linear-gradient(135deg, #0f6d9b 0%, #0a4a70 100%);
+    }
+
+    .c-facebook {
+      background: linear-gradient(135deg, #2f8bff 0%, #1459d9 55%, #0b2f8a 100%);
+    }
+
+    .c-github {
+      background: linear-gradient(135deg, #39424e 0%, #171c24 55%, #010409 100%);
+    }
+
+    .c-discord {
+      background: linear-gradient(135deg, #a371f7 0%, #6e40c9 50%, #2e1a5c 100%);
+    }
+
+    .c-whatsapp {
+      background: linear-gradient(135deg, #1fb457 0%, #0f8a43 55%, #05522a 100%);
+    }
+
+    .game-id {
+      font-size: 0.9rem;
+      font-weight: 600;
+      color: rgba(255, 255, 255, 0.8);
+      overflow-wrap: anywhere;
+      padding-right: 72px;
+    }
+
+    .id-text {
+      color: #fff;
+      user-select: all;
+    }
+
+    .soc-card .copy {
+      width: fit-content;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .btn-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .soc-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      letter-spacing: -0.2px;
+      line-height: 1.2;
+      padding-right: 72px;
+    }
+
+    .soc-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 255, 255, 0.15);
+      backdrop-filter: blur(8px);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      color: #fff;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 7px 14px;
+      border-radius: 40px;
+      width: fit-content;
+      transition: background .2s, border-color .2s;
+    }
+
+    .soc-brand-icon {
+      position: absolute;
+      right: 26px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 56px;
+      height: 56px;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1);
+    }
+
+    .soc-brand-icon svg {
+      width: 28px;
+      height: 28px;
+      fill: #fff;
+    }
+
+    .soc-brand-icon svg.icon-outline {
+      fill: none;
+      stroke: #fff;
+      stroke-width: 2.5;
+      stroke-linejoin: round;
+    }
+
+    .soc-brand-icon img.brand-img {
+      width: 28px;
+      height: 28px;
+      object-fit: contain;
+      border-radius: 6px;
+    }
+
+    .copy-row {
+      padding-right: 72px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      flex-wrap: wrap;
+    }
+
+    .copy {
+      font: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      color: #fff;
+      cursor: pointer;
+      background: rgba(255, 255, 255, 0.15);
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      border-radius: 40px;
+      padding: 7px 14px;
+    }
+
+    .copy:focus-visible {
+      outline: 2px solid #fff;
+      outline-offset: 2px;
+    }
+
+    .addr {
+      font-weight: 600;
+      font-size: 0.9rem;
+      user-select: all;
+      overflow-wrap: anywhere;
+      min-width: 0;
+    }
+
+    /* animasi muncul saat di-scroll (tanpa efek mengkilap) */
+    .js .reveal:not(.in) {
+      opacity: 0;
+    }
+
+    .reveal.in {
+      animation: rise .65s cubic-bezier(.22, 1, .36, 1) var(--d, 0ms) backwards;
+    }
+
+    @keyframes rise {
+      from {
+        opacity: 0;
+        transform: translateY(26px) scale(.98);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      .js .reveal:not(.in) {
+        opacity: 1;
+      }
+
+      .reveal.in {
+        animation: none;
+      }
+
+      .soc-card,
+      .soc-brand-icon {
+        transition: none;
       }
     }
   </style>
@@ -2648,84 +2798,166 @@
 
       <section id="social" class="section">
         <div class="sec-head">
-          <div class="sec-title">Social Media</div>
+          <div class="sec-title">Linktree</div>
         </div>
 
         <div class="soc-grid">
-
-          <a href="mailto:toharizalahmad24@gmail.com" class="soc-card soc-full c-email">
-            <div class="soc-title">Stay in Touch</div>
-            <div class="soc-desc">Hubungi saya untuk inquiries atau kolaborasi.</div>
-            <div class="soc-btn">Kirim Email ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 48 48">
-                <path d="M8 10h32a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" fill="none"
-                  stroke="#fff" stroke-width="2.5" />
-                <path d="M4 14l20 14L44 14" fill="none" stroke="#fff" stroke-width="2.5" stroke-linejoin="round" />
-              </svg>
-            </div>
+          <hr class="divider">
+          <div class="grid-title">Sosial</div>
+          <a class="soc-card soc-full c-spotify"
+            href="https://open.spotify.com/user/31fralpy6tqe4ytdth2mb6sfc7oe?si=vFanV0L1RQO3xBjY6SSjmA&utm_source=copy-link"
+            target="_blank" rel="noopener noreferrer">
+            <div class="soc-title">Listen to My Music</div>
+            <div class="soc-btn">Go to Spotify ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
+              </svg></div>
           </a>
-
-          <a href="https://instagram.com/TohaRizalahmad" class="soc-card c-instagram" target="_blank">
+          <hr class="divider">
+          <div class="soc-card soc-full c-email">
+            <div class="soc-title">Stay in Touch</div>
+            <div class="copy-row"><span class="addr" id="addr">toharizalahmad24@gmail.com</span><button class="copy"
+                id="copy" type="button">Salin email</button></div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 48 48" aria-hidden="true" class="icon-outline">
+                <path d="M8 10h32a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" />
+                <path d="M4 14l20 14L44 14" />
+              </svg></div>
+          </div>
+          <a class="soc-card c-instagram" href="https://www.instagram.com/toha.rizalahmad_?cplk=MXQ0d3c2NXFmbGJwag=="
+            target="_blank" rel="noopener noreferrer">
             <div class="soc-title">Follow My Journey</div>
-            <div class="soc-desc">Ikuti perjalanan kreatif saya.</div>
             <div class="soc-btn">Go to Instagram ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z" />
-              </svg>
-            </div>
+              </svg></div>
           </a>
-
-          <a href="https://www.linkedin.com/in/toha-rizal-ahmad-9455603a1/" class="soc-card c-linkedin" target="_blank">
+          <a class="soc-card c-threads" href="https://www.threads.com/@toha.rizalahmad_" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Join the Conversation</div>
+            <div class="soc-btn">Go to Threads ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M18.263 11.097c-.03-3.486-1.92-5.586-5.111-5.586-2.13 0-3.922.963-4.863 2.499l2.062 1.438c.535-.843 1.272-1.543 2.628-1.543 1.528 0 2.318.85 2.544 2.431a15 15 0 0 0-2.236-.173c-4.125 0-6.068 1.867-6.068 4.336s1.943 3.99 4.804 3.99c3.139 0 5.013-2.115 5.781-4.735.798.361 1.348 1.204 1.348 2.47 0 3.387-3.907 5.232-7.22 5.232-4.885 0-8.077-3.207-8.077-8.424 0-6.392 4.223-10.487 9.9-10.487 3.808 0 5.69 1.671 6.97 3.914l2.108-1.475C21.44 2.078 18.331 0 13.663 0 6.227 0 1.168 5.277 1.168 12.934c0 7 4.953 11.066 10.856 11.066 4.878 0 9.809-2.846 9.809-7.716 0-2.545-1.46-4.231-3.569-5.187m-6.33 4.855c-1.077 0-2.026-.512-2.026-1.453 0-1.483 1.822-1.934 3.606-1.934.678 0 1.34.045 1.927.173-.422 1.927-1.671 3.215-3.508 3.214Z" />
+              </svg></div>
+          </a>
+          <a class="soc-card c-tiktok" href="https://tiktok.com/@toha.rizalahmad_" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Watch My Videos</div>
+            <div class="soc-btn">Go to TikTok ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z" />
+              </svg></div>
+          </a>
+          <a class="soc-card c-linkedin"
+            href="https://www.linkedin.com/in/toha-rizal-ahmad-9455603a1?utm_source=share_via&utm_content=profile&utm_medium=member_android"
+            target="_blank" rel="noopener noreferrer">
             <div class="soc-title">Let's Connect</div>
-            <div class="soc-desc">Terhubung secara profesional.</div>
             <div class="soc-btn">Go to LinkedIn ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" />
-              </svg>
-            </div>
+              </svg></div>
           </a>
-
-          <a href="https://facebook.com/TohaRizalahmad" class="soc-card c-facebook" target="_blank">
+          <a class="soc-card c-facebook" href="https://www.facebook.com/share/1AULdL4heR/" target="_blank"
+            rel="noopener noreferrer">
             <div class="soc-title">Join the Community</div>
-            <div class="soc-desc">Temukan saya di Facebook.</div>
             <div class="soc-btn">Go to Facebook ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" />
-              </svg>
-            </div>
+              </svg></div>
           </a>
-
-          <a href="https://github.com/TohaRizalahmad" class="soc-card c-github" target="_blank">
+          <a class="soc-card c-github" href="https://github.com/TohaRizalahmad" target="_blank"
+            rel="noopener noreferrer">
             <div class="soc-title">Explore the Code</div>
-            <div class="soc-desc">Lihat proyek open-source saya.</div>
             <div class="soc-btn">Go to GitHub ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12" />
-              </svg>
-            </div>
+              </svg></div>
           </a>
-
-          <a href="https://wa.me/6282184692988" class="soc-card c-whatsapp" target="_blank">
+          <a class="soc-card c-whatsapp" href="https://wa.me/6282184692988" target="_blank" rel="noopener noreferrer">
             <div class="soc-title">Chat on WhatsApp</div>
-            <div class="soc-desc">Kirim pesan langsung ke WhatsApp saya.</div>
             <div class="soc-btn">Hubungi via WA ↗</div>
-            <div class="soc-brand-icon">
-              <svg viewBox="0 0 24 24">
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
-              </svg>
-            </div>
+              </svg></div>
           </a>
-
+          <a class="soc-card c-discord" href="https://discord.com/users/1567004736517967936" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Let's Hang Out</div>
+            <div class="soc-btn">Go to Discord ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
+              </svg></div>
+          </a>
+          <hr class="divider">
+          <div class="grid-title">Toko</div>
+          <a class="soc-card soc-full c-shop" href="https://lynk.id/toharizalahmad" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Shop With Me</div>
+            <div class="soc-btn">Go to Lynk ↗</div>
+            <div class="soc-brand-icon"><img src="img/LYNK.webp" alt="" class="brand-img"></div>
+          </a>
+          <hr class="divider">
+          <div class="grid-title">Gaming</div>
+          <a class="soc-card soc-full c-steam" href="https://steamcommunity.com/profiles/76561198713709762/"
+            target="_blank" rel="noopener noreferrer">
+            <div class="soc-title">Play With Me</div>
+            <div class="soc-btn">Go to Steam ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M11.979 0C5.678 0 .511 4.86.022 11.037l6.432 2.658c.545-.371 1.203-.59 1.912-.59.063 0 .125.004.188.006l2.861-4.142V8.91c0-2.495 2.028-4.524 4.524-4.524 2.494 0 4.524 2.031 4.524 4.527s-2.03 4.525-4.524 4.525h-.105l-4.076 2.911c0 .052.004.105.004.159 0 1.875-1.515 3.396-3.39 3.396-1.635 0-3.016-1.173-3.331-2.727L.436 15.27C1.862 20.307 6.486 24 11.979 24c6.627 0 11.999-5.373 11.999-12S18.605 0 11.979 0zM7.54 18.21l-1.473-.61c.262.543.714.999 1.314 1.25 1.297.539 2.793-.076 3.332-1.375.263-.63.264-1.319.005-1.949s-.75-1.121-1.377-1.383c-.624-.26-1.29-.249-1.878-.03l1.523.63c.956.4 1.409 1.5 1.009 2.455-.397.957-1.497 1.41-2.454 1.012H7.54zm11.415-9.303c0-1.662-1.353-3.015-3.015-3.015-1.665 0-3.015 1.353-3.015 3.015 0 1.665 1.35 3.015 3.015 3.015 1.663 0 3.015-1.35 3.015-3.015zm-5.273-.005c0-1.252 1.013-2.266 2.265-2.266 1.249 0 2.266 1.014 2.266 2.266 0 1.251-1.017 2.265-2.266 2.265-1.253 0-2.265-1.014-2.265-2.265z" />
+              </svg></div>
+          </a>
+          <a class="soc-card soc-full c-epic" href="https://accounts.epicgames.com/account/personal?productName=egs"
+            target="_blank" rel="noopener noreferrer">
+            <div class="soc-title">Add Me on Epic</div>
+            <div class="soc-btn">Go to Epic Games ↗</div>
+            <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
+                <path
+                  d="M3.537 0C2.165 0 1.66.506 1.66 1.879V18.44a4.262 4.262 0 00.02.433c.031.3.037.59.316.92.027.033.311.245.311.245.153.075.258.13.43.2l8.335 3.491c.433.199.614.276.928.27h.002c.314.006.495-.071.928-.27l8.335-3.492c.172-.07.277-.124.43-.2 0 0 .284-.211.311-.243.28-.33.285-.621.316-.92a4.261 4.261 0 00.02-.434V1.879c0-1.373-.506-1.88-1.878-1.88zm13.366 3.11h.68c1.138 0 1.688.553 1.688 1.696v1.88h-1.374v-1.8c0-.369-.17-.54-.523-.54h-.235c-.367 0-.537.17-.537.539v5.81c0 .369.17.54.537.54h.262c.353 0 .523-.171.523-.54V8.619h1.373v2.143c0 1.144-.562 1.71-1.7 1.71h-.694c-1.138 0-1.7-.566-1.7-1.71V4.82c0-1.144.562-1.709 1.7-1.709zm-12.186.08h3.114v1.274H6.117v2.603h1.648v1.275H6.117v2.774h1.74v1.275h-3.14zm3.816 0h2.198c1.138 0 1.7.564 1.7 1.708v2.445c0 1.144-.562 1.71-1.7 1.71h-.799v3.338h-1.4zm4.53 0h1.4v9.201h-1.4zm-3.13 1.235v3.392h.575c.354 0 .523-.171.523-.54V4.965c0-.368-.17-.54-.523-.54zm-3.74 10.147a1.708 1.708 0 01.591.108 1.745 1.745 0 01.49.299l-.452.546a1.247 1.247 0 00-.308-.195.91.91 0 00-.363-.068.658.658 0 00-.28.06.703.703 0 00-.224.163.783.783 0 00-.151.243.799.799 0 00-.056.299v.008a.852.852 0 00.056.31.7.7 0 00.157.245.736.736 0 00.238.16.774.774 0 00.303.058.79.79 0 00.445-.116v-.339h-.548v-.565H7.37v1.255a2.019 2.019 0 01-.524.307 1.789 1.789 0 01-.683.123 1.642 1.642 0 01-.602-.107 1.46 1.46 0 01-.478-.3 1.371 1.371 0 01-.318-.455 1.438 1.438 0 01-.115-.58v-.008a1.426 1.426 0 01.113-.57 1.449 1.449 0 01.312-.46 1.418 1.418 0 01.474-.309 1.58 1.58 0 01.598-.111 1.708 1.708 0 01.045 0zm11.963.008a2.006 2.006 0 01.612.094 1.61 1.61 0 01.507.277l-.386.546a1.562 1.562 0 00-.39-.205 1.178 1.178 0 00-.388-.07.347.347 0 00-.208.052.154.154 0 00-.07.127v.008a.158.158 0 00.022.084.198.198 0 00.076.066.831.831 0 00.147.06c.062.02.14.04.236.061a3.389 3.389 0 01.43.122 1.292 1.292 0 01.328.17.678.678 0 01.207.24.739.739 0 01.071.337v.008a.865.865 0 01-.081.382.82.82 0 01-.229.285 1.032 1.032 0 01-.353.18 1.606 1.606 0 01-.46.061 2.16 2.16 0 01-.71-.116 1.718 1.718 0 01-.593-.346l.43-.514c.277.223.578.335.9.335a.457.457 0 00.236-.05.157.157 0 00.082-.142v-.008a.15.15 0 00-.02-.077.204.204 0 00-.073-.066.753.753 0 00-.143-.062 2.45 2.45 0 00-.233-.062 5.036 5.036 0 01-.413-.113 1.26 1.26 0 01-.331-.16.72.72 0 01-.222-.243.73.73 0 01-.082-.36v-.008a.863.863 0 01.074-.359.794.794 0 01.214-.283 1.007 1.007 0 01.34-.185 1.423 1.423 0 01.448-.066 2.006 2.006 0 01.025 0zm-9.358.025h.742l1.183 2.81h-.825l-.203-.499H8.623l-.198.498h-.81zm2.197.02h.814l.663 1.08.663-1.08h.814v2.79h-.766v-1.602l-.711 1.091h-.016l-.707-1.083v1.593h-.754zm3.469 0h2.235v.658h-1.473v.422h1.334v.61h-1.334v.442h1.493v.658h-2.255zm-5.3.897l-.315.793h.624zm-1.145 5.19h8.014l-4.09 1.348z" />
+              </svg></div>
+          </a>
+          <hr class="divider">
+          <div class="grid-title">My Favorite Game</div>
+          <div class="soc-card c-pubg">
+            <div class="soc-title">PUBG Mobile</div>
+            <div class="game-id">ID: <span class="id-text">52431517177</span></div>
+            <div class="btn-row">
+              <button class="copy" type="button" data-copy="52431517177">Salin ID</button>
+              <a class="copy" href="https://zanstore.com/" target="_blank" rel="noopener noreferrer">Gift UC ↗</a>
+            </div>
+            <div class="soc-brand-icon"><img src="img/PUBG.jpg" alt="" class="brand-img"></div>
+          </div>
+          <div class="soc-card c-ml">
+            <div class="soc-title">Mobile Legends</div>
+            <div class="game-id">ID: <span class="id-text">424060288 (3889)</span></div>
+            <div class="btn-row">
+              <button class="copy" type="button" data-copy="424060288 (3889)">Salin ID</button>
+              <a class="copy" href="https://zanstore.com/" target="_blank" rel="noopener noreferrer">Gift Diamond ↗</a>
+            </div>
+            <div class="soc-brand-icon"><img src="img/MOBILE LEGENDS.jpg" alt="" class="brand-img"></div>
+          </div>
+          <hr class="divider">
+          <div class="grid-title">Dukungan</div>
+          <a class="soc-card soc-full c-saweria" href="https://saweria.co/TohaRizalahmad" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Support via Saweria</div>
+            <div class="soc-btn">Go to Saweria ↗</div>
+            <div class="soc-brand-icon"><img src="img/SAWERIA.jpg" alt="" class="brand-img"></div>
+          </a>
+          <a class="soc-card soc-full c-trakteer" href="https://trakteer.id/toha.rizalahmad_" target="_blank"
+            rel="noopener noreferrer">
+            <div class="soc-title">Support My Work</div>
+            <div class="soc-btn">Go to Trakteer ↗</div>
+            <div class="soc-brand-icon"><img src="img/TRAKTEER.png" alt="" class="brand-img"></div>
+          </a>
         </div>
 
         <footer class="port-footer">
@@ -2741,6 +2973,78 @@
   </div>
 
   <script>
+    document.documentElement.classList.add('js');
+    /* Linktree: di HP, tampilan desktop (lebar 740px) diperkecil agar pas, sama seperti Linktree-main */
+    function fitLinktree() {
+      var g = document.querySelector('.soc-grid');
+      if (!g) return;
+      g.style.zoom = '';
+      g.style.width = '';
+      g.style.maxWidth = '';
+      var avail = g.parentElement.clientWidth - 32; /* dikurangi padding section (16px kiri-kanan) */
+      if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
+        g.style.maxWidth = 'none';
+        g.style.width = '708px';
+        g.style.zoom = avail / 708;
+      }
+    }
+    window.addEventListener('load', fitLinktree);
+    window.addEventListener('resize', fitLinktree);
+    window.addEventListener('orientationchange', function () { setTimeout(fitLinktree, 300); });
+
+    document.addEventListener('DOMContentLoaded', function () {
+      fitLinktree();
+      /* Linktree: animasi muncul saat di-scroll */
+      var items = document.querySelectorAll('.soc-grid > *');
+      items.forEach(function (el) { el.classList.add('reveal'); });
+      if (!('IntersectionObserver' in window)) {
+        items.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          var n = 0;
+          entries.forEach(function (e) {
+            if (!e.isIntersecting) return;
+            e.target.style.setProperty('--d', Math.min(n++ * 80, 720) + 'ms');
+            e.target.classList.add('in');
+            io.unobserve(e.target);
+          });
+        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        items.forEach(function (el) { io.observe(el); });
+      }
+
+      /* Linktree: tombol salin email */
+      var btn = document.getElementById('copy');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          function done() { btn.textContent = 'Tersalin'; setTimeout(function () { btn.textContent = 'Salin email'; }, 1800); }
+          function fallback() {
+            var r = document.createRange();
+            r.selectNodeContents(document.getElementById('addr'));
+            var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+            btn.textContent = 'Tekan salin';
+          }
+          try { navigator.clipboard.writeText('toharizalahmad24@gmail.com').then(done, fallback); }
+          catch (e) { fallback(); }
+        });
+      }
+
+      /* Linktree: tombol salin ID game */
+      document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
+        var label = b.textContent;
+        b.addEventListener('click', function () {
+          var t = b.getAttribute('data-copy');
+          function done() { b.textContent = 'Tersalin'; setTimeout(function () { b.textContent = label; }, 1800); }
+          function fallback() {
+            var el = b.closest('.soc-card').querySelector('.id-text');
+            var r = document.createRange(); r.selectNodeContents(el);
+            var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
+            b.textContent = 'Tekan salin';
+          }
+          try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
+        });
+      });
+    });
+
     function toggleJob(btn) {
       const detail = btn.nextElementSibling;
       const isOpen = detail.classList.contains('open');
