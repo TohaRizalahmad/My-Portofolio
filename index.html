@@ -854,7 +854,7 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      grid-template-columns: repeat(2, minmax(0, 1fr));
       gap: 16px;
     }
 
@@ -874,7 +874,7 @@
 
     .cert-img {
       width: 100%;
-      aspect-ratio: 4/3;
+      min-height: 140px;
       background: linear-gradient(135deg, rgba(139, 92, 246, .08), rgba(192, 132, 252, .04));
       display: flex;
       flex-direction: column;
@@ -886,16 +886,12 @@
       border-bottom: 1px solid var(--border);
     }
 
+    /* Sertifikat tampil utuh (tidak terpotong), tinggi mengikuti rasio gambar */
     .cert-img img {
       width: 100%;
-      height: 100%;
-      object-fit: cover;
+      height: auto;
+      object-fit: contain;
       display: block;
-      transition: transform .35s;
-    }
-
-    .cert-card:hover .cert-img img {
-      transform: scale(1.04);
     }
 
     .cert-img.has-thumb {
@@ -2363,7 +2359,8 @@
 
           <div class="cert-grid">
 
-            <!-- Tambah sertifikat baru: salin satu blok .cert-card, lalu ganti data-drive (ID file Drive),
+            <!-- Grid 2 kolom: sertifikat baru otomatis turun ke baris berikutnya setiap 2 card.
+               Tambah sertifikat baru: salin satu blok .cert-card, lalu ganti data-drive (ID file Drive),
                alt, dan judul. ID file = bagian antara /d/ dan /view pada link Google Drive. -->
             <div class="cert-card">
               <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" onclick="openLb(this)">
@@ -2371,7 +2368,7 @@
                   <div class="cert-ph-ico">🏆</div>
                   <div class="cert-ph-txt">PDF</div>
                 </div>
-                <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w800"
+                <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w1200"
                   alt="Internet Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
                   <div class="cert-overlay-btn">Lihat Sertifikat</div>
@@ -2379,6 +2376,27 @@
               </div>
               <div class="cert-body">
                 <div class="cert-title">Internet Introduction</div>
+                <div class="cert-footer">
+                  <span class="cert-year">PDF</span>
+                  <span class="cert-type">Google Drive</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS" onclick="openLb(this)">
+                <div class="cert-ph">
+                  <div class="cert-ph-ico">🏆</div>
+                  <div class="cert-ph-txt">PDF</div>
+                </div>
+                <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w1200"
+                  alt="Sertifikat" loading="lazy" onerror="this.remove()">
+                <div class="cert-overlay">
+                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
+                </div>
+              </div>
+              <div class="cert-body">
+                <div class="cert-title">Sertifikat</div>
                 <div class="cert-footer">
                   <span class="cert-year">PDF</span>
                   <span class="cert-type">Google Drive</span>
