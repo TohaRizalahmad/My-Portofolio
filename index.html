@@ -164,18 +164,13 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px 0;
+      justify-content: flex-start;
+      padding: 20px 0;
       overflow-y: auto;
       overflow-x: visible;
       z-index: 100;
       flex-shrink: 0;
       transition: transform .3s cubic-bezier(.4, 0, .2, 1), background-color .3s;
-    }
-
-    body.light-mode .sidebar {
-      background: rgba(255, 255, 255, 0.96);
-      border-right-color: var(--border);
     }
 
     .sidebar::-webkit-scrollbar {
@@ -208,11 +203,6 @@
       background: var(--bg-card);
       border: 1px solid var(--border);
       box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
-    }
-
-    body.light-mode .hero-photo-inner {
-      border-color: rgba(0, 0, 0, 0.08);
-      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
     }
 
     .hero-photo-inner img {
@@ -264,71 +254,14 @@
       margin-top: 2px;
     }
 
-    .hero-theme-wrap {
-      margin-left: auto;
-      flex-shrink: 0;
-    }
-
-    .theme-pill {
-      display: flex;
-      background: rgba(255, 255, 255, .05);
-      border: 1px solid var(--border);
-      padding: 3px;
-      border-radius: 30px;
-      position: relative;
-      gap: 2px;
-    }
-
-    .theme-btn {
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      border: none;
-      background: transparent;
-      color: var(--muted2);
-      cursor: pointer;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: all .3s;
-      position: relative;
-      z-index: 2;
-    }
-
-    .theme-btn svg {
-      width: 16px;
-      height: 16px;
-    }
-
-    .theme-btn.active {
-      color: #fff;
-      background: var(--blue);
-      box-shadow: 0 4px 12px rgba(37, 99, 235, .3);
-    }
-
-    body.light-mode .theme-btn.active {
-      background: var(--blue-bright);
-    }
-
     /* Light Mode Variables Override */
-    body.light-mode {
-      --bg: #f8fafc;
-      --bg-side: #ffffff;
-      --bg-card: #fdfdfd;
-      --text: #0f172a;
-      --muted: #475569;
-      --muted2: #94a3b8;
-      --border: #e2e8f0;
-      --border-lit: #cbd5e1;
-      --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
-    }
 
     /* Nav items - Icon Only */
     .sb-nav {
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       gap: 12px;
       width: 100%;
       padding: 0;
@@ -359,22 +292,11 @@
       transform: translateY(-1px);
     }
 
-    body.light-mode .sb-a:hover {
-      background: rgba(0, 0, 0, .04);
-      color: var(--text);
-    }
-
     .sb-a.active {
       color: var(--blue-bright);
       background: var(--blue-dim);
       border-color: var(--blue-ring);
       box-shadow: 0 0 16px rgba(37, 99, 235, .25);
-    }
-
-    body.light-mode .sb-a.active {
-      color: var(--blue);
-      background: rgba(37, 99, 235, 0.1);
-      border-color: rgba(37, 99, 235, 0.3);
     }
 
     .sb-icon {
@@ -393,11 +315,6 @@
     .sb-a.active .sb-icon {
       color: var(--blue-bright);
       filter: drop-shadow(0 0 6px rgba(96, 165, 250, .5));
-    }
-
-    body.light-mode .sb-a.active .sb-icon {
-      color: var(--blue);
-      filter: none;
     }
 
     /* Floating Tooltip */
@@ -424,13 +341,6 @@
       transition: all .18s cubic-bezier(.4, 0, .2, 1);
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
       z-index: 1000;
-    }
-
-    body.light-mode .sb-a::after {
-      background: rgba(255, 255, 255, 0.98);
-      color: #0f172a;
-      border-color: #cbd5e1;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
     }
 
     .sb-a:hover::after {
@@ -573,10 +483,6 @@
 
       .hero-name {
         font-size: 26px;
-      }
-
-      .hero-theme-wrap {
-        margin-left: 0;
       }
 
       .hero-photo-wrap {
@@ -2217,6 +2123,142 @@
         gap: 4px;
       }
     }
+
+    /* ======= MOBILE: bagian atas, Karier Profesional & Riwayat Pendidikan diperbesar ======= */
+    @media (max-width: 768px) {
+      .prof-hero {
+        padding: 30px 16px 26px;
+      }
+
+      .prof-hero-top {
+        gap: 22px;
+      }
+
+      .hero-photo-wrap {
+        width: 132px;
+        height: 132px;
+      }
+
+      .p-greet {
+        font-size: clamp(10px, 3.1vw, 13px);
+      }
+
+      .hero-name {
+        font-size: clamp(28px, 8.4vw, 36px);
+      }
+
+      .hero-verified {
+        width: 26px;
+        height: 26px;
+      }
+
+      .hero-role-pill {
+        font-size: clamp(11px, 3.3vw, 14px);
+      }
+
+      .prof-hero .p-bio {
+        font-size: clamp(14px, 4vw, 16px);
+        line-height: 1.75;
+      }
+
+      .career-cards-wrap .card {
+        padding: 18px 10px 12px;
+      }
+
+      .career-cards-wrap .c-label {
+        font-size: 11px;
+        margin-bottom: 14px;
+      }
+
+      .career-item-top {
+        padding: 14px 10px 12px;
+        gap: 14px;
+      }
+
+      .career-logo {
+        width: 56px;
+        height: 56px;
+        border-radius: 12px;
+      }
+
+      .career-job-title {
+        font-size: 17px;
+        margin-bottom: 4px;
+      }
+
+      .career-company {
+        font-size: 14px;
+      }
+
+      .career-meta {
+        font-size: 12px;
+        gap: 6px;
+      }
+
+      .career-badge {
+        font-size: 11px;
+        padding: 3px 9px;
+      }
+
+      .career-toggle {
+        font-size: 12px;
+        padding: 12px 14px;
+      }
+
+      .career-toggle svg {
+        width: 16px;
+        height: 16px;
+      }
+
+      .career-detail-inner {
+        padding: 14px 14px 16px;
+      }
+
+      .career-detail-inner .pro-task-label {
+        font-size: 12px;
+      }
+
+      .career-detail-inner .pro-task {
+        font-size: 14px;
+      }
+
+      /* Riwayat Pendidikan: subjudul memakai lebar penuh & selalu satu baris */
+      .career-item-top.career-edu {
+        display: grid;
+        grid-template-columns: 56px 1fr;
+        column-gap: 14px;
+        row-gap: 10px;
+        align-items: center;
+      }
+
+      .career-edu .career-info {
+        display: contents;
+      }
+
+      .career-edu .career-logo {
+        grid-column: 1;
+        grid-row: 1;
+      }
+
+      .career-edu .career-job-title {
+        grid-column: 2;
+        grid-row: 1;
+        margin: 0;
+      }
+
+      .career-edu .career-company {
+        grid-column: 1 / -1;
+        grid-row: 2;
+        margin: 0;
+        white-space: nowrap;
+        font-size: min(14px, calc((100vw - 70px) / 33.2));
+      }
+
+      .career-edu .career-meta {
+        grid-column: 1 / -1;
+        grid-row: 3;
+      }
+    }
   </style>
 </head>
 
@@ -2249,11 +2291,26 @@
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
           </svg>
         </a>
-        <a class="sb-a" id="sba-tools" onclick="navTo('tools',this)" title="Tools, Platform &amp; Skills"
+        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Sertifikat"
+          data-tooltip="Sertifikat" aria-label="Sertifikat">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <circle cx="12" cy="8" r="6" />
+            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          </svg>
+        </a>
+        <a class="sb-a" id="sba-toolslist" onclick="navTo('toolslist',this)" title="Tools, Platform &amp; Skills"
           data-tooltip="Tools, Platform &amp; Skills" aria-label="Tools, Platform &amp; Skills">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path
               d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          </svg>
+        </a>
+        <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)" title="Dashboard" data-tooltip="Dashboard"
+          aria-label="Dashboard">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
+            <line x1="3" y1="9" x2="21" y2="9" />
+            <line x1="9" y1="21" x2="9" y2="9" />
           </svg>
         </a>
         <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects" data-tooltip="Projects"
@@ -2311,30 +2368,6 @@
               </div>
               <div class="hero-role-pill">
                 <span>@toha.rizalahmad_</span>
-              </div>
-            </div>
-            <div class="hero-theme-wrap">
-              <div class="theme-pill">
-                <button class="theme-btn active" id="btn-dark" title="Dark Mode" aria-label="Dark Mode">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-                  </svg>
-                </button>
-                <button class="theme-btn" id="btn-light" title="Light Mode" aria-label="Light Mode">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round">
-                    <circle cx="12" cy="12" r="5"></circle>
-                    <line x1="12" y1="1" x2="12" y2="3"></line>
-                    <line x1="12" y1="21" x2="12" y2="23"></line>
-                    <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-                    <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-                    <line x1="1" y1="12" x2="3" y2="12"></line>
-                    <line x1="21" y1="12" x2="23" y2="12"></line>
-                    <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-                    <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-                  </svg>
-                </button>
               </div>
             </div>
           </div>
@@ -2395,7 +2428,7 @@
               <div class="career-body"
                 style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
                 <div class="career-item">
-                  <div class="career-item-top">
+                  <div class="career-item-top career-edu">
                     <div class="career-logo career-logo-edu">
                       <img src="img/UT Logo.jpg" alt="Universitas Terbuka">
                     </div>
@@ -2416,7 +2449,7 @@
                 </div>
 
                 <div class="career-item">
-                  <div class="career-item-top">
+                  <div class="career-item-top career-edu">
                     <div class="career-logo career-logo-edu">
                       <img src="img/SMK Logo.jpg" alt="SMK AL-FALAH RUMBIA">
                     </div>
@@ -2443,8 +2476,6 @@
           <div class="sec-head">
             <div class="sec-title">Sertifikat</div>
           </div>
-
-
 
           <div class="cert-grid">
 
@@ -2473,177 +2504,180 @@
 
 
 
-        <div class="sec-head" style="margin-top:28px;">
-          <div class="sec-title">Tools, Platform &amp; Skills</div>
-        </div>
+        <div id="toolslist" class="sub-block" style="display:flex;flex-direction:column;gap:24px;margin-top:28px;">
+          <div class="sec-head">
+            <div class="sec-title">Tools, Platform &amp; Skills</div>
+          </div>
 
-        <div class="card">
-          <div class="c-label">Dev</div>
-          <div class="tools-grid">
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg"
-                  alt="HTML"></span>
-              <span class="t-name">HTML</span>
+          <div class="card">
+            <div class="c-label">Dev</div>
+            <div class="tools-grid">
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></span>
+                <span class="t-name">HTML</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                  alt="CSS"></span>
-              <span class="t-name">CSS</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
+                    alt="CSS"></span>
+                <span class="t-name">CSS</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                  alt="JavaScript"></span>
-              <span class="t-name">JavaScript</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
+                    alt="JavaScript"></span>
+                <span class="t-name">JavaScript</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
-                  alt="TypeScript"></span>
-              <span class="t-name">TypeScript</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg"
+                    alt="TypeScript"></span>
+                <span class="t-name">TypeScript</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
-                  alt="Tailwind CSS"></span>
-              <span class="t-name">Tailwind CSS</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/tailwindcss/tailwindcss-original.svg"
+                    alt="Tailwind CSS"></span>
+                <span class="t-name">Tailwind CSS</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"
-                  class="icon-invert"></span>
-              <span class="t-name">Next.js</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nextjs/nextjs-original.svg" alt="Next.js"
+                    class="icon-invert"></span>
+                <span class="t-name">Next.js</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                  alt="Python"></span>
-              <span class="t-name">Python</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
+                    alt="Python"></span>
+                <span class="t-name">Python</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
-                  alt="PHP"></span>
-              <span class="t-name">PHP</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/php/php-original.svg"
+                    alt="PHP"></span>
+                <span class="t-name">PHP</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
-                  alt="Java"></span>
-              <span class="t-name">Java</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg"
+                    alt="Java"></span>
+                <span class="t-name">Java</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
-                  alt="MySQL"></span>
-              <span class="t-name">MySQL</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/mysql/mysql-original.svg"
+                    alt="MySQL"></span>
+                <span class="t-name">MySQL</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
-                  alt="Laravel"></span>
-              <span class="t-name">Laravel</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
+                    alt="Laravel"></span>
+                <span class="t-name">Laravel</span>
 
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="c-label">Aplikasi Desain</div>
-          <div class="tools-grid">
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva"></span>
-              <span class="t-name">Canva</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/coreldraw/00A651" alt="CorelDRAW"></span>
-              <span class="t-name">CorelDRAW</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/blender/F5792A" alt="Blender"></span>
-              <span class="t-name">Blender</span>
+          <div class="card">
+            <div class="c-label">Aplikasi Desain</div>
+            <div class="tools-grid">
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/canva/00C4CC" alt="Canva"></span>
+                <span class="t-name">Canva</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/coreldraw/00A651" alt="CorelDRAW"></span>
+                <span class="t-name">CorelDRAW</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/blender/F5792A" alt="Blender"></span>
+                <span class="t-name">Blender</span>
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="c-label">DevOps &amp; Tools</div>
-          <div class="tools-grid">
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                  alt="VS Code"></span>
-              <span class="t-name">VS Code</span>
+          <div class="card">
+            <div class="c-label">DevOps &amp; Tools</div>
+            <div class="tools-grid">
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
+                    alt="VS Code"></span>
+                <span class="t-name">VS Code</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/googlegemini/60A5FA" alt="Antigrafity"></span>
-              <span class="t-name">Antigrafity</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/googlegemini/60A5FA" alt="Antigrafity"></span>
+                <span class="t-name">Antigrafity</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                  alt="Git"></span>
-              <span class="t-name">Git</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
+                    alt="Git"></span>
+                <span class="t-name">Git</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
-                  class="icon-invert"></span>
-              <span class="t-name">GitHub</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
+                    class="icon-invert"></span>
+                <span class="t-name">GitHub</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img
-                  src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel"
-                  class="icon-invert"></span>
-              <span class="t-name">Vercel</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img
+                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vercel/vercel-original.svg" alt="Vercel"
+                    class="icon-invert"></span>
+                <span class="t-name">Vercel</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify"></span>
-              <span class="t-name">Netlify</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify"></span>
+                <span class="t-name">Netlify</span>
 
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger"></span>
-              <span class="t-name">Hostinger</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger"></span>
+                <span class="t-name">Hostinger</span>
 
+              </div>
             </div>
           </div>
-        </div>
 
-        <div class="card">
-          <div class="c-label">AI Assistant</div>
-          <div class="tools-grid">
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/githubcopilot/60A5FA"
-                  alt="GitHub Copilot"></span>
-              <span class="t-name">GitHub Copilot</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://chat.openai.com/favicon.ico" alt="ChatGPT"></span>
-              <span class="t-name">ChatGPT</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude"></span>
-              <span class="t-name">Claude</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://cdn.simpleicons.org/cursor/ffffff" alt="Cursor"></span>
-              <span class="t-name">Cursor</span>
-            </div>
-            <div class="tool-pill">
-              <span class="t-ico"><img src="https://lovable.dev/favicon.ico" alt="Lovable"></span>
-              <span class="t-name">Lovable</span>
+          <div class="card">
+            <div class="c-label">AI Assistant</div>
+            <div class="tools-grid">
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/githubcopilot/60A5FA"
+                    alt="GitHub Copilot"></span>
+                <span class="t-name">GitHub Copilot</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://chat.openai.com/favicon.ico" alt="ChatGPT"></span>
+                <span class="t-name">ChatGPT</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/claude/D97757" alt="Claude"></span>
+                <span class="t-name">Claude</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://cdn.simpleicons.org/cursor/ffffff" alt="Cursor"></span>
+                <span class="t-name">Cursor</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="https://lovable.dev/favicon.ico" alt="Lovable"></span>
+                <span class="t-name">Lovable</span>
+              </div>
             </div>
           </div>
         </div>
@@ -2837,8 +2871,6 @@
     </main>
   </div>
 
-
-
   <script>
     function toggleJob(btn) {
       const detail = btn.nextElementSibling;
@@ -2890,40 +2922,11 @@
       document.body.style.overflow = '';
     }
 
-    /* ---- Theme Logic ---- */
-    function initTheme() {
-      const btnDark = document.getElementById('btn-dark');
-      const btnLight = document.getElementById('btn-light');
-
-      function setTheme(mode) {
-        if (mode === 'light') {
-          document.body.classList.add('light-mode');
-          if (btnLight) btnLight.classList.add('active');
-          if (btnDark) btnDark.classList.remove('active');
-          localStorage.setItem('portfolio-theme', 'light');
-        } else {
-          document.body.classList.remove('light-mode');
-          if (btnDark) btnDark.classList.add('active');
-          if (btnLight) btnLight.classList.remove('active');
-          localStorage.setItem('portfolio-theme', 'dark');
-        }
-      }
-
-      if (btnDark) btnDark.onclick = () => setTheme('dark');
-      if (btnLight) btnLight.onclick = () => setTheme('light');
-
-      const savedTheme = localStorage.getItem('portfolio-theme');
-      if (savedTheme === 'light') {
-        setTheme('light');
-      } else {
-        setTheme('dark');
-      }
-    }
-    initTheme();
-
     /* ---- Navigate to section and highlight nav item ---- */
+    let navLock = 0;
     function navTo(id, el) {
-      if (id === 'tools') setTimeout(animBars, 100);
+      navLock = Date.now() + 1000;
+      if (id === 'toolslist') setTimeout(animBars, 100);
       if (id === 'profile') setTimeout(animCounters, 100);
 
       // Update active state
@@ -2949,30 +2952,24 @@
     function nav(id, el) { navTo(id, el); }
 
     function initObserver() {
-      const sections = document.querySelectorAll('.section');
+      const ids = ['profile', 'achievement', 'toolslist', 'dashboard', 'projects', 'social'];
+      const targets = ids.map(id => document.getElementById(id)).filter(Boolean);
       const navLinks = document.querySelectorAll('.sb-a');
+      let current = null;
 
-      const observerOptions = {
-        root: null,
-        rootMargin: '-20% 0px -50% 0px',
-        threshold: 0
-      };
+      function update() {
+        if (Date.now() < navLock) return;
+        let active = targets[0];
+        targets.forEach(t => { if (t.getBoundingClientRect().top <= 60) active = t; });
+        if (!active || active.id === current) return;
+        current = active.id;
+        navLinks.forEach(link => link.classList.toggle('active', link.id === 'sba-' + current));
+        if (current === 'toolslist') animBars();
+        if (current === 'profile') animCounters();
+      }
 
-      const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            const activeId = entry.target.id;
-            navLinks.forEach(link => {
-              const isActive = link.id === 'sba-' + activeId;
-              link.classList.toggle('active', isActive);
-            });
-            if (activeId === 'tools') animBars();
-            if (activeId === 'profile') animCounters();
-          }
-        });
-      }, observerOptions);
-
-      sections.forEach(sec => observer.observe(sec));
+      window.addEventListener('scroll', update, { passive: true });
+      update();
     }
 
     let cDone = false;
