@@ -2123,142 +2123,6 @@
         gap: 4px;
       }
     }
-
-    /* ======= MOBILE: bagian atas, Karier Profesional & Riwayat Pendidikan diperbesar ======= */
-    @media (max-width: 768px) {
-      .prof-hero {
-        padding: 30px 16px 26px;
-      }
-
-      .prof-hero-top {
-        gap: 22px;
-      }
-
-      .hero-photo-wrap {
-        width: 132px;
-        height: 132px;
-      }
-
-      .p-greet {
-        font-size: clamp(10px, 3.1vw, 13px);
-      }
-
-      .hero-name {
-        font-size: clamp(28px, 8.4vw, 36px);
-      }
-
-      .hero-verified {
-        width: 26px;
-        height: 26px;
-      }
-
-      .hero-role-pill {
-        font-size: clamp(11px, 3.3vw, 14px);
-      }
-
-      .prof-hero .p-bio {
-        font-size: clamp(14px, 4vw, 16px);
-        line-height: 1.75;
-      }
-
-      .career-cards-wrap .card {
-        padding: 18px 10px 12px;
-      }
-
-      .career-cards-wrap .c-label {
-        font-size: 11px;
-        margin-bottom: 14px;
-      }
-
-      .career-item-top {
-        padding: 14px 10px 12px;
-        gap: 14px;
-      }
-
-      .career-logo {
-        width: 56px;
-        height: 56px;
-        border-radius: 12px;
-      }
-
-      .career-job-title {
-        font-size: 17px;
-        margin-bottom: 4px;
-      }
-
-      .career-company {
-        font-size: 14px;
-      }
-
-      .career-meta {
-        font-size: 12px;
-        gap: 6px;
-      }
-
-      .career-badge {
-        font-size: 11px;
-        padding: 3px 9px;
-      }
-
-      .career-toggle {
-        font-size: 12px;
-        padding: 12px 14px;
-      }
-
-      .career-toggle svg {
-        width: 16px;
-        height: 16px;
-      }
-
-      .career-detail-inner {
-        padding: 14px 14px 16px;
-      }
-
-      .career-detail-inner .pro-task-label {
-        font-size: 12px;
-      }
-
-      .career-detail-inner .pro-task {
-        font-size: 14px;
-      }
-
-      /* Riwayat Pendidikan: subjudul memakai lebar penuh & selalu satu baris */
-      .career-item-top.career-edu {
-        display: grid;
-        grid-template-columns: 56px 1fr;
-        column-gap: 14px;
-        row-gap: 10px;
-        align-items: center;
-      }
-
-      .career-edu .career-info {
-        display: contents;
-      }
-
-      .career-edu .career-logo {
-        grid-column: 1;
-        grid-row: 1;
-      }
-
-      .career-edu .career-job-title {
-        grid-column: 2;
-        grid-row: 1;
-        margin: 0;
-      }
-
-      .career-edu .career-company {
-        grid-column: 1 / -1;
-        grid-row: 2;
-        margin: 0;
-        white-space: nowrap;
-        font-size: min(14px, calc((100vw - 70px) / 33.2));
-      }
-
-      .career-edu .career-meta {
-        grid-column: 1 / -1;
-        grid-row: 3;
-      }
-    }
   </style>
 </head>
 
@@ -2428,7 +2292,7 @@
               <div class="career-body"
                 style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
                 <div class="career-item">
-                  <div class="career-item-top career-edu">
+                  <div class="career-item-top">
                     <div class="career-logo career-logo-edu">
                       <img src="img/UT Logo.jpg" alt="Universitas Terbuka">
                     </div>
@@ -2449,7 +2313,7 @@
                 </div>
 
                 <div class="career-item">
-                  <div class="career-item-top career-edu">
+                  <div class="career-item-top">
                     <div class="career-logo career-logo-edu">
                       <img src="img/SMK Logo.jpg" alt="SMK AL-FALAH RUMBIA">
                     </div>
