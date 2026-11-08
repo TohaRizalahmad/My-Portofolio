@@ -246,10 +246,10 @@
       align-items: center;
       gap: 8px;
       font-family: var(--font-m);
-      font-size: 11px;
+      font-size: 12px;
       color: var(--blue-bright);
-      letter-spacing: 1.4px;
-      text-transform: uppercase;
+      letter-spacing: .3px;
+      text-transform: none;
       font-weight: 500;
       margin-top: 2px;
     }
@@ -468,21 +468,11 @@
       }
 
       .prof-hero-top {
-        flex-direction: column;
-        text-align: center;
-        gap: 18px;
-      }
-
-      .hero-info {
-        align-items: center;
-      }
-
-      .hero-name-row {
-        justify-content: center;
+        gap: 14px;
       }
 
       .hero-name {
-        font-size: 26px;
+        font-size: clamp(19px, 5.6vw, 26px);
       }
 
       .hero-photo-wrap {
@@ -659,15 +649,6 @@
       height: 200px;
       background: radial-gradient(circle, rgba(192, 132, 252, .04) 0%, transparent 65%);
       pointer-events: none;
-    }
-
-    .p-greet {
-      font-family: var(--font-m);
-      font-size: 10px;
-      color: var(--blue-bright);
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      margin-bottom: 10px;
     }
 
     .p-bio {
@@ -915,6 +896,25 @@
 
     .cert-card:hover .cert-img img {
       transform: scale(1.04);
+    }
+
+    .cert-img.has-thumb {
+      cursor: pointer;
+    }
+
+    .cert-img.has-thumb .cert-ph {
+      position: absolute;
+      inset: 0;
+      justify-content: center;
+    }
+
+    .cert-img.has-thumb img {
+      position: relative;
+      z-index: 1;
+    }
+
+    .cert-img.has-thumb .cert-overlay {
+      z-index: 2;
     }
 
     .cert-ph {
@@ -1316,6 +1316,24 @@
       box-shadow: 0 24px 80px rgba(0, 0, 0, .85), 0 0 0 1px rgba(139, 92, 246, .1);
     }
 
+    .lb-frame {
+      width: min(92vw, 960px);
+      height: 84vh;
+      border: 1px solid var(--border-lit);
+      border-radius: 12px;
+      background: #fff;
+    }
+
+    .lb-frame[hidden],
+    .lb-img[hidden] {
+      display: none;
+    }
+
+    .lb-cap a {
+      color: var(--blue-bright);
+      text-decoration: none;
+    }
+
     .lb-close {
       position: absolute;
       top: 24px;
@@ -1411,15 +1429,10 @@
 
       .prof-hero {
         grid-template-columns: 1fr;
-        text-align: center;
+        text-align: left;
         padding: 28px 20px 24px;
         gap: 20px;
         border-radius: 16px;
-      }
-
-      .p-greet {
-        font-size: 11px;
-        margin-bottom: 6px;
       }
 
       .p-bio {
@@ -2140,6 +2153,7 @@
   <div class="lightbox" id="lightbox" onclick="closeLb(event)">
     <button class="lb-close" onclick="closeLb()">✕</button>
     <img class="lb-img" id="lb-img" src="" alt="">
+    <iframe class="lb-frame" id="lb-frame" title="Sertifikat" hidden allow="autoplay"></iframe>
     <div class="lb-cap" id="lb-cap"></div>
   </div>
 
@@ -2222,7 +2236,6 @@
               </div>
             </div>
             <div class="hero-info">
-              <div class="p-greet">Selamat Datang di Portofolio Saya</div>
               <div class="hero-name-row">
                 <h1 class="hero-name">Toha Rizal Ahmad</h1>
                 <svg class="hero-verified" viewBox="0 0 24 24" fill="none">
@@ -2345,22 +2358,25 @@
 
           <div class="cert-grid">
 
+            <!-- Tambah sertifikat baru: salin satu blok .cert-card, lalu ganti data-drive (ID file Drive),
+               alt, dan judul. ID file = bagian antara /d/ dan /view pada link Google Drive. -->
             <div class="cert-card">
-              <div class="cert-img" onclick="openLb(this)">
+              <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" onclick="openLb(this)">
                 <div class="cert-ph">
                   <div class="cert-ph-ico">🏆</div>
-                  <div class="cert-ph-txt">None</div>
+                  <div class="cert-ph-txt">PDF</div>
                 </div>
+                <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w800"
+                  alt="Internet Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
-                  <div class="cert-overlay-btn">None</div>
+                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
                 </div>
               </div>
               <div class="cert-body">
-                <div class="cert-issuer">None · None</div>
-                <div class="cert-title">None</div>
+                <div class="cert-title">Internet Introduction</div>
                 <div class="cert-footer">
-                  <span class="cert-year">None</span>
-                  <span class="cert-type">None</span>
+                  <span class="cert-year">PDF</span>
+                  <span class="cert-type">Google Drive</span>
                 </div>
               </div>
             </div>
@@ -2863,26 +2879,51 @@
     }
 
     function openLb(wrap) {
-      const img = wrap.querySelector('img');
-      if (!img) return;
       const card = wrap.closest('.cert-card');
       const title = card?.querySelector('.cert-title')?.textContent || '';
       const issuer = card?.querySelector('.cert-issuer')?.textContent || '';
-      document.getElementById('lb-img').src = img.src;
-      document.getElementById('lb-cap').textContent = issuer && title ? issuer + ' — ' + title : title;
+      const img = document.getElementById('lb-img');
+      const frame = document.getElementById('lb-frame');
+      const cap = document.getElementById('lb-cap');
+      const driveId = wrap.dataset.drive;
+
+      if (driveId) {
+        // PDF dari Google Drive (file harus dibagikan "Siapa saja yang memiliki link")
+        frame.src = 'https://drive.google.com/file/d/' + driveId + '/preview';
+        frame.hidden = false;
+        img.hidden = true;
+        cap.textContent = title ? title + ' — ' : '';
+        const link = document.createElement('a');
+        link.href = 'https://drive.google.com/file/d/' + driveId + '/view';
+        link.target = '_blank';
+        link.rel = 'noopener';
+        link.textContent = 'Buka di Google Drive ↗';
+        cap.appendChild(link);
+      } else {
+        const thumb = wrap.querySelector('img');
+        if (!thumb) return;
+        frame.hidden = true;
+        frame.src = 'about:blank';
+        img.hidden = false;
+        img.src = thumb.src;
+        cap.textContent = issuer && title ? issuer + ' — ' + title : title;
+      }
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
+    function resetLb() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.getElementById('lb-frame').src = 'about:blank';
+      document.body.style.overflow = '';
+    }
     function closeLb(e) {
       if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lb-close')) return;
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
+      resetLb();
     }
     document.addEventListener('keydown', e => {
       if (e.key === 'Escape') {
-        document.getElementById('lightbox').classList.remove('open');
+        resetLb();
         closeSidebar();
-        document.body.style.overflow = '';
       }
     });
 
