@@ -154,95 +154,129 @@
       min-height: 100vh;
     }
 
-    /* ======= PERMANENT SIDEBAR ======= */
+    /* ======= SLIM ICON SIDEBAR ======= */
     .sidebar {
       position: fixed;
       top: 0;
       left: 0;
-      width: 260px;
+      width: 72px;
       height: 100vh;
-      background: rgba(6, 9, 20, 0.97);
-      backdrop-filter: blur(32px);
-      -webkit-backdrop-filter: blur(32px);
+      background: rgba(6, 9, 20, 0.96);
+      backdrop-filter: blur(28px);
+      -webkit-backdrop-filter: blur(28px);
       border-right: 1px solid var(--border);
       display: flex;
       flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 0;
       overflow-y: auto;
-      overflow-x: hidden;
+      overflow-x: visible;
       z-index: 100;
       flex-shrink: 0;
+      transition: transform .3s cubic-bezier(.4, 0, .2, 1), background-color .3s;
+    }
+
+    body.light-mode .sidebar {
+      background: rgba(255, 255, 255, 0.96);
+      border-right-color: var(--border);
     }
 
     .sidebar::-webkit-scrollbar { width: 0; }
 
-    /* Profile area at top */
-    .sb-profile-area {
+    /* Hero Top Row (Foto Profil & Identitas di Atas Halaman) */
+    .prof-hero-top {
       display: flex;
-      flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 28px 20px 20px;
-      border-bottom: 1px solid var(--border);
-      gap: 10px;
+      gap: 28px;
+      width: 100%;
+      margin-bottom: 24px;
+      position: relative;
+      z-index: 2;
     }
 
-    .sb-photo-wrap {
+    .hero-photo-wrap {
       position: relative;
-      width: 80px;
-      height: 80px;
+      width: 104px;
+      height: 104px;
       flex-shrink: 0;
     }
 
-    .sb-photo-ring {
+    .hero-photo-ring {
       position: absolute;
-      inset: -3px;
+      inset: -4px;
       border-radius: 50%;
       background: conic-gradient(var(--blue) 0deg, var(--cyan) 120deg, transparent 200deg, var(--blue) 280deg, var(--cyan) 360deg);
       animation: spin 8s linear infinite;
     }
 
-    .sb-photo-inner {
+    .hero-photo-inner {
       position: absolute;
       inset: 0;
       border-radius: 50%;
       overflow: hidden;
       background: var(--bg-card);
-      border: 2px solid var(--border);
+      border: 3px solid var(--bg-card);
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.4);
     }
 
-    .sb-photo-inner img {
+    body.light-mode .hero-photo-inner {
+      border-color: #ffffff;
+      box-shadow: 0 6px 24px rgba(0, 0, 0, 0.1);
+    }
+
+    .hero-photo-inner img {
       width: 100%;
       height: 100%;
       object-fit: cover;
     }
 
-    .sb-name-row {
+    .hero-info {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      flex: 1;
+    }
+
+    .hero-name-row {
       display: flex;
       align-items: center;
-      justify-content: center;
-      gap: 6px;
+      gap: 10px;
+      flex-wrap: wrap;
     }
 
-    .sb-name {
-      font-size: 15px;
-      font-weight: 700;
+    .hero-name {
+      font-size: 32px;
+      font-weight: 800;
+      letter-spacing: -1.2px;
+      line-height: 1.1;
       color: var(--text);
-      letter-spacing: -.3px;
+      margin: 0;
     }
 
-    .sb-verified {
-      width: 16px;
-      height: 16px;
+    .hero-verified {
+      width: 22px;
+      height: 22px;
       color: var(--blue-bright);
       flex-shrink: 0;
     }
 
-    .sb-role {
+    .hero-role-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
       font-family: var(--font-m);
-      font-size: 9px;
-      color: var(--muted2);
-      letter-spacing: 1.5px;
+      font-size: 11px;
+      color: var(--blue-bright);
+      letter-spacing: 1.4px;
       text-transform: uppercase;
+      font-weight: 500;
+      margin-top: 2px;
+    }
+
+    .hero-theme-wrap {
+      margin-left: auto;
+      flex-shrink: 0;
     }
 
     /* Theme Toggle */
@@ -306,135 +340,120 @@
       --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.05);
     }
 
-    /* Social icons row */
-    .sb-socials {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 6px;
-      padding: 14px 16px;
-      border-bottom: 1px solid var(--border);
-      flex-wrap: wrap;
-    }
-
-    .sb-soc-link {
-      width: 32px;
-      height: 32px;
-      border-radius: 8px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted2);
-      text-decoration: none;
-      transition: all .2s;
-      flex-shrink: 0;
-    }
-
-    .sb-soc-link:hover {
-      border-color: var(--border-glow);
-      color: var(--blue-bright);
-      background: var(--blue-dim);
-    }
-
-    .sb-soc-link svg {
-      width: 14px;
-      height: 14px;
-    }
-
-    /* Nav items */
+    /* Nav items - Icon Only */
     .sb-nav {
       display: flex;
       flex-direction: column;
-      padding: 12px 10px;
-      gap: 2px;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+      width: 100%;
+      padding: 0;
+      margin: 0;
       flex: 1;
     }
 
-    .sb-nav-label {
-      font-family: var(--font-m);
-      font-size: 9px;
-      letter-spacing: 2.5px;
-      text-transform: uppercase;
-      color: var(--muted2);
-      padding: 4px 10px 8px;
-      margin-top: 4px;
-    }
-
     .sb-a {
+      width: 46px;
+      height: 46px;
+      border-radius: 12px;
       display: flex;
       align-items: center;
-      gap: 12px;
-      padding: 10px 12px;
-      border-radius: 10px;
-      color: var(--muted);
+      justify-content: center;
+      color: var(--muted2);
       text-decoration: none;
-      transition: all .22s cubic-bezier(.4, 0, .2, 1);
+      transition: all .2s cubic-bezier(.4, 0, .2, 1);
       cursor: pointer;
       border: 1px solid transparent;
       position: relative;
-      overflow: hidden;
-      font-size: 13px;
-      font-weight: 500;
-    }
-
-    .sb-a::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 16%;
-      bottom: 16%;
-      width: 3px;
-      background: linear-gradient(180deg, var(--blue), var(--cyan));
-      border-radius: 0 3px 3px 0;
-      transform: scaleY(0);
-      transition: transform .22s;
+      background: transparent;
     }
 
     .sb-a:hover {
       color: var(--text);
-      background: rgba(96, 165, 250, .05);
-      border-color: var(--border);
+      background: rgba(255, 255, 255, .05);
+      border-color: var(--border-lit);
+      transform: translateY(-1px);
+    }
+
+    body.light-mode .sb-a:hover {
+      background: rgba(0, 0, 0, .04);
+      color: var(--text);
     }
 
     .sb-a.active {
       color: var(--blue-bright);
       background: var(--blue-dim);
       border-color: var(--blue-ring);
+      box-shadow: 0 0 16px rgba(37, 99, 235, .25);
     }
 
-    .sb-a.active::before {
-      transform: scaleY(1);
+    body.light-mode .sb-a.active {
+      color: var(--blue);
+      background: rgba(37, 99, 235, 0.1);
+      border-color: rgba(37, 99, 235, 0.3);
     }
 
     .sb-icon {
-      width: 18px;
-      height: 18px;
-      opacity: .55;
+      width: 20px;
+      height: 20px;
+      opacity: .75;
       flex-shrink: 0;
-      transition: all .22s;
+      transition: all .2s;
     }
 
-    .sb-a.active .sb-icon,
-    .sb-a:hover .sb-icon {
+    .sb-a:hover .sb-icon,
+    .sb-a.active .sb-icon {
       opacity: 1;
     }
 
     .sb-a.active .sb-icon {
       color: var(--blue-bright);
-      filter: drop-shadow(0 0 6px rgba(96, 165, 250, .4));
+      filter: drop-shadow(0 0 6px rgba(96, 165, 250, .5));
     }
 
-    .sb-badge {
-      margin-left: auto;
-      font-family: var(--font-m);
-      font-size: 9px;
-      color: var(--blue-bright);
-      background: var(--blue-dim);
-      padding: 2px 7px;
-      border-radius: 20px;
-      border: 1px solid var(--blue-ring);
+    body.light-mode .sb-a.active .sb-icon {
+      color: var(--blue);
+      filter: none;
+    }
+
+    /* Floating Tooltip */
+    .sb-a::after {
+      content: attr(data-tooltip);
+      position: absolute;
+      left: calc(100% + 14px);
+      top: 50%;
+      transform: translateY(-50%) translateX(-6px);
+      background: rgba(13, 21, 37, 0.96);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      color: var(--text);
+      font-size: 11px;
+      font-family: var(--font-b);
+      font-weight: 500;
+      padding: 6px 12px;
+      border-radius: 8px;
+      border: 1px solid var(--border-lit);
+      white-space: nowrap;
+      pointer-events: none;
+      opacity: 0;
+      visibility: hidden;
+      transition: all .18s cubic-bezier(.4, 0, .2, 1);
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.45);
+      z-index: 1000;
+    }
+
+    body.light-mode .sb-a::after {
+      background: rgba(255, 255, 255, 0.98);
+      color: #0f172a;
+      border-color: #cbd5e1;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .sb-a:hover::after {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(-50%) translateX(0);
     }
 
     /* Responsive mobile overlay */
@@ -457,12 +476,13 @@
 
     /* ======= MAIN CONTENT ======= */
     .main {
-      margin-left: 260px;
+      margin-left: 72px;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       padding-bottom: 40px;
       flex: 1;
+      width: calc(100% - 72px);
     }
 
     /* Mobile topbar (hamburger) */
@@ -519,6 +539,7 @@
     /* On mobile, sidebar off-canvas */
     @media (max-width: 768px) {
       .sidebar {
+        width: 72px;
         transform: translateX(-100%);
         transition: transform .32s cubic-bezier(.4,0,.2,1);
         z-index: 110;
@@ -534,13 +555,38 @@
       }
       .main {
         margin-left: 0;
+        width: 100%;
+      }
+      .sb-a::after {
+        display: none;
+      }
+      .prof-hero-top {
+        flex-direction: column;
+        text-align: center;
+        gap: 18px;
+      }
+      .hero-info {
+        align-items: center;
+      }
+      .hero-name-row {
+        justify-content: center;
+      }
+      .hero-name {
+        font-size: 26px;
+      }
+      .hero-theme-wrap {
+        margin-left: 0;
+      }
+      .hero-photo-wrap {
+        width: 92px;
+        height: 92px;
       }
       .mobile-topbar {
         display: flex;
         position: sticky;
         top: 0;
         z-index: 100;
-        background: var(--bg-side);
+        background: var(--bg-side, #060914);
         border-bottom: 1px solid var(--border);
         padding: 12px 16px;
         align-items: center;
@@ -1485,7 +1531,7 @@
         overflow-x: hidden;
       }
       .sidebar {
-        width: 280px;
+        width: 72px;
       }
       .section {
         padding: 60px 16px 40px; /* added top padding for sticky header */
@@ -2181,62 +2227,7 @@
         grid-template-columns: 1fr;
       }
 
-      .sidebar {
-        position: fixed;
-        left: -272px;
-        z-index: 200;
-        transition: left .3s;
-        height: 100vh;
-        overflow-y: hidden;
-        display: flex;
-        flex-direction: column;
-      }
 
-      .sidebar.open {
-        left: 0;
-      }
-
-      .sb-top {
-        padding: 10px 12px 8px;
-      }
-
-      .sb-profile {
-        gap: 3px;
-      }
-
-      .av-wrap {
-        width: 45px;
-        height: 45px;
-      }
-
-      .av-ring {
-        inset: -1px;
-      }
-
-      .av-bg {
-        inset: 1px;
-        font-size: 16px;
-      }
-
-      .sb-name {
-        font-size: 10px;
-        margin-bottom: 0;
-      }
-
-      .sb-role {
-        font-size: 6.5px;
-        letter-spacing: 0.5px;
-      }
-
-      .avail-pill {
-        font-size: 7px;
-        padding: 1px 6px;
-      }
-
-      .avail-dot {
-        width: 3px;
-        height: 3px;
-      }
 
       .sb-nav {
         padding: 6px 4px;
@@ -4299,97 +4290,41 @@
 
     <!-- Permanent Left Sidebar -->
     <aside class="sidebar" id="mainSidebar">
-
-      <!-- Profile -->
-      <div class="sb-profile-area">
-        <div class="sb-photo-wrap">
-          <div class="sb-photo-inner">
-            <img src="img/Foto Saya.png" alt="Foto Profil">
-          </div>
-        </div>
-        <div class="sb-name-row">
-          <span class="sb-name">Toha Rizal Ahmad</span>
-          <svg class="sb-verified" viewBox="0 0 24 24" fill="none">
-            <circle cx="12" cy="12" r="10" fill="#2563EB" opacity=".9"/>
-            <path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-          </svg>
-        </div>
-        <div class="sb-role">Front-end · AI Dev</div>
-        <div class="theme-toggle">
-          <div class="theme-pill">
-            <button class="theme-btn active" id="btn-dark" title="Dark Mode">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
-            </button>
-            <button class="theme-btn" id="btn-light" title="Light Mode">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
-            </button>
-          </div>
-        </div>
-      </div>
-
-      <!-- Social Icons -->
-      <div class="sb-socials">
-        <a href="https://github.com/TohaRizalahmad" target="_blank" class="sb-soc-link" title="GitHub">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg>
-        </a>
-        <a href="https://www.linkedin.com/in/toha-rizal-ahmad-9455603a1/" target="_blank" class="sb-soc-link" title="LinkedIn">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
-        </a>
-        <a href="https://instagram.com/TohaRizalahmad" target="_blank" class="sb-soc-link" title="Instagram">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/></svg>
-        </a>
-        <a href="mailto:toharizalahmad24@gmail.com" class="sb-soc-link" title="Email">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
-        </a>
-        <a href="https://wa.me/6282184692988" target="_blank" class="sb-soc-link" title="WhatsApp">
-          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z"/></svg>
-        </a>
-      </div>
-
-      <!-- Navigation -->
+      <!-- Navigation - Icon Only -->
       <nav class="sb-nav">
-        <div class="sb-nav-label">Menu</div>
-        <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)">
+        <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)" title="Profil" data-tooltip="Profil" aria-label="Profil">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/>
           </svg>
-          Profil
         </a>
-        <a class="sb-a" id="sba-tools" onclick="navTo('tools',this)">
+        <a class="sb-a" id="sba-tools" onclick="navTo('tools',this)" title="Tools &amp; Skills" data-tooltip="Tools &amp; Skills" aria-label="Tools &amp; Skills">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
           </svg>
-          Tools &amp; Skills
         </a>
-        <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)">
+        <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects" data-tooltip="Projects" aria-label="Projects">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/>
           </svg>
-          Projects
         </a>
-        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)">
+        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Sertifikat" data-tooltip="Sertifikat" aria-label="Sertifikat">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="12" cy="8" r="6"/><path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11"/>
           </svg>
-          Sertifikat
-          <span class="sb-badge" id="sb-cert-count">—</span>
         </a>
-        <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)">
+        <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)" title="Dashboard" data-tooltip="Dashboard" aria-label="Dashboard">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
             <line x1="3" y1="9" x2="21" y2="9"/><line x1="9" y1="21" x2="9" y2="9"/>
           </svg>
-          Dashboard
         </a>
-        <a class="sb-a" id="sba-social" onclick="navTo('social',this)">
+        <a class="sb-a" id="sba-social" onclick="navTo('social',this)" title="Social Media" data-tooltip="Social Media" aria-label="Social Media">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/>
             <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98"/>
           </svg>
-          Social Media
         </a>
       </nav>
-
     </aside>
 
     <!-- Mobile overlay -->
@@ -4406,12 +4341,40 @@
       </header>
 
       <section id="profile" class="section active">
-        <div class="sec-head">
-          <div class="sec-title">Profil</div>
-        </div>
-
         <div class="prof-hero">
-          <div class="p-greet">Selamat Datang di Portofolio Saya</div>
+          <!-- Foto Profil & Identitas di Bagian Paling Atas Halaman -->
+          <div class="prof-hero-top">
+            <div class="hero-photo-wrap">
+              <div class="hero-photo-ring"></div>
+              <div class="hero-photo-inner">
+                <img src="img/Foto Saya.png" alt="Toha Rizal Ahmad">
+              </div>
+            </div>
+            <div class="hero-info">
+              <div class="p-greet">Selamat Datang di Portofolio Saya</div>
+              <div class="hero-name-row">
+                <h1 class="hero-name">Toha Rizal Ahmad</h1>
+                <svg class="hero-verified" viewBox="0 0 24 24" fill="none">
+                  <circle cx="12" cy="12" r="10" fill="#2563EB" opacity=".9"/>
+                  <path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+              </div>
+              <div class="hero-role-pill">
+                <span>Front-end · AI Dev</span>
+              </div>
+            </div>
+            <div class="hero-theme-wrap">
+              <div class="theme-pill">
+                <button class="theme-btn active" id="btn-dark" title="Dark Mode" aria-label="Dark Mode">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+                </button>
+                <button class="theme-btn" id="btn-light" title="Light Mode" aria-label="Light Mode">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+                </button>
+              </div>
+            </div>
+          </div>
+
           <p class="p-bio">Saya adalah seorang Web Developer Junior yang fokus membangun aplikasi web fungsional, responsif, dan berbasis kebutuhan nyata. Berpengalaman mengerjakan proyek seperti sistem absensi digital dan dashboard manajemen data.</p>
         </div>
 
@@ -5002,6 +4965,37 @@
       document.body.style.overflow = '';
     }
 
+    /* ---- Theme Logic ---- */
+    function initTheme() {
+      const btnDark = document.getElementById('btn-dark');
+      const btnLight = document.getElementById('btn-light');
+      
+      function setTheme(mode) {
+        if (mode === 'light') {
+          document.body.classList.add('light-mode');
+          if (btnLight) btnLight.classList.add('active');
+          if (btnDark) btnDark.classList.remove('active');
+          localStorage.setItem('portfolio-theme', 'light');
+        } else {
+          document.body.classList.remove('light-mode');
+          if (btnDark) btnDark.classList.add('active');
+          if (btnLight) btnLight.classList.remove('active');
+          localStorage.setItem('portfolio-theme', 'dark');
+        }
+      }
+
+      if (btnDark) btnDark.onclick = () => setTheme('dark');
+      if (btnLight) btnLight.onclick = () => setTheme('light');
+
+      const savedTheme = localStorage.getItem('portfolio-theme');
+      if (savedTheme === 'light') {
+        setTheme('light');
+      } else {
+        setTheme('dark');
+      }
+    }
+    initTheme();
+
     /* ---- Navigate to section and highlight nav item ---- */
     function navTo(id, el) {
       if (id === 'tools') setTimeout(animBars, 100);
@@ -5010,31 +5004,6 @@
       // Update active state
       document.querySelectorAll('.sb-a').forEach(a => a.classList.remove('active'));
       if (el) el.classList.add('active');
-
-      // Theme logic
-      const btnDark = document.getElementById('btn-dark');
-      const btnLight = document.getElementById('btn-light');
-      
-      function setTheme(mode) {
-        if (mode === 'light') {
-          document.body.classList.add('light-mode');
-          btnLight.classList.add('active');
-          btnDark.classList.remove('active');
-          localStorage.setItem('portfolio-theme', 'light');
-        } else {
-          document.body.classList.remove('light-mode');
-          btnDark.classList.add('active');
-          btnLight.classList.remove('active');
-          localStorage.setItem('portfolio-theme', 'dark');
-        }
-      }
-
-      if (btnDark) btnDark.onclick = () => setTheme('dark');
-      if (btnLight) btnLight.onclick = () => setTheme('light');
-
-      // Init theme
-      const savedTheme = localStorage.getItem('portfolio-theme');
-      if (savedTheme === 'light') setTheme('light');
 
       // Scroll to section
       const target = document.getElementById(id);
