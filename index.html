@@ -861,8 +861,8 @@
 
     .cert-grid {
       display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
     }
 
     .cert-card {
@@ -1596,8 +1596,8 @@
       }
 
       .cert-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 8px;
       }
 
       .cert-title {
@@ -1661,8 +1661,8 @@
       }
 
       .cert-grid {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 8px;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 6px;
       }
 
       .tools-grid {
@@ -2590,6 +2590,77 @@
         transition: none;
       }
     }
+
+    /* ======= Sertifikat: 3 kartu dalam 1 baris ======= */
+    .cert-img {
+      min-height: 110px;
+    }
+
+    .cert-body {
+      padding: 12px 14px;
+    }
+
+    .cert-title {
+      font-size: 13px;
+      line-height: 1.35;
+      margin-bottom: 8px;
+    }
+
+    .cert-overlay-btn {
+      padding: 6px 12px;
+      font-size: 9px;
+      letter-spacing: 1px;
+    }
+
+    @media (max-width: 768px) {
+      .cert-img {
+        min-height: 78px;
+        gap: 4px;
+      }
+
+      .cert-ph-ico {
+        font-size: 20px;
+      }
+
+      .cert-ph-txt {
+        font-size: 7px;
+      }
+
+      .cert-body {
+        padding: 8px 8px 10px;
+      }
+
+      .cert-title {
+        font-size: 10px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+        letter-spacing: 0;
+      }
+
+      .cert-footer {
+        gap: 4px;
+      }
+
+      .cert-year {
+        font-size: 7px;
+        padding: 2px 6px;
+      }
+
+      .cert-type {
+        font-size: 7px;
+        line-height: 1.3;
+      }
+
+      .cert-card {
+        border-radius: 10px;
+      }
+
+      .cert-overlay-btn {
+        padding: 4px 8px;
+        font-size: 7px;
+        letter-spacing: .5px;
+      }
+    }
   </style>
 </head>
 
@@ -3054,6 +3125,27 @@
               </div>
               <div class="cert-body">
                 <div class="cert-title">Front-End Development Introduction</div>
+                <div class="cert-footer">
+                  <span class="cert-year">My Skills</span>
+                  <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="cert-card">
+              <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN" onclick="openLb(this)">
+                <div class="cert-ph">
+                  <div class="cert-ph-ico">🏆</div>
+                  <div class="cert-ph-txt">PDF</div>
+                </div>
+                <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w1200"
+                  alt="Back-End Development Introduction" loading="lazy" onerror="this.remove()">
+                <div class="cert-overlay">
+                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
+                </div>
+              </div>
+              <div class="cert-body">
+                <div class="cert-title">Back-End Development Introduction</div>
                 <div class="cert-footer">
                   <span class="cert-year">My Skills</span>
                   <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
