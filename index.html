@@ -1094,6 +1094,12 @@
         gap: 14px;
       }
 
+      /* Legenda Sedikit–Banyak: di kanan bawah grafik */
+      .gh-legend-row {
+        order: 2;
+        align-self: flex-end;
+      }
+
       #gh-graph-pill {
         width: 100%;
         text-align: center;
@@ -2287,6 +2293,92 @@
       }
     }
 
+    /* ======= Projects & Tools di HP: ukuran kartu disamakan dengan Linktree =======
+       (JS menambahkan class .fit-m + zoom, sama seperti Linktree: layout 708px diperkecil agar pas) */
+    .proj-grid.fit-m {
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
+      max-width: none;
+    }
+
+    .proj-grid.fit-m .proj-card {
+      border-radius: 16px;
+      min-height: 130px;
+    }
+
+    .proj-grid.fit-m .proj-body {
+      padding: 24px 28px;
+      gap: 8px;
+      justify-content: center;
+    }
+
+    .proj-grid.fit-m .proj-title {
+      font-size: 1.1rem;
+      line-height: 1.2;
+      margin: 0;
+    }
+
+    .proj-grid.fit-m .proj-tags {
+      margin: 0;
+    }
+
+    /* Font sama dengan kartu Linktree (Plus Jakarta Sans, ukuran tombol .soc-btn) */
+    .proj-grid.fit-m .proj-title {
+      letter-spacing: -0.2px;
+    }
+
+    .proj-grid.fit-m .proj-tag,
+    .proj-grid.fit-m .proj-link {
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      letter-spacing: normal;
+    }
+
+    .proj-grid.fit-m .proj-tag {
+      padding: 4px 11px;
+    }
+
+    /* Tools: 5 ikon per baris, ikon seukuran ikon Linktree (kotak 56px, gambar 28px), nama di bawah ikon */
+    .card.fit-m .tools-grid {
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+    }
+
+    .card.fit-m .tool-pill {
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
+      padding: 18px 8px 16px;
+      border-radius: 16px;
+      text-align: center;
+    }
+
+    .card.fit-m .t-ico {
+      width: 56px;
+      height: 56px;
+      flex: none;
+      border-radius: 14px;
+      border: 1.5px solid rgba(255, 255, 255, 0.25);
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .card.fit-m .t-ico img,
+    .card.fit-m .t-ico img.ico-lg {
+      width: 28px;
+      height: 28px;
+    }
+
+    .card.fit-m .t-name {
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin: 0;
+      line-height: 1.25;
+      word-break: normal;
+      overflow-wrap: anywhere;
+    }
+
     @media (prefers-reduced-motion: reduce) {
       .js .reveal:not(.in) {
         opacity: 1;
@@ -2760,7 +2852,7 @@
                 </div>
               </div>
               <div class="gh-graph-footer" style="justify-content: space-between;">
-                <div style="display:flex; align-items:center; gap:10px;">
+                <div class="gh-legend-row" style="display:flex; align-items:center; gap:10px;">
                   <span>Sedikit</span>
                   <div class="gh-footer-legend">
                     <div class="gh-leg-dot" style="background:#161b22;border:1px solid #30363d;"></div>
@@ -3160,6 +3252,28 @@
         g.style.zoom = avail / 708;
       }
     }
+    /* Projects & Tools: ukuran kartu sama dengan Linktree di HP (layout 708px, diperkecil dengan zoom yang sama) */
+    function fitBlocks() {
+      var blocks = [].slice.call(document.querySelectorAll('.proj-grid'));
+      document.querySelectorAll('#tools .card').forEach(function (c) { if (c.querySelector('.tools-grid')) blocks.push(c); });
+      document.querySelectorAll('#dashboard .card').forEach(function (c) { blocks.push(c); });
+      blocks.forEach(function (el) {
+        el.style.zoom = ''; el.style.width = ''; el.style.maxWidth = '';
+        el.classList.remove('fit-m');
+        var sec = el.closest('.section');
+        var avail = sec ? sec.clientWidth - 32 : 0;
+        if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
+          el.classList.add('fit-m');
+          el.style.maxWidth = 'none';
+          el.style.width = '708px';
+          el.style.zoom = avail / 708;
+        }
+      });
+    }
+    window.addEventListener('load', fitBlocks);
+    window.addEventListener('resize', fitBlocks);
+    window.addEventListener('orientationchange', function () { setTimeout(fitBlocks, 300); });
+    document.addEventListener('DOMContentLoaded', fitBlocks);
     window.addEventListener('load', fitLinktree);
     window.addEventListener('resize', fitLinktree);
     window.addEventListener('orientationchange', function () { setTimeout(fitLinktree, 300); });
