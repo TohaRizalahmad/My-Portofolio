@@ -575,6 +575,20 @@
       gap: 20px;
     }
 
+    /* Jarak antara garis judul dan konten (Achievements & Dashboard), sama seperti seksi lain */
+    #achievement .sec-head,
+    #dashboard .sec-head {
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 768px) {
+
+      #achievement .sec-head,
+      #dashboard .sec-head {
+        margin-bottom: 16px;
+      }
+    }
+
     .sec-title {
       font-size: 30px;
       font-weight: 800;
@@ -2057,6 +2071,19 @@
       }
     }
 
+    /* Hilangkan ruang kosong di bawah footer (seksi terakhir + padding .main) */
+    .main {
+      padding-bottom: 0 !important;
+    }
+
+    #social.section {
+      padding-bottom: 0 !important;
+    }
+
+    .port-footer {
+      padding-bottom: 14px !important;
+    }
+
     .port-footer {
       margin-top: 16px;
       padding: 28px 0 8px;
@@ -2225,12 +2252,18 @@
       font-style: italic;
     }
 
+    /* HP: tetap satu baris seperti desktop (kiri–kanan), ukuran teks diperkecil mengikuti lebar layar */
     @media (max-width: 480px) {
 
       .pf-bottom {
-        flex-direction: column;
-        align-items: flex-start;
-        gap: 4px;
+        flex-wrap: nowrap;
+        gap: 6px;
+      }
+
+      .pf-copy,
+      .pf-made {
+        font-size: 1.9vw;
+        white-space: nowrap;
       }
     }
 
@@ -3322,7 +3355,7 @@
                       <div class="career-job-title">Web Developer</div>
                       <div class="career-company">Taskeginer's</div>
                       <div class="career-meta">
-                        2025 – <span data-i18n="present">Present</span>
+                        2025 – <span data-i18n="present">Sekarang</span>
                         <span>•</span>
                         Lampung Tengah
                         <span class="career-badge cbadge-blue">Freelance</span>
@@ -3360,7 +3393,7 @@
                       <div class="career-job-title">Web Developer</div>
                       <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
                       <div class="career-meta">
-                        Oct 2025 – <span data-i18n="present">Present</span>
+                        Oct 2025 – <span data-i18n="present">Sekarang</span>
                         <span>•</span>
                         Lampung Tengah
                       </div>
@@ -3397,11 +3430,11 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title" data-i18n="exp.psp">Smart School Platform (PSP) Administrator by PT
-                        Teknologi Kartu Indonesia</div>
+                      <div class="career-job-title" data-i18n="exp.psp">Administrator Platform Sekolah Pintar (PSP) by
+                        PT Teknologi Kartu Indonesia</div>
                       <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
                       <div class="career-meta">
-                        Jul 2026 – <span data-i18n="present">Present</span>
+                        Jul 2026 – <span data-i18n="present">Sekarang</span>
                         <span>•</span>
                         Lampung Tengah
                       </div>
@@ -3504,6 +3537,23 @@
                 </div>
 
                 <div class="career-item">
+                  <div class="career-item-top" style="align-items:center;">
+                    <div class="career-logo career-logo-edu">
+                      <img src="img/Yayasan Queen Al Falah.png" alt="Pondok Pesantren Al-Falah Rumbia">
+                    </div>
+                    <div class="career-info">
+                      <div class="career-job-title">Pondok Pesantren AL FALAH Rumbia</div>
+                      <div class="career-meta">
+                        Jun 2019 – Oct 2026
+                        <span>•</span>
+                        Lampung Tengah
+                        <span class="career-badge cbadge-done">● Graduated</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="career-item">
                   <div class="career-item-top">
                     <div class="career-logo career-logo-edu">
                       <img src="img/SMK Logo.jpg" alt="SMK AL-FALAH RUMBIA">
@@ -3539,23 +3589,6 @@
                   </div>
                 </div>
 
-                <div class="career-item">
-                  <div class="career-item-top" style="align-items:center;">
-                    <div class="career-logo career-logo-edu">
-                      <img src="img/Yayasan Queen Al Falah.png" alt="Pondok Pesantren Al-Falah Rumbia">
-                    </div>
-                    <div class="career-info">
-                      <div class="career-job-title">Pondok Pesantren AL FALAH Rumbia</div>
-                      <div class="career-meta">
-                        Jun 2019 – Oct 2026
-                        <span>•</span>
-                        Lampung Tengah
-                        <span class="career-badge cbadge-done">● Graduated</span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
                 <div class="edu-more">
                   <button class="edu-toggle" onclick="eduToggle(this)">
                     <span>View Previous Education</span>
@@ -3574,6 +3607,7 @@
                               <span>•</span>
                               Lampung Tengah
                               <span class="career-badge cbadge-done">● Graduated</span>
+                              <span class="career-badge cbadge-blue">● Best Graduate</span>
                             </div>
                           </div>
                         </div>
@@ -3588,6 +3622,7 @@
                               <span>•</span>
                               Lampung Tengah
                               <span class="career-badge cbadge-done">● Graduated</span>
+                              <span class="career-badge cbadge-blue">● Best Graduate</span>
                             </div>
                           </div>
                         </div>
@@ -4162,7 +4197,7 @@
 
         <footer class="port-footer">
           <div class="pf-bottom">
-            <span class="pf-copy">© 2025 Toha Rizal Ahmad. All rights reserved.</span>
+            <span class="pf-copy">© <span id="pf-year">2026</span> Toha Rizal Ahmad. All rights reserved.</span>
             <span class="pf-made">Crafted with passion &amp; code.</span>
           </div>
         </footer>
@@ -4261,6 +4296,8 @@
 
   <script>
     document.documentElement.classList.add('js');
+    var pfYear = document.getElementById('pf-year');
+    if (pfYear) pfYear.textContent = new Date().getFullYear();
     /* Linktree: di HP, tampilan desktop (lebar 740px) diperkecil agar pas, sama seperti Linktree-main */
     function fitLinktree() {
       var g = document.querySelector('.soc-grid');
