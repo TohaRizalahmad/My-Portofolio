@@ -35,6 +35,8 @@
       --font-m: "JetBrains Mono", monospace;
 
       --shadow-card: 0 10px 40px -10px rgba(0, 0, 0, 0.6);
+
+      --sb-w: 236px;
     }
 
     *,
@@ -155,7 +157,7 @@
       position: fixed;
       top: 0;
       left: 0;
-      width: 72px;
+      width: var(--sb-w);
       height: 100vh;
       background: rgba(6, 9, 20, 0.96);
       backdrop-filter: blur(28px);
@@ -262,20 +264,22 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
-      gap: 12px;
+      gap: 8px;
       width: 100%;
-      padding: 0;
+      padding: 0 12px;
       margin: 0;
       flex: 1;
     }
 
     .sb-a {
-      width: 46px;
+      width: 100%;
       height: 46px;
+      padding: 0 14px;
+      gap: 14px;
       border-radius: 12px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-start;
       color: var(--muted2);
       text-decoration: none;
       transition: all .2s cubic-bezier(.4, 0, .2, 1);
@@ -283,6 +287,14 @@
       border: 1px solid transparent;
       position: relative;
       background: transparent;
+    }
+
+    .sb-text {
+      font-size: 13px;
+      font-weight: 600;
+      line-height: 1.25;
+      letter-spacing: -.1px;
+      white-space: normal;
     }
 
     .sb-a:hover {
@@ -319,6 +331,7 @@
 
     /* Floating Tooltip */
     .sb-a::after {
+      display: none;
       content: attr(data-tooltip);
       position: absolute;
       left: calc(100% + 14px);
@@ -344,6 +357,7 @@
     }
 
     .sb-a:hover::after {
+      display: none;
       opacity: 1;
       visibility: visible;
       transform: translateY(-50%) translateX(0);
@@ -369,13 +383,13 @@
 
     /* ======= MAIN CONTENT ======= */
     .main {
-      margin-left: 72px;
+      margin-left: var(--sb-w);
       display: flex;
       flex-direction: column;
       min-height: 100vh;
       padding-bottom: 40px;
       flex: 1;
-      width: calc(100% - 72px);
+      width: calc(100% - var(--sb-w));
     }
 
     /* Mobile topbar (hamburger) */
@@ -440,7 +454,7 @@
     /* On mobile, sidebar off-canvas */
     @media (max-width: 768px) {
       .sidebar {
-        width: 72px;
+        width: var(--sb-w);
         transform: translateX(-100%);
         transition: transform .32s cubic-bezier(.4, 0, .2, 1);
         z-index: 110;
@@ -655,7 +669,8 @@
       font-size: 14px;
       color: var(--muted);
       line-height: 1.85;
-      max-width: 680px;
+      max-width: none;
+      width: 100%;
       margin: 0 0 24px;
     }
 
@@ -1041,7 +1056,7 @@
       }
 
       .sidebar {
-        width: 72px;
+        width: var(--sb-w);
       }
 
       .section {
@@ -1202,17 +1217,20 @@
       flex-shrink: 0;
     }
 
+    /* ======= Pop-up sertifikat (gambar + panel detail) ======= */
     .lightbox {
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(3, 6, 16, .96);
+      background: rgba(3, 6, 16, .86);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
       display: flex;
       align-items: center;
       justify-content: center;
       opacity: 0;
       pointer-events: none;
-      transition: opacity .3s;
+      transition: opacity .25s;
       padding: 24px;
     }
 
@@ -1221,178 +1239,195 @@
       pointer-events: all;
     }
 
-    .lb-img {
-      max-width: 88vw;
-      max-height: 84vh;
-      object-fit: contain;
-      border-radius: 12px;
+    .lb-modal {
+      position: relative;
+      display: flex;
+      width: min(100%, 880px);
+      max-height: calc(100vh - 48px);
+      background: var(--bg-card);
       border: 1px solid var(--border-lit);
-      box-shadow: 0 24px 80px rgba(0, 0, 0, .85), 0 0 0 1px rgba(139, 92, 246, .1);
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 24px 80px rgba(0, 0, 0, .75);
+      transform: scale(.97) translateY(8px);
+      transition: transform .25s cubic-bezier(.4, 0, .2, 1);
     }
 
-    .lb-frame {
-      width: min(92vw, 960px);
-      height: 84vh;
-      border: 1px solid var(--border-lit);
-      border-radius: 12px;
+    .lightbox.open .lb-modal {
+      transform: none;
+    }
+
+    .lb-media {
+      flex: 1 1 auto;
+      min-width: 0;
+      min-height: 220px;
       background: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
     }
 
-    .lb-frame[hidden],
+    .lb-img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: calc(100vh - 50px);
+      object-fit: contain;
+    }
+
     .lb-img[hidden] {
       display: none;
     }
 
-    .lb-cap a {
-      color: var(--blue-bright);
-      text-decoration: none;
+    .lb-state {
+      position: absolute;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 20px;
+      font-family: var(--font-m);
+      font-size: 11px;
+      letter-spacing: .5px;
+      color: #64748B;
     }
 
-    .lb-title::after {
-      content: " — ";
+    .lb-media.loading .lb-state,
+    .lb-media.error .lb-state {
+      display: flex;
+    }
+
+    .lb-side {
+      flex: 0 0 240px;
+      padding: 24px 22px;
+      overflow-y: auto;
+      border-left: 1px solid var(--border);
     }
 
     .lb-close {
       position: absolute;
-      top: 24px;
-      right: 28px;
-      font-size: 26px;
-      color: var(--muted);
-      cursor: pointer;
-      background: none;
-      border: none;
+      top: 14px;
+      right: 14px;
+      width: 34px;
+      height: 34px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
       line-height: 1;
-      transition: color .2s;
+      color: var(--text);
+      background: rgba(255, 255, 255, .1);
+      border: 1px solid var(--border-lit);
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 3;
+      transition: background .2s;
+      -webkit-tap-highlight-color: transparent;
     }
 
     .lb-close:hover {
+      background: rgba(255, 255, 255, .2);
+    }
+
+    .lb-title {
+      font-size: 15px;
+      font-weight: 700;
+      line-height: 1.35;
+      letter-spacing: -.2px;
       color: var(--text);
+      padding-right: 40px;
     }
 
-    .lb-cap {
-      position: absolute;
-      bottom: 28px;
-      left: 50%;
-      transform: translateX(-50%);
-      font-family: var(--font-m);
-      font-size: 10px;
+    .lb-issuer {
+      margin-top: 6px;
+      font-size: 12px;
       color: var(--muted2);
-      letter-spacing: 1px;
-      text-align: center;
-      white-space: nowrap;
+      line-height: 1.5;
     }
 
-    /* ======= Pop-up sertifikat di HP ======= */
-    @supports (height: 100dvh) {
-      .lightbox {
-        height: 100dvh;
-      }
+    .lb-issuer:empty {
+      display: none;
+    }
+
+    .lb-meta {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .lb-row[hidden] {
+      display: none;
+    }
+
+    .lb-label {
+      font-family: var(--font-m);
+      font-size: 9px;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: var(--muted2);
+      margin-bottom: 2px;
+    }
+
+    .lb-value {
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.4;
+      word-break: break-word;
     }
 
     @media (max-width: 768px) {
       .lightbox {
-        flex-direction: column;
-        justify-content: flex-start;
-        padding: calc(env(safe-area-inset-top, 0px) + 64px) 12px calc(env(safe-area-inset-bottom, 0px) + 104px);
+        padding: calc(env(safe-area-inset-top, 0px) + 12px) 12px calc(env(safe-area-inset-bottom, 0px) + 12px);
         overscroll-behavior: contain;
       }
 
-      .lb-frame {
-        width: 100%;
-        height: auto;
-        flex: 1;
-        min-height: 0;
-        border-radius: 10px;
+      .lb-modal {
+        flex-direction: column;
+        max-height: 100%;
+        overflow-y: auto;
+        border-radius: 14px;
+      }
+
+      .lb-media {
+        flex: 0 0 auto;
+        min-height: 160px;
       }
 
       .lb-img {
-        max-width: 100%;
-        max-height: 100%;
-        margin: auto;
+        max-height: 60vh;
+      }
+
+      .lb-side {
+        flex: 0 0 auto;
+        overflow: visible;
+        border-left: 0;
+        border-top: 1px solid var(--border);
+        padding: 18px 18px 22px;
       }
 
       .lb-close {
-        top: calc(env(safe-area-inset-top, 0px) + 10px);
-        right: 12px;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 20px;
-        color: var(--text);
-        background: rgba(255, 255, 255, .1);
-        border: 1px solid var(--border-lit);
-        border-radius: 50%;
-        -webkit-tap-highlight-color: transparent;
-      }
-
-      .lb-cap {
-        left: 12px;
-        right: 12px;
-        bottom: calc(env(safe-area-inset-bottom, 0px) + 14px);
-        transform: none;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 8px;
-        white-space: normal;
-        font-size: 11px;
-        letter-spacing: .4px;
-        line-height: 1.4;
-      }
-
-      .lb-title::after {
-        content: none;
-      }
-
-      .lb-cap a {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        min-height: 40px;
-        padding: 0 18px;
-        border-radius: 10px;
-        background: var(--blue-dim);
-        border: 1px solid var(--blue-ring);
-        font-size: 12px;
-        letter-spacing: .3px;
-      }
-    }
-
-    /* HP posisi landscape: ruang vertikal sempit */
-    @media (max-width: 900px) and (max-height: 500px) {
-      .lightbox {
-        padding: 8px 64px 8px 12px;
-      }
-
-      .lb-close {
-        top: 8px;
+        top: 10px;
         right: 10px;
-      }
-
-      .lb-cap {
-        left: auto;
-        right: 10px;
-        bottom: 8px;
-        width: 44px;
+        width: 38px;
+        height: 38px;
+        color: #fff;
+        background: rgba(5, 9, 20, .72);
+        border-color: rgba(255, 255, 255, .25);
       }
 
       .lb-title {
-        display: none;
+        padding-right: 0;
       }
 
-      .lb-cap a {
-        width: 44px;
-        min-height: 44px;
-        padding: 0;
-        border-radius: 50%;
-        font-size: 0;
-      }
-
-      .lb-cap a::before {
-        content: "↗";
-        font-size: 18px;
+      .lb-meta {
+        margin-top: 16px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px 16px;
       }
     }
 
@@ -1419,7 +1454,7 @@
       }
 
       .sb-nav {
-        padding: 6px 4px;
+        padding: 6px 12px;
         flex: 1;
         overflow: hidden;
         min-height: 0;
@@ -2194,8 +2229,9 @@
       display: grid;
       grid-template-columns: 1fr 1fr;
       gap: 14px;
-      max-width: 760px;
-      margin: 0 auto;
+      width: 100%;
+      max-width: none;
+      margin: 0;
     }
 
     .soc-card {
@@ -2642,23 +2678,191 @@
       }
 
       .cert-year {
-        font-size: 7px;
-        padding: 2px 6px;
+        font-size: 6px;
+        padding: 1px 5px;
+        border-radius: 4px;
       }
 
       .cert-type {
-        font-size: 7px;
+        font-size: 6px;
         line-height: 1.3;
+        text-align: center;
+        /* garis pemisah menyambung sampai tepi kartu */
+        width: calc(100% + 16px);
+        margin: 6px -8px -4px;
+        padding: 6px 4px 0;
+        border-top: 1px solid var(--border-lit);
       }
 
       .cert-card {
         border-radius: 10px;
+        display: flex;
+        flex-direction: column;
+      }
+
+      /* Footer rata bawah supaya sejajar di semua kartu */
+      .cert-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cert-title {
+        margin-bottom: 6px;
+      }
+
+      .cert-footer {
+        margin-top: auto;
+        align-items: flex-end;
       }
 
       .cert-overlay-btn {
         padding: 4px 8px;
         font-size: 7px;
         letter-spacing: .5px;
+      }
+    }
+
+    /* ======= Coding Projects & Collaborations ======= */
+    /* Coding Projects: selalu 3 kartu per baris */
+    .proj-grid.collab {
+      --g: 16px;
+      --cols: 3;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-start;
+      gap: var(--g);
+    }
+
+    .proj-grid.collab .proj-card {
+      flex: 0 0 calc((100% - (var(--cols) - 1) * var(--g)) / var(--cols));
+      min-width: 0;
+    }
+
+    /* Collaborations: kartu dibuat memanjang penuh */
+    .proj-grid.collab.collab-wide .proj-card {
+      flex: 0 0 100%;
+    }
+
+    @media (max-width: 768px) {
+      .proj-grid.collab {
+        --g: 10px;
+      }
+    }
+
+    .proj-grid.collab.fit-m {
+      --g: 10px;
+    }
+
+    /* HP: kartu dikecilkan, tombol Preview & Source Code satu baris */
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-card {
+      min-height: 0;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-body {
+      padding: 12px 10px;
+      gap: 6px;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-title {
+      font-size: .9rem;
+      word-break: break-word;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-tag {
+      font-size: .68rem;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-links {
+      flex-direction: row;
+      flex-wrap: nowrap;
+      align-items: center;
+      gap: 4px;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-link {
+      font-size: .64rem;
+      padding: 3px 5px;
+      gap: 3px;
+      white-space: nowrap;
+    }
+
+    .proj-grid.collab.fit-m:not(.collab-wide) .proj-link svg {
+      width: 10px;
+      height: 10px;
+      flex-shrink: 0;
+    }
+
+    /* ======= Tombol tema (dark/light) & bahasa (EN/ID) — tampilan saja, fungsi menyusul ======= */
+    .seg {
+      display: inline-flex;
+      align-items: center;
+      gap: 2px;
+      padding: 3px;
+      background: rgba(255, 255, 255, .04);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+    }
+
+    .seg-btn {
+      height: 28px;
+      min-width: 34px;
+      padding: 0 9px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border: 0;
+      border-radius: 7px;
+      background: transparent;
+      color: var(--muted2);
+      font-family: var(--font-b);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: .4px;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .seg-btn:hover {
+      color: var(--text);
+    }
+
+    .seg-btn.active {
+      background: var(--blue-dim);
+      color: var(--blue-bright);
+      box-shadow: inset 0 0 0 1px var(--blue-ring);
+    }
+
+    /* Desktop: di bagian bawah sidebar */
+    .sb-tools {
+      width: 100%;
+      margin-top: auto;
+      padding: 14px 12px 4px;
+      border-top: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .sb-tools .seg {
+      width: 100%;
+    }
+
+    .sb-tools .seg-btn {
+      flex: 1;
+    }
+
+    /* Mobile: di header (kiri), sidebar tidak memuatnya */
+    .mobbar-tools {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .sb-tools {
+        display: none;
       }
     }
   </style>
@@ -2675,10 +2879,35 @@
   <div class="bg-noise"></div>
 
   <div class="lightbox" id="lightbox" onclick="closeLb(event)">
-    <button class="lb-close" onclick="closeLb()">✕</button>
-    <img class="lb-img" id="lb-img" src="" alt="">
-    <iframe class="lb-frame" id="lb-frame" title="Sertifikat" hidden allow="autoplay"></iframe>
-    <div class="lb-cap" id="lb-cap"></div>
+    <div class="lb-modal" role="dialog" aria-modal="true" aria-labelledby="lb-title">
+      <button class="lb-close" onclick="closeLb()" aria-label="Tutup">✕</button>
+      <div class="lb-media" id="lb-media">
+        <img class="lb-img" id="lb-img" src="" alt="" hidden>
+        <div class="lb-state" id="lb-state">Memuat sertifikat…</div>
+      </div>
+      <div class="lb-side">
+        <div class="lb-title" id="lb-title"></div>
+        <div class="lb-issuer" id="lb-issuer"></div>
+        <div class="lb-meta">
+          <div class="lb-row" id="lb-row-credential" hidden>
+            <div class="lb-label">Credential ID</div>
+            <div class="lb-value" id="lb-credential"></div>
+          </div>
+          <div class="lb-row" id="lb-row-type" hidden>
+            <div class="lb-label">Type</div>
+            <div class="lb-value" id="lb-type"></div>
+          </div>
+          <div class="lb-row" id="lb-row-category" hidden>
+            <div class="lb-label">Category</div>
+            <div class="lb-value" id="lb-category"></div>
+          </div>
+          <div class="lb-row" id="lb-row-date" hidden>
+            <div class="lb-label">Issue Date</div>
+            <div class="lb-value" id="lb-date"></div>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 
   <div class="shell">
@@ -2693,6 +2922,7 @@
             <circle cx="12" cy="8" r="4" />
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
           </svg>
+          <span class="sb-text">Profil</span>
         </a>
         <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Sertifikat"
           data-tooltip="Sertifikat" aria-label="Sertifikat">
@@ -2700,6 +2930,7 @@
             <circle cx="12" cy="8" r="6" />
             <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
           </svg>
+          <span class="sb-text">Sertifikat</span>
         </a>
         <a class="sb-a" id="sba-toolslist" onclick="navTo('toolslist',this)" title="Tools, Platform &amp; Skills"
           data-tooltip="Tools, Platform &amp; Skills" aria-label="Tools, Platform &amp; Skills">
@@ -2707,6 +2938,7 @@
             <path
               d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
           </svg>
+          <span class="sb-text">Tools, Platform &amp; Skills</span>
         </a>
         <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)" title="Dashboard" data-tooltip="Dashboard"
           aria-label="Dashboard">
@@ -2715,6 +2947,7 @@
             <line x1="3" y1="9" x2="21" y2="9" />
             <line x1="9" y1="21" x2="9" y2="9" />
           </svg>
+          <span class="sb-text">Dashboard</span>
         </a>
         <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects" data-tooltip="Projects"
           aria-label="Projects">
@@ -2722,6 +2955,7 @@
             <rect x="2" y="3" width="20" height="14" rx="2" />
             <path d="M8 21h8M12 17v4" />
           </svg>
+          <span class="sb-text">Projects</span>
         </a>
 
 
@@ -2733,8 +2967,31 @@
             <circle cx="18" cy="19" r="3" />
             <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" />
           </svg>
+          <span class="sb-text">Social Media</span>
         </a>
       </nav>
+
+      <!-- Tombol tema & bahasa (desktop, di dalam sidebar) -->
+      <div class="sb-tools">
+        <div class="seg" role="group" aria-label="Tema">
+          <button type="button" class="seg-btn" data-theme="light" aria-label="Light mode" title="Light mode"><svg
+              viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
+              stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="4" />
+              <path
+                d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+            </svg></button>
+          <button type="button" class="seg-btn active" data-theme="dark" aria-label="Dark mode" title="Dark mode"
+            aria-pressed="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+              stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+            </svg></button>
+        </div>
+        <div class="seg" role="group" aria-label="Bahasa">
+          <button type="button" class="seg-btn active" data-lang="en" aria-pressed="true" title="English">EN</button>
+          <button type="button" class="seg-btn" data-lang="id" title="Bahasa Indonesia">ID</button>
+        </div>
+      </div>
     </aside>
 
     <!-- Mobile overlay -->
@@ -2744,7 +3001,26 @@
 
       <!-- Mobile topbar -->
       <header class="mobile-topbar">
-        <span class="mobbar-brand">Toha.Rizalahmad_</span>
+        <div class="mobbar-tools">
+          <div class="seg" role="group" aria-label="Tema">
+            <button type="button" class="seg-btn" data-theme="light" aria-label="Light mode" title="Light mode"><svg
+                viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="4" />
+                <path
+                  d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+              </svg></button>
+            <button type="button" class="seg-btn active" data-theme="dark" aria-label="Dark mode" title="Dark mode"
+              aria-pressed="true"><svg viewBox="0 0 24 24" width="15" height="15" fill="none" stroke="currentColor"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z" />
+              </svg></button>
+          </div>
+          <div class="seg" role="group" aria-label="Bahasa">
+            <button type="button" class="seg-btn active" data-lang="en" aria-pressed="true" title="English">EN</button>
+            <button type="button" class="seg-btn" data-lang="id" title="Bahasa Indonesia">ID</button>
+          </div>
+        </div>
         <button class="mobbar-hamburger" id="mobHamburger" onclick="toggleMobileSidebar()" aria-label="Menu">
           <span></span><span></span><span></span>
         </button>
@@ -3086,11 +3362,8 @@
           <div class="cert-grid">
 
             <div class="cert-card">
-              <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" onclick="openLb(this)">
-                <div class="cert-ph">
-                  <div class="cert-ph-ico">🏆</div>
-                  <div class="cert-ph-txt">PDF</div>
-                </div>
+              <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" data-category="My Skills"
+                data-date="November 2026" onclick="openLb(this)">
                 <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w1200"
                   alt="Internet Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
@@ -3107,11 +3380,8 @@
             </div>
 
             <div class="cert-card">
-              <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS" onclick="openLb(this)">
-                <div class="cert-ph">
-                  <div class="cert-ph-ico">🏆</div>
-                  <div class="cert-ph-txt">PDF</div>
-                </div>
+              <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS" data-category="My Skills"
+                data-date="November 2026" onclick="openLb(this)">
                 <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w1200"
                   alt="Front-End Development Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
@@ -3128,11 +3398,8 @@
             </div>
 
             <div class="cert-card">
-              <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN" onclick="openLb(this)">
-                <div class="cert-ph">
-                  <div class="cert-ph-ico">🏆</div>
-                  <div class="cert-ph-txt">PDF</div>
-                </div>
+              <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN" data-category="My Skills"
+                data-date="November 2026" onclick="openLb(this)">
                 <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w1200"
                   alt="Back-End Development Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
@@ -3460,7 +3727,7 @@
 
         <div class="c-label" style="margin-top:32px;">Collaborations</div>
 
-        <div class="proj-grid collab">
+        <div class="proj-grid collab collab-wide">
           <div class="proj-card">
             <div class="proj-body">
               <div class="proj-title">alfalah website</div>
@@ -3592,7 +3859,7 @@
             rel="noopener noreferrer">
             <div class="soc-title">Shop With Me</div>
             <div class="soc-btn">Go to Lynk ↗</div>
-            <div class="soc-brand-icon"><img src="img/LYNK.webp" alt="" class="brand-img"></div>
+            <div class="soc-brand-icon"><img src="img/LYNK" alt="" class="brand-img"></div>
           </a>
           <hr class="divider">
           <div class="grid-title">Gaming</div>
@@ -3689,6 +3956,11 @@
         el.classList.remove('fit-m');
         var sec = el.closest('.section');
         var avail = sec ? sec.clientWidth - 32 : 0;
+        /* Kartu proyek: pakai padding section yang sebenarnya supaya rata kiri-kanan dengan garis judul */
+        if (sec && el.classList.contains('proj-grid')) {
+          var cs = getComputedStyle(sec);
+          avail = sec.clientWidth - parseFloat(cs.paddingLeft) - parseFloat(cs.paddingRight);
+        }
         if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
           el.classList.add('fit-m');
           el.style.maxWidth = 'none';
@@ -3894,50 +4166,50 @@
 
     function openLb(wrap) {
       const card = wrap.closest('.cert-card');
-      const title = card?.querySelector('.cert-title')?.textContent || '';
-      const issuer = card?.querySelector('.cert-issuer')?.textContent || '';
+      const title = card?.querySelector('.cert-title')?.textContent.trim() || '';
       const img = document.getElementById('lb-img');
-      const frame = document.getElementById('lb-frame');
-      const cap = document.getElementById('lb-cap');
+      const media = document.getElementById('lb-media');
+      const state = document.getElementById('lb-state');
       const driveId = wrap.dataset.drive;
 
-      if (driveId) {
-        // PDF dari Google Drive (file harus dibagikan "Siapa saja yang memiliki link")
-        frame.src = 'https://drive.google.com/file/d/' + driveId + '/preview';
-        frame.hidden = false;
-        img.hidden = true;
-        cap.textContent = '';
-        if (title) {
-          const t = document.createElement('span');
-          t.className = 'lb-title';
-          t.textContent = title;
-          cap.appendChild(t);
-        }
-        const link = document.createElement('a');
-        link.href = 'https://drive.google.com/file/d/' + driveId + '/view';
-        link.target = '_blank';
-        link.rel = 'noopener';
-        link.textContent = 'Buka di Google Drive ↗';
-        cap.appendChild(link);
-      } else {
-        const thumb = wrap.querySelector('img');
-        if (!thumb) return;
-        frame.hidden = true;
-        frame.src = 'about:blank';
-        img.hidden = false;
-        img.src = thumb.src;
-        cap.textContent = issuer && title ? issuer + ' — ' + title : title;
-      }
+      // Detail di panel samping (baris kosong otomatis disembunyikan)
+      document.getElementById('lb-title').textContent = title;
+      document.getElementById('lb-issuer').textContent = wrap.dataset.issuer || '';
+      [['credential', 'credential'], ['type', 'type'], ['category', 'category'], ['date', 'date']].forEach(([id, key]) => {
+        const val = wrap.dataset[key] || '';
+        document.getElementById('lb-' + id).textContent = val;
+        document.getElementById('lb-row-' + id).hidden = !val;
+      });
+
+      // Gambar sertifikat (pratinjau besar, tanpa tombol ke Google Drive)
+      const thumb = wrap.querySelector('img');
+      const src = driveId
+        ? 'https://drive.google.com/thumbnail?id=' + driveId + '&sz=w1600'
+        : (thumb ? thumb.src : '');
+      if (!src) return;
+
+      media.classList.remove('error');
+      media.classList.add('loading');
+      state.textContent = 'Memuat sertifikat…';
+      img.hidden = true;
+      img.onload = () => { media.classList.remove('loading'); img.hidden = false; };
+      img.onerror = () => {
+        media.classList.remove('loading');
+        media.classList.add('error');
+        state.textContent = 'Pratinjau sertifikat tidak tersedia.';
+      };
+      img.alt = title;
+      img.src = src;
+
       document.getElementById('lightbox').classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function resetLb() {
       document.getElementById('lightbox').classList.remove('open');
-      document.getElementById('lb-frame').src = 'about:blank';
       document.body.style.overflow = '';
     }
     function closeLb(e) {
-      if (e && e.target !== document.getElementById('lightbox') && !e.target.classList.contains('lb-close')) return;
+      if (e && e.target !== document.getElementById('lightbox')) return;
       resetLb();
     }
     document.addEventListener('keydown', e => {
@@ -3969,7 +4241,7 @@
     function cachedJSON(url) {
       var key = 'cj:' + url, now = Date.now(), cached = null;
       try { cached = JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { }
-      if (cached && now - cached.t < 3600000) return Promise.resolve(cached.d);
+      if (cached && now - cached.t < 1500000) return Promise.resolve(cached.d);
       return fetch(url).then(function (r) {
         if (!r.ok) throw new Error('HTTP ' + r.status);
         return r.json();
@@ -4025,7 +4297,26 @@
       const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
       const WEEKS = 53, ROWS = 7;
       const isMobile = window.innerWidth <= 768;
-      const CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
+      let CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
+      let lastWeeks = null;
+
+      /* Desktop: ukuran kotak menyesuaikan lebar kartu supaya grafik memenuhi lebar (tidak ada ruang kosong di kanan) */
+      function calcSizes() {
+        const wrap = document.getElementById('gh-canvas-wrap');
+        GAP = isMobile ? 3 : 4;
+        if (!isMobile && wrap && wrap.clientWidth > 0) {
+          STEP = Math.max(17, (wrap.clientWidth + GAP) / WEEKS);
+        } else {
+          STEP = (isMobile ? 10 : 13) + GAP;
+        }
+        CELL = STEP - GAP;
+      }
+
+      let resizeT;
+      window.addEventListener('resize', () => {
+        clearTimeout(resizeT);
+        resizeT = setTimeout(() => { if (lastWeeks && !isMobile) draw(lastWeeks); }, 150);
+      });
 
       const canvas = document.getElementById('gh-graph');
       const monthsEl = document.getElementById('gh-months');
@@ -4056,6 +4347,8 @@
       }
 
       function draw(weeks) {
+        lastWeeks = weeks;
+        calcSizes();
         const W = WEEKS * STEP - GAP, H = ROWS * STEP - GAP;
         const dpr = window.devicePixelRatio || 1;
         canvas.width = W * dpr; canvas.height = H * dpr;
@@ -4202,9 +4495,6 @@
                 const rect = canvas.getBoundingClientRect();
                 const x = e.clientX - rect.left;
                 const y = e.clientY - rect.top;
-
-                const isMobile = window.innerWidth <= 768;
-                const CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
 
                 const wi = Math.floor(x / STEP);
                 const di = Math.floor(y / STEP);
