@@ -1,33 +1,43 @@
 <!DOCTYPE html>
-<html lang="id">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Portofolio | Toha Rizal Ahmad</title>
+  <script>try { document.documentElement.setAttribute("data-theme", localStorage.getItem("theme") === "light" ? "light" : "dark"); } catch (e) { document.documentElement.setAttribute("data-theme", "dark"); }</script>
+  <title>Portfolio | Toha Rizal Ahmad</title>
   <link
     href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=JetBrains+Mono:wght@300;400;500&display=swap"
     rel="stylesheet">
   <style>
     :root {
-      --bg-root: #050A14;
-      --bg-card: #0D1525;
+      color-scheme: dark;
+      --line-a: rgba(255, 255, 255, 0.24);
+      --line-b: rgba(255, 255, 255, 0.04);
+      --gh0: #161b22;
+      --gh0-b: #30363d;
+      --gh1: #0e4429;
+      --gh2: #006d32;
+      --gh3: #26a641;
+      --gh4: #39d353;
+      --bg-root: #010409;
+      --bg-card: #0d1117;
 
       --border: rgba(255, 255, 255, 0.07);
       --border-lit: rgba(255, 255, 255, 0.14);
-      --border-glow: rgba(59, 130, 246, 0.4);
+      --border-glow: rgba(255, 255, 255, 0.28);
 
-      --blue: #2563EB;
-      --blue-bright: #60A5FA;
-      --blue-dim: rgba(37, 99, 235, 0.15);
-      --blue-glow: rgba(37, 99, 235, 0.08);
-      --blue-ring: rgba(96, 165, 250, 0.3);
+      --blue: #6e7681;
+      --blue-bright: #e6edf3;
+      --blue-dim: rgba(255, 255, 255, 0.08);
+      --blue-glow: rgba(255, 255, 255, 0.04);
+      --blue-ring: rgba(255, 255, 255, 0.2);
 
-      --cyan: #93C5FD;
+      --cyan: #f0f6fc;
 
-      --text: #F1F5F9;
-      --muted: #CBD5E1;
-      --muted2: #64748B;
+      --text: #f0f6fc;
+      --muted: #c9d1d9;
+      --muted2: #8b949e;
 
       --success: #10B981;
 
@@ -85,7 +95,7 @@
       height: 700px;
       top: -300px;
       left: -200px;
-      background: radial-gradient(circle, rgba(139, 92, 246, .15) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.09) 0%, transparent 65%);
       animation: da 24s ease-in-out infinite alternate;
     }
 
@@ -94,7 +104,7 @@
       height: 600px;
       bottom: -250px;
       right: -150px;
-      background: radial-gradient(circle, rgba(167, 139, 250, .12) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.072) 0%, transparent 65%);
       animation: db 30s ease-in-out infinite alternate;
     }
 
@@ -103,7 +113,7 @@
       height: 400px;
       top: 35%;
       left: 45%;
-      background: radial-gradient(circle, rgba(192, 132, 252, .08) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.048) 0%, transparent 65%);
       animation: dc 20s ease-in-out infinite alternate;
     }
 
@@ -159,7 +169,7 @@
       left: 0;
       width: var(--sb-w);
       height: 100vh;
-      background: rgba(6, 9, 20, 0.96);
+      background: rgba(1, 4, 9, 0.96);
       backdrop-filter: blur(28px);
       -webkit-backdrop-filter: blur(28px);
       border-right: 1px solid var(--border);
@@ -308,7 +318,7 @@
       color: var(--blue-bright);
       background: var(--blue-dim);
       border-color: var(--blue-ring);
-      box-shadow: 0 0 16px rgba(37, 99, 235, .25);
+      box-shadow: 0 0 16px rgba(255, 255, 255, 0.125);
     }
 
     .sb-icon {
@@ -326,7 +336,7 @@
 
     .sb-a.active .sb-icon {
       color: var(--blue-bright);
-      filter: drop-shadow(0 0 6px rgba(96, 165, 250, .5));
+      filter: drop-shadow(0 0 6px rgba(255, 255, 255, 0.25));
     }
 
     /* Floating Tooltip */
@@ -337,7 +347,7 @@
       left: calc(100% + 14px);
       top: 50%;
       transform: translateY(-50%) translateX(-6px);
-      background: rgba(13, 21, 37, 0.96);
+      background: rgba(13, 17, 23, 0.96);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       color: var(--text);
@@ -402,7 +412,7 @@
       justify-content: space-between;
       padding: 0 20px;
       height: 56px;
-      background: rgba(6, 9, 20, .97);
+      background: rgba(1, 4, 9, .97);
       backdrop-filter: blur(20px);
       border-bottom: 1px solid var(--border);
     }
@@ -499,7 +509,7 @@
         position: sticky;
         top: 0;
         z-index: 100;
-        background: var(--bg-side, #060914);
+        background: var(--bg-side, #010409);
         border-bottom: 1px solid var(--border);
         padding: 12px 16px;
         align-items: center;
@@ -532,7 +542,7 @@
     .btn:hover {
       color: var(--text);
       border-color: var(--border-glow);
-      background: rgba(139, 92, 246, .05);
+      background: rgba(255, 255, 255, 0.03);
     }
 
     .section {
@@ -595,7 +605,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(139, 92, 246, .03) 0%, transparent 55%);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.018) 0%, transparent 55%);
       opacity: 0;
       transition: opacity .25s;
       pointer-events: none;
@@ -627,7 +637,7 @@
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(90deg, var(--border-lit), transparent);
+      background: linear-gradient(90deg, var(--line-a), var(--line-b));
     }
 
     .prof-hero {
@@ -650,7 +660,7 @@
       right: -60px;
       width: 280px;
       height: 280px;
-      background: radial-gradient(circle, rgba(139, 92, 246, .08) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.048) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -661,7 +671,7 @@
       left: 120px;
       width: 200px;
       height: 200px;
-      background: radial-gradient(circle, rgba(192, 132, 252, .04) 0%, transparent 65%);
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.024) 0%, transparent 65%);
       pointer-events: none;
     }
 
@@ -705,7 +715,7 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(135deg, rgba(139, 92, 246, .06), transparent);
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.036), transparent);
       opacity: 0;
       transition: opacity .22s;
     }
@@ -713,7 +723,7 @@
     .tool-pill:hover {
       border-color: var(--border-glow);
       transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, .4), 0 0 0 1px rgba(139, 92, 246, .1);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, 0.06);
     }
 
     .tool-pill:hover::after {
@@ -784,7 +794,7 @@
     .proj-card:hover {
       border-color: var(--border-lit);
       transform: translateY(-4px);
-      box-shadow: 0 20px 56px rgba(0, 0, 12, .6), 0 0 0 1px rgba(139, 92, 246, .12);
+      box-shadow: 0 20px 56px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, 0.072);
     }
 
     .proj-status {
@@ -891,13 +901,13 @@
     .cert-card:hover {
       border-color: var(--border-glow);
       transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0, 0, 12, .55), 0 0 0 1px rgba(139, 92, 246, .15);
+      box-shadow: 0 16px 48px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, 0.09);
     }
 
     .cert-img {
       width: 100%;
       min-height: 140px;
-      background: linear-gradient(135deg, rgba(139, 92, 246, .08), rgba(192, 132, 252, .04));
+      background: linear-gradient(135deg, rgba(255, 255, 255, 0.048), rgba(255, 255, 255, 0.024));
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -959,7 +969,7 @@
     .cert-overlay {
       position: absolute;
       inset: 0;
-      background: rgba(5, 9, 20, .7);
+      background: rgba(1, 4, 9, .7);
       display: flex;
       align-items: center;
       justify-content: center;
@@ -977,10 +987,10 @@
       font-size: 10px;
       letter-spacing: 1.5px;
       color: var(--blue-bright);
-      border: 1px solid rgba(139, 92, 246, .5);
+      border: 1px solid rgba(255, 255, 255, 0.3);
       padding: 8px 18px;
       border-radius: 7px;
-      background: rgba(5, 9, 20, .85);
+      background: rgba(1, 4, 9, .85);
       text-transform: uppercase;
     }
 
@@ -1019,7 +1029,7 @@
       font-family: var(--font-m);
       font-size: 9px;
       color: var(--muted2);
-      background: rgba(139, 92, 246, .06);
+      background: rgba(255, 255, 255, 0.036);
       border: 1px solid var(--border);
       padding: 3px 10px;
       border-radius: 6px;
@@ -1205,7 +1215,7 @@
     .lang-spinner {
       width: 14px;
       height: 14px;
-      border: 2px solid rgba(96, 165, 250, .2);
+      border: 2px solid rgba(255, 255, 255, 0.1);
       border-top-color: var(--blue-bright);
       border-radius: 50%;
       animation: spin 0.8s linear infinite;
@@ -1222,7 +1232,7 @@
       position: fixed;
       inset: 0;
       z-index: 1000;
-      background: rgba(3, 6, 16, .86);
+      background: rgba(1, 4, 9, .86);
       backdrop-filter: blur(4px);
       -webkit-backdrop-filter: blur(4px);
       display: flex;
@@ -1291,7 +1301,7 @@
       font-family: var(--font-m);
       font-size: 11px;
       letter-spacing: .5px;
-      color: #64748B;
+      color: #8b949e;
     }
 
     .lb-media.loading .lb-state,
@@ -1415,7 +1425,7 @@
         width: 38px;
         height: 38px;
         color: #fff;
-        background: rgba(5, 9, 20, .72);
+        background: rgba(1, 4, 9, .72);
         border-color: rgba(255, 255, 255, .25);
       }
 
@@ -1466,7 +1476,7 @@
         height: calc(56px + env(safe-area-inset-top));
         gap: 8px;
         justify-content: space-between;
-        background: rgba(5, 9, 20, 0.98);
+        background: rgba(1, 4, 9, 0.98);
       }
 
       .btn {
@@ -1754,12 +1764,12 @@
     }
 
     ::-webkit-scrollbar-thumb {
-      background: rgba(139, 92, 246, .15);
+      background: rgba(255, 255, 255, 0.09);
       border-radius: 2px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-      background: rgba(139, 92, 246, .35);
+      background: rgba(255, 255, 255, 0.21);
     }
 
     .pro-task-label {
@@ -1816,7 +1826,7 @@
 
     .career-item:hover {
       border-color: var(--border-glow);
-      box-shadow: 0 4px 20px rgba(37, 99, 235, .08);
+      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04);
     }
 
     .career-item-top {
@@ -1901,30 +1911,30 @@
 
     .cbadge-blue {
       border-radius: 6px;
-      color: var(--blue-bright);
-      background: var(--blue-dim);
-      border-color: var(--blue-ring);
+      color: #e3b341;
+      background: rgba(227, 179, 65, .12);
+      border-color: rgba(227, 179, 65, .4);
     }
 
     .cbadge-gray {
       border-radius: 6px;
-      color: var(--muted);
-      background: rgba(255, 255, 255, .04);
-      border-color: var(--border-lit);
+      color: #c297ff;
+      background: rgba(194, 151, 255, .12);
+      border-color: rgba(194, 151, 255, .4);
     }
 
     .cbadge-green {
       border-radius: 6px;
-      color: var(--blue-bright);
-      background: var(--blue-dim);
-      border-color: var(--blue-ring);
+      color: #3fb950;
+      background: rgba(63, 185, 80, .12);
+      border-color: rgba(63, 185, 80, .4);
     }
 
     .cbadge-done {
       border-radius: 6px;
-      color: #34D399;
-      background: rgba(16, 185, 129, 0.15);
-      border-color: rgba(16, 185, 129, 0.35);
+      color: #58a6ff;
+      background: rgba(88, 166, 255, .12);
+      border-color: rgba(88, 166, 255, .4);
     }
 
     .career-toggle {
@@ -2140,8 +2150,8 @@
     .gh-stat-val {
       font-size: 24px;
       font-weight: 800;
-      color: #FACC15;
-      /* Yellow/Amber from reference */
+      color: #39d353;
+      /* Hijau sama dengan warna "More" pada grafik kontribusi */
       letter-spacing: -0.5px;
     }
 
@@ -2287,12 +2297,26 @@
 
     .grid-title {
       grid-column: 1 / -1;
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-family: var(--font-m);
+      font-size: 9px;
+      letter-spacing: 2.5px;
       text-transform: uppercase;
-      color: #94a3b8;
-      margin: -2px 0 -2px 2px;
+      color: var(--blue-bright);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin: 14px 0 2px;
+    }
+
+    .grid-title:first-child {
+      margin-top: 0;
+    }
+
+    .grid-title::after {
+      content: "";
+      flex: 1;
+      height: 1px;
+      background: linear-gradient(90deg, var(--line-a), var(--line-b));
     }
 
     .divider {
@@ -2569,7 +2593,7 @@
     }
 
     .proj-grid.collab .proj-link:hover {
-      background: rgba(37, 99, 235, 0.25);
+      background: rgba(255, 255, 255, 0.125);
     }
 
     /* Tools: 5 ikon per baris, ikon seukuran ikon Linktree (kotak 56px, gambar 28px), nama di bawah ikon */
@@ -2865,6 +2889,228 @@
         display: none;
       }
     }
+
+    /* garis judul tetap terlihat saat layout di-zoom pada HP */
+    .card.fit-m .c-label::after,
+    .soc-grid.zoomed .grid-title::after {
+      height: 2px;
+    }
+
+    /* ===== LIGHT MODE ===== */
+    :root[data-theme="light"] {
+      color-scheme: light;
+      --bg-root: #f6f8fa;
+      --bg-card: #ffffff;
+      --bg-side: #ffffff;
+      --border: rgba(31, 35, 40, 0.10);
+      --border-lit: rgba(31, 35, 40, 0.18);
+      --border-glow: rgba(31, 35, 40, 0.30);
+      --blue: #57606a;
+      --blue-bright: #1f2328;
+      --blue-dim: rgba(31, 35, 40, 0.07);
+      --blue-glow: rgba(31, 35, 40, 0.04);
+      --blue-ring: rgba(31, 35, 40, 0.18);
+      --cyan: #24292f;
+      --text: #1f2328;
+      --muted: #424a53;
+      --muted2: #656d76;
+      --shadow-card: 0 8px 24px -10px rgba(31, 35, 40, 0.18);
+      --line-a: rgba(31, 35, 40, 0.26);
+      --line-b: rgba(31, 35, 40, 0.04);
+      --gh0: #ebedf0;
+      --gh0-b: #d0d7de;
+      --gh1: #9be9a8;
+      --gh2: #40c463;
+      --gh3: #30a14e;
+      --gh4: #216e39;
+    }
+
+    [data-theme="light"] .orb {
+      display: none;
+    }
+
+    [data-theme="light"] .bg-dots {
+      background-image: radial-gradient(rgba(31, 35, 40, .06) 1px, transparent 1px);
+    }
+
+    [data-theme="light"] .bg-noise {
+      display: none;
+    }
+
+    [data-theme="light"] .sidebar {
+      background: rgba(255, 255, 255, 0.96);
+    }
+
+    [data-theme="light"] .mobile-topbar,
+    [data-theme="light"] .topbar {
+      background: rgba(255, 255, 255, 0.97);
+    }
+
+    [data-theme="light"] .sb-a:hover {
+      background: rgba(31, 35, 40, .05);
+    }
+
+    [data-theme="light"] .sb-a.active {
+      box-shadow: 0 1px 6px rgba(31, 35, 40, 0.14);
+    }
+
+    [data-theme="light"] .sb-a.active .sb-icon {
+      filter: none;
+    }
+
+    [data-theme="light"] .sb-a::after {
+      background: #ffffff;
+      box-shadow: 0 6px 20px rgba(31, 35, 40, 0.18);
+    }
+
+    [data-theme="light"] .sb-mobile-overlay {
+      background: rgba(31, 35, 40, .4);
+    }
+
+    [data-theme="light"] .btn:hover {
+      background: rgba(31, 35, 40, 0.04);
+    }
+
+    [data-theme="light"] .card::before {
+      background: none;
+    }
+
+    [data-theme="light"] .prof-hero::before,
+    [data-theme="light"] .prof-hero::after {
+      background: none;
+    }
+
+    [data-theme="light"] .hero-photo-inner {
+      box-shadow: 0 6px 24px rgba(31, 35, 40, 0.18);
+    }
+
+    [data-theme="light"] .tool-pill::after {
+      background: linear-gradient(135deg, rgba(31, 35, 40, 0.03), transparent);
+    }
+
+    [data-theme="light"] .tool-pill:hover {
+      box-shadow: 0 10px 28px rgba(31, 35, 40, .14), 0 0 0 1px rgba(31, 35, 40, 0.06);
+    }
+
+    [data-theme="light"] .proj-card:hover {
+      box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.07);
+    }
+
+    [data-theme="light"] .cert-card:hover {
+      box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.08);
+    }
+
+    [data-theme="light"] .cert-img {
+      background: linear-gradient(135deg, rgba(31, 35, 40, 0.05), rgba(31, 35, 40, 0.02));
+    }
+
+    [data-theme="light"] .cert-year {
+      background: rgba(31, 35, 40, 0.05);
+    }
+
+    [data-theme="light"] .lang-bar-track {
+      background: rgba(31, 35, 40, .06);
+    }
+
+    [data-theme="light"] .lang-spinner {
+      border-color: rgba(31, 35, 40, 0.12);
+      border-top-color: var(--blue-bright);
+    }
+
+    [data-theme="light"] .lb-modal {
+      box-shadow: 0 24px 80px rgba(31, 35, 40, .35);
+    }
+
+    [data-theme="light"] .lb-close {
+      background: rgba(31, 35, 40, .08);
+    }
+
+    [data-theme="light"] .lb-close:hover {
+      background: rgba(31, 35, 40, .16);
+    }
+
+    [data-theme="light"] .seg {
+      background: rgba(31, 35, 40, .05);
+    }
+
+    [data-theme="light"] ::-webkit-scrollbar-thumb {
+      background: rgba(31, 35, 40, 0.18);
+    }
+
+    [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+      background: rgba(31, 35, 40, 0.32);
+    }
+
+    [data-theme="light"] .career-item {
+      background: rgba(31, 35, 40, .02);
+    }
+
+    [data-theme="light"] .career-item:hover {
+      box-shadow: 0 4px 20px rgba(31, 35, 40, 0.08);
+    }
+
+    [data-theme="light"] .gh-stat-card {
+      background: rgba(31, 35, 40, .025);
+    }
+
+    [data-theme="light"] .gh-stat-card:hover {
+      background: rgba(31, 35, 40, .05);
+    }
+
+    [data-theme="light"] .gh-graph-box {
+      background: transparent;
+    }
+
+    [data-theme="light"] .gh-stat-val {
+      color: #1a7f37;
+    }
+
+    [data-theme="light"] .proj-grid.collab .proj-link:hover {
+      background: rgba(31, 35, 40, 0.07);
+    }
+
+    [data-theme="light"] .card.fit-m .t-ico {
+      border-color: rgba(31, 35, 40, 0.12);
+      background: rgba(31, 35, 40, 0.04);
+    }
+
+    [data-theme="light"] .t-ico img.icon-invert {
+      filter: none;
+    }
+
+    [data-theme="light"] .t-ico img[src$="capcut.svg"],
+    [data-theme="light"] .t-ico img[src$="chatgpt.svg"] {
+      filter: invert(1);
+    }
+
+    [data-theme="light"] .divider {
+      background: rgba(31, 35, 40, 0.12);
+    }
+
+    /* badge status */
+    [data-theme="light"] .cbadge-blue {
+      color: #9a6700;
+      background: rgba(154, 103, 0, .10);
+      border-color: rgba(154, 103, 0, .35);
+    }
+
+    [data-theme="light"] .cbadge-gray {
+      color: #8250df;
+      background: rgba(130, 80, 223, .10);
+      border-color: rgba(130, 80, 223, .35);
+    }
+
+    [data-theme="light"] .cbadge-green {
+      color: #1a7f37;
+      background: rgba(26, 127, 55, .10);
+      border-color: rgba(26, 127, 55, .35);
+    }
+
+    [data-theme="light"] .cbadge-done {
+      color: #0969da;
+      background: rgba(9, 105, 218, .08);
+      border-color: rgba(9, 105, 218, .35);
+    }
   </style>
 </head>
 
@@ -2883,7 +3129,7 @@
       <button class="lb-close" onclick="closeLb()" aria-label="Tutup">✕</button>
       <div class="lb-media" id="lb-media">
         <img class="lb-img" id="lb-img" src="" alt="" hidden>
-        <div class="lb-state" id="lb-state">Memuat sertifikat…</div>
+        <div class="lb-state" id="lb-state">Loading certificate…</div>
       </div>
       <div class="lb-side">
         <div class="lb-title" id="lb-title"></div>
@@ -2916,21 +3162,21 @@
     <aside class="sidebar" id="mainSidebar">
       <!-- Navigation - Icon Only -->
       <nav class="sb-nav">
-        <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)" title="Profil" data-tooltip="Profil"
-          aria-label="Profil">
+        <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)" title="Profile" data-tooltip="Profile"
+          aria-label="Profile">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="12" cy="8" r="4" />
             <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
           </svg>
-          <span class="sb-text">Profil</span>
+          <span class="sb-text">Profile</span>
         </a>
-        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Sertifikat"
-          data-tooltip="Sertifikat" aria-label="Sertifikat">
+        <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Achievements"
+          data-tooltip="Achievements" aria-label="Achievements">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <circle cx="12" cy="8" r="6" />
             <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
           </svg>
-          <span class="sb-text">Sertifikat</span>
+          <span class="sb-text">Achievements</span>
         </a>
         <a class="sb-a" id="sba-toolslist" onclick="navTo('toolslist',this)" title="Tools, Platform &amp; Skills"
           data-tooltip="Tools, Platform &amp; Skills" aria-label="Tools, Platform &amp; Skills">
@@ -2949,13 +3195,13 @@
           </svg>
           <span class="sb-text">Dashboard</span>
         </a>
-        <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects" data-tooltip="Projects"
-          aria-label="Projects">
+        <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects &amp; Creative Works"
+          data-tooltip="Projects &amp; Creative Works" aria-label="Projects &amp; Creative Works">
           <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
             <rect x="2" y="3" width="20" height="14" rx="2" />
             <path d="M8 21h8M12 17v4" />
           </svg>
-          <span class="sb-text">Projects</span>
+          <span class="sb-text">Projects &amp; Creative Works</span>
         </a>
 
 
@@ -3050,22 +3296,22 @@
             </div>
           </div>
 
-          <p class="p-bio" style="margin-bottom: 14px;">Seorang Junior Web Developer dan praktisi teknologi digital yang
-            berdedikasi dalam membangun solusi digital yang fungsional, inovatif, dan bermanfaat. Saya memiliki
-            pengalaman dalam pengembangan website, pengelolaan sistem dan platform digital, serta administrasi data.
-            Dengan memanfaatkan teknologi seperti HTML, CSS, JavaScript, Python, dan Laravel, saya berfokus pada
-            pengembangan aplikasi web yang responsif, terstruktur, dan berorientasi pada kebutuhan pengguna.</p>
-          <p class="p-bio">Selain bidang pengembangan web, saya juga memiliki ketertarikan dan pengalaman dalam
-            pengelolaan media digital, dokumentasi kegiatan, pembuatan konten visual, serta penyuntingan foto dan video.
-            Saya memadukan kemampuan teknis, kreativitas, komunikasi, dan pemecahan masalah untuk menghadirkan solusi
-            digital yang efektif serta memberikan nilai nyata.</p>
+          <p class="p-bio" data-i18n="bio1" style="margin-bottom: 14px;">A Junior Web Developer and digital technology
+            practitioner dedicated to building functional, innovative, and useful digital solutions. I have experience
+            in website development, digital system and platform management, and data administration. Using technologies
+            such as HTML, CSS, JavaScript, Python, and Laravel, I focus on building responsive, well-structured web
+            applications that are driven by user needs.</p>
+          <p class="p-bio" data-i18n="bio2">Beyond web development, I am also interested in and experienced with digital
+            media management, activity documentation, visual content creation, and photo and video editing. I combine
+            technical skills, creativity, communication, and problem solving to deliver effective digital solutions that
+            provide real value.</p>
         </div>
 
         <div class="about-2">
           <div class="career-cards-wrap" style="display:grid; grid-template-columns:1fr; gap:12px;">
 
             <div class="card">
-              <div class="c-label">Pengalaman</div>
+              <div class="c-label" data-i18n="exp.title">Experience</div>
               <div class="career-body" style="padding:0;">
                 <div class="career-item" style="margin-top:10px;">
                   <div class="career-item-top">
@@ -3076,7 +3322,7 @@
                       <div class="career-job-title">Web Developer</div>
                       <div class="career-company">Taskeginer's</div>
                       <div class="career-meta">
-                        2025 – Sekarang
+                        2025 – <span data-i18n="present">Present</span>
                         <span>•</span>
                         Lampung Tengah
                         <span class="career-badge cbadge-blue">Freelance</span>
@@ -3092,14 +3338,14 @@
                   </button>
                   <div class="career-detail">
                     <div class="career-detail-inner">
-                      <div class="pro-task-label">Tanggung Jawab</div>
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Membangun website portofolio,
-                            company profile, dan landing page untuk berbagai klien.</span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengembangkan antarmuka responsif
-                            menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.</span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Melakukan deployment ke GitHub dan
-                            Cloudflare serta konfigurasi domain Niagahoster.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b1">Building
+                            portfolio websites, company profiles, and landing pages for various clients.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b2">Developing
+                            responsive interfaces using HTML, CSS, JavaScript, and Tailwind CSS.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b3">Deploying to
+                            GitHub and Cloudflare and configuring Niagahoster domains.</span></div>
                       </div>
                     </div>
                   </div>
@@ -3114,7 +3360,7 @@
                       <div class="career-job-title">Web Developer</div>
                       <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
                       <div class="career-meta">
-                        Oct 2025 – Sekarang
+                        Oct 2025 – <span data-i18n="present">Present</span>
                         <span>•</span>
                         Lampung Tengah
                       </div>
@@ -3128,17 +3374,17 @@
                   </button>
                   <div class="career-detail">
                     <div class="career-detail-inner">
-                      <div class="pro-task-label">Tanggung Jawab</div>
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Merancang, mengembangkan, dan
-                            memelihara website www.alfalahrumbia.com sebagai media informasi dan publikasi digital
-                            yayasan.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b4">Designing,
+                            developing, and maintaining the website www.alfalahrumbia.com as the foundation's
+                            information and digital publication medium.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengembangkan, memperbarui, dan
-                            mengoptimalkan fitur serta tampilan website.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b5">Developing,
+                            updating, and optimizing the website's features and appearance.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengelola publikasi, deployment,
-                            dan pemeliharaan website menggunakan GitHub dan Cloudflare.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b6">Managing
+                            publication, deployment, and maintenance of the website using GitHub and Cloudflare.
                           </span></div>
                       </div>
                     </div>
@@ -3151,11 +3397,11 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">Administrator Platform Sekolah Pintar (PSP) by PT Teknologi Kartu
-                        Indonesia</div>
+                      <div class="career-job-title" data-i18n="exp.psp">Smart School Platform (PSP) Administrator by PT
+                        Teknologi Kartu Indonesia</div>
                       <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
                       <div class="career-meta">
-                        Jul 2026 – Sekarang
+                        Jul 2026 – <span data-i18n="present">Present</span>
                         <span>•</span>
                         Lampung Tengah
                       </div>
@@ -3169,19 +3415,19 @@
                   </button>
                   <div class="career-detail">
                     <div class="career-detail-inner">
-                      <div class="pro-task-label">Tanggung Jawab</div>
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Menjalin dan mengoordinasikan
-                            kerja sama operasional dengan PT Teknologi Kartu Indonesia.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b7">Establishing
+                            and coordinating operational cooperation with PT Teknologi Kartu Indonesia.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengelola, memperbarui, dan
-                            memvalidasi data pengguna (user) pada Platform Sekolah Pintar.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b8">Managing,
+                            updating, and validating user data on the Smart School Platform.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Memberikan dukungan teknis kepada
-                            pengguna dalam pengoperasian sistem dan aplikasi digital.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b9">Providing
+                            technical support to users in operating digital systems and applications.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengidentifikasi, menganalisis,
-                            dan menangani kendala teknis pada sistem.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b10">Identifying,
+                            analyzing, and resolving technical issues in the system.
                           </span></div>
                       </div>
                     </div>
@@ -3211,19 +3457,19 @@
                   </button>
                   <div class="career-detail">
                     <div class="career-detail-inner">
-                      <div class="pro-task-label">Tanggung Jawab</div>
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mendokumentasikan seluruh kegiatan
-                            yayasan dalam bentuk foto dan video.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b11">Documenting
+                            all foundation activities in photos and videos.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Melakukan penyuntingan (editing)
-                            foto dan video untuk kebutuhan publikasi.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b12">Editing photos
+                            and videos for publication needs.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengelola dan mengunggah hasil
-                            dokumentasi ke platform media sosial resmi yayasan.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b13">Managing and
+                            uploading documentation results to the foundation's official social media platforms.
                           </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span>Mengarsipkan hasil dokumentasi
-                            kegiatan sebagai bahan publikasi dan laporan yayasan.
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b14">Archiving
+                            activity documentation as material for the foundation's publications and reports.
                           </span></div>
                       </div>
                     </div>
@@ -3233,7 +3479,7 @@
             </div>
 
             <div class="card">
-              <div class="c-label">Riwayat Pendidikan</div>
+              <div class="c-label" data-i18n="edu.title">Education History</div>
               <div class="career-body"
                 style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
                 <div class="career-item">
@@ -3248,10 +3494,10 @@
                       <div class="career-meta">
                         2025 – Sekarang
                         <span>•</span>
-                        GPA 4.00/4.00
+                        <span data-i18n="gpa">GPA</span> 4.00/4.00
                         <span>•</span>
                         Lampung Tengah
-                        <span class="career-badge cbadge-green">● Aktif</span>
+                        <span class="career-badge cbadge-green">● Active</span>
                       </div>
                     </div>
                   </div>
@@ -3270,7 +3516,7 @@
                         2022 – 2025
                         <span>•</span>
                         Lampung Tengah
-                        <span class="career-badge cbadge-done">● Lulus</span>
+                        <span class="career-badge cbadge-done">● Graduated</span>
                       </div>
                     </div>
                   </div>
@@ -3287,7 +3533,7 @@
                         2019 – 2022
                         <span>•</span>
                         Lampung Tengah
-                        <span class="career-badge cbadge-done">● Lulus</span>
+                        <span class="career-badge cbadge-done">● Graduated</span>
                       </div>
                     </div>
                   </div>
@@ -3304,7 +3550,7 @@
                         Jun 2019 – Oct 2026
                         <span>•</span>
                         Lampung Tengah
-                        <span class="career-badge cbadge-done">● Lulus</span>
+                        <span class="career-badge cbadge-done">● Graduated</span>
                       </div>
                     </div>
                   </div>
@@ -3312,7 +3558,7 @@
 
                 <div class="edu-more">
                   <button class="edu-toggle" onclick="eduToggle(this)">
-                    <span>Lihat Pendidikan Sebelumnya</span>
+                    <span>View Previous Education</span>
                     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                       <path d="m6 9 6 6 6-6" />
                     </svg>
@@ -3327,7 +3573,7 @@
                               2013 – 2019
                               <span>•</span>
                               Lampung Tengah
-                              <span class="career-badge cbadge-done">● Lulus</span>
+                              <span class="career-badge cbadge-done">● Graduated</span>
                             </div>
                           </div>
                         </div>
@@ -3341,7 +3587,7 @@
                               2012 – 2013
                               <span>•</span>
                               Lampung Tengah
-                              <span class="career-badge cbadge-done">● Lulus</span>
+                              <span class="career-badge cbadge-done">● Graduated</span>
                             </div>
                           </div>
                         </div>
@@ -3357,7 +3603,7 @@
       <section id="tools" class="section">
         <div id="achievement" class="sub-block">
           <div class="sec-head">
-            <div class="sec-title">Sertifikat</div>
+            <div class="sec-title">Achievements</div>
           </div>
 
           <div class="cert-grid">
@@ -3368,7 +3614,7 @@
                 <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w1200"
                   alt="Internet Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
-                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
+                  <div class="cert-overlay-btn">View Certificate</div>
                 </div>
               </div>
               <div class="cert-body">
@@ -3386,7 +3632,7 @@
                 <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w1200"
                   alt="Front-End Development Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
-                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
+                  <div class="cert-overlay-btn">View Certificate</div>
                 </div>
               </div>
               <div class="cert-body">
@@ -3404,7 +3650,7 @@
                 <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w1200"
                   alt="Back-End Development Introduction" loading="lazy" onerror="this.remove()">
                 <div class="cert-overlay">
-                  <div class="cert-overlay-btn">Lihat Sertifikat</div>
+                  <div class="cert-overlay-btn">View Certificate</div>
                 </div>
               </div>
               <div class="cert-body">
@@ -3576,30 +3822,32 @@
                   <path
                     d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.92 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z" />
                 </svg>
-                <span class="gh-title-text" style="font-size:16px;">Statistik Akun GitHub</span>
+                <span class="gh-title-text" data-i18n="gh.title" style="font-size:16px;">GitHub Account
+                  Statistics</span>
               </div>
               <div class="gh-subtitle-row" style="margin-bottom:12px;">
-                <span class="gh-subtitle-text" style="font-size:12px;">Ringkasan aktivitas repositori dan kontribusi
-                  publik.</span>
+                <span class="gh-subtitle-text" data-i18n="gh.sub" style="font-size:12px;">Summary of repository activity
+                  and public contributions.</span>
                 <span class="gh-subtitle-user">@TohaRizalahmad</span>
               </div>
             </div>
             <div class="gh-stats-grid secondary" style="grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));">
-              <div class="gh-stat-card"><span class="gh-stat-lbl">Repositori</span><span class="gh-stat-val"
-                  id="gh-vals-repos" style="font-size:20px;">0</span></div>
-              <div class="gh-stat-card"><span class="gh-stat-lbl">Kontribusi</span><span class="gh-stat-val"
-                  id="gh-vals-total" style="font-size:20px;">0</span></div>
-              <div class="gh-stat-card"><span class="gh-stat-lbl">Minggu Ini</span><span class="gh-stat-val"
-                  id="gh-vals-week" style="font-size:20px;">0</span></div>
-              <div class="gh-stat-card"><span class="gh-stat-lbl">Hari Terbaik</span><span class="gh-stat-val"
-                  id="gh-vals-best" style="font-size:20px;">0</span></div>
-              <div class="gh-stat-card"><span class="gh-stat-lbl">Rata-rata</span><span class="gh-stat-val"
-                  id="gh-vals-avg" style="font-size:20px;">0<span>/hr</span></span></div>
+              <div class="gh-stat-card"><span class="gh-stat-lbl" data-i18n="gh.repos">Repositories</span><span
+                  class="gh-stat-val" id="gh-vals-repos" style="font-size:20px;">0</span></div>
+              <div class="gh-stat-card"><span class="gh-stat-lbl" data-i18n="gh.total">Contributions</span><span
+                  class="gh-stat-val" id="gh-vals-total" style="font-size:20px;">0</span></div>
+              <div class="gh-stat-card"><span class="gh-stat-lbl" data-i18n="gh.week">This Week</span><span
+                  class="gh-stat-val" id="gh-vals-week" style="font-size:20px;">0</span></div>
+              <div class="gh-stat-card"><span class="gh-stat-lbl" data-i18n="gh.best">Best Day</span><span
+                  class="gh-stat-val" id="gh-vals-best" style="font-size:20px;">0</span></div>
+              <div class="gh-stat-card"><span class="gh-stat-lbl" data-i18n="gh.avg">Average</span><span
+                  class="gh-stat-val" id="gh-vals-avg" style="font-size:20px;">0<span
+                    data-i18n="gh.perday">/day</span></span></div>
             </div>
           </div>
 
           <div class="card" style="padding:24px; margin-bottom:12px;">
-            <div class="c-label" style="margin-bottom:15px;">Grafik Kontribusi</div>
+            <div class="c-label" style="margin-bottom:15px;">Contribution Graph</div>
             <div class="gh-graph-box" style="border:none; background:none; padding:0;">
               <div style="display:flex;align-items:flex-start;gap:0;">
                 <div id="gh-day-labels" style="min-width:32px;"></div>
@@ -3610,19 +3858,19 @@
               </div>
               <div class="gh-graph-footer" style="justify-content: space-between;">
                 <div class="gh-legend-row" style="display:flex; align-items:center; gap:10px;">
-                  <span>Sedikit</span>
+                  <span>Less</span>
                   <div class="gh-footer-legend">
-                    <div class="gh-leg-dot" style="background:#161b22;border:1px solid #30363d;"></div>
-                    <div class="gh-leg-dot" style="background:#0e4429;"></div>
-                    <div class="gh-leg-dot" style="background:#006d32;"></div>
-                    <div class="gh-leg-dot" style="background:#26a641;"></div>
-                    <div class="gh-leg-dot" style="background:#39d353;"></div>
+                    <div class="gh-leg-dot" style="background:var(--gh0);border:1px solid var(--gh0-b);"></div>
+                    <div class="gh-leg-dot" style="background:var(--gh1);"></div>
+                    <div class="gh-leg-dot" style="background:var(--gh2);"></div>
+                    <div class="gh-leg-dot" style="background:var(--gh3);"></div>
+                    <div class="gh-leg-dot" style="background:var(--gh4);"></div>
                   </div>
-                  <span>Banyak</span>
+                  <span>More</span>
                 </div>
                 <div id="gh-graph-pill"
-                  style="opacity:0; transition:opacity .2s; background: rgba(51, 65, 85, .8); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: #fff; font-family: var(--font-m); border: 1px solid rgba(255,255,255,.1);">
-                  0 kontribusi pada —
+                  style="opacity:0; transition:opacity .2s; background: rgba(48, 54, 61, .9); padding: 4px 10px; border-radius: 6px; font-size: 11px; color: #fff; font-family: var(--font-m); border: 1px solid rgba(255,255,255,.1);">
+                  0 contributions on —
                 </div>
               </div>
             </div>
@@ -3630,11 +3878,11 @@
 
           <!-- Bagian bahasa disembunyikan (kode tetap ada). Hapus style="display:none" untuk menampilkan lagi. -->
           <div class="card" style="padding:24px; display:none;">
-            <div class="c-label" style="margin-bottom:15px;">Bahasa yang Sering Digunakan</div>
+            <div class="c-label" style="margin-bottom:15px;">Most Used Languages</div>
             <div id="lang-content">
               <div class="lang-loading">
                 <div class="lang-spinner"></div>
-                <span>Memuat data bahasa...</span>
+                <span>Loading language data...</span>
               </div>
             </div>
           </div>
@@ -3756,12 +4004,11 @@
 
       <section id="social" class="section">
         <div class="sec-head">
-          <div class="sec-title">Linktree</div>
+          <div class="sec-title">Social Media</div>
         </div>
 
         <div class="soc-grid">
-          <hr class="divider">
-          <div class="grid-title">Sosial</div>
+          <div class="grid-title">Social</div>
           <a class="soc-card soc-full c-spotify"
             href="https://open.spotify.com/user/31fralpy6tqe4ytdth2mb6sfc7oe?si=vFanV0L1RQO3xBjY6SSjmA&utm_source=copy-link"
             target="_blank" rel="noopener noreferrer">
@@ -3772,11 +4019,10 @@
                   d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z" />
               </svg></div>
           </a>
-          <hr class="divider">
           <div class="soc-card soc-full c-email">
             <div class="soc-title">Stay in Touch</div>
             <div class="copy-row"><span class="addr" id="addr">toharizalahmad24@gmail.com</span><button class="copy"
-                id="copy" type="button">Salin email</button></div>
+                id="copy" type="button">Copy email</button></div>
             <div class="soc-brand-icon"><svg viewBox="0 0 48 48" aria-hidden="true" class="icon-outline">
                 <path d="M8 10h32a4 4 0 0 1 4 4v20a4 4 0 0 1-4 4H8a4 4 0 0 1-4-4V14a4 4 0 0 1 4-4z" />
                 <path d="M4 14l20 14L44 14" />
@@ -3839,7 +4085,7 @@
           </a>
           <a class="soc-card c-whatsapp" href="https://wa.me/6282184692988" target="_blank" rel="noopener noreferrer">
             <div class="soc-title">Chat on WhatsApp</div>
-            <div class="soc-btn">Hubungi via WA ↗</div>
+            <div class="soc-btn">Contact via WhatsApp ↗</div>
             <div class="soc-brand-icon"><svg viewBox="0 0 24 24" aria-hidden="true">
                 <path
                   d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413z" />
@@ -3854,15 +4100,13 @@
                   d="M20.317 4.3698a19.7913 19.7913 0 00-4.8851-1.5152.0741.0741 0 00-.0785.0371c-.211.3753-.4447.8648-.6083 1.2495-1.8447-.2762-3.68-.2762-5.4868 0-.1636-.3933-.4058-.8742-.6177-1.2495a.077.077 0 00-.0785-.037 19.7363 19.7363 0 00-4.8852 1.515.0699.0699 0 00-.0321.0277C.5334 9.0458-.319 13.5799.0992 18.0578a.0824.0824 0 00.0312.0561c2.0528 1.5076 4.0413 2.4228 5.9929 3.0294a.0777.0777 0 00.0842-.0276c.4616-.6304.8731-1.2952 1.226-1.9942a.076.076 0 00-.0416-.1057c-.6528-.2476-1.2743-.5495-1.8722-.8923a.077.077 0 01-.0076-.1277c.1258-.0943.2517-.1923.3718-.2914a.0743.0743 0 01.0776-.0105c3.9278 1.7933 8.18 1.7933 12.0614 0a.0739.0739 0 01.0785.0095c.1202.099.246.1981.3728.2924a.077.077 0 01-.0066.1276 12.2986 12.2986 0 01-1.873.8914.0766.0766 0 00-.0407.1067c.3604.698.7719 1.3628 1.225 1.9932a.076.076 0 00.0842.0286c1.961-.6067 3.9495-1.5219 6.0023-3.0294a.077.077 0 00.0313-.0552c.5004-5.177-.8382-9.6739-3.5485-13.6604a.061.061 0 00-.0312-.0286zM8.02 15.3312c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9555-2.4189 2.157-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.9555 2.4189-2.1569 2.4189zm7.9748 0c-1.1825 0-2.1569-1.0857-2.1569-2.419 0-1.3332.9554-2.4189 2.1569-2.4189 1.2108 0 2.1757 1.0952 2.1568 2.419 0 1.3332-.946 2.4189-2.1568 2.4189Z" />
               </svg></div>
           </a>
-          <hr class="divider">
-          <div class="grid-title">Toko</div>
+          <div class="grid-title">Shop</div>
           <a class="soc-card soc-full c-shop" href="https://lynk.id/toharizalahmad" target="_blank"
             rel="noopener noreferrer">
             <div class="soc-title">Shop With Me</div>
             <div class="soc-btn">Go to Lynk ↗</div>
             <div class="soc-brand-icon"><img src="img/LYNK" alt="" class="brand-img"></div>
           </a>
-          <hr class="divider">
           <div class="grid-title">Gaming</div>
           <a class="soc-card soc-full c-steam" href="https://steamcommunity.com/profiles/76561198713709762/"
             target="_blank" rel="noopener noreferrer">
@@ -3882,13 +4126,12 @@
                   d="M3.537 0C2.165 0 1.66.506 1.66 1.879V18.44a4.262 4.262 0 00.02.433c.031.3.037.59.316.92.027.033.311.245.311.245.153.075.258.13.43.2l8.335 3.491c.433.199.614.276.928.27h.002c.314.006.495-.071.928-.27l8.335-3.492c.172-.07.277-.124.43-.2 0 0 .284-.211.311-.243.28-.33.285-.621.316-.92a4.261 4.261 0 00.02-.434V1.879c0-1.373-.506-1.88-1.878-1.88zm13.366 3.11h.68c1.138 0 1.688.553 1.688 1.696v1.88h-1.374v-1.8c0-.369-.17-.54-.523-.54h-.235c-.367 0-.537.17-.537.539v5.81c0 .369.17.54.537.54h.262c.353 0 .523-.171.523-.54V8.619h1.373v2.143c0 1.144-.562 1.71-1.7 1.71h-.694c-1.138 0-1.7-.566-1.7-1.71V4.82c0-1.144.562-1.709 1.7-1.709zm-12.186.08h3.114v1.274H6.117v2.603h1.648v1.275H6.117v2.774h1.74v1.275h-3.14zm3.816 0h2.198c1.138 0 1.7.564 1.7 1.708v2.445c0 1.144-.562 1.71-1.7 1.71h-.799v3.338h-1.4zm4.53 0h1.4v9.201h-1.4zm-3.13 1.235v3.392h.575c.354 0 .523-.171.523-.54V4.965c0-.368-.17-.54-.523-.54zm-3.74 10.147a1.708 1.708 0 01.591.108 1.745 1.745 0 01.49.299l-.452.546a1.247 1.247 0 00-.308-.195.91.91 0 00-.363-.068.658.658 0 00-.28.06.703.703 0 00-.224.163.783.783 0 00-.151.243.799.799 0 00-.056.299v.008a.852.852 0 00.056.31.7.7 0 00.157.245.736.736 0 00.238.16.774.774 0 00.303.058.79.79 0 00.445-.116v-.339h-.548v-.565H7.37v1.255a2.019 2.019 0 01-.524.307 1.789 1.789 0 01-.683.123 1.642 1.642 0 01-.602-.107 1.46 1.46 0 01-.478-.3 1.371 1.371 0 01-.318-.455 1.438 1.438 0 01-.115-.58v-.008a1.426 1.426 0 01.113-.57 1.449 1.449 0 01.312-.46 1.418 1.418 0 01.474-.309 1.58 1.58 0 01.598-.111 1.708 1.708 0 01.045 0zm11.963.008a2.006 2.006 0 01.612.094 1.61 1.61 0 01.507.277l-.386.546a1.562 1.562 0 00-.39-.205 1.178 1.178 0 00-.388-.07.347.347 0 00-.208.052.154.154 0 00-.07.127v.008a.158.158 0 00.022.084.198.198 0 00.076.066.831.831 0 00.147.06c.062.02.14.04.236.061a3.389 3.389 0 01.43.122 1.292 1.292 0 01.328.17.678.678 0 01.207.24.739.739 0 01.071.337v.008a.865.865 0 01-.081.382.82.82 0 01-.229.285 1.032 1.032 0 01-.353.18 1.606 1.606 0 01-.46.061 2.16 2.16 0 01-.71-.116 1.718 1.718 0 01-.593-.346l.43-.514c.277.223.578.335.9.335a.457.457 0 00.236-.05.157.157 0 00.082-.142v-.008a.15.15 0 00-.02-.077.204.204 0 00-.073-.066.753.753 0 00-.143-.062 2.45 2.45 0 00-.233-.062 5.036 5.036 0 01-.413-.113 1.26 1.26 0 01-.331-.16.72.72 0 01-.222-.243.73.73 0 01-.082-.36v-.008a.863.863 0 01.074-.359.794.794 0 01.214-.283 1.007 1.007 0 01.34-.185 1.423 1.423 0 01.448-.066 2.006 2.006 0 01.025 0zm-9.358.025h.742l1.183 2.81h-.825l-.203-.499H8.623l-.198.498h-.81zm2.197.02h.814l.663 1.08.663-1.08h.814v2.79h-.766v-1.602l-.711 1.091h-.016l-.707-1.083v1.593h-.754zm3.469 0h2.235v.658h-1.473v.422h1.334v.61h-1.334v.442h1.493v.658h-2.255zm-5.3.897l-.315.793h.624zm-1.145 5.19h8.014l-4.09 1.348z" />
               </svg></div>
           </a>
-          <hr class="divider">
           <div class="grid-title">My Favorite Game</div>
           <div class="soc-card c-pubg">
             <div class="soc-title">PUBG Mobile</div>
             <div class="game-id">ID: <span class="id-text">52431517177</span></div>
             <div class="btn-row">
-              <button class="copy" type="button" data-copy="52431517177">Salin ID</button>
+              <button class="copy" type="button" data-copy="52431517177">Copy ID</button>
               <a class="copy" href="https://zanstore.com/" target="_blank" rel="noopener noreferrer">Gift UC ↗</a>
             </div>
             <div class="soc-brand-icon"><img src="img/PUBG.jpg" alt="" class="brand-img"></div>
@@ -3897,13 +4140,12 @@
             <div class="soc-title">Mobile Legends</div>
             <div class="game-id">ID: <span class="id-text">424060288 (3889)</span></div>
             <div class="btn-row">
-              <button class="copy" type="button" data-copy="424060288 (3889)">Salin ID</button>
+              <button class="copy" type="button" data-copy="424060288 (3889)">Copy ID</button>
               <a class="copy" href="https://zanstore.com/" target="_blank" rel="noopener noreferrer">Gift Diamond ↗</a>
             </div>
             <div class="soc-brand-icon"><img src="img/MOBILE LEGENDS.jpg" alt="" class="brand-img"></div>
           </div>
-          <hr class="divider">
-          <div class="grid-title">Dukungan</div>
+          <div class="grid-title">Support</div>
           <a class="soc-card soc-full c-saweria" href="https://saweria.co/TohaRizalahmad" target="_blank"
             rel="noopener noreferrer">
             <div class="soc-title">Support via Saweria</div>
@@ -3919,7 +4161,6 @@
         </div>
 
         <footer class="port-footer">
-          <div class="pf-divider"></div>
           <div class="pf-bottom">
             <span class="pf-copy">© 2025 Toha Rizal Ahmad. All rights reserved.</span>
             <span class="pf-made">Crafted with passion &amp; code.</span>
@@ -3931,16 +4172,106 @@
   </div>
 
   <script>
+    /* ---- Bahasa EN/ID: hanya bagian tertentu yang diterjemahkan ---- */
+    var I18N = {
+      en: {}, id: {
+        'bio1': 'Seorang Junior Web Developer dan praktisi teknologi digital yang berdedikasi dalam membangun solusi digital yang fungsional, inovatif, dan bermanfaat. Saya memiliki pengalaman dalam pengembangan website, pengelolaan sistem dan platform digital, serta administrasi data. Dengan memanfaatkan teknologi seperti HTML, CSS, JavaScript, Python, dan Laravel, saya berfokus pada pengembangan aplikasi web yang responsif, terstruktur, dan berorientasi pada kebutuhan pengguna.',
+        'bio2': 'Selain bidang pengembangan web, saya juga memiliki ketertarikan dan pengalaman dalam pengelolaan media digital, dokumentasi kegiatan, pembuatan konten visual, serta penyuntingan foto dan video. Saya memadukan kemampuan teknis, kreativitas, komunikasi, dan pemecahan masalah untuk menghadirkan solusi digital yang efektif serta memberikan nilai nyata.',
+        'exp.title': 'Pengalaman',
+        'exp.resp': 'Tanggung Jawab',
+        'present': 'Sekarang',
+        'exp.psp': 'Administrator Platform Sekolah Pintar (PSP) by PT Teknologi Kartu Indonesia',
+        'exp.b1': 'Membangun website portofolio, company profile, dan landing page untuk berbagai klien.',
+        'exp.b2': 'Mengembangkan antarmuka responsif menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.',
+        'exp.b3': 'Melakukan deployment ke GitHub dan Cloudflare serta konfigurasi domain Niagahoster.',
+        'exp.b4': 'Merancang, mengembangkan, dan memelihara website www.alfalahrumbia.com sebagai media informasi dan publikasi digital yayasan.',
+        'exp.b5': 'Mengembangkan, memperbarui, dan mengoptimalkan fitur serta tampilan website.',
+        'exp.b6': 'Mengelola publikasi, deployment, dan pemeliharaan website menggunakan GitHub dan Cloudflare.',
+        'exp.b7': 'Menjalin dan mengoordinasikan kerja sama operasional dengan PT Teknologi Kartu Indonesia.',
+        'exp.b8': 'Mengelola, memperbarui, dan memvalidasi data pengguna (user) pada Platform Sekolah Pintar.',
+        'exp.b9': 'Memberikan dukungan teknis kepada pengguna dalam pengoperasian sistem dan aplikasi digital.',
+        'exp.b10': 'Mengidentifikasi, menganalisis, dan menangani kendala teknis pada sistem.',
+        'exp.b11': 'Mendokumentasikan seluruh kegiatan yayasan dalam bentuk foto dan video.',
+        'exp.b12': 'Melakukan penyuntingan (editing) foto dan video untuk kebutuhan publikasi.',
+        'exp.b13': 'Mengelola dan mengunggah hasil dokumentasi ke platform media sosial resmi yayasan.',
+        'exp.b14': 'Mengarsipkan hasil dokumentasi kegiatan sebagai bahan publikasi dan laporan yayasan.',
+        'edu.title': 'Riwayat Pendidikan',
+        'gpa': 'IPK',
+        'gh.title': 'Statistik Akun GitHub',
+        'gh.sub': 'Ringkasan aktivitas repositori dan kontribusi publik.',
+        'gh.repos': 'Repositori',
+        'gh.total': 'Kontribusi',
+        'gh.week': 'Minggu Ini',
+        'gh.best': 'Hari Terbaik',
+        'gh.avg': 'Rata-rata',
+        'gh.perday': '/hr'
+      }
+    };
+    var UI = {
+      en: { careerShow: 'Show Details', careerHide: 'Hide Details', eduShow: 'View Previous Education', eduHide: 'Hide' },
+      id: { careerShow: 'Lihat Detail Pekerjaan', careerHide: 'Sembunyikan Detail', eduShow: 'Lihat Pendidikan Sebelumnya', eduHide: 'Sembunyikan' }
+    };
+    var LANG = 'en';
+    /* Teks Inggris diambil dari HTML apa adanya (jadi HTML tetap sumber bahasa Inggris) */
+    document.querySelectorAll('[data-i18n]').forEach(function (el) {
+      if (!(el.dataset.i18n in I18N.en)) I18N.en[el.dataset.i18n] = el.innerHTML.trim();
+    });
+    function T(key) { return (UI[LANG][key] !== undefined) ? UI[LANG][key] : (I18N[LANG][key] !== undefined ? I18N[LANG][key] : I18N.en[key]); }
+    function setLang(lang) {
+      if (lang !== 'en' && lang !== 'id') lang = 'en';
+      LANG = lang;
+      document.documentElement.lang = lang;
+      document.querySelectorAll('[data-i18n]').forEach(function (el) { el.innerHTML = T(el.dataset.i18n); });
+      document.querySelectorAll('.career-toggle span').forEach(function (l) {
+        l.textContent = l.parentElement.classList.contains('open') ? T('careerHide') : T('careerShow');
+      });
+      document.querySelectorAll('.edu-toggle span').forEach(function (l) {
+        l.textContent = l.parentElement.classList.contains('open') ? T('eduHide') : T('eduShow');
+      });
+      document.querySelectorAll('.seg-btn[data-lang]').forEach(function (b) {
+        var on = b.dataset.lang === lang;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on);
+      });
+      try { localStorage.setItem('lang', lang); } catch (e) { }
+    }
+    document.querySelectorAll('.seg-btn[data-lang]').forEach(function (b) {
+      b.addEventListener('click', function () { setLang(b.dataset.lang); });
+    });
+    /* ---- Tema Dark/Light ---- */
+    function setTheme(t) {
+      t = (t === 'light') ? 'light' : 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+      document.querySelectorAll('.seg-btn[data-theme]').forEach(function (b) {
+        var on = b.dataset.theme === t;
+        b.classList.toggle('active', on);
+        b.setAttribute('aria-pressed', on);
+      });
+      try { localStorage.setItem('theme', t); } catch (e) { }
+      if (window.__ghRedraw) window.__ghRedraw();
+    }
+    document.querySelectorAll('.seg-btn[data-theme]').forEach(function (b) {
+      b.addEventListener('click', function () { setTheme(b.dataset.theme); });
+    });
+    setTheme(document.documentElement.getAttribute('data-theme'));
+    var savedLang = 'en';
+    try { savedLang = localStorage.getItem('lang') || 'en'; } catch (e) { }
+    setLang(savedLang);
+  </script>
+
+  <script>
     document.documentElement.classList.add('js');
     /* Linktree: di HP, tampilan desktop (lebar 740px) diperkecil agar pas, sama seperti Linktree-main */
     function fitLinktree() {
       var g = document.querySelector('.soc-grid');
       if (!g) return;
+      g.classList.remove('zoomed');
       g.style.zoom = '';
       g.style.width = '';
       g.style.maxWidth = '';
       var avail = g.parentElement.clientWidth - 32; /* dikurangi padding section (16px kiri-kanan) */
       if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
+        g.classList.add('zoomed');
         g.style.maxWidth = 'none';
         g.style.width = '708px';
         g.style.zoom = avail / 708;
@@ -4002,12 +4333,12 @@
       var btn = document.getElementById('copy');
       if (btn) {
         btn.addEventListener('click', function () {
-          function done() { btn.textContent = 'Tersalin'; setTimeout(function () { btn.textContent = 'Salin email'; }, 1800); }
+          function done() { btn.textContent = 'Copied'; setTimeout(function () { btn.textContent = 'Copy email'; }, 1800); }
           function fallback() {
             var r = document.createRange();
             r.selectNodeContents(document.getElementById('addr'));
             var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-            btn.textContent = 'Tekan salin';
+            btn.textContent = 'Press to copy';
           }
           try { navigator.clipboard.writeText('toharizalahmad24@gmail.com').then(done, fallback); }
           catch (e) { fallback(); }
@@ -4019,12 +4350,12 @@
         var label = b.textContent;
         b.addEventListener('click', function () {
           var t = b.getAttribute('data-copy');
-          function done() { b.textContent = 'Tersalin'; setTimeout(function () { b.textContent = label; }, 1800); }
+          function done() { b.textContent = 'Copied'; setTimeout(function () { b.textContent = label; }, 1800); }
           function fallback() {
             var el = b.closest('.soc-card').querySelector('.id-text');
             var r = document.createRange(); r.selectNodeContents(el);
             var sel = window.getSelection(); sel.removeAllRanges(); sel.addRange(r);
-            b.textContent = 'Tekan salin';
+            b.textContent = 'Press to copy';
           }
           try { navigator.clipboard.writeText(t).then(done, fallback); } catch (e) { fallback(); }
         });
@@ -4036,7 +4367,7 @@
       const isOpen = detail.classList.contains('open');
       detail.classList.toggle('open');
       btn.classList.toggle('open');
-      btn.querySelector('.job-toggle-text').textContent = isOpen ? 'Tampilkan detail' : 'Sembunyikan detail';
+      btn.querySelector('.job-toggle-text').textContent = isOpen ? 'Show details' : 'Hide details';
     }
 
     function proToggle(btn) {
@@ -4046,7 +4377,7 @@
       detail.classList.toggle('open');
       btn.classList.toggle('open');
       const label = btn.querySelector('span');
-      if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
+      if (label) label.textContent = isOpen ? T('careerShow') : T('careerHide');
     }
 
     function eduToggle(btn) {
@@ -4056,7 +4387,7 @@
       detail.classList.toggle('open');
       btn.classList.toggle('open');
       const label = btn.querySelector('span');
-      if (label) label.textContent = isOpen ? 'Lihat Pendidikan Sebelumnya' : 'Sembunyikan';
+      if (label) label.textContent = isOpen ? T('eduShow') : T('eduHide');
     }
 
     function careerToggle(btn) {
@@ -4066,7 +4397,7 @@
       detail.classList.toggle('open');
       btn.classList.toggle('open');
       const label = btn.querySelector('span');
-      if (label) label.textContent = isOpen ? 'Lihat Detail Pekerjaan' : 'Sembunyikan Detail';
+      if (label) label.textContent = isOpen ? T('careerShow') : T('careerHide');
     }
 
     /* ---- Mobile sidebar toggle ---- */
@@ -4191,13 +4522,13 @@
 
       media.classList.remove('error');
       media.classList.add('loading');
-      state.textContent = 'Memuat sertifikat…';
+      state.textContent = 'Loading certificate…';
       img.hidden = true;
       img.onload = () => { media.classList.remove('loading'); img.hidden = false; };
       img.onerror = () => {
         media.classList.remove('loading');
         media.classList.add('error');
-        state.textContent = 'Pratinjau sertifikat tidak tersedia.';
+        state.textContent = 'Certificate preview is not available.';
       };
       img.alt = title;
       img.src = src;
@@ -4290,12 +4621,12 @@
         })
         .catch(function () {
           var el = document.getElementById("lang-content");
-          if (el) el.innerHTML = '<div class="lang-loading" style="flex-direction:column;gap:12px;"><span style="font-size:22px">⚠️</span><span style="color:var(--muted2);font-size:12px;text-align:center;">Tidak dapat memuat data.<br>Cek koneksi atau GitHub API.</span></div>';
+          if (el) el.innerHTML = '<div class="lang-loading" style="flex-direction:column;gap:12px;"><span style="font-size:22px">⚠️</span><span style="color:var(--muted2);font-size:12px;text-align:center;">Unable to load data.<br>Check your connection or the GitHub API.</span></div>';
         });
     })();
     (function () {
       const USERNAME = 'TohaRizalahmad';
-      const COLORS = ['#161b22', '#0e4429', '#006d32', '#26a641', '#39d353'];
+      function ghColors() { var cs = getComputedStyle(document.documentElement); return [0, 1, 2, 3, 4].map(function (i) { return cs.getPropertyValue('--gh' + i).trim(); }); }
       const WEEKS = 53, ROWS = 7;
       const isMobile = window.innerWidth <= 768;
       let CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
@@ -4314,6 +4645,7 @@
       }
 
       let resizeT;
+      window.__ghRedraw = function () { if (lastWeeks) draw(lastWeeks); };
       window.addEventListener('resize', () => {
         clearTimeout(resizeT);
         resizeT = setTimeout(() => { if (lastWeeks && !isMobile) draw(lastWeeks); }, 150);
@@ -4361,7 +4693,7 @@
         weeks.forEach((week, wi) => {
           week.forEach((day, di) => {
             if (day.date > todayStr) return;
-            ctx.fillStyle = COLORS[level(day ? day.count : 0)];
+            ctx.fillStyle = ghColors()[level(day ? day.count : 0)];
             rr(wi * STEP, di * STEP, CELL, CELL, 2);
             ctx.fill();
           });
@@ -4373,7 +4705,7 @@
           [['Mon', 1], ['Wed', 3], ['Fri', 5]].forEach(([lbl, row]) => {
             const s = document.createElement('span');
             s.textContent = lbl;
-            s.style.cssText = `position:absolute;top:${row * STEP + Math.floor(CELL / 2) - 5}px;right:6px;font-size:${isMobile ? '8px' : '10px'};color:#8b949e;font-family:'JetBrains Mono',monospace;line-height:1;`;
+            s.style.cssText = `position:absolute;top:${row * STEP + Math.floor(CELL / 2) - 5}px;right:6px;font-size:${isMobile ? '8px' : '10px'};color:var(--muted2);font-family:'JetBrains Mono',monospace;line-height:1;`;
             dayEl.appendChild(s);
           });
         }
@@ -4390,7 +4722,7 @@
               last = m;
               const s = document.createElement('span');
               s.textContent = M[m];
-              s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:${isMobile ? '9px' : '11px'};color:#8b949e;font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
+              s.style.cssText = `position:absolute;left:${wi * STEP}px;font-size:${isMobile ? '9px' : '11px'};color:var(--muted2);font-family:'JetBrains Mono',monospace;white-space:nowrap;`;
               monthsEl.appendChild(s);
             }
           });
@@ -4482,7 +4814,7 @@
           if (document.getElementById('gh-vals-total')) document.getElementById('gh-vals-total').textContent = total.toLocaleString();
           if (document.getElementById('gh-vals-week')) document.getElementById('gh-vals-week').textContent = weekSum;
           if (document.getElementById('gh-vals-best')) document.getElementById('gh-vals-best').textContent = best;
-          if (document.getElementById('gh-vals-avg')) document.getElementById('gh-vals-avg').innerHTML = `${avg}<span>/hr</span>`;
+          if (document.getElementById('gh-vals-avg')) document.getElementById('gh-vals-avg').innerHTML = `${avg}<span data-i18n="gh.perday">${T('gh.perday')}</span>`;
 
           const weeks = buildWeeks(contributions);
           if (weeks) {
@@ -4503,7 +4835,7 @@
                 if (weeks[wi] && weeks[wi][di]) {
                   const day = weeks[wi][di];
                   pill.style.opacity = '1';
-                  pill.textContent = `${day.count} kontribusi pada ${day.date}`;
+                  pill.textContent = `${day.count} contribution${day.count === 1 ? '' : 's'} on ${day.date}`;
                 } else {
                   pill.style.opacity = '0';
                 }
