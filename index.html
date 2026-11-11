@@ -1802,6 +1802,13 @@
       gap: 8px;
     }
 
+    .pro-task-intro {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin-bottom: 10px;
+    }
+
     .pro-task {
       display: flex;
       align-items: flex-start;
@@ -1901,6 +1908,12 @@
       line-height: 1.5;
     }
 
+    .career-sep {
+      color: var(--muted2);
+      font-weight: 400;
+      margin: 0 2px;
+    }
+
     .career-company-edu {
       color: var(--blue-bright);
     }
@@ -1942,6 +1955,13 @@
       color: #3fb950;
       background: rgba(63, 185, 80, .12);
       border-color: rgba(63, 185, 80, .4);
+    }
+
+    .cbadge-red {
+      border-radius: 6px;
+      color: #f85149;
+      background: rgba(248, 81, 73, .12);
+      border-color: rgba(248, 81, 73, .4);
     }
 
     .cbadge-done {
@@ -3139,6 +3159,12 @@
       border-color: rgba(26, 127, 55, .35);
     }
 
+    [data-theme="light"] .cbadge-red {
+      color: #cf222e;
+      background: rgba(207, 34, 46, .08);
+      border-color: rgba(207, 34, 46, .35);
+    }
+
     [data-theme="light"] .cbadge-done {
       color: #0969da;
       background: rgba(9, 105, 218, .08);
@@ -3349,95 +3375,15 @@
                 <div class="career-item" style="margin-top:10px;">
                   <div class="career-item-top">
                     <div class="career-logo">
-                      <img src="img/Taskeginer Logo.jpg" alt="Freelance">
-                    </div>
-                    <div class="career-info">
-                      <div class="career-job-title">Web Developer</div>
-                      <div class="career-company">Taskeginer's</div>
-                      <div class="career-meta">
-                        2025 – <span data-i18n="present">Sekarang</span>
-                        <span>•</span>
-                        Lampung Tengah
-                        <span class="career-badge cbadge-blue">Freelance</span>
-                        <span class="career-badge cbadge-gray">Remote</span>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="career-toggle" onclick="careerToggle(this)">
-                    <span>Show Details</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="career-detail">
-                    <div class="career-detail-inner">
-                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
-                      <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b1">Building
-                            portfolio websites, company profiles, and landing pages for various clients.</span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b2">Developing
-                            responsive interfaces using HTML, CSS, JavaScript, and Tailwind CSS.</span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b3">Deploying to
-                            GitHub and Cloudflare and configuring Niagahoster domains.</span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="career-item" style="margin-top:12px;">
-                  <div class="career-item-top">
-                    <div class="career-logo">
-                      <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
-                    </div>
-                    <div class="career-info">
-                      <div class="career-job-title">Web Developer</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
-                      <div class="career-meta">
-                        Oct 2025 – <span data-i18n="present">Sekarang</span>
-                        <span>•</span>
-                        Lampung Tengah
-                        <span class="career-badge cbadge-green">On-site</span>
-                      </div>
-                    </div>
-                  </div>
-                  <button class="career-toggle" onclick="careerToggle(this)">
-                    <span>Show Details</span>
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                      <path d="m6 9 6 6 6-6" />
-                    </svg>
-                  </button>
-                  <div class="career-detail">
-                    <div class="career-detail-inner">
-                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
-                      <div class="pro-task-list">
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b4">Designing,
-                            developing, and maintaining the website www.alfalahrumbia.com as the foundation's
-                            information and digital publication medium.
-                          </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b5">Developing,
-                            updating, and optimizing the website's features and appearance.
-                          </span></div>
-                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b6">Managing
-                            publication, deployment, and maintenance of the website using GitHub and Cloudflare.
-                          </span></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="career-item" style="margin-top:12px;">
-                  <div class="career-item-top">
-                    <div class="career-logo">
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
                       <div class="career-job-title" data-i18n="exp.psp">Administrator Platform Sekolah Pintar (PSP) by
                         PT Teknologi Kartu Indonesia</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
+                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
+                        Lampung Tengah</div>
                       <div class="career-meta">
                         Jul 2026 – <span data-i18n="present">Sekarang</span>
-                        <span>•</span>
-                        Lampung Tengah
                         <span class="career-badge cbadge-green">On-site</span>
                       </div>
                     </div>
@@ -3476,12 +3422,14 @@
                     </div>
                     <div class="career-info">
                       <div class="career-job-title">Media Documentation</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia</div>
+                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
+                        Lampung Tengah</div>
                       <div class="career-meta">
                         Nov 2025 – Oct 2026
-                        <span>•</span>
-                        Lampung Tengah
                         <span class="career-badge cbadge-green">On-site</span>
+                      </div>
+                      <div class="career-meta" style="margin-top:6px;">
+                        <span class="career-badge cbadge-red">● Resigned</span>
                       </div>
                     </div>
                   </div>
@@ -3507,6 +3455,125 @@
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b14">Archiving
                             activity documentation as material for the foundation's publications and reports.
                           </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="career-item" style="margin-top:12px;">
+                  <div class="career-item-top">
+                    <div class="career-logo">
+                      <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
+                    </div>
+                    <div class="career-info">
+                      <div class="career-job-title">Web Developer</div>
+                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
+                        Lampung Tengah</div>
+                      <div class="career-meta">
+                        Oct 2025 – <span data-i18n="present">Sekarang</span>
+                        <span class="career-badge cbadge-green">On-site</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="career-toggle" onclick="careerToggle(this)">
+                    <span>Show Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="career-detail">
+                    <div class="career-detail-inner">
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
+                      <div class="pro-task-list">
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b4">Designing,
+                            developing, and maintaining the website www.alfalahrumbia.com as the foundation's
+                            information and digital publication medium.
+                          </span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b5">Developing,
+                            updating, and optimizing the website's features and appearance.
+                          </span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b6">Managing
+                            publication, deployment, and maintenance of the website using GitHub and Cloudflare.
+                          </span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="career-item" style="margin-top:12px;">
+                  <div class="career-item-top">
+                    <div class="career-logo">
+                      <img src="img/Taskeginer Logo.jpg" alt="Taskeginer's">
+                    </div>
+                    <div class="career-info">
+                      <div class="career-job-title">Customer Service</div>
+                      <div class="career-company">Taskeginer's <span class="career-sep">|</span> Lampung Tengah</div>
+                      <div class="career-meta">
+                        Tahun
+                        <!-- Badge: <span class="career-badge cbadge-green">On-site</span> -->
+                      </div>
+                    </div>
+                  </div>
+
+                  <button class="career-toggle" onclick="careerToggle(this)">
+                    <span>Show Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="career-detail">
+                    <div class="career-detail-inner">
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
+                      <p class="pro-task-intro" data-i18n="exp.cs0">Serving clients by providing information, answering
+                        questions, and helping meet client needs related to the company's services.</p>
+                      <div class="pro-task-list">
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.cs1">Receiving,
+                            recording, and managing client orders in accordance with the company's requests and
+                            terms.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.cs2">Coordinating
+                            with the production team to ensure every order is processed according to the client's
+                            instructions.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.cs3">Handling
+                            client complaints, issues, and revision requests, and helping find the right
+                            solutions.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.cs4">Following up
+                            on every order to monitor work progress and ensure completion by the deadline.</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="career-item" style="margin-top:12px;">
+                  <div class="career-item-top">
+                    <div class="career-logo">
+                      <img src="img/Taskeginer Logo.jpg" alt="Freelance">
+                    </div>
+                    <div class="career-info">
+                      <div class="career-job-title">Web Developer</div>
+                      <div class="career-company">Taskeginer's <span class="career-sep">|</span> Lampung Tengah</div>
+                      <div class="career-meta">
+                        2025 – <span data-i18n="present">Sekarang</span>
+                        <span class="career-badge cbadge-blue">Freelance</span>
+                        <span class="career-badge cbadge-gray">Remote</span>
+                      </div>
+                    </div>
+                  </div>
+                  <button class="career-toggle" onclick="careerToggle(this)">
+                    <span>Show Details</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                      <path d="m6 9 6 6 6-6" />
+                    </svg>
+                  </button>
+                  <div class="career-detail">
+                    <div class="career-detail-inner">
+                      <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
+                      <div class="pro-task-list">
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b1">Building
+                            portfolio websites, company profiles, and landing pages for various clients.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b2">Developing
+                            responsive interfaces using HTML, CSS, JavaScript, and Tailwind CSS.</span></div>
+                        <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b3">Deploying to
+                            GitHub and Cloudflare and configuring Niagahoster domains.</span></div>
                       </div>
                     </div>
                   </div>
@@ -3711,7 +3778,25 @@
           </div>
 
           <div class="card">
-            <div class="c-label">Skills</div>
+            <div class="c-label">Office Applications Skills</div>
+            <div class="tools-grid">
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/microsoft-word.svg" alt="Microsoft Word"></span>
+                <span class="t-name">Microsoft Word</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/microsoft-excel.svg" alt="Microsoft Excel"></span>
+                <span class="t-name">Microsoft Excel</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/microsoft-powerpoint.svg" alt="Microsoft PowerPoint"></span>
+                <span class="t-name">Microsoft PowerPoint</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="c-label">Programming Skills</div>
             <div class="tools-grid">
               <div class="tool-pill">
                 <span class="t-ico"><img
@@ -4236,6 +4321,11 @@
         'exp.b12': 'Melakukan penyuntingan (editing) foto dan video untuk kebutuhan publikasi.',
         'exp.b13': 'Mengelola dan mengunggah hasil dokumentasi ke platform media sosial resmi yayasan.',
         'exp.b14': 'Mengarsipkan hasil dokumentasi kegiatan sebagai bahan publikasi dan laporan yayasan.',
+        'exp.cs0': 'Melayani klien dengan memberikan informasi, menjawab pertanyaan, serta membantu memenuhi kebutuhan klien terkait layanan perusahaan.',
+        'exp.cs1': 'Menerima, mencatat, dan mengelola pesanan klien sesuai dengan permintaan dan ketentuan perusahaan.',
+        'exp.cs2': 'Melakukan koordinasi dengan tim pengerjaan untuk memastikan setiap pesanan diproses sesuai instruksi klien.',
+        'exp.cs3': 'Menangani keluhan, kendala, dan permintaan revisi dari klien serta membantu menemukan solusi yang tepat.',
+        'exp.cs4': 'Melakukan tindak lanjut (follow-up) terhadap setiap pesanan untuk memantau perkembangan pekerjaan dan memastikan penyelesaian sesuai tenggat waktu.',
         'edu.title': 'Riwayat Pendidikan',
         'gpa': 'IPK',
         'gh.title': 'Statistik Akun GitHub',
