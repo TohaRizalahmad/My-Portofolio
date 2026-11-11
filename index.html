@@ -1964,6 +1964,13 @@
       border-color: rgba(248, 81, 73, .4);
     }
 
+    .cbadge-retired {
+      border-radius: 6px;
+      color: #ff7b9c;
+      background: rgba(255, 123, 156, .12);
+      border-color: rgba(255, 123, 156, .4);
+    }
+
     .cbadge-done {
       border-radius: 6px;
       color: #58a6ff;
@@ -3165,6 +3172,12 @@
       border-color: rgba(207, 34, 46, .35);
     }
 
+    [data-theme="light"] .cbadge-retired {
+      color: #a40e4c;
+      background: rgba(164, 14, 76, .08);
+      border-color: rgba(164, 14, 76, .35);
+    }
+
     [data-theme="light"] .cbadge-done {
       color: #0969da;
       background: rgba(9, 105, 218, .08);
@@ -3386,6 +3399,10 @@
                         Mei 2026 – Oct 2026
                         <span class="career-badge cbadge-green">On-site</span>
                       </div>
+                      <div class="career-meta" style="margin-top:6px;">
+                        Nov 2026 – Sekarang
+                        <span class="career-badge cbadge-gray">Remote</span>
+                      </div>
                     </div>
                   </div>
                   <button class="career-toggle" onclick="careerToggle(this)">
@@ -3473,6 +3490,10 @@
                         Sep 2025 – Oct 2026
                         <span class="career-badge cbadge-green">On-site</span>
                       </div>
+                      <div class="career-meta" style="margin-top:6px;">
+                        Nov 2026 – Sekarang
+                        <span class="career-badge cbadge-gray">Remote</span>
+                      </div>
                     </div>
                   </div>
                   <button class="career-toggle" onclick="careerToggle(this)">
@@ -3510,6 +3531,11 @@
                       <div class="career-company">Taskeginer's <span class="career-sep">|</span> Lampung Tengah</div>
                       <div class="career-meta">
                         Sep 2025 – Oct 2026
+                        <span class="career-badge cbadge-blue">Freelance</span>
+                        <span class="career-badge cbadge-gray">Remote</span>
+                      </div>
+                      <div class="career-meta" style="margin-top:6px;">
+                        <span class="career-badge cbadge-retired">● Retired</span>
                       </div>
                     </div>
                   </div>
@@ -3555,6 +3581,9 @@
                         <span class="career-badge cbadge-blue">Freelance</span>
                         <span class="career-badge cbadge-gray">Remote</span>
                       </div>
+                      <div class="career-meta" style="margin-top:6px;">
+                        <span class="career-badge cbadge-retired">● Retired</span>
+                      </div>
                     </div>
                   </div>
                   <button class="career-toggle" onclick="careerToggle(this)">
@@ -3596,9 +3625,8 @@
                       <div class="career-meta">
                         2025 – Sekarang
                         <span>•</span>
-                        <span data-i18n="gpa">GPA</span> 4.00/4.00
-                        <span>•</span>
                         Lampung Tengah
+                        <span class="career-badge cbadge-blue">● <span data-i18n="gpa">GPA</span> 4.00/4.00</span>
                         <span class="career-badge cbadge-green">● Active</span>
                       </div>
                     </div>
@@ -3629,12 +3657,12 @@
                     </div>
                     <div class="career-info">
                       <div class="career-job-title">SMK AL FALAH RUMBIA</div>
-                      <div class="career-company career-company-edu">Office Management and Business Services ·
-                        Excellent Class</div>
+                      <div class="career-company career-company-edu">Office Management and Business Services</div>
                       <div class="career-meta">
                         2022 – 2025
                         <span>•</span>
                         Lampung Tengah
+                        <span class="career-badge cbadge-blue">● Excellent Class</span>
                         <span class="career-badge cbadge-done">● Graduated</span>
                       </div>
                     </div>
@@ -3675,8 +3703,8 @@
                               2013 – 2019
                               <span>•</span>
                               Lampung Tengah
-                              <span class="career-badge cbadge-done">● Graduated</span>
                               <span class="career-badge cbadge-blue">● Best Graduate</span>
+                              <span class="career-badge cbadge-done">● Graduated</span>
                             </div>
                           </div>
                         </div>
@@ -3690,8 +3718,8 @@
                               2012 – 2013
                               <span>•</span>
                               Lampung Tengah
-                              <span class="career-badge cbadge-done">● Graduated</span>
                               <span class="career-badge cbadge-blue">● Best Graduate</span>
+                              <span class="career-badge cbadge-done">● Graduated</span>
                             </div>
                           </div>
                         </div>
@@ -3798,25 +3826,19 @@
             <div class="c-label">Programming Skills</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML"></span>
+                <span class="t-ico"><img src="img/html5.svg" alt="HTML"></span>
                 <span class="t-name">HTML</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg"
-                    alt="CSS"></span>
+                <span class="t-ico"><img src="img/css3.svg" alt="CSS"></span>
                 <span class="t-name">CSS</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg"
-                    alt="JavaScript"></span>
+                <span class="t-ico"><img src="img/javascript.svg" alt="JavaScript"></span>
                 <span class="t-name">JavaScript</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg"
-                    alt="Python"></span>
+                <span class="t-ico"><img src="img/python.svg" alt="Python"></span>
                 <span class="t-name">Python</span>
               </div>
             </div>
@@ -3824,9 +3846,7 @@
             <div class="c-label" style="margin-top:28px;">Tools</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/vscode/vscode-original.svg"
-                    alt="VS Code"></span>
+                <span class="t-ico"><img src="img/vscode.svg" alt="VS Code"></span>
                 <span class="t-name">VS Code</span>
               </div>
               <div class="tool-pill">
@@ -3834,8 +3854,7 @@
                 <span class="t-name">Antigravity IDE</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg"
-                    alt="Git"></span>
+                <span class="t-ico"><img src="img/git.svg" alt="Git"></span>
                 <span class="t-name">Git</span>
               </div>
             </div>
@@ -3843,9 +3862,7 @@
             <div class="c-label" style="margin-top:28px;">Frameworks</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/laravel/laravel-original.svg"
-                    alt="Laravel"></span>
+                <span class="t-ico"><img src="img/laravel.svg" alt="Laravel"></span>
                 <span class="t-name">Laravel</span>
               </div>
             </div>
@@ -3853,21 +3870,19 @@
             <div class="c-label" style="margin-top:28px;">Platforms</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img
-                    src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" alt="GitHub"
-                    class="icon-invert"></span>
+                <span class="t-ico"><img src="img/github.svg" alt="GitHub" class="icon-invert"></span>
                 <span class="t-name">GitHub</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/netlify/00C7B7" alt="Netlify"></span>
+                <span class="t-ico"><img src="img/netlify.svg" alt="Netlify"></span>
                 <span class="t-name">Netlify</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/cloudflare/F38020" alt="Cloudflare"></span>
+                <span class="t-ico"><img src="img/cloudflare.svg" alt="Cloudflare"></span>
                 <span class="t-name">Cloudflare</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/hostinger/673DE6" alt="Hostinger"></span>
+                <span class="t-ico"><img src="img/hostinger.svg" alt="Hostinger"></span>
                 <span class="t-name">Hostinger</span>
               </div>
             </div>
@@ -3881,7 +3896,7 @@
                 <span class="t-name">Canva</span>
               </div>
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/coreldraw/00A651" alt="CorelDRAW"></span>
+                <span class="t-ico"><img src="img/coreldraw.svg" alt="CorelDRAW"></span>
                 <span class="t-name">CorelDRAW</span>
               </div>
             </div>
@@ -3889,7 +3904,7 @@
             <div class="c-label" style="margin-top:28px;">3D Design</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/blender/F5792A" alt="Blender"></span>
+                <span class="t-ico"><img src="img/blender.svg" alt="Blender"></span>
                 <span class="t-name">Blender</span>
               </div>
             </div>
@@ -3907,8 +3922,7 @@
             <div class="c-label">AI Assistant</div>
             <div class="tools-grid">
               <div class="tool-pill">
-                <span class="t-ico"><img src="https://cdn.simpleicons.org/githubcopilot/60A5FA"
-                    alt="GitHub Copilot"></span>
+                <span class="t-ico"><img src="img/githubcopilot.svg" alt="GitHub Copilot"></span>
                 <span class="t-name">GitHub Copilot</span>
               </div>
               <div class="tool-pill">
