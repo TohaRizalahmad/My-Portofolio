@@ -1137,10 +1137,10 @@
         gap: 14px;
       }
 
-      /* Legenda Sedikit–Banyak: di kanan bawah grafik */
+      /* Legenda Less–More: di kiri bawah grafik */
       .gh-legend-row {
         order: 2;
-        align-self: flex-end;
+        align-self: flex-start;
       }
 
       #gh-graph-pill {
@@ -3363,6 +3363,93 @@
         --w: 140px;
       }
     }
+
+    /* Coding Projects: 2 kartu per baris, judul lebih besar, logo bahasa di kanan bawah (seukuran tombol) */
+    .proj-grid.collab.proj-coding {
+      --cols: 2;
+    }
+
+    .proj-grid.collab.proj-coding:not(.collab-wide) .proj-title {
+      font-size: 22px;
+      line-height: 1.2;
+      margin-bottom: 14px;
+    }
+
+    .proj-grid.collab.proj-coding .proj-links,
+    .proj-grid.collab.collab-wide .proj-links {
+      align-items: center;
+      margin-top: auto;
+    }
+
+    .proj-logos {
+      margin-left: auto;
+      display: inline-flex;
+      gap: 6px;
+    }
+
+    .proj-logo {
+      height: 24px;
+      min-width: 28px;
+      padding: 0 6px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--blue-dim);
+      border: 1px solid var(--blue-ring);
+      border-radius: 6px;
+      flex-shrink: 0;
+    }
+
+    .proj-logo img {
+      width: 14px;
+      height: 14px;
+      object-fit: contain;
+      display: block;
+    }
+
+    .proj-grid.collab.fit-m.proj-coding:not(.collab-wide) .proj-title {
+      font-size: 1.35rem;
+    }
+
+    /* Achievements (desktop saja): 4 sertifikat per baris, ukuran lebih kecil. Tampilan HP tidak diubah. */
+    @media (min-width: 769px) {
+      .cert-grid {
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .cert-card {
+        border-radius: 12px;
+      }
+
+      .cert-img {
+        min-height: 90px;
+      }
+
+      .cert-body {
+        padding: 10px 12px;
+      }
+
+      .cert-title {
+        font-size: 10.5px;
+        line-height: 1.35;
+        margin-bottom: 7px;
+      }
+
+      .cert-year {
+        font-size: 8px;
+        padding: 2px 8px;
+      }
+
+      .cert-type {
+        font-size: 8.5px;
+      }
+
+      .cert-overlay-btn {
+        padding: 5px 10px;
+        font-size: 8px;
+      }
+    }
   </style>
 </head>
 
@@ -3565,7 +3652,7 @@
           <div class="career-cards-wrap" style="display:grid; grid-template-columns:1fr; gap:12px;">
 
             <div class="card">
-              <div class="c-label" data-i18n="exp.title">Experience</div>
+              <div class="c-label" data-i18n="exp.title">Work Experience</div>
               <div class="career-body" style="padding:0;">
                 <div class="career-item" style="margin-top:10px;">
                   <div class="career-item-top">
@@ -3573,8 +3660,8 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">Administrator Platform Cashless Sekolah Pintar (PSP) oleh PT
-                        Teknologi Kartu Indonesia</div>
+                      <div class="career-job-title">Administrator Cashless Platform Sekolah Pintar (PSP) by PT Teknologi
+                        Kartu Indonesia</div>
                       <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
                         Lampung Tengah</div>
                       <div class="career-meta">
@@ -3582,7 +3669,7 @@
                         <span class="career-badge cbadge-green">On-site</span>
                       </div>
                       <div class="career-meta" style="margin-top:6px;">
-                        Nov 2026 – <span data-i18n="present">Present</span>
+                        Nov 2026 – Sekarang
                         <span class="career-badge cbadge-gray">Remote</span>
                       </div>
                     </div>
@@ -3620,8 +3707,8 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">Sekretaris Yayasan</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
+                      <div class="career-job-title">Secretary</div>
+                      <div class="career-company">Pondok Pesantren Al Falah Rumbia <span class="career-sep">|</span>
                         Lampung Tengah</div>
                       <div class="career-meta">
                         Apr 2026 – Sep 2026
@@ -3668,8 +3755,8 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Yayasan Queen Al Falah">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">Dokumentasi Media</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
+                      <div class="career-job-title">Media Documentation</div>
+                      <div class="career-company">Pondok Pesantren Al Falah Rumbia <span class="career-sep">|</span>
                         Lampung Tengah</div>
                       <div class="career-meta">
                         Sep 2025 – Oct 2026
@@ -3721,7 +3808,7 @@
                         <span class="career-badge cbadge-green">On-site</span>
                       </div>
                       <div class="career-meta" style="margin-top:6px;">
-                        Nov 2026 – <span data-i18n="present">Present</span>
+                        Nov 2026 – Sekarang
                         <span class="career-badge cbadge-gray">Remote</span>
                       </div>
                     </div>
@@ -3830,7 +3917,7 @@
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b1">Building
                             portfolio websites, company profiles, and landing pages for various clients.</span></div>
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b2">Developing
-                            responsive interfaces using HTML, CSS, JavaScript, and Tailwind CSS.</span></div>
+                            responsive interfaces using HTML, CSS, and JavaScript.</span></div>
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b3">Deploying to
                             GitHub and Cloudflare and configuring Niagahoster domains.</span></div>
                       </div>
@@ -3854,7 +3941,7 @@
                       <div class="career-company career-company-edu">Bachelor's Degree · Information Systems (S.Kom)
                       </div>
                       <div class="career-meta">
-                        2025 – <span data-i18n="present">Present</span>
+                        2025 – Sekarang
                         <span>•</span>
                         Lampung Tengah
                         <span class="career-badge cbadge-blue">● <span data-i18n="gpa">GPA</span> 4.00/4.00</span>
@@ -3870,7 +3957,7 @@
                       <img src="img/Yayasan Queen Al Falah.png" alt="Pondok Pesantren Al Falah Rumbia">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">Pondok Pesantren AL FALAH Rumbia</div>
+                      <div class="career-job-title">Pondok Pesantren Al Falah Rumbia</div>
                       <div class="career-meta">
                         Jun 2019 – Oct 2026
                         <span>•</span>
@@ -3972,7 +4059,7 @@
                       <img src="img/IPNU.svg" alt="IPNU">
                     </div>
                     <div class="career-info">
-                      <div class="career-job-title">IPNU <span class="career-sep">—</span> PK IPNU SMK Al Falah Rumbia
+                      <div class="career-job-title">IPNU <span class="career-sep">—</span> PK IPNU SMK AL FALAH Rumbia
                       </div>
                       <div class="career-company career-company-edu">Departemen Pers dan Penerbitan</div>
                       <div class="career-meta">2023 – 2025</div>
@@ -4003,7 +4090,7 @@
               <div class="cert-body">
                 <div class="cert-title">Internet Introduction</div>
                 <div class="cert-footer">
-                  <span class="cert-year">My Skills</span>
+                  <span class="cert-year">Course</span>
                   <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                 </div>
               </div>
@@ -4021,7 +4108,7 @@
               <div class="cert-body">
                 <div class="cert-title">Front-End Development Introduction</div>
                 <div class="cert-footer">
-                  <span class="cert-year">My Skills</span>
+                  <span class="cert-year">Course</span>
                   <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                 </div>
               </div>
@@ -4039,7 +4126,7 @@
               <div class="cert-body">
                 <div class="cert-title">Back-End Development Introduction</div>
                 <div class="cert-footer">
-                  <span class="cert-year">My Skills</span>
+                  <span class="cert-year">Course</span>
                   <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                 </div>
               </div>
@@ -4057,7 +4144,7 @@
               <div class="cert-body">
                 <div class="cert-title">API Introduction</div>
                 <div class="cert-footer">
-                  <span class="cert-year">My Skills</span>
+                  <span class="cert-year">Course</span>
                   <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                 </div>
               </div>
@@ -4093,6 +4180,18 @@
                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIzMiIgaGVpZ2h0PSIzMiIgdmlld0JveD0iMCAwIDMyIDMyIj48ZGVmcz48bGluZWFyR3JhZGllbnQgaWQ9IlNWR05UUWZ4ZVF3IiB4MT0iNC40OTQiIHgyPSIxMy44MzIiIHkxPSItMTc0OC4wODYiIHkyPSItMTczMS45MTQiIGdyYWRpZW50VHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCAxNzU2KSIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIG9mZnNldD0iMCIgc3RvcC1jb2xvcj0iI2NhNGMyOCIvPjxzdG9wIG9mZnNldD0iLjUiIHN0b3AtY29sb3I9IiNjNTQwMWUiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNiNjJmMTQiLz48L2xpbmVhckdyYWRpZW50PjwvZGVmcz48cGF0aCBmaWxsPSIjZWQ2YzQ3IiBkPSJNMTguOTMgMTcuM0wxNi45NzcgM2gtLjE0NkExMi45IDEyLjkgMCAwIDAgMy45NTMgMTUuODU0VjE2WiIvPjxwYXRoIGZpbGw9IiNmZjhmNmIiIGQ9Ik0xNy4xMjMgM2gtLjE0NnYxM2w2LjUxMSAyLjZMMzAgMTZ2LS4xNDZBMTIuOSAxMi45IDAgMCAwIDE3LjEyMyAzIi8+PHBhdGggZmlsbD0iI2QzNTIzMCIgZD0iTTMwIDE2di4xNDNBMTIuOTA1IDEyLjkwNSAwIDAgMSAxNy4xMiAyOWgtLjI4N2ExMi45MDcgMTIuOTA3IDAgMCAxLTEyLjg4LTEyLjg1N1YxNloiLz48cGF0aCBkPSJNMTcuNjI4IDkuMzg5VjIzLjI2YTEuMiAxLjIgMCAwIDEtLjc0MiAxLjFhMS4yIDEuMiAwIDAgMS0uNDUuMDkxSDcuMDI3YTEwIDEwIDAgMCAxLS41MjEtLjY1YTEyLjc0IDEyLjc0IDAgMCAxLTIuNTUzLTcuNjU3di0uMjg2QTEyLjcgMTIuNyAwIDAgMSA2LjA1IDguODVhOSA5IDAgMCAxIC40NTYtLjY1aDkuOTNhMS4yIDEuMiAwIDAgMSAxLjE5MiAxLjE4OSIgb3BhY2l0eT0iLjEiLz48cGF0aCBkPSJNMTYuOTc3IDEwLjA0djEzLjg3MWExLjIgMS4yIDAgMCAxLS4wOTEuNDQ4YTEuMiAxLjIgMCAwIDEtMS4xLjc0MUg3LjYycS0uMzA5LS4zMTQtLjU5My0uNjVhMTAgMTAgMCAwIDEtLjUyMS0uNjVhMTIuNzQgMTIuNzQgMCAwIDEtMi41NTMtNy42NTd2LS4yODZBMTIuNyAxMi43IDAgMCAxIDYuMDUgOC44NWg5LjczNWExLjIgMS4yIDAgMCAxIDEuMTkyIDEuMTkiIG9wYWNpdHk9Ii4yIi8+PHBhdGggZD0iTTE2Ljk3NyAxMC4wNHYxMi41NzFhMS4yIDEuMiAwIDAgMS0xLjE5MiAxLjE4OUg2LjUwNmExMi43NCAxMi43NCAwIDAgMS0yLjU1My03LjY1N3YtLjI4NkExMi43IDEyLjcgMCAwIDEgNi4wNSA4Ljg1aDkuNzM1YTEuMiAxLjIgMCAwIDEgMS4xOTIgMS4xOSIgb3BhY2l0eT0iLjIiLz48cGF0aCBkPSJNMTYuMzI2IDEwLjA0djEyLjU3MWExLjIgMS4yIDAgMCAxLTEuMTkyIDEuMTg5SDYuNTA2YTEyLjc0IDEyLjc0IDAgMCAxLTIuNTUzLTcuNjU3di0uMjg2QTEyLjcgMTIuNyAwIDAgMSA2LjA1IDguODVoOS4wODRhMS4yIDEuMiAwIDAgMSAxLjE5MiAxLjE5IiBvcGFjaXR5PSIuMiIvPjxwYXRoIGZpbGw9InVybCgjU1ZHTlRRZnhlUXcpIiBkPSJNMy4xOTQgOC44NWgxMS45MzhhMS4xOTMgMS4xOTMgMCAwIDEgMS4xOTQgMS4xOTF2MTEuOTE4YTEuMTkzIDEuMTkzIDAgMCAxLTEuMTk0IDEuMTkxSDMuMTk0QTEuMTkgMS4xOSAwIDAgMSAyIDIxLjk1OVYxMC4wNDFBMS4xOSAxLjE5IDAgMCAxIDMuMTk0IDguODUiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNOS4yOTMgMTIuMDI4YTMuMyAzLjMgMCAwIDEgMi4xNzQuNjM2YTIuMjcgMi4yNyAwIDAgMSAuNzU2IDEuODQxYTIuNTYgMi41NiAwIDAgMS0uMzczIDEuMzc2YTIuNSAyLjUgMCAwIDEtMS4wNTkuOTM1YTMuNiAzLjYgMCAwIDEtMS41OTEuMzM0SDcuNjg3djIuOEg2LjE0MXYtNy45MjJaTTcuNjg2IDE1Ljk0aDEuMzMxYTEuNzQgMS43NCAwIDAgMCAxLjE3Ny0uMzUxYTEuMyAxLjMgMCAwIDAgLjQtMS4wMjVxMC0xLjMwOS0xLjUyNS0xLjMxSDcuNjg2eiIvPjwvc3ZnPg=="
                     alt="Microsoft PowerPoint"></span>
                 <span class="t-name">Microsoft PowerPoint</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/google-docs.svg" alt="Google Docs"></span>
+                <span class="t-name">Google Docs</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/google-sheets.svg" alt="Google Sheets"></span>
+                <span class="t-name">Google Sheets</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/google-forms.svg" alt="Google Forms"></span>
+                <span class="t-name">Google Forms</span>
               </div>
             </div>
           </div>
@@ -4132,13 +4231,17 @@
                 <span class="t-ico"><img
                     src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48bWFzayBpZD0iYSIgd2lkdGg9IjEyOCIgaGVpZ2h0PSIxMjgiIHg9IjAiIHk9IjAiIG1hc2tVbml0cz0idXNlclNwYWNlT25Vc2UiIHN0eWxlPSJtYXNrLXR5cGU6YWxwaGEiPjxwYXRoIGZpbGw9IiNmZmYiIGZpbGwtcnVsZT0iZXZlbm9kZCIgZD0iTTkwLjc2NyAxMjcuMTI2YTcuOTY4IDcuOTY4IDAgMCAwIDYuMzUtLjI0NGwyNi4zNTMtMTIuNjgxYTggOCAwIDAgMCA0LjUzLTcuMjA5VjIxLjAwOWE4IDggMCAwIDAtNC41My03LjIxTDk3LjExNyAxLjEyYTcuOTcgNy45NyAwIDAgMC05LjA5MyAxLjU0OGwtNTAuNDUgNDYuMDI2TDE1LjYgMzIuMDEzYTUuMzI4IDUuMzI4IDAgMCAwLTYuODA3LjMwMmwtNy4wNDggNi40MTFhNS4zMzUgNS4zMzUgMCAwIDAtLjAwNiA3Ljg4OEwyMC43OTYgNjQgMS43NCA4MS4zODdhNS4zMzYgNS4zMzYgMCAwIDAgLjAwNiA3Ljg4N2w3LjA0OCA2LjQxMWE1LjMyNyA1LjMyNyAwIDAgMCA2LjgwNy4zMDNsMjEuOTc0LTE2LjY4IDUwLjQ1IDQ2LjAyNWE3Ljk2IDcuOTYgMCAwIDAgMi43NDMgMS43OTNabTUuMjUyLTkyLjE4M0w1Ny43NCA2NGwzOC4yOCAyOS4wNThWMzQuOTQzWiIgY2xpcC1ydWxlPSJldmVub2RkIi8+PC9tYXNrPjxnIG1hc2s9InVybCgjYSkiPjxwYXRoIGZpbGw9IiMwMDY1QTkiIGQ9Ik0xMjMuNDcxIDEzLjgyIDk3LjA5NyAxLjEyQTcuOTczIDcuOTczIDAgMCAwIDg4IDIuNjY4TDEuNjYyIDgxLjM4N2E1LjMzMyA1LjMzMyAwIDAgMCAuMDA2IDcuODg3bDcuMDUyIDYuNDExYTUuMzMzIDUuMzMzIDAgMCAwIDYuODExLjMwM2wxMDMuOTcxLTc4Ljg3NWMzLjQ4OC0yLjY0NiA4LjQ5OC0uMTU4IDguNDk4IDQuMjJ2LS4zMDZhOC4wMDEgOC4wMDEgMCAwIDAtNC41MjktNy4yMDhaIi8+PGcgZmlsdGVyPSJ1cmwoI2IpIj48cGF0aCBmaWxsPSIjMDA3QUNDIiBkPSJtMTIzLjQ3MSAxMTQuMTgxLTI2LjM3NCAxMi42OThBNy45NzMgNy45NzMgMCAwIDEgODggMTI1LjMzM0wxLjY2MiA0Ni42MTNhNS4zMzMgNS4zMzMgMCAwIDEgLjAwNi03Ljg4N2w3LjA1Mi02LjQxMWE1LjMzMyA1LjMzMyAwIDAgMSA2LjgxMS0uMzAzbDEwMy45NzEgNzguODc0YzMuNDg4IDIuNjQ3IDguNDk4LjE1OSA4LjQ5OC00LjIxOXYuMzA2YTguMDAxIDguMDAxIDAgMCAxLTQuNTI5IDcuMjA4WiIvPjwvZz48ZyBmaWx0ZXI9InVybCgjYykiPjxwYXRoIGZpbGw9IiMxRjlDRjAiIGQ9Ik05Ny4wOTggMTI2Ljg4MkE3Ljk3NyA3Ljk3NyAwIDAgMSA4OCAxMjUuMzMzYzIuOTUyIDIuOTUyIDggLjg2MSA4LTMuMzE0VjUuOThjMC00LjE3NS01LjA0OC02LjI2Ni04LTMuMzEzYTcuOTc3IDcuOTc3IDAgMCAxIDkuMDk4LTEuNTQ5TDEyMy40NjcgMTMuOEE4IDggMCAwIDEgMTI4IDIxLjAxdjg1Ljk4MmE4IDggMCAwIDEtNC41MzMgNy4yMWwtMjYuMzY5IDEyLjY4MVoiLz48L2c+PHBhdGggZmlsbD0idXJsKCNkKSIgZmlsbC1ydWxlPSJldmVub2RkIiBkPSJNOTAuNjkgMTI3LjEyNmE3Ljk2OCA3Ljk2OCAwIDAgMCA2LjM0OS0uMjQ0bDI2LjM1My0xMi42ODFhOCA4IDAgMCAwIDQuNTMtNy4yMVYyMS4wMDlhOCA4IDAgMCAwLTQuNTMtNy4yMUw5Ny4wMzkgMS4xMmE3Ljk3IDcuOTcgMCAwIDAtOS4wOTMgMS41NDhsLTUwLjQ1IDQ2LjAyNi0yMS45NzQtMTYuNjhhNS4zMjggNS4zMjggMCAwIDAtNi44MDcuMzAybC03LjA0OCA2LjQxMWE1LjMzNiA1LjMzNiAwIDAgMC0uMDA2IDcuODg4TDIwLjcxOCA2NCAxLjY2MiA4MS4zODZhNS4zMzUgNS4zMzUgMCAwIDAgLjAwNiA3Ljg4OGw3LjA0OCA2LjQxMWE1LjMyOCA1LjMyOCAwIDAgMCA2LjgwNy4zMDNsMjEuOTc1LTE2LjY4MSA1MC40NSA0Ni4wMjZhNy45NTkgNy45NTkgMCAwIDAgMi43NDIgMS43OTNabTUuMjUyLTkyLjE4NEw1Ny42NjIgNjRsMzguMjggMjkuMDU3VjM0Ljk0M1oiIGNsaXAtcnVsZT0iZXZlbm9kZCIgb3BhY2l0eT0iMC4yNSIgc3R5bGU9Im1peC1ibGVuZC1tb2RlOm92ZXJsYXkiLz48L2c+PGRlZnM+PGZpbHRlciBpZD0iYiIgd2lkdGg9IjE0NC43NDQiIGhlaWdodD0iMTEzLjQwOCIgeD0iLTguNDExMTUiIHk9IjIyLjU5NDQiIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCIvPjxmZUNvbG9yTWF0cml4IGluPSJTb3VyY2VBbHBoYSIgcmVzdWx0PSJoYXJkQWxwaGEiIHZhbHVlcz0iMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMTI3IDAiLz48ZmVPZmZzZXQvPjxmZUdhdXNzaWFuQmx1ciBzdGREZXZpYXRpb249IjQuMTY2NjciLz48ZmVDb2xvck1hdHJpeCB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAuMjUgMCIvPjxmZUJsZW5kIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiBtb2RlPSJvdmVybGF5IiByZXN1bHQ9ImVmZmVjdDFfZHJvcFNoYWRvd18xXzM2Ii8+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iZWZmZWN0MV9kcm9wU2hhZG93XzFfMzYiIHJlc3VsdD0ic2hhcGUiLz48L2ZpbHRlcj48ZmlsdGVyIGlkPSJjIiB3aWR0aD0iNTYuNjY2NyIgaGVpZ2h0PSIxNDQuMDA3IiB4PSI3OS42NjY3IiB5PSItOC4wMDM1IiBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiLz48ZmVDb2xvck1hdHJpeCBpbj0iU291cmNlQWxwaGEiIHJlc3VsdD0iaGFyZEFscGhhIiB2YWx1ZXM9IjAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDEyNyAwIi8+PGZlT2Zmc2V0Lz48ZmVHYXVzc2lhbkJsdXIgc3RkRGV2aWF0aW9uPSI0LjE2NjY3Ii8+PGZlQ29sb3JNYXRyaXggdmFsdWVzPSIwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwIDAgMCAwLjI1IDAiLz48ZmVCbGVuZCBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgbW9kZT0ib3ZlcmxheSIgcmVzdWx0PSJlZmZlY3QxX2Ryb3BTaGFkb3dfMV8zNiIvPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9ImVmZmVjdDFfZHJvcFNoYWRvd18xXzM2IiByZXN1bHQ9InNoYXBlIi8+PC9maWx0ZXI+PGxpbmVhckdyYWRpZW50IGlkPSJkIiB4MT0iNjMuOTIyMiIgeDI9IjYzLjkyMjIiIHkxPSIwLjMyOTkwMiIgeTI9IjEyNy42NyIgZ3JhZGllbnRVbml0cz0idXNlclNwYWNlT25Vc2UiPjxzdG9wIHN0b3AtY29sb3I9IiNmZmYiLz48c3RvcCBvZmZzZXQ9IjEiIHN0b3AtY29sb3I9IiNmZmYiIHN0b3Atb3BhY2l0eT0iMCIvPjwvbGluZWFyR3JhZGllbnQ+PC9kZWZzPjwvc3ZnPgo="
                     alt="VS Code"></span>
-                <span class="t-name">VS Code</span>
+                <span class="t-name">Visual Studio Code</span>
               </div>
               <div class="tool-pill">
                 <span class="t-ico"><img class="ico-lg"
                     src="data:image/svg+xml;base64,PHN2ZyBoZWlnaHQ9IjI0IiB2aWV3Qm94PSItMC4yNCAtMC4yMTUgMjQuNDggMjQuNDgiIHdpZHRoPSIxZW0iIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHRpdGxlPkFudGlncmF2aXR5PC90aXRsZT48bWFzayBoZWlnaHQ9IjIzIiBpZD0ibG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0wLV9SXzBfIiBtYXNrVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iMjQiIHg9IjAiIHk9IjEiPjxwYXRoIGQ9Ik0yMS43NTEgMjIuNjA3YzEuMzQgMS4wMDUgMy4zNS4zMzUgMS41MDgtMS41MDhDMTcuNzMgMTUuNzQgMTguOTA0IDEgMTIuMDM3IDEgNS4xNyAxIDYuMzQyIDE1Ljc0LjgxNSAyMS4xYy0yLjAxIDIuMDA5LjE2NyAyLjUxMSAxLjUwNyAxLjUwNiA1LjE5Mi0zLjUxNyA0Ljg1Ny05LjcxNCA5LjcxNS05LjcxNCA0Ljg1NyAwIDQuNTIyIDYuMTk3IDkuNzE0IDkuNzE1eiIgZmlsbD0iI2ZmZiI+PC9wYXRoPjwvbWFzaz48ZyBtYXNrPSJ1cmwoI2xvYmUtaWNvbnMtYW50aWdyYXZpdHktMC1fUl8wXykiPjxnIGZpbHRlcj0idXJsKCNsb2JlLWljb25zLWFudGlncmF2aXR5LTEtX1JfMF8pIj48cGF0aCBkPSJNLTEuMDE4LTMuOTkyYy0uNDA4IDMuNTkxIDIuNjg2IDYuODkgNi45MSA3LjM3IDQuMjI1LjQ4IDcuOTgtMi4wNDMgOC4zODctNS42MzMuNDA4LTMuNTktMi42ODYtNi44OS02LjkxLTcuMzctNC4yMjUtLjQ3OS03Ljk4IDIuMDQzLTguMzg3IDUuNjMzeiIgZmlsbD0iI0ZGRTQzMiI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0yLV9SXzBfKSI+PHBhdGggZD0iTTE1LjI2OSA3Ljc0N2MxLjA1OCA0LjU1NyA1LjY5MSA3LjM3NCAxMC4zNDggNi4yOTMgNC42NTctMS4wODIgNy41NzUtNS42NTMgNi41MTYtMTAuMjEtMS4wNTgtNC41NTYtNS42OTEtNy4zNzQtMTAuMzQ4LTYuMjkyLTQuNjU3IDEuMDgyLTcuNTc1IDUuNjUzLTYuNTE2IDEwLjIxeiIgZmlsbD0iI0ZDNDEzRCI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0zLV9SXzBfKSI+PHBhdGggZD0iTS0xMi40NDMgMTAuODA0YzEuMzM4IDQuNzAzIDcuMzYgNy4xMSAxMy40NTMgNS4zNzggNi4wOTItMS43MzMgOS45NDctNi45NSA4LjYxLTExLjY1MkM4LjI4Mi0uMTczIDIuMjYtMi41OC0zLjgzMy0uODQ4LTkuOTI1Ljg4NC0xMy43OCA2LjEtMTIuNDQzIDEwLjgwNHoiIGZpbGw9IiMwMEI5NUMiPjwvcGF0aD48L2c+PGcgZmlsdGVyPSJ1cmwoI2xvYmUtaWNvbnMtYW50aWdyYXZpdHktNC1fUl8wXykiPjxwYXRoIGQ9Ik0tMTIuNDQzIDEwLjgwNGMxLjMzOCA0LjcwMyA3LjM2IDcuMTEgMTMuNDUzIDUuMzc4IDYuMDkyLTEuNzMzIDkuOTQ3LTYuOTUgOC42MS0xMS42NTJDOC4yODItLjE3MyAyLjI2LTIuNTgtMy44MzMtLjg0OC05LjkyNS44ODQtMTMuNzggNi4xLTEyLjQ0MyAxMC44MDR6IiBmaWxsPSIjMDBCOTVDIj48L3BhdGg+PC9nPjxnIGZpbHRlcj0idXJsKCNsb2JlLWljb25zLWFudGlncmF2aXR5LTUtX1JfMF8pIj48cGF0aCBkPSJNLTcuNjA4IDE0LjcwM2MzLjM1MiAzLjQyNCA5LjEyNiAzLjIwOCAxMi44OTYtLjQ4MyAzLjc3LTMuNjkgNC4xMDgtOS40NTkuNzU2LTEyLjg4M0MyLjY5LTIuMDg3LTMuMDgzLTEuODcxLTYuODUzIDEuODJjLTMuNzcgMy42OS00LjEwOCA5LjQ1OC0uNzU1IDEyLjg4M3oiIGZpbGw9IiMwMEI5NUMiPjwvcGF0aD48L2c+PGcgZmlsdGVyPSJ1cmwoI2xvYmUtaWNvbnMtYW50aWdyYXZpdHktNi1fUl8wXykiPjxwYXRoIGQ9Ik05LjkzMiAyNy42MTdjMS4wNCA0LjQ4MiA1LjM4NCA3LjMwMyA5LjcgNi4zIDQuMzE2LTEuMDAyIDYuOTcxLTUuNDQ4IDUuOTMtOS45My0xLjA0LTQuNDgzLTUuMzg0LTcuMzA0LTkuNy02LjMwMS00LjMxNiAxLjAwMi02Ljk3MSA1LjQ0OC01LjkzIDkuOTN6IiBmaWxsPSIjMzE4NkZGIj48L3BhdGg+PC9nPjxnIGZpbHRlcj0idXJsKCNsb2JlLWljb25zLWFudGlncmF2aXR5LTctX1JfMF8pIj48cGF0aCBkPSJNMi41NzItOC4xODVDLjM5Mi0zLjMyOSAyLjc3OCAyLjQ3MiA3LjkgNC43NzFjNS4xMjIgMi4zIDExLjA0Mi4yMjcgMTMuMjIyLTQuNjMgMi4xOC00Ljg1NS0uMjA1LTEwLjY1Ni01LjMyNy0xMi45NTUtNS4xMjItMi4zLTExLjA0Mi0uMjI3LTEzLjIyMiA0LjYzeiIgZmlsbD0iI0ZCQkMwNCI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS04LV9SXzBfKSI+PHBhdGggZD0iTS0zLjI2NyAzOC42ODZjLTUuMjc3LTIuMDcyIDMuNzQyLTE5LjExNyA1Ljk4NC0yNC44MyAyLjI0My01LjcxMiA4LjM0LTguNjY0IDEzLjYxNi02LjU5MiA1LjI3OCAyLjA3MSAxMS41MzMgMTMuNDgyIDkuMjkgMTkuMTk1LTIuMjQyIDUuNzEzLTIzLjYxMyAxNC4yOTgtMjguODkgMTIuMjI3eiIgZmlsbD0iIzMxODZGRiI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS05LV9SXzBfKSI+PHBhdGggZD0iTTI4LjcxIDE3LjQ3MWMtMS40MTMgMS42NDktNS4xLjgwOC04LjIzNi0xLjg3OC0zLjEzNS0yLjY4Ny00LjUzMS02LjIwMS0zLjExOC03Ljg1IDEuNDEyLTEuNjQ5IDUuMS0uODA4IDguMjM1IDEuODc4czQuNTMyIDYuMiAzLjExOSA3Ljg1eiIgZmlsbD0iIzc0OUJGRiI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0xMC1fUl8wXykiPjxwYXRoIGQ9Ik0xOC4xNjMgOS4wNzdjNS44MSAzLjkzIDEyLjUwMiA0LjE5IDE0Ljk0Ni41NzcgMi40NDMtMy42MTItLjI4Ny05LjcyNy02LjA5OC0xMy42NTgtNS44MS0zLjkzMS0xMi41MDItNC4xOS0xNC45NDYtLjU3Ny0yLjQ0MyAzLjYxMi4yODcgOS43MjcgNi4wOTggMTMuNjU4eiIgZmlsbD0iI0ZDNDEzRCI+PC9wYXRoPjwvZz48ZyBmaWx0ZXI9InVybCgjbG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0xMS1fUl8wXykiPjxwYXRoIGQ9Ik0tLjkxNSAyLjY4NGMtMS40NCAzLjQ3My0uOTcgNi45NjcgMS4wNSA3LjgwNCAyLjAyLjgzNyA0LjgyNC0xLjMgNi4yNjQtNC43NzIgMS40NC0zLjQ3My45Ny02Ljk2Ny0xLjA1LTcuODA0LTIuMDItLjgzNy00LjgyNCAxLjMtNi4yNjQgNC43NzJ6IiBmaWxsPSIjRkZFRTQ4Ij48L3BhdGg+PC9nPjwvZz48ZGVmcz48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjE3LjU4NyIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktMS1fUl8wXyIgd2lkdGg9IjE5LjgzOCIgeD0iLTMuMjg4IiB5PSItMTEuOTE3Ij48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSIxLjExNyI+PC9mZUdhdXNzaWFuQmx1cj48L2ZpbHRlcj48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjM4LjU2NSIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktMi1fUl8wXyIgd2lkdGg9IjM4LjkiIHg9IjQuMjUxIiB5PSItMTMuNDkzIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSI1LjQiPjwvZmVHYXVzc2lhbkJsdXI+PC9maWx0ZXI+PGZpbHRlciBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgaGVpZ2h0PSIzNi41MTciIGlkPSJsb2JlLWljb25zLWFudGlncmF2aXR5LTMtX1JfMF8iIHdpZHRoPSI0MC45NTUiIHg9Ii0yMS44ODkiIHk9Ii0xMC41OTIiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ij48L2ZlRmxvb2Q+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIj48L2ZlQmxlbmQ+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl85NzdfMTE1IiBzdGREZXZpYXRpb249IjQuNTkxIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjxmaWx0ZXIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGhlaWdodD0iMzYuNTE3IiBpZD0ibG9iZS1pY29ucy1hbnRpZ3Jhdml0eS00LV9SXzBfIiB3aWR0aD0iNDAuOTU1IiB4PSItMjEuODg5IiB5PSItMTAuNTkyIj48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSI0LjU5MSI+PC9mZUdhdXNzaWFuQmx1cj48L2ZpbHRlcj48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjM2LjU5NSIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktNS1fUl8wXyIgd2lkdGg9IjM2LjYzMiIgeD0iLTE5LjA5OSIgeT0iLTEwLjI3OCI+PGZlRmxvb2QgZmxvb2Qtb3BhY2l0eT0iMCIgcmVzdWx0PSJCYWNrZ3JvdW5kSW1hZ2VGaXgiPjwvZmVGbG9vZD48ZmVCbGVuZCBpbj0iU291cmNlR3JhcGhpYyIgaW4yPSJCYWNrZ3JvdW5kSW1hZ2VGaXgiIHJlc3VsdD0ic2hhcGUiPjwvZmVCbGVuZD48ZmVHYXVzc2lhbkJsdXIgcmVzdWx0PSJlZmZlY3QxX2ZvcmVncm91bmRCbHVyXzk3N18xMTUiIHN0ZERldmlhdGlvbj0iNC41OTEiPjwvZmVHYXVzc2lhbkJsdXI+PC9maWx0ZXI+PGZpbHRlciBjb2xvci1pbnRlcnBvbGF0aW9uLWZpbHRlcnM9InNSR0IiIGZpbHRlclVuaXRzPSJ1c2VyU3BhY2VPblVzZSIgaGVpZ2h0PSIzNC4wODciIGlkPSJsb2JlLWljb25zLWFudGlncmF2aXR5LTYtX1JfMF8iIHdpZHRoPSIzMy41MzMiIHg9Ii45ODEiIHk9IjguNzU4Ij48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSI0LjM2MyI+PC9mZUdhdXNzaWFuQmx1cj48L2ZpbHRlcj48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjM1LjI3NiIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktNy1fUl8wXyIgd2lkdGg9IjM1Ljk3OCIgeD0iLTYuMTQzIiB5PSItMjEuNjU5Ij48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSIzLjk1NCI+PC9mZUdhdXNzaWFuQmx1cj48L2ZpbHRlcj48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjQ2LjUyMyIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktOC1fUl8wXyIgd2lkdGg9IjQ1LjExNCIgeD0iLTExLjk2IiB5PSItLjQ2Ij48ZmVGbG9vZCBmbG9vZC1vcGFjaXR5PSIwIiByZXN1bHQ9IkJhY2tncm91bmRJbWFnZUZpeCI+PC9mZUZsb29kPjxmZUJsZW5kIGluPSJTb3VyY2VHcmFwaGljIiBpbjI9IkJhY2tncm91bmRJbWFnZUZpeCIgcmVzdWx0PSJzaGFwZSI+PC9mZUJsZW5kPjxmZUdhdXNzaWFuQmx1ciByZXN1bHQ9ImVmZmVjdDFfZm9yZWdyb3VuZEJsdXJfOTc3XzExNSIgc3RkRGV2aWF0aW9uPSIzLjUzMSI+PC9mZUdhdXNzaWFuQmx1cj48L2ZpbHRlcj48ZmlsdGVyIGNvbG9yLWludGVycG9sYXRpb24tZmlsdGVycz0ic1JHQiIgZmlsdGVyVW5pdHM9InVzZXJTcGFjZU9uVXNlIiBoZWlnaHQ9IjI0LjA1NCIgaWQ9ImxvYmUtaWNvbnMtYW50aWdyYXZpdHktOS1fUl8wXyIgd2lkdGg9IjI1LjA5NCIgeD0iMTAuNDg1IiB5PSIuNTgiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ij48L2ZlRmxvb2Q+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIj48L2ZlQmxlbmQ+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl85NzdfMTE1IiBzdGREZXZpYXRpb249IjMuMTU5Ij48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjxmaWx0ZXIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGhlaWdodD0iMzAuMDA3IiBpZD0ibG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0xMC1fUl8wXyIgd2lkdGg9IjMzLjUwOCIgeD0iNS44MzMiIHk9Ii0xMi40NjciPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ij48L2ZlRmxvb2Q+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIj48L2ZlQmxlbmQ+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl85NzdfMTE1IiBzdGREZXZpYXRpb249IjIuNjY5Ij48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjxmaWx0ZXIgY29sb3ItaW50ZXJwb2xhdGlvbi1maWx0ZXJzPSJzUkdCIiBmaWx0ZXJVbml0cz0idXNlclNwYWNlT25Vc2UiIGhlaWdodD0iMjYuMTUxIiBpZD0ibG9iZS1pY29ucy1hbnRpZ3Jhdml0eS0xMS1fUl8wXyIgd2lkdGg9IjIyLjE5NCIgeD0iLTguMzU1IiB5PSItOC44NzYiPjxmZUZsb29kIGZsb29kLW9wYWNpdHk9IjAiIHJlc3VsdD0iQmFja2dyb3VuZEltYWdlRml4Ij48L2ZlRmxvb2Q+PGZlQmxlbmQgaW49IlNvdXJjZUdyYXBoaWMiIGluMj0iQmFja2dyb3VuZEltYWdlRml4IiByZXN1bHQ9InNoYXBlIj48L2ZlQmxlbmQ+PGZlR2F1c3NpYW5CbHVyIHJlc3VsdD0iZWZmZWN0MV9mb3JlZ3JvdW5kQmx1cl85NzdfMTE1IiBzdGREZXZpYXRpb249IjMuMzAzIj48L2ZlR2F1c3NpYW5CbHVyPjwvZmlsdGVyPjwvZGVmcz48L3N2Zz4="
                     alt="Antigravity IDE"></span>
                 <span class="t-name">Antigravity IDE</span>
+              </div>
+              <div class="tool-pill">
+                <span class="t-ico"><img src="img/google-apps-script.svg" alt="Google Apps Script"></span>
+                <span class="t-name">Google Apps Script</span>
               </div>
               <div class="tool-pill">
                 <span class="t-ico"><img
@@ -4350,11 +4453,10 @@
         <div class="card">
           <div class="c-label">Coding Projects</div>
 
-          <div class="proj-grid collab">
+          <div class="proj-grid collab proj-coding">
             <div class="proj-card">
               <div class="proj-body">
                 <div class="proj-title">My-Portofolio</div>
-                <div class="proj-tags"><span class="proj-tag">HTML</span></div>
                 <div class="proj-links">
                   <a href="https://toharizalahmad.github.io/My-Portofolio/" class="proj-link" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -4373,13 +4475,19 @@
                     </svg>
                     Source Code
                   </a>
+                  <span class="proj-logos"><span class="proj-logo" title="HTML"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRTQ0RDI2IiBkPSJNMTkuMDM3IDExMy44NzZMOS4wMzIgMS42NjFoMTA5LjkzNmwtMTAuMDE2IDExMi4xOTgtNDUuMDE5IDEyLjQ4eiIvPjxwYXRoIGZpbGw9IiNGMTY1MjkiIGQ9Ik02NCAxMTYuOGwzNi4zNzgtMTAuMDg2IDguNTU5LTk1Ljg3OEg2NHoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQgNTIuNDU1SDQ1Ljc4OEw0NC41MyAzOC4zNjFINjRWMjQuNTk5SDI5LjQ4OWwuMzMgMy42OTIgMy4zODIgMzcuOTI3SDY0em0wIDM1Ljc0M2wtLjA2MS4wMTctMTUuMzI3LTQuMTQtLjk3OS0xMC45NzVIMzMuODE2bDEuOTI4IDIxLjYwOSAyOC4xOTMgNy44MjYuMDYzLS4wMTd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYzLjk1MiA1Mi40NTV2MTMuNzYzaDE2Ljk0N2wtMS41OTcgMTcuODQ5LTE1LjM1IDQuMTQzdjE0LjMxOWwyOC4yMTUtNy44Mi4yMDctMi4zMjUgMy4yMzQtMzYuMjMzLjMzNS0zLjY5NmgtMy43MDh6bTAtMjcuODU2djEzLjc2MmgzMy4yNDRsLjI3Ni0zLjA5Mi42MjgtNi45NzguMzI5LTMuNjkyeiIvPjwvc3ZnPg=="
+                        alt="HTML"></span><span class="proj-logo" title="CSS"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjMTU3MkI2IiBkPSJNMTguODE0IDExNC4xMjNMOC43NiAxLjM1MmgxMTAuNDhsLTEwLjA2NCAxMTIuNzU0LTQ1LjI0MyAxMi41NDMtNDUuMTE5LTEyLjUyNnoiLz48cGF0aCBmaWxsPSIjMzNBOURDIiBkPSJNNjQuMDAxIDExNy4wNjJsMzYuNTU5LTEwLjEzNiA4LjYwMS05Ni4zNTRoLTQ1LjE2djEwNi40OXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjQuMDAxIDUxLjQyOWgxOC4zMDJsMS4yNjQtMTQuMTYzSDY0LjAwMVYyMy40MzVoMzQuNjgybC0uMzMyIDMuNzExLTMuNCAzOC4xMTRoLTMwLjk1VjUxLjQyOXoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQuMDgzIDg3LjM0OWwtLjA2MS4wMTgtMTUuNDAzLTQuMTU5LS45ODUtMTEuMDMxSDMzLjc1MmwxLjkzNyAyMS43MTcgMjguMzMxIDcuODYzLjA2My0uMDE4di0xNC4zOXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNODEuMTI3IDY0LjY3NWwtMS42NjYgMTguNTIyLTE1LjQyNiA0LjE2NHYxNC4zOWwyOC4zNTQtNy44NTguMjA4LTIuMzM3IDIuNDA2LTI2Ljg4MUg4MS4xMjd6Ii8+PHBhdGggZmlsbD0iI0VCRUJFQiIgZD0iTTY0LjA0OCAyMy40MzV2MTMuODMxSDMwLjY0bC0uMjc3LTMuMTA4LS42My03LjAxMi0uMzMxLTMuNzExaDM0LjY0NnptLS4wNDcgMjcuOTk2djEzLjgzMUg0OC43OTJsLS4yNzctMy4xMDgtLjYzMS03LjAxMi0uMzMtMy43MTFoMTYuNDQ3eiIvPjwvc3ZnPg=="
+                        alt="CSS"></span><span class="proj-logo" title="JavaScript"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRjBEQjRGIiBkPSJNMS40MDggMS40MDhoMTI1LjE4NHYxMjUuMTg1SDEuNDA4eiIvPjxwYXRoIGZpbGw9IiMzMjMzMzAiIGQ9Ik0xMTYuMzQ3IDk2LjczNmMtLjkxNy01LjcxMS00LjY0MS0xMC41MDgtMTUuNjcyLTE0Ljk4MS0zLjgzMi0xLjc2MS04LjEwNC0zLjAyMi05LjM3Ny01LjkyNi0uNDUyLTEuNjktLjUxMi0yLjY0Mi0uMjI2LTMuNjY1LjgyMS0zLjMyIDQuNzg0LTQuMzU1IDcuOTI1LTMuNDAzIDIuMDIzLjY3OCAzLjkzOCAyLjIzNyA1LjA5MyA0LjcyNCA1LjQwMi0zLjQ5OCA1LjM5MS0zLjQ3NSA5LjE2My01Ljg3OS0xLjM4MS0yLjE0MS0yLjExOC0zLjEyOS0zLjAyMi00LjA0NS0zLjI0OS0zLjYyOS03LjY3Ni01LjQ5OC0xNC43NTYtNS4zNTVsLTMuNjg4LjQ3N2MtMy41MzQuODkzLTYuOTAyIDIuNzQ4LTguODc3IDUuMjM1LTUuOTI2IDYuNzI0LTQuMjM2IDE4LjQ5MiAyLjk3NSAyMy4zMzUgNy4xMDQgNS4zMzIgMTcuNTQgNi41NDUgMTguODczIDExLjUzMSAxLjI5NyA2LjEwNC00LjQ4NiA4LjA4LTEwLjIzNCA3LjM3OC00LjIzNi0uODgxLTYuNTkyLTMuMDM0LTkuMTM5LTYuOTQ5LTQuNjg4IDIuNzEzLTQuNjg4IDIuNzEzLTkuNTA4IDUuNDg1IDEuMTQzIDIuNDk5IDIuMzQ0IDMuNjMgNC4yNiA1Ljc5NSA5LjA2OCA5LjE5OCAzMS43NiA4Ljc0NiAzNS44My01LjE3Ni4xNjUtLjQ3OCAxLjI2MS0zLjY2Ni4zOC04LjU4MXpNNjkuNDYyIDU4Ljk0M0g1Ny43NTNsLS4wNDggMzAuMjcyYzAgNi40MzguMzMzIDEyLjM0LS43MTQgMTQuMTQ5LTEuNzEzIDMuNTU4LTYuMTUyIDMuMTE3LTguMTc1IDIuNDI3LTIuMDU5LTEuMDEyLTMuMTA2LTIuNDUxLTQuMzE5LTQuNDg1LS4zMzMtLjU4NC0uNTgzLTEuMDM2LS42NjctMS4wNzFsLTkuNTIgNS44M2MxLjU4MyAzLjI0OSAzLjkxNSA2LjA2OSA2LjkwMiA3LjkwMSA0LjQ2MiAyLjY3OCAxMC40NTkgMy40OTkgMTYuNzMxIDIuMDU5IDQuMDgyLTEuMTg5IDcuNjA0LTMuNjUyIDkuNDQ4LTcuNDAxIDIuNjY2LTQuOTE1IDIuMDk0LTEwLjg2NCAyLjA3LTE3LjQ0NC4wNi0xMC43MzUuMDAxLTIxLjQ2OC4wMDEtMzIuMjM3eiIvPjwvc3ZnPg=="
+                        alt="JavaScript"></span></span>
                 </div>
               </div>
             </div>
             <div class="proj-card">
               <div class="proj-body">
                 <div class="proj-title">Linktree</div>
-                <div class="proj-tags"><span class="proj-tag">HTML</span></div>
                 <div class="proj-links">
                   <a href="https://toharizalahmad.github.io/Linktree/" class="proj-link" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -4398,13 +4506,19 @@
                     </svg>
                     Source Code
                   </a>
+                  <span class="proj-logos"><span class="proj-logo" title="HTML"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRTQ0RDI2IiBkPSJNMTkuMDM3IDExMy44NzZMOS4wMzIgMS42NjFoMTA5LjkzNmwtMTAuMDE2IDExMi4xOTgtNDUuMDE5IDEyLjQ4eiIvPjxwYXRoIGZpbGw9IiNGMTY1MjkiIGQ9Ik02NCAxMTYuOGwzNi4zNzgtMTAuMDg2IDguNTU5LTk1Ljg3OEg2NHoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQgNTIuNDU1SDQ1Ljc4OEw0NC41MyAzOC4zNjFINjRWMjQuNTk5SDI5LjQ4OWwuMzMgMy42OTIgMy4zODIgMzcuOTI3SDY0em0wIDM1Ljc0M2wtLjA2MS4wMTctMTUuMzI3LTQuMTQtLjk3OS0xMC45NzVIMzMuODE2bDEuOTI4IDIxLjYwOSAyOC4xOTMgNy44MjYuMDYzLS4wMTd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYzLjk1MiA1Mi40NTV2MTMuNzYzaDE2Ljk0N2wtMS41OTcgMTcuODQ5LTE1LjM1IDQuMTQzdjE0LjMxOWwyOC4yMTUtNy44Mi4yMDctMi4zMjUgMy4yMzQtMzYuMjMzLjMzNS0zLjY5NmgtMy43MDh6bTAtMjcuODU2djEzLjc2MmgzMy4yNDRsLjI3Ni0zLjA5Mi42MjgtNi45NzguMzI5LTMuNjkyeiIvPjwvc3ZnPg=="
+                        alt="HTML"></span><span class="proj-logo" title="CSS"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjMTU3MkI2IiBkPSJNMTguODE0IDExNC4xMjNMOC43NiAxLjM1MmgxMTAuNDhsLTEwLjA2NCAxMTIuNzU0LTQ1LjI0MyAxMi41NDMtNDUuMTE5LTEyLjUyNnoiLz48cGF0aCBmaWxsPSIjMzNBOURDIiBkPSJNNjQuMDAxIDExNy4wNjJsMzYuNTU5LTEwLjEzNiA4LjYwMS05Ni4zNTRoLTQ1LjE2djEwNi40OXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjQuMDAxIDUxLjQyOWgxOC4zMDJsMS4yNjQtMTQuMTYzSDY0LjAwMVYyMy40MzVoMzQuNjgybC0uMzMyIDMuNzExLTMuNCAzOC4xMTRoLTMwLjk1VjUxLjQyOXoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQuMDgzIDg3LjM0OWwtLjA2MS4wMTgtMTUuNDAzLTQuMTU5LS45ODUtMTEuMDMxSDMzLjc1MmwxLjkzNyAyMS43MTcgMjguMzMxIDcuODYzLjA2My0uMDE4di0xNC4zOXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNODEuMTI3IDY0LjY3NWwtMS42NjYgMTguNTIyLTE1LjQyNiA0LjE2NHYxNC4zOWwyOC4zNTQtNy44NTguMjA4LTIuMzM3IDIuNDA2LTI2Ljg4MUg4MS4xMjd6Ii8+PHBhdGggZmlsbD0iI0VCRUJFQiIgZD0iTTY0LjA0OCAyMy40MzV2MTMuODMxSDMwLjY0bC0uMjc3LTMuMTA4LS42My03LjAxMi0uMzMxLTMuNzExaDM0LjY0NnptLS4wNDcgMjcuOTk2djEzLjgzMUg0OC43OTJsLS4yNzctMy4xMDgtLjYzMS03LjAxMi0uMzMtMy43MTFoMTYuNDQ3eiIvPjwvc3ZnPg=="
+                        alt="CSS"></span><span class="proj-logo" title="JavaScript"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRjBEQjRGIiBkPSJNMS40MDggMS40MDhoMTI1LjE4NHYxMjUuMTg1SDEuNDA4eiIvPjxwYXRoIGZpbGw9IiMzMjMzMzAiIGQ9Ik0xMTYuMzQ3IDk2LjczNmMtLjkxNy01LjcxMS00LjY0MS0xMC41MDgtMTUuNjcyLTE0Ljk4MS0zLjgzMi0xLjc2MS04LjEwNC0zLjAyMi05LjM3Ny01LjkyNi0uNDUyLTEuNjktLjUxMi0yLjY0Mi0uMjI2LTMuNjY1LjgyMS0zLjMyIDQuNzg0LTQuMzU1IDcuOTI1LTMuNDAzIDIuMDIzLjY3OCAzLjkzOCAyLjIzNyA1LjA5MyA0LjcyNCA1LjQwMi0zLjQ5OCA1LjM5MS0zLjQ3NSA5LjE2My01Ljg3OS0xLjM4MS0yLjE0MS0yLjExOC0zLjEyOS0zLjAyMi00LjA0NS0zLjI0OS0zLjYyOS03LjY3Ni01LjQ5OC0xNC43NTYtNS4zNTVsLTMuNjg4LjQ3N2MtMy41MzQuODkzLTYuOTAyIDIuNzQ4LTguODc3IDUuMjM1LTUuOTI2IDYuNzI0LTQuMjM2IDE4LjQ5MiAyLjk3NSAyMy4zMzUgNy4xMDQgNS4zMzIgMTcuNTQgNi41NDUgMTguODczIDExLjUzMSAxLjI5NyA2LjEwNC00LjQ4NiA4LjA4LTEwLjIzNCA3LjM3OC00LjIzNi0uODgxLTYuNTkyLTMuMDM0LTkuMTM5LTYuOTQ5LTQuNjg4IDIuNzEzLTQuNjg4IDIuNzEzLTkuNTA4IDUuNDg1IDEuMTQzIDIuNDk5IDIuMzQ0IDMuNjMgNC4yNiA1Ljc5NSA5LjA2OCA5LjE5OCAzMS43NiA4Ljc0NiAzNS44My01LjE3Ni4xNjUtLjQ3OCAxLjI2MS0zLjY2Ni4zOC04LjU4MXpNNjkuNDYyIDU4Ljk0M0g1Ny43NTNsLS4wNDggMzAuMjcyYzAgNi40MzguMzMzIDEyLjM0LS43MTQgMTQuMTQ5LTEuNzEzIDMuNTU4LTYuMTUyIDMuMTE3LTguMTc1IDIuNDI3LTIuMDU5LTEuMDEyLTMuMTA2LTIuNDUxLTQuMzE5LTQuNDg1LS4zMzMtLjU4NC0uNTgzLTEuMDM2LS42NjctMS4wNzFsLTkuNTIgNS44M2MxLjU4MyAzLjI0OSAzLjkxNSA2LjA2OSA2LjkwMiA3LjkwMSA0LjQ2MiAyLjY3OCAxMC40NTkgMy40OTkgMTYuNzMxIDIuMDU5IDQuMDgyLTEuMTg5IDcuNjA0LTMuNjUyIDkuNDQ4LTcuNDAxIDIuNjY2LTQuOTE1IDIuMDk0LTEwLjg2NCAyLjA3LTE3LjQ0NC4wNi0xMC43MzUuMDAxLTIxLjQ2OC4wMDEtMzIuMjM3eiIvPjwvc3ZnPg=="
+                        alt="JavaScript"></span></span>
                 </div>
               </div>
             </div>
             <div class="proj-card">
               <div class="proj-body">
                 <div class="proj-title">FinansSmart</div>
-                <div class="proj-tags"><span class="proj-tag">JavaScript</span></div>
                 <div class="proj-links">
                   <a href="https://toharizalahmad.github.io/FinansSmart/" class="proj-link" target="_blank">
                     <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none"
@@ -4423,6 +4537,11 @@
                     </svg>
                     Source Code
                   </a>
+                  <span class="proj-logos"><span class="proj-logo" title="JavaScript"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRjBEQjRGIiBkPSJNMS40MDggMS40MDhoMTI1LjE4NHYxMjUuMTg1SDEuNDA4eiIvPjxwYXRoIGZpbGw9IiMzMjMzMzAiIGQ9Ik0xMTYuMzQ3IDk2LjczNmMtLjkxNy01LjcxMS00LjY0MS0xMC41MDgtMTUuNjcyLTE0Ljk4MS0zLjgzMi0xLjc2MS04LjEwNC0zLjAyMi05LjM3Ny01LjkyNi0uNDUyLTEuNjktLjUxMi0yLjY0Mi0uMjI2LTMuNjY1LjgyMS0zLjMyIDQuNzg0LTQuMzU1IDcuOTI1LTMuNDAzIDIuMDIzLjY3OCAzLjkzOCAyLjIzNyA1LjA5MyA0LjcyNCA1LjQwMi0zLjQ5OCA1LjM5MS0zLjQ3NSA5LjE2My01Ljg3OS0xLjM4MS0yLjE0MS0yLjExOC0zLjEyOS0zLjAyMi00LjA0NS0zLjI0OS0zLjYyOS03LjY3Ni01LjQ5OC0xNC43NTYtNS4zNTVsLTMuNjg4LjQ3N2MtMy41MzQuODkzLTYuOTAyIDIuNzQ4LTguODc3IDUuMjM1LTUuOTI2IDYuNzI0LTQuMjM2IDE4LjQ5MiAyLjk3NSAyMy4zMzUgNy4xMDQgNS4zMzIgMTcuNTQgNi41NDUgMTguODczIDExLjUzMSAxLjI5NyA2LjEwNC00LjQ4NiA4LjA4LTEwLjIzNCA3LjM3OC00LjIzNi0uODgxLTYuNTkyLTMuMDM0LTkuMTM5LTYuOTQ5LTQuNjg4IDIuNzEzLTQuNjg4IDIuNzEzLTkuNTA4IDUuNDg1IDEuMTQzIDIuNDk5IDIuMzQ0IDMuNjMgNC4yNiA1Ljc5NSA5LjA2OCA5LjE5OCAzMS43NiA4Ljc0NiAzNS44My01LjE3Ni4xNjUtLjQ3OCAxLjI2MS0zLjY2Ni4zOC04LjU4MXpNNjkuNDYyIDU4Ljk0M0g1Ny43NTNsLS4wNDggMzAuMjcyYzAgNi40MzguMzMzIDEyLjM0LS43MTQgMTQuMTQ5LTEuNzEzIDMuNTU4LTYuMTUyIDMuMTE3LTguMTc1IDIuNDI3LTIuMDU5LTEuMDEyLTMuMTA2LTIuNDUxLTQuMzE5LTQuNDg1LS4zMzMtLjU4NC0uNTgzLTEuMDM2LS42NjctMS4wNzFsLTkuNTIgNS44M2MxLjU4MyAzLjI0OSAzLjkxNSA2LjA2OSA2LjkwMiA3LjkwMSA0LjQ2MiAyLjY3OCAxMC40NTkgMy40OTkgMTYuNzMxIDIuMDU5IDQuMDgyLTEuMTg5IDcuNjA0LTMuNjUyIDkuNDQ4LTcuNDAxIDIuNjY2LTQuOTE1IDIuMDk0LTEwLjg2NCAyLjA3LTE3LjQ0NC4wNi0xMC43MzUuMDAxLTIxLjQ2OC4wMDEtMzIuMjM3eiIvPjwvc3ZnPg=="
+                        alt="JavaScript"></span><span class="proj-logo" title="HTML"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRTQ0RDI2IiBkPSJNMTkuMDM3IDExMy44NzZMOS4wMzIgMS42NjFoMTA5LjkzNmwtMTAuMDE2IDExMi4xOTgtNDUuMDE5IDEyLjQ4eiIvPjxwYXRoIGZpbGw9IiNGMTY1MjkiIGQ9Ik02NCAxMTYuOGwzNi4zNzgtMTAuMDg2IDguNTU5LTk1Ljg3OEg2NHoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQgNTIuNDU1SDQ1Ljc4OEw0NC41MyAzOC4zNjFINjRWMjQuNTk5SDI5LjQ4OWwuMzMgMy42OTIgMy4zODIgMzcuOTI3SDY0em0wIDM1Ljc0M2wtLjA2MS4wMTctMTUuMzI3LTQuMTQtLjk3OS0xMC45NzVIMzMuODE2bDEuOTI4IDIxLjYwOSAyOC4xOTMgNy44MjYuMDYzLS4wMTd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYzLjk1MiA1Mi40NTV2MTMuNzYzaDE2Ljk0N2wtMS41OTcgMTcuODQ5LTE1LjM1IDQuMTQzdjE0LjMxOWwyOC4yMTUtNy44Mi4yMDctMi4zMjUgMy4yMzQtMzYuMjMzLjMzNS0zLjY5NmgtMy43MDh6bTAtMjcuODU2djEzLjc2MmgzMy4yNDRsLjI3Ni0zLjA5Mi42MjgtNi45NzguMzI5LTMuNjkyeiIvPjwvc3ZnPg=="
+                        alt="HTML"></span></span>
                 </div>
               </div>
             </div>
@@ -4433,7 +4552,7 @@
           <div class="proj-grid collab collab-wide">
             <div class="proj-card">
               <div class="proj-body">
-                <div class="proj-title">Al Falah Website</div>
+                <div class="proj-title">Alfalah Website</div>
                 <div class="proj-tags"><span class="proj-tag">Collaborator</span></div>
                 <div class="proj-links">
                   <a href="https://alfalahrumbia.github.io/alfalah.website/" class="proj-link" target="_blank">
@@ -4445,6 +4564,15 @@
                     </svg>
                     Preview
                   </a>
+                  <span class="proj-logos"><span class="proj-logo" title="HTML"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRTQ0RDI2IiBkPSJNMTkuMDM3IDExMy44NzZMOS4wMzIgMS42NjFoMTA5LjkzNmwtMTAuMDE2IDExMi4xOTgtNDUuMDE5IDEyLjQ4eiIvPjxwYXRoIGZpbGw9IiNGMTY1MjkiIGQ9Ik02NCAxMTYuOGwzNi4zNzgtMTAuMDg2IDguNTU5LTk1Ljg3OEg2NHoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQgNTIuNDU1SDQ1Ljc4OEw0NC41MyAzOC4zNjFINjRWMjQuNTk5SDI5LjQ4OWwuMzMgMy42OTIgMy4zODIgMzcuOTI3SDY0em0wIDM1Ljc0M2wtLjA2MS4wMTctMTUuMzI3LTQuMTQtLjk3OS0xMC45NzVIMzMuODE2bDEuOTI4IDIxLjYwOSAyOC4xOTMgNy44MjYuMDYzLS4wMTd6Ii8+PHBhdGggZmlsbD0iI2ZmZiIgZD0iTTYzLjk1MiA1Mi40NTV2MTMuNzYzaDE2Ljk0N2wtMS41OTcgMTcuODQ5LTE1LjM1IDQuMTQzdjE0LjMxOWwyOC4yMTUtNy44Mi4yMDctMi4zMjUgMy4yMzQtMzYuMjMzLjMzNS0zLjY5NmgtMy43MDh6bTAtMjcuODU2djEzLjc2MmgzMy4yNDRsLjI3Ni0zLjA5Mi42MjgtNi45NzguMzI5LTMuNjkyeiIvPjwvc3ZnPg=="
+                        alt="HTML"></span><span class="proj-logo" title="CSS"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjMTU3MkI2IiBkPSJNMTguODE0IDExNC4xMjNMOC43NiAxLjM1MmgxMTAuNDhsLTEwLjA2NCAxMTIuNzU0LTQ1LjI0MyAxMi41NDMtNDUuMTE5LTEyLjUyNnoiLz48cGF0aCBmaWxsPSIjMzNBOURDIiBkPSJNNjQuMDAxIDExNy4wNjJsMzYuNTU5LTEwLjEzNiA4LjYwMS05Ni4zNTRoLTQ1LjE2djEwNi40OXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNNjQuMDAxIDUxLjQyOWgxOC4zMDJsMS4yNjQtMTQuMTYzSDY0LjAwMVYyMy40MzVoMzQuNjgybC0uMzMyIDMuNzExLTMuNCAzOC4xMTRoLTMwLjk1VjUxLjQyOXoiLz48cGF0aCBmaWxsPSIjRUJFQkVCIiBkPSJNNjQuMDgzIDg3LjM0OWwtLjA2MS4wMTgtMTUuNDAzLTQuMTU5LS45ODUtMTEuMDMxSDMzLjc1MmwxLjkzNyAyMS43MTcgMjguMzMxIDcuODYzLjA2My0uMDE4di0xNC4zOXoiLz48cGF0aCBmaWxsPSIjZmZmIiBkPSJNODEuMTI3IDY0LjY3NWwtMS42NjYgMTguNTIyLTE1LjQyNiA0LjE2NHYxNC4zOWwyOC4zNTQtNy44NTguMjA4LTIuMzM3IDIuNDA2LTI2Ljg4MUg4MS4xMjd6Ii8+PHBhdGggZmlsbD0iI0VCRUJFQiIgZD0iTTY0LjA0OCAyMy40MzV2MTMuODMxSDMwLjY0bC0uMjc3LTMuMTA4LS42My03LjAxMi0uMzMxLTMuNzExaDM0LjY0NnptLS4wNDcgMjcuOTk2djEzLjgzMUg0OC43OTJsLS4yNzctMy4xMDgtLjYzMS03LjAxMi0uMzMtMy43MTFoMTYuNDQ3eiIvPjwvc3ZnPg=="
+                        alt="CSS"></span><span class="proj-logo" title="JavaScript"><img
+                        src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMjggMTI4Ij48cGF0aCBmaWxsPSIjRjBEQjRGIiBkPSJNMS40MDggMS40MDhoMTI1LjE4NHYxMjUuMTg1SDEuNDA4eiIvPjxwYXRoIGZpbGw9IiMzMjMzMzAiIGQ9Ik0xMTYuMzQ3IDk2LjczNmMtLjkxNy01LjcxMS00LjY0MS0xMC41MDgtMTUuNjcyLTE0Ljk4MS0zLjgzMi0xLjc2MS04LjEwNC0zLjAyMi05LjM3Ny01LjkyNi0uNDUyLTEuNjktLjUxMi0yLjY0Mi0uMjI2LTMuNjY1LjgyMS0zLjMyIDQuNzg0LTQuMzU1IDcuOTI1LTMuNDAzIDIuMDIzLjY3OCAzLjkzOCAyLjIzNyA1LjA5MyA0LjcyNCA1LjQwMi0zLjQ5OCA1LjM5MS0zLjQ3NSA5LjE2My01Ljg3OS0xLjM4MS0yLjE0MS0yLjExOC0zLjEyOS0zLjAyMi00LjA0NS0zLjI0OS0zLjYyOS03LjY3Ni01LjQ5OC0xNC43NTYtNS4zNTVsLTMuNjg4LjQ3N2MtMy41MzQuODkzLTYuOTAyIDIuNzQ4LTguODc3IDUuMjM1LTUuOTI2IDYuNzI0LTQuMjM2IDE4LjQ5MiAyLjk3NSAyMy4zMzUgNy4xMDQgNS4zMzIgMTcuNTQgNi41NDUgMTguODczIDExLjUzMSAxLjI5NyA2LjEwNC00LjQ4NiA4LjA4LTEwLjIzNCA3LjM3OC00LjIzNi0uODgxLTYuNTkyLTMuMDM0LTkuMTM5LTYuOTQ5LTQuNjg4IDIuNzEzLTQuNjg4IDIuNzEzLTkuNTA4IDUuNDg1IDEuMTQzIDIuNDk5IDIuMzQ0IDMuNjMgNC4yNiA1Ljc5NSA5LjA2OCA5LjE5OCAzMS43NiA4Ljc0NiAzNS44My01LjE3Ni4xNjUtLjQ3OCAxLjI2MS0zLjY2Ni4zOC04LjU4MXpNNjkuNDYyIDU4Ljk0M0g1Ny43NTNsLS4wNDggMzAuMjcyYzAgNi40MzguMzMzIDEyLjM0LS43MTQgMTQuMTQ5LTEuNzEzIDMuNTU4LTYuMTUyIDMuMTE3LTguMTc1IDIuNDI3LTIuMDU5LTEuMDEyLTMuMTA2LTIuNDUxLTQuMzE5LTQuNDg1LS4zMzMtLjU4NC0uNTgzLTEuMDM2LS42NjctMS4wNzFsLTkuNTIgNS44M2MxLjU4MyAzLjI0OSAzLjkxNSA2LjA2OSA2LjkwMiA3LjkwMSA0LjQ2MiAyLjY3OCAxMC40NTkgMy40OTkgMTYuNzMxIDIuMDU5IDQuMDgyLTEuMTg5IDcuNjA0LTMuNjUyIDkuNDQ4LTcuNDAxIDIuNjY2LTQuOTE1IDIuMDk0LTEwLjg2NCAyLjA3LTE3LjQ0NC4wNi0xMC43MzUuMDAxLTIxLjQ2OC4wMDEtMzIuMjM3eiIvPjwvc3ZnPg=="
+                        alt="JavaScript"></span><span class="proj-logo" title="Google Sheets"><img
+                        src="img/google-sheets.svg" alt="Google Sheets"></span><span class="proj-logo"
+                      title="Google Forms"><img src="img/google-forms.svg" alt="Google Forms"></span></span>
                 </div>
               </div>
             </div>
@@ -4453,7 +4581,7 @@
         </div>
 
         <div class="card">
-          <div class="c-label">Design Projects</div>
+          <div class="c-label">Graphic Design Works</div>
 
           <div class="dz" id="dz">
             <button type="button" class="dz-nav dz-prev" aria-label="Previous">
@@ -4462,7 +4590,7 @@
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
-            <div class="dz-stage" tabindex="0" aria-label="Design projects gallery">
+            <div class="dz-stage" tabindex="0" aria-label="Graphic design works gallery">
             </div>
             <button type="button" class="dz-nav dz-next" aria-label="Next">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
@@ -4473,7 +4601,7 @@
             <div class="dz-dots"></div>
           </div>
 
-          <div class="c-label" style="margin-top:28px;">Banner Designs</div>
+          <div class="c-label" style="margin-top:28px;">Banner Works</div>
 
           <div class="dz dz-banner" id="dz2">
             <button type="button" class="dz-nav dz-prev" aria-label="Previous">
@@ -4482,7 +4610,7 @@
                 <path d="m15 18-6-6 6-6" />
               </svg>
             </button>
-            <div class="dz-stage" tabindex="0" aria-label="Banner designs gallery">
+            <div class="dz-stage" tabindex="0" aria-label="Banner works gallery">
             </div>
             <button type="button" class="dz-nav dz-next" aria-label="Next">
               <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2"
@@ -4611,7 +4739,6 @@
         'bio3': 'Dengan kombinasi pengetahuan teknis, keterampilan administrasi, kreativitas, dan kemampuan beradaptasi, terus belajar dan mengembangkan kemampuan untuk menghadirkan solusi digital yang efektif serta mendukung alur kerja yang efisien dan berbasis teknologi.',
         'exp.title': 'Pengalaman',
         'exp.resp': 'Tanggung Jawab',
-        'present': 'Sekarang',
         'exp.b1': 'Membangun website portofolio, company profile, dan landing page untuk berbagai klien.',
         'exp.b2': 'Mengembangkan antarmuka responsif menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.',
         'exp.b3': 'Melakukan deployment ke GitHub dan Cloudflare serta konfigurasi domain Niagahoster.',
