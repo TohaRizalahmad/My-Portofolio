@@ -1786,6 +1786,19 @@
       background: rgba(255, 255, 255, 0.21);
     }
 
+    .ext-link {
+      color: inherit;
+      text-decoration: underline;
+      text-underline-offset: 3px;
+      text-decoration-color: var(--border-glow);
+      transition: text-decoration-color .2s;
+    }
+
+    .ext-link:hover,
+    .ext-link:focus-visible {
+      text-decoration-color: currentColor;
+    }
+
     .pro-task-label {
       font-size: 10px;
       font-weight: 700;
@@ -2579,7 +2592,12 @@
     }
 
     .reveal.in {
-      animation: rise .65s cubic-bezier(.22, 1, .36, 1) var(--d, 0ms) backwards;
+      animation: rise .5s cubic-bezier(.22, 1, .36, 1) backwards;
+    }
+
+    /* elemen yang sudah terlewati (di atas layar) langsung tampil tanpa animasi */
+    .reveal.in.no-anim {
+      animation: none;
     }
 
     @keyframes rise {
@@ -3685,7 +3703,9 @@
                       <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b7">Establishing
-                            and coordinating operational cooperation with PT Teknologi Kartu Indonesia.
+                            and coordinating operational cooperation with <a class="ext-link"
+                              href="https://teknologikartu.com/" target="_blank" rel="noopener noreferrer">PT Teknologi
+                              Kartu Indonesia</a>.
                           </span></div>
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b8">Managing,
                             updating, and validating user data on the Smart School Platform.
@@ -3801,8 +3821,10 @@
                     </div>
                     <div class="career-info">
                       <div class="career-job-title">Web Developer</div>
-                      <div class="career-company">Yayasan Queen Al Falah Rumbia <span class="career-sep">|</span>
-                        Lampung Tengah</div>
+                      <div class="career-company"><a class="ext-link" href="https://www.alfalahrumbia.com"
+                          target="_blank" rel="noopener noreferrer">Yayasan Queen Al Falah Rumbia <span
+                            class="career-sep">|</span>
+                          Lampung Tengah</a></div>
                       <div class="career-meta">
                         Sep 2025 – Oct 2026
                         <span class="career-badge cbadge-green">On-site</span>
@@ -3824,7 +3846,9 @@
                       <div class="pro-task-label" data-i18n="exp.resp">Responsibilities</div>
                       <div class="pro-task-list">
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b4">Designing,
-                            developing, and maintaining the website www.alfalahrumbia.com as the foundation's
+                            developing, and maintaining the website <a class="ext-link"
+                              href="https://www.alfalahrumbia.com" target="_blank"
+                              rel="noopener noreferrer">www.alfalahrumbia.com</a> as the foundation's
                             information and digital publication medium.
                           </span></div>
                         <div class="pro-task"><span class="pro-task-dot"></span><span data-i18n="exp.b5">Developing,
@@ -3938,7 +3962,8 @@
                     </div>
                     <div class="career-info">
                       <div class="career-job-title">Universitas Terbuka</div>
-                      <div class="career-company career-company-edu">Bachelor's Degree · Information Systems (S.Kom)
+                      <div class="career-company career-company-edu" data-i18n="edu.degree">Bachelor's Degree ·
+                        Information Systems (S.Kom)
                       </div>
                       <div class="career-meta">
                         2025 – Sekarang
@@ -3975,7 +4000,8 @@
                     </div>
                     <div class="career-info">
                       <div class="career-job-title">SMK AL FALAH RUMBIA</div>
-                      <div class="career-company career-company-edu">Office Management and Business Services</div>
+                      <div class="career-company career-company-edu" data-i18n="edu.major">Office Management and
+                        Business Services</div>
                       <div class="career-meta">
                         2022 – 2025
                         <span>•</span>
@@ -4737,15 +4763,15 @@
         'bio1': 'Mahasiswa Sistem Informasi dengan minat besar pada teknologi digital, pengembangan website, dan solusi produktivitas perkantoran. Telah memperoleh pengalaman praktis dalam mengembangkan dan memelihara website, mengelola platform digital, menangani administrasi data, serta memberikan dukungan teknis.',
         'bio2': 'Memiliki keterampilan dalam teknologi pengembangan web seperti HTML, CSS, dan JavaScript, serta aplikasi produktivitas perkantoran seperti Microsoft Word, Excel, dan PowerPoint. Juga berpengalaman dalam pengelolaan dokumen, pengolahan data, pengelolaan media digital, dan pembuatan konten visual.',
         'bio3': 'Dengan kombinasi pengetahuan teknis, keterampilan administrasi, kreativitas, dan kemampuan beradaptasi, terus belajar dan mengembangkan kemampuan untuk menghadirkan solusi digital yang efektif serta mendukung alur kerja yang efisien dan berbasis teknologi.',
-        'exp.title': 'Pengalaman',
+        'exp.title': 'Pengalaman Kerja',
         'exp.resp': 'Tanggung Jawab',
         'exp.b1': 'Membangun website portofolio, company profile, dan landing page untuk berbagai klien.',
-        'exp.b2': 'Mengembangkan antarmuka responsif menggunakan HTML, CSS, JavaScript, dan Tailwind CSS.',
+        'exp.b2': 'Mengembangkan antarmuka responsif menggunakan HTML, CSS, dan JavaScript.',
         'exp.b3': 'Melakukan deployment ke GitHub dan Cloudflare serta konfigurasi domain Niagahoster.',
-        'exp.b4': 'Merancang, mengembangkan, dan memelihara website www.alfalahrumbia.com sebagai media informasi dan publikasi digital yayasan.',
+        'exp.b4': 'Merancang, mengembangkan, dan memelihara website <a class="ext-link" href="https://www.alfalahrumbia.com" target="_blank" rel="noopener noreferrer">www.alfalahrumbia.com</a> sebagai media informasi dan publikasi digital yayasan.',
         'exp.b5': 'Mengembangkan, memperbarui, dan mengoptimalkan fitur serta tampilan website.',
         'exp.b6': 'Mengelola publikasi, deployment, dan pemeliharaan website menggunakan GitHub dan Cloudflare.',
-        'exp.b7': 'Menjalin dan mengoordinasikan kerja sama operasional dengan PT Teknologi Kartu Indonesia.',
+        'exp.b7': 'Menjalin dan mengoordinasikan kerja sama operasional dengan <a class="ext-link" href="https://teknologikartu.com/" target="_blank" rel="noopener noreferrer">PT Teknologi Kartu Indonesia</a>.',
         'exp.b8': 'Mengelola, memperbarui, dan memvalidasi data pengguna (user) pada Platform Sekolah Pintar.',
         'exp.b9': 'Memberikan dukungan teknis kepada pengguna dalam pengoperasian sistem dan aplikasi digital.',
         'exp.b10': 'Mengidentifikasi, menganalisis, dan menangani kendala teknis pada sistem.',
@@ -4763,6 +4789,8 @@
         'exp.cs3': 'Menangani keluhan, kendala, dan permintaan revisi dari klien serta membantu menemukan solusi yang tepat.',
         'exp.cs4': 'Melakukan tindak lanjut (follow-up) terhadap setiap pesanan untuk memantau perkembangan pekerjaan dan memastikan penyelesaian sesuai tenggat waktu.',
         'edu.title': 'Riwayat Pendidikan',
+        'edu.degree': 'Sarjana · Sistem Informasi (S.Kom)',
+        'edu.major': 'Manajemen Perkantoran dan Layanan Bisnis',
         'org.title': 'Pengalaman Organisasi',
         'gpa': 'IPK',
         'gh.title': 'Statistik Akun GitHub',
@@ -4883,21 +4911,29 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       fitLinktree();
-      /* Linktree: animasi muncul saat di-scroll */
-      var items = document.querySelectorAll('.soc-grid > *');
+      /* Animasi muncul saat di-scroll (semua bagian, tanpa delay/stagger) */
+      var ITEM_SEL = '.prof-hero, .career-item, .cert-card, .proj-card, .tool-pill, .gh-header-wrap, .gh-graph-box, .gh-stat-card, .lb-row, .soc-card, .port-footer';
+      var items = Array.prototype.slice.call(document.querySelectorAll('.sec-head, ' + ITEM_SEL));
+      /* kartu pembungkus ikut dianimasikan hanya bila tidak berisi item di atas (hindari animasi ganda) */
+      document.querySelectorAll('.card').forEach(function (c) {
+        if (!c.querySelector(ITEM_SEL) && items.indexOf(c) < 0) items.push(c);
+      });
       items.forEach(function (el) { el.classList.add('reveal'); });
       if (!('IntersectionObserver' in window)) {
         items.forEach(function (el) { el.classList.add('in'); });
       } else {
         var io = new IntersectionObserver(function (entries) {
-          var n = 0;
           entries.forEach(function (e) {
-            if (!e.isIntersecting) return;
-            e.target.style.setProperty('--d', Math.min(n++ * 80, 720) + 'ms');
-            e.target.classList.add('in');
-            io.unobserve(e.target);
+            if (e.isIntersecting) {
+              e.target.classList.add('in');
+              io.unobserve(e.target);
+            } else if (e.boundingClientRect.bottom <= 0) {
+              /* sudah terlewati (mis. loncat via menu / reload di tengah halaman): tampil langsung */
+              e.target.classList.add('in', 'no-anim');
+              io.unobserve(e.target);
+            }
           });
-        }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+        }, { threshold: 0, rootMargin: '0px' });
         items.forEach(function (el) { io.observe(el); });
       }
 
