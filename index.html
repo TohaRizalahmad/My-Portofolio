@@ -958,6 +958,8 @@
 
     .cert-sub {
       margin: 4px 0 14px;
+      /* di HP, ikut diperkecil sama seperti judul kartu lain (nilai diisi oleh fitBlocks) */
+      zoom: var(--lbl-zoom, 1);
     }
 
     /* label di tengah, garis di kiri dan kanan */
@@ -970,12 +972,22 @@
       margin-top: 26px;
     }
 
-    .cert-sub-center::before,
-    .cert-sub-center::after {
+    /* garis pakai border (bukan background) supaya tetap terlihat saat diperkecil di HP */
+    .cert-sub::after,
+    .cert-sub-center::before {
       content: "";
       flex: 1;
-      height: 1px;
-      background: var(--border-glow);
+      height: 0;
+      background: none;
+      border-top: 1px solid var(--border-glow);
+    }
+
+    /* HP: judul sertifikat modul seukuran judul "GitHub Account Statistics" (16px x skala yang sama) */
+    @media (max-width: 768px) {
+      .cert-grid .cert-title {
+        font-size: calc(16px * var(--lbl-zoom, 1));
+        line-height: 1.35;
+      }
     }
 
     /* HP: kartu utama tetap menyamping (gambar di kiri, judul di kanan), ukuran kecil, sertifikat tampil utuh */
@@ -5106,6 +5118,13 @@
     }
     /* Projects & Tools: ukuran kartu sama dengan Linktree di HP (layout 708px, diperkecil dengan zoom yang sama) */
     function fitBlocks() {
+      /* skala judul kecil di Achievements (cert-sub) = skala yang dipakai kartu lain di HP */
+      var lz = 1, tsec = document.getElementById('tools');
+      if (tsec && window.innerWidth <= 768) {
+        var la = tsec.clientWidth - 32;
+        if (la > 0 && la < 708) lz = la / 708;
+      }
+      document.documentElement.style.setProperty('--lbl-zoom', lz);
       var blocks = [];
       /* Projects: satu card pembungkus (seperti Tools), seluruh card diperkecil bersama isinya */
       document.querySelectorAll('#projects .card').forEach(function (c) { blocks.push(c); });
