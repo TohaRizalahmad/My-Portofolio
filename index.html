@@ -965,30 +965,40 @@
       justify-content: center;
     }
 
-    .cert-sub-center::before {
+    /* garis pembatas Course Modules: lurus dan jelas di kiri & kanan label */
+    .cert-sub-center {
+      margin-top: 26px;
+    }
+
+    .cert-sub-center::before,
+    .cert-sub-center::after {
       content: "";
       flex: 1;
       height: 1px;
-      background: linear-gradient(270deg, var(--line-a), var(--line-b));
+      background: var(--border-glow);
     }
 
+    /* HP: kartu utama tetap menyamping (gambar di kiri, judul di kanan), ukuran kecil, sertifikat tampil utuh */
     @media (max-width: 640px) {
       .cert-card.cert-feature {
-        grid-template-columns: minmax(0, 1fr);
+        grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+        margin-bottom: 4px;
       }
 
       .cert-card.cert-feature .cert-img {
-        border-right: none;
-        border-bottom: 1px solid var(--border);
+        min-height: 0;
+        border-right: 1px solid var(--border);
+        border-bottom: none;
       }
 
       .cert-card.cert-feature .cert-body {
-        padding: 16px 18px;
+        padding: 10px 12px;
       }
 
       .cert-card.cert-feature .cert-title {
-        font-size: 16px;
-        margin-bottom: 12px;
+        font-size: 13px;
+        line-height: 1.3;
+        margin-bottom: 8px;
       }
     }
 
@@ -1508,6 +1518,7 @@
       .lb-media {
         flex: 0 0 auto;
         min-height: 160px;
+        border-top: 1px solid var(--border);
       }
 
       .lb-img {
