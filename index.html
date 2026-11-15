@@ -972,6 +972,15 @@
       margin-top: 26px;
     }
 
+    /* garis pembatas modul: hanya garis penuh, tanpa teks */
+    .cert-sub-center {
+      gap: 0;
+    }
+
+    .cert-sub-center::after {
+      display: none;
+    }
+
     /* garis pakai border (bukan background) supaya tetap terlihat saat diperkecil di HP */
     .cert-sub::after,
     .cert-sub-center::before {
@@ -3586,6 +3595,41 @@
         padding: 5px 10px;
         font-size: 8px;
       }
+
+      /* Footer sertifikat (desktop): "Course" kiri atas garis, "ISSUED ON ..." tengah di bawah garis */
+      .cert-card:not(.cert-feature) {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cert-card .cert-body {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .cert-card:not(.cert-feature) .cert-body {
+        flex: 1;
+      }
+
+      .cert-card .cert-footer {
+        margin-top: auto;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .cert-card .cert-year {
+        align-self: flex-start;
+        margin-bottom: 8px;
+      }
+
+      .cert-card .cert-type {
+        text-align: center;
+        width: calc(100% + 24px);
+        margin: 0 -12px -4px;
+        padding: 7px 4px 0;
+        border-top: 1px solid var(--border-lit);
+      }
     }
   </style>
 </head>
@@ -4220,6 +4264,131 @@
           </div>
 
           <div class="cert-group">
+            <h3 class="cert-group-title">Microsoft Office</h3>
+
+            <div class="card cert-wrap">
+              <div class="c-label cert-sub">Microsoft Word</div>
+
+              <!-- Sertifikat utama -->
+              <div class="cert-card cert-feature">
+                <div class="cert-img has-thumb" data-drive="1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo" data-category="Course"
+                  data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-ph">
+                    <span class="cert-ph-txt">Microsoft Word</span>
+                  </div>
+                  <img src="https://drive.google.com/thumbnail?id=1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo&amp;sz=w1200"
+                    alt="Microsoft Word" loading="lazy" onerror="this.remove()">
+                  <div class="cert-overlay">
+                    <div class="cert-overlay-btn">View Certificate</div>
+                  </div>
+                </div>
+                <div class="cert-body">
+                  <div class="cert-title">Microsoft Word</div>
+                  <div class="cert-footer">
+                    <span class="cert-year">Course</span>
+                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
+
+              <div class="cert-grid">
+
+                <div class="cert-card">
+                  <div class="cert-img has-thumb" data-drive="1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <img src="https://drive.google.com/thumbnail?id=1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp&amp;sz=w1200"
+                      alt="Creating and Managing Documents in Microsoft" loading="lazy" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Creating and Managing Documents in Microsoft</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cert-card">
+                  <div class="cert-img has-thumb" data-drive="1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <img src="https://drive.google.com/thumbnail?id=1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN&amp;sz=w1200"
+                      alt="Insert Text, Paragraph, and Tables in Microsoft" loading="lazy" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Insert Text, Paragraph, and Tables in Microsoft</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cert-card">
+                  <div class="cert-img has-thumb" data-drive="1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <img src="https://drive.google.com/thumbnail?id=1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy&amp;sz=w1200"
+                      alt="Create and Manage References in Microsoft Word" loading="lazy" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Create and Manage References in Microsoft Word</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cert-card">
+                  <div class="cert-img has-thumb" data-drive="1gzi3-iUmABu33IXn8DzsIiqkkfG771LL" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <img src="https://drive.google.com/thumbnail?id=1gzi3-iUmABu33IXn8DzsIiqkkfG771LL&amp;sz=w1200"
+                      alt="Create Custom Word Elements" loading="lazy" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Create Custom Word Elements</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="cert-card">
+                  <div class="cert-img has-thumb" data-drive="1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <img src="https://drive.google.com/thumbnail?id=1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh&amp;sz=w1200"
+                      alt="Create Custom Document Elements and Advanced" loading="lazy" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
+                  </div>
+                  <div class="cert-body">
+                    <div class="cert-title">Create Custom Document Elements and Advanced</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="cert-group">
             <h3 class="cert-group-title" data-i18n="cert.group.web">Website &amp; Apps Development</h3>
 
             <div class="card cert-wrap">
@@ -4247,7 +4416,7 @@
                 </div>
               </div>
 
-              <div class="c-label cert-sub cert-sub-center" data-i18n="cert.modules">Course Modules</div>
+              <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
 
               <div class="cert-grid">
 
