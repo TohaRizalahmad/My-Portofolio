@@ -307,11 +307,13 @@
       white-space: normal;
     }
 
-    .sb-a:hover {
-      color: var(--text);
-      background: rgba(255, 255, 255, .05);
-      border-color: var(--border-lit);
-      transform: translateY(-1px);
+    @media (hover: hover) and (pointer: fine) {
+      .sb-a:hover {
+        color: var(--text);
+        background: rgba(255, 255, 255, .05);
+        border-color: var(--border-lit);
+        transform: translateY(-1px);
+      }
     }
 
     .sb-a.active {
@@ -329,9 +331,14 @@
       transition: all .2s;
     }
 
-    .sb-a:hover .sb-icon,
     .sb-a.active .sb-icon {
       opacity: 1;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .sb-a:hover .sb-icon {
+        opacity: 1;
+      }
     }
 
     .sb-a.active .sb-icon {
@@ -366,11 +373,13 @@
       z-index: 1000;
     }
 
-    .sb-a:hover::after {
-      display: none;
-      opacity: 1;
-      visibility: visible;
-      transform: translateY(-50%) translateX(0);
+    @media (hover: hover) and (pointer: fine) {
+      .sb-a:hover::after {
+        display: none;
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(-50%) translateX(0);
+      }
     }
 
     /* Responsive mobile overlay */
@@ -435,9 +444,11 @@
       transition: all .2s;
     }
 
-    .mobbar-hamburger:hover {
-      border-color: var(--border-glow);
-      background: var(--blue-dim);
+    @media (hover: hover) and (pointer: fine) {
+      .mobbar-hamburger:hover {
+        border-color: var(--border-glow);
+        background: var(--blue-dim);
+      }
     }
 
     .mobbar-hamburger span {
@@ -539,10 +550,12 @@
       cursor: pointer;
     }
 
-    .btn:hover {
-      color: var(--text);
-      border-color: var(--border-glow);
-      background: rgba(255, 255, 255, 0.03);
+    @media (hover: hover) and (pointer: fine) {
+      .btn:hover {
+        color: var(--text);
+        border-color: var(--border-glow);
+        background: rgba(255, 255, 255, 0.03);
+      }
     }
 
     .section {
@@ -625,14 +638,18 @@
       pointer-events: none;
     }
 
-    .card:hover {
-      border-color: var(--border-lit);
-      box-shadow: var(--shadow-card);
-      transform: translateY(-2px);
+    @media (hover: hover) and (pointer: fine) {
+      .card:hover {
+        border-color: var(--border-lit);
+        box-shadow: var(--shadow-card);
+        transform: translateY(-2px);
+      }
     }
 
-    .card:hover::before {
-      opacity: 1;
+    @media (hover: hover) and (pointer: fine) {
+      .card:hover::before {
+        opacity: 1;
+      }
     }
 
     .c-label {
@@ -734,14 +751,18 @@
       transition: opacity .22s;
     }
 
-    .tool-pill:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-3px);
-      box-shadow: 0 12px 32px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+    @media (hover: hover) and (pointer: fine) {
+      .tool-pill:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-3px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, .4), 0 0 0 1px rgba(255, 255, 255, 0.06);
+      }
     }
 
-    .tool-pill:hover::after {
-      opacity: 1;
+    @media (hover: hover) and (pointer: fine) {
+      .tool-pill:hover::after {
+        opacity: 1;
+      }
     }
 
     .t-ico {
@@ -805,10 +826,12 @@
       flex-direction: column;
     }
 
-    .proj-card:hover {
-      border-color: var(--border-lit);
-      transform: translateY(-4px);
-      box-shadow: 0 20px 56px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, 0.072);
+    @media (hover: hover) and (pointer: fine) {
+      .proj-card:hover {
+        border-color: var(--border-lit);
+        transform: translateY(-4px);
+        box-shadow: 0 20px 56px rgba(0, 0, 0, .6), 0 0 0 1px rgba(255, 255, 255, 0.072);
+      }
     }
 
     .proj-status {
@@ -894,8 +917,10 @@
       letter-spacing: .4px;
     }
 
-    .proj-link:hover {
-      color: var(--blue-bright);
+    @media (hover: hover) and (pointer: fine) {
+      .proj-link:hover {
+        color: var(--blue-bright);
+      }
     }
 
     .cert-grid {
@@ -1031,10 +1056,12 @@
       transition: all .25s;
     }
 
-    .cert-card:hover {
-      border-color: var(--border-glow);
-      transform: translateY(-4px);
-      box-shadow: 0 16px 48px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, 0.09);
+    @media (hover: hover) and (pointer: fine) {
+      .cert-card:hover {
+        border-color: var(--border-glow);
+        transform: translateY(-4px);
+        box-shadow: 0 16px 48px rgba(0, 0, 0, .55), 0 0 0 1px rgba(255, 255, 255, 0.09);
+      }
     }
 
     .cert-img {
@@ -1111,8 +1138,10 @@
       cursor: pointer;
     }
 
-    .cert-card:hover .cert-overlay {
-      opacity: 1;
+    @media (hover: hover) and (pointer: fine) {
+      .cert-card:hover .cert-overlay {
+        opacity: 1;
+      }
     }
 
     .cert-overlay-btn {
@@ -1470,8 +1499,10 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .lb-close:hover {
-      background: rgba(255, 255, 255, .2);
+    @media (hover: hover) and (pointer: fine) {
+      .lb-close:hover {
+        background: rgba(255, 255, 255, .2);
+      }
     }
 
     .lb-title {
@@ -1903,8 +1934,10 @@
       border-radius: 2px;
     }
 
-    ::-webkit-scrollbar-thumb:hover {
-      background: rgba(255, 255, 255, 0.21);
+    @media (hover: hover) and (pointer: fine) {
+      ::-webkit-scrollbar-thumb:hover {
+        background: rgba(255, 255, 255, 0.21);
+      }
     }
 
     .ext-link {
@@ -1915,9 +1948,14 @@
       transition: text-decoration-color .2s;
     }
 
-    .ext-link:hover,
     .ext-link:focus-visible {
       text-decoration-color: currentColor;
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .ext-link:hover {
+        text-decoration-color: currentColor;
+      }
     }
 
     .pro-task-label {
@@ -1979,9 +2017,11 @@
       margin-bottom: 0;
     }
 
-    .career-item:hover {
-      border-color: var(--border-glow);
-      box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04);
+    @media (hover: hover) and (pointer: fine) {
+      .career-item:hover {
+        border-color: var(--border-glow);
+        box-shadow: 0 4px 20px rgba(255, 255, 255, 0.04);
+      }
     }
 
     .career-item-top {
@@ -2131,9 +2171,11 @@
       text-transform: uppercase;
     }
 
-    .career-toggle:hover {
-      color: var(--blue-bright);
-      background: var(--blue-glow);
+    @media (hover: hover) and (pointer: fine) {
+      .career-toggle:hover {
+        color: var(--blue-bright);
+        background: var(--blue-glow);
+      }
     }
 
     .career-toggle.open {
@@ -2170,11 +2212,18 @@
       text-transform: uppercase;
     }
 
-    .edu-toggle:hover,
     .edu-toggle.open {
       color: var(--blue-bright);
       background: var(--blue-glow);
       border-color: var(--blue-ring);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .edu-toggle:hover {
+        color: var(--blue-bright);
+        background: var(--blue-glow);
+        border-color: var(--blue-ring);
+      }
     }
 
     .edu-toggle svg {
@@ -2324,9 +2373,11 @@
       transition: all .2s;
     }
 
-    .gh-stat-card:hover {
-      background: rgba(255, 255, 255, .04);
-      border-color: var(--border-lit);
+    @media (hover: hover) and (pointer: fine) {
+      .gh-stat-card:hover {
+        background: rgba(255, 255, 255, .04);
+        border-color: var(--border-lit);
+      }
     }
 
     .gh-stat-lbl {
@@ -2791,8 +2842,10 @@
       border-radius: 6px;
     }
 
-    .proj-grid.collab .proj-link:hover {
-      background: rgba(255, 255, 255, 0.125);
+    @media (hover: hover) and (pointer: fine) {
+      .proj-grid.collab .proj-link:hover {
+        background: rgba(255, 255, 255, 0.125);
+      }
     }
 
     /* Tools: 5 ikon per baris, ikon seukuran ikon Linktree (kotak 56px, gambar 28px), nama di bawah ikon */
@@ -3053,8 +3106,10 @@
       -webkit-tap-highlight-color: transparent;
     }
 
-    .seg-btn:hover {
-      color: var(--text);
+    @media (hover: hover) and (pointer: fine) {
+      .seg-btn:hover {
+        color: var(--text);
+      }
     }
 
     .seg-btn.active {
@@ -3151,8 +3206,10 @@
       background: rgba(255, 255, 255, 0.97);
     }
 
-    [data-theme="light"] .sb-a:hover {
-      background: rgba(31, 35, 40, .05);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .sb-a:hover {
+        background: rgba(31, 35, 40, .05);
+      }
     }
 
     [data-theme="light"] .sb-a.active {
@@ -3172,8 +3229,10 @@
       background: rgba(31, 35, 40, .4);
     }
 
-    [data-theme="light"] .btn:hover {
-      background: rgba(31, 35, 40, 0.04);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .btn:hover {
+        background: rgba(31, 35, 40, 0.04);
+      }
     }
 
     [data-theme="light"] .card::before {
@@ -3193,16 +3252,22 @@
       background: linear-gradient(135deg, rgba(31, 35, 40, 0.03), transparent);
     }
 
-    [data-theme="light"] .tool-pill:hover {
-      box-shadow: 0 10px 28px rgba(31, 35, 40, .14), 0 0 0 1px rgba(31, 35, 40, 0.06);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .tool-pill:hover {
+        box-shadow: 0 10px 28px rgba(31, 35, 40, .14), 0 0 0 1px rgba(31, 35, 40, 0.06);
+      }
     }
 
-    [data-theme="light"] .proj-card:hover {
-      box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.07);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .proj-card:hover {
+        box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.07);
+      }
     }
 
-    [data-theme="light"] .cert-card:hover {
-      box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.08);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .cert-card:hover {
+        box-shadow: 0 14px 36px rgba(31, 35, 40, .16), 0 0 0 1px rgba(31, 35, 40, 0.08);
+      }
     }
 
     [data-theme="light"] .cert-img {
@@ -3230,8 +3295,10 @@
       background: rgba(31, 35, 40, .08);
     }
 
-    [data-theme="light"] .lb-close:hover {
-      background: rgba(31, 35, 40, .16);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .lb-close:hover {
+        background: rgba(31, 35, 40, .16);
+      }
     }
 
     @media (max-width: 768px) {
@@ -3249,24 +3316,30 @@
       background: rgba(31, 35, 40, 0.18);
     }
 
-    [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
-      background: rgba(31, 35, 40, 0.32);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] ::-webkit-scrollbar-thumb:hover {
+        background: rgba(31, 35, 40, 0.32);
+      }
     }
 
     [data-theme="light"] .career-item {
       background: rgba(31, 35, 40, .02);
     }
 
-    [data-theme="light"] .career-item:hover {
-      box-shadow: 0 4px 20px rgba(31, 35, 40, 0.08);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .career-item:hover {
+        box-shadow: 0 4px 20px rgba(31, 35, 40, 0.08);
+      }
     }
 
     [data-theme="light"] .gh-stat-card {
       background: rgba(31, 35, 40, .025);
     }
 
-    [data-theme="light"] .gh-stat-card:hover {
-      background: rgba(31, 35, 40, .05);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .gh-stat-card:hover {
+        background: rgba(31, 35, 40, .05);
+      }
     }
 
     [data-theme="light"] .gh-graph-box {
@@ -3277,8 +3350,10 @@
       color: #1a7f37;
     }
 
-    [data-theme="light"] .proj-grid.collab .proj-link:hover {
-      background: rgba(31, 35, 40, 0.07);
+    @media (hover: hover) and (pointer: fine) {
+      [data-theme="light"] .proj-grid.collab .proj-link:hover {
+        background: rgba(31, 35, 40, 0.07);
+      }
     }
 
     [data-theme="light"] .card.fit-m .t-ico {
@@ -3444,8 +3519,10 @@
       transition: all .2s;
     }
 
-    .dz-nav:hover {
-      border-color: var(--border-glow);
+    @media (hover: hover) and (pointer: fine) {
+      .dz-nav:hover {
+        border-color: var(--border-glow);
+      }
     }
 
     .dz-prev {
@@ -3741,9 +3818,12 @@
       z-index: 1001;
     }
 
-    .lightbox>.lb-close:hover,
-    [data-theme="light"] .lightbox>.lb-close:hover {
-      background: #000;
+    @media (hover: hover) and (pointer: fine) {
+
+      .lightbox>.lb-close:hover,
+      [data-theme="light"] .lightbox>.lb-close:hover {
+        background: #000;
+      }
     }
   </style>
 </head>
