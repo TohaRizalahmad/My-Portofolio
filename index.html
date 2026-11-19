@@ -3671,6 +3671,80 @@
         margin-right: auto;
       }
     }
+
+    /* Desktop: kartu sertifikat utama 2 per baris, kartu modul 6 per baris */
+    @media (min-width: 769px) {
+      .cert-feature-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 16px;
+        margin-bottom: 22px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature {
+        max-width: none;
+        margin: 0;
+      }
+
+      .cert-feature-row .cert-card.cert-feature:last-child:nth-child(odd) {
+        grid-column: 1 / -1;
+        justify-self: center;
+        width: calc((100% - 16px) / 2);
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-img {
+        min-height: 150px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-body {
+        padding: 18px 22px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-title {
+        font-size: 18px;
+        margin-bottom: 12px;
+      }
+
+      .cert-grid {
+        grid-template-columns: repeat(6, minmax(0, 1fr));
+        gap: 8px;
+      }
+
+      .cert-grid .cert-title {
+        font-size: 10.5px;
+        line-height: 1.35;
+      }
+    }
+
+    /* Sudut sertifikat: sedikit lancip (mobile & desktop) */
+    .cert-card,
+    .cert-card.cert-feature {
+      border-radius: 6px;
+    }
+
+    .card.cert-wrap {
+      border-radius: 10px;
+    }
+
+    /* Tombol tutup pop-up sertifikat: selalu tampil di pojok layar, tidak ikut ter-scroll */
+    .lightbox>.lb-close,
+    [data-theme="light"] .lightbox>.lb-close {
+      position: fixed;
+      top: calc(env(safe-area-inset-top, 0px) + 14px);
+      right: 14px;
+      width: 44px;
+      height: 44px;
+      font-size: 18px;
+      color: #fff;
+      background: rgba(1, 4, 9, .9);
+      border: 1px solid rgba(255, 255, 255, .4);
+      z-index: 1001;
+    }
+
+    .lightbox>.lb-close:hover,
+    [data-theme="light"] .lightbox>.lb-close:hover {
+      background: #000;
+    }
   </style>
 </head>
 
@@ -3685,8 +3759,8 @@
   <div class="bg-noise"></div>
 
   <div class="lightbox" id="lightbox" onclick="closeLb(event)">
+    <button class="lb-close" onclick="closeLb()" aria-label="Tutup sertifikat" title="Tutup (Esc)">✕</button>
     <div class="lb-modal" role="dialog" aria-modal="true" aria-labelledby="lb-title">
-      <button class="lb-close" onclick="closeLb()" aria-label="Close">✕</button>
       <div class="lb-media" id="lb-media">
         <img class="lb-img" id="lb-img" src="" alt="" hidden>
         <div class="lb-state" id="lb-state">Loading certificate…</div>
@@ -4310,45 +4384,47 @@
               <div class="c-label cert-sub" aria-hidden="true"></div>
 
               <!-- Sertifikat utama -->
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Microsoft Word</span>
+              <div class="cert-feature-row">
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Microsoft Word</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo&amp;sz=w900"
+                      alt="Microsoft Word" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo&amp;sz=w900"
-                    alt="Microsoft Word" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Microsoft Word</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Microsoft Word</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <!-- Sertifikat utama PowerPoint -->
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="16QCrwWDYphzewjrLpBdgIG55NnOuumZO" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Microsoft PowerPoint</span>
+                <!-- Sertifikat utama PowerPoint -->
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="16QCrwWDYphzewjrLpBdgIG55NnOuumZO" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Microsoft PowerPoint</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=16QCrwWDYphzewjrLpBdgIG55NnOuumZO&amp;sz=w900"
+                      alt="Microsoft PowerPoint" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=16QCrwWDYphzewjrLpBdgIG55NnOuumZO&amp;sz=w900"
-                    alt="Microsoft PowerPoint" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
-                  </div>
-                </div>
-                <div class="cert-body">
-                  <div class="cert-title">Microsoft PowerPoint</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                  <div class="cert-body">
+                    <div class="cert-title">Microsoft PowerPoint</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4560,23 +4636,25 @@
               <div class="c-label cert-sub" aria-hidden="true"></div>
 
               <!-- Sertifikat utama -->
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Website Development Fundamental</span>
+              <div class="cert-feature-row">
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Website Development Fundamental</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK&amp;sz=w900"
+                      alt="Website Development Fundamental" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK&amp;sz=w900"
-                    alt="Website Development Fundamental" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
-                  </div>
-                </div>
-                <div class="cert-body">
-                  <div class="cert-title">Website Development Fundamental</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                  <div class="cert-body">
+                    <div class="cert-title">Website Development Fundamental</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -4759,128 +4837,130 @@
               <div class="c-label cert-sub" aria-hidden="true"></div>
 
               <!-- Sertifikat utama -->
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Graphic Design Fundamental</span>
+              <div class="cert-feature-row">
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Graphic Design Fundamental</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB&amp;sz=w900"
+                      alt="Graphic Design Fundamental" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB&amp;sz=w900"
-                    alt="Graphic Design Fundamental" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Graphic Design Fundamental</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Graphic Design Fundamental</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Perkenalan Aplikasi Visual Canva</span>
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Perkenalan Aplikasi Visual Canva</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z&amp;sz=w900"
+                      alt="Perkenalan Aplikasi Visual Canva" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z&amp;sz=w900"
-                    alt="Perkenalan Aplikasi Visual Canva" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Perkenalan Aplikasi Visual Canva</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Perkenalan Aplikasi Visual Canva</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Pengetahuan Dasar Guru</span>
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Pengetahuan Dasar Guru</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy&amp;sz=w900"
+                      alt="Pengetahuan Dasar Guru" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy&amp;sz=w900"
-                    alt="Pengetahuan Dasar Guru" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Pengetahuan Dasar Guru</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Pengetahuan Dasar Guru</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Dasar-Dasar AI 2026</span>
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Dasar-Dasar AI 2026</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK&amp;sz=w900"
+                      alt="Dasar-Dasar AI 2026" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK&amp;sz=w900"
-                    alt="Dasar-Dasar AI 2026" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Dasar-Dasar AI 2026</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Dasar-Dasar AI 2026</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Kampanye Kreatif Skala Besar</span>
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Kampanye Kreatif Skala Besar</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx&amp;sz=w900"
+                      alt="Kampanye Kreatif Skala Besar" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx&amp;sz=w900"
-                    alt="Kampanye Kreatif Skala Besar" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
+                  <div class="cert-body">
+                    <div class="cert-title">Kampanye Kreatif Skala Besar</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
-                <div class="cert-body">
-                  <div class="cert-title">Kampanye Kreatif Skala Besar</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                  </div>
-                </div>
-              </div>
 
-              <div class="cert-card cert-feature">
-                <div class="cert-img has-thumb" data-drive="1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb" data-category="Course"
-                  data-date="November 2026" onclick="openLb(this)">
-                  <div class="cert-ph">
-                    <span class="cert-ph-txt">Buat Konten Memikat</span>
+                <div class="cert-card cert-feature">
+                  <div class="cert-img has-thumb" data-drive="1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb" data-category="Course"
+                    data-date="November 2026" onclick="openLb(this)">
+                    <div class="cert-ph">
+                      <span class="cert-ph-txt">Buat Konten Memikat</span>
+                    </div>
+                    <img src="https://drive.google.com/thumbnail?id=1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb&amp;sz=w900"
+                      alt="Buat Konten Memikat" loading="lazy" decoding="async" onerror="this.remove()">
+                    <div class="cert-overlay">
+                      <div class="cert-overlay-btn">View Certificate</div>
+                    </div>
                   </div>
-                  <img src="https://drive.google.com/thumbnail?id=1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb&amp;sz=w900"
-                    alt="Buat Konten Memikat" loading="lazy" decoding="async" onerror="this.remove()">
-                  <div class="cert-overlay">
-                    <div class="cert-overlay-btn">View Certificate</div>
-                  </div>
-                </div>
-                <div class="cert-body">
-                  <div class="cert-title">Buat Konten Memikat</div>
-                  <div class="cert-footer">
-                    <span class="cert-year">Course</span>
-                    <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                  <div class="cert-body">
+                    <div class="cert-title">Buat Konten Memikat</div>
+                    <div class="cert-footer">
+                      <span class="cert-year">Course</span>
+                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    </div>
                   </div>
                 </div>
               </div>
@@ -6177,13 +6257,30 @@
       img.alt = title;
       img.src = src;
 
-      document.getElementById('lightbox').classList.add('open');
+      const lbEl = document.getElementById('lightbox');
+      if (!lbEl.classList.contains('open')) {
+        // tombol Back (HP/browser) menutup pop-up, bukan keluar dari halaman
+        try { history.pushState({ lb: 1 }, ''); } catch (err) { }
+      }
+      lbEl.classList.add('open');
       document.body.style.overflow = 'hidden';
     }
     function resetLb() {
-      document.getElementById('lightbox').classList.remove('open');
+      const lbEl = document.getElementById('lightbox');
+      const wasOpen = lbEl.classList.contains('open');
+      lbEl.classList.remove('open');
       document.body.style.overflow = '';
+      if (wasOpen && history.state && history.state.lb) {
+        try { history.back(); } catch (err) { }
+      }
     }
+    window.addEventListener('popstate', () => {
+      const lbEl = document.getElementById('lightbox');
+      if (lbEl.classList.contains('open')) {
+        lbEl.classList.remove('open');
+        document.body.style.overflow = '';
+      }
+    });
     function closeLb(e) {
       if (e && e.target !== document.getElementById('lightbox')) return;
       resetLb();
