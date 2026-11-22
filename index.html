@@ -3825,6 +3825,314 @@
         background: #000;
       }
     }
+
+    /* ======= Achievements: tombol buka/tutup sertifikat kecil ======= */
+    .cert-toggle {
+      width: 100%;
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      color: var(--muted2);
+      font-size: 10px;
+      font-family: var(--font-m);
+      font-weight: 500;
+      cursor: pointer;
+      padding: 10px 16px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: color .2s, background .2s, border-color .2s;
+      letter-spacing: .5px;
+      text-transform: uppercase;
+      zoom: var(--prof-zoom, 1);
+    }
+
+    .cert-toggle.open {
+      color: var(--blue-bright);
+      background: var(--blue-glow);
+      border-color: var(--blue-ring);
+    }
+
+    @media (hover: hover) and (pointer: fine) {
+      .cert-toggle:hover {
+        color: var(--blue-bright);
+        background: var(--blue-glow);
+        border-color: var(--blue-ring);
+      }
+    }
+
+    .cert-toggle svg {
+      width: 13px;
+      height: 13px;
+      transition: transform .25s;
+      flex-shrink: 0;
+    }
+
+    .cert-toggle.open svg {
+      transform: rotate(180deg);
+    }
+
+    .cert-more {
+      display: grid;
+      grid-template-rows: 0fr;
+      opacity: 0;
+      transition: grid-template-rows .4s ease, opacity .3s ease;
+    }
+
+    .cert-more.open {
+      grid-template-rows: 1fr;
+      opacity: 1;
+    }
+
+    .cert-more-inner {
+      min-height: 0;
+      overflow: hidden;
+    }
+
+    .cert-more-inner>.cert-grid {
+      margin-top: 12px;
+    }
+
+    /* Judul section di HP: ikon sama seperti di navbar */
+    .sec-ico {
+      display: none;
+    }
+
+    @media (max-width: 768px) {
+      .sec-title {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .sec-ico {
+        display: block;
+        width: 22px;
+        height: 22px;
+        flex-shrink: 0;
+        color: var(--blue-bright);
+      }
+    }
+
+    /* Ikon di judul card Work Experience / Education / Organizational */
+    .c-label .c-ico {
+      width: 15px;
+      height: 15px;
+      flex-shrink: 0;
+    }
+
+    /* ======= Card Residence History (timeline) ======= */
+    .res-sub {
+      font-size: 11px;
+      color: var(--muted2);
+      margin: -6px 0 16px;
+      line-height: 1.5;
+    }
+
+    .res-timeline {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      padding-left: 26px;
+    }
+
+    .res-timeline::before {
+      content: "";
+      position: absolute;
+      left: 5px;
+      top: 22px;
+      bottom: 22px;
+      width: 2px;
+      border-radius: 2px;
+      background: var(--border-lit);
+    }
+
+    .res-entry {
+      position: relative;
+    }
+
+    .res-entry::before {
+      content: "";
+      position: absolute;
+      left: -26px;
+      top: 20px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: var(--muted2);
+      border: 2px solid var(--bg-card);
+      box-sizing: border-box;
+      z-index: 1;
+    }
+
+    .res-entry.current::before {
+      background: #3fb950;
+      box-shadow: 0 0 0 3px rgba(63, 185, 80, .2);
+    }
+
+    [data-theme="light"] .res-entry.current::before {
+      background: #1a7f37;
+      box-shadow: 0 0 0 3px rgba(26, 127, 55, .18);
+    }
+
+    .res-timeline .career-item {
+      margin-bottom: 0;
+    }
+
+    .res-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 6px;
+    }
+
+    .res-head .career-job-title {
+      margin-bottom: 0;
+    }
+
+    .res-head .career-badge {
+      flex-shrink: 0;
+    }
+
+    .res-row {
+      display: flex;
+      align-items: flex-start;
+      gap: 7px;
+      line-height: 1.5;
+    }
+
+    .res-row svg {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      margin-top: 2px;
+      color: var(--muted2);
+    }
+
+    .res-loc {
+      font-size: 11px;
+      color: var(--muted);
+      margin-bottom: 4px;
+    }
+
+    .res-date {
+      font-size: 10px;
+      font-family: var(--font-m);
+      color: var(--muted2);
+    }
+
+    /* Ikon judul dalam kotak berbingkai, teks judul sejajar tengah (atas-bawah) */
+    .c-label .c-ico {
+      width: 28px;
+      height: 28px;
+      padding: 6px;
+      box-sizing: border-box;
+      border: 1px solid var(--border-lit);
+      border-radius: 8px;
+      background: var(--blue-dim);
+    }
+
+    @media (max-width: 768px) {
+      .sec-title {
+        gap: 12px;
+      }
+
+      .sec-ico {
+        width: 38px;
+        height: 38px;
+        padding: 9px;
+        box-sizing: border-box;
+        border: 1px solid var(--border-lit);
+        border-radius: 10px;
+        background: var(--blue-dim);
+      }
+    }
+
+    /* ======= Achievements: sertifikat utama (di luar Show Certificates) =======
+       Desktop: 3 per baris, ukuran lebih kecil. HP: 2 per baris. */
+    @media (min-width: 769px) {
+      .cert-feature-row {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 12px;
+        margin-bottom: 22px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature,
+      .cert-feature-row .cert-card.cert-feature:last-child:nth-child(odd) {
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: auto 1fr;
+        flex: 0 0 auto;
+        width: calc((100% - 24px) / 3);
+        grid-column: auto;
+        justify-self: auto;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-img {
+        min-height: 110px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-body {
+        justify-content: flex-start;
+        padding: 10px 12px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-title {
+        font-size: 11.5px;
+        line-height: 1.35;
+        margin-bottom: 8px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .cert-feature-row {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 8px;
+        margin-bottom: 6px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature {
+        display: flex;
+        flex-direction: column;
+        margin: 0;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-img {
+        min-height: 78px;
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-body {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding: 8px 8px 10px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-title {
+        font-size: 11px;
+        line-height: 1.3;
+        margin-bottom: 6px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-year {
+        font-size: 8px;
+        padding: 2px 6px;
+      }
+
+      .cert-feature-row .cert-card.cert-feature .cert-type {
+        font-size: 7.5px;
+      }
+    }
   </style>
 </head>
 
@@ -3878,56 +4186,71 @@
       <nav class="sb-nav">
         <a class="sb-a active" id="sba-profile" onclick="navTo('profile',this)" title="Profile" data-tooltip="Profile"
           aria-label="Profile">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="8" r="4" />
-            <path d="M4 20c0-4 3.6-7 8-7s8 3 8 7" />
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="12" cy="7" r="4" />
+            <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" />
           </svg>
           <span class="sb-text">Profile</span>
         </a>
         <a class="sb-a" id="sba-achievement" onclick="navTo('achievement',this)" title="Achievements"
           data-tooltip="Achievements" aria-label="Achievements">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="12" cy="8" r="6" />
-            <path d="M15.477 12.89 17 22l-5-3-5 3 1.523-9.11" />
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <circle cx="15" cy="15" r="3" />
+            <path d="M13 17.5V22l2-1.5 2 1.5v-4.5" />
+            <path d="M10 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-1 1.73" />
+            <path d="M6 9h12" />
+            <path d="M6 12h3" />
+            <path d="M6 15h2" />
           </svg>
           <span class="sb-text">Achievements</span>
         </a>
         <a class="sb-a" id="sba-toolslist" onclick="navTo('toolslist',this)" title="Tools, Platforms &amp; Skills"
           data-tooltip="Tools, Platforms &amp; Skills" aria-label="Tools, Platforms &amp; Skills">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <path
-              d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z" />
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="m18 16 4-4-4-4" />
+            <path d="m6 8-4 4 4 4" />
+            <path d="m14.5 4-5 16" />
           </svg>
           <span class="sb-text">Tools, Platforms &amp; Skills</span>
         </a>
         <a class="sb-a" id="sba-dashboard" onclick="navTo('dashboard',this)" title="Dashboard" data-tooltip="Dashboard"
           aria-label="Dashboard">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="3" y="3" width="18" height="18" rx="2" ry="2" />
-            <line x1="3" y1="9" x2="21" y2="9" />
-            <line x1="9" y1="21" x2="9" y2="9" />
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <rect width="7" height="7" x="3" y="3" rx="1" />
+            <rect width="7" height="7" x="14" y="3" rx="1" />
+            <rect width="7" height="7" x="14" y="14" rx="1" />
+            <rect width="7" height="7" x="3" y="14" rx="1" />
           </svg>
           <span class="sb-text">Dashboard</span>
         </a>
         <a class="sb-a" id="sba-projects" onclick="navTo('projects',this)" title="Projects &amp; Creative Works"
           data-tooltip="Projects &amp; Creative Works" aria-label="Projects &amp; Creative Works">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <rect x="2" y="3" width="20" height="14" rx="2" />
-            <path d="M8 21h8M12 17v4" />
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path
+              d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+            <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+            <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
           </svg>
           <span class="sb-text">Projects &amp; Creative Works</span>
         </a>
 
 
-        <a class="sb-a" id="sba-social" onclick="navTo('social',this)" title="Social Media" data-tooltip="Social Media"
-          aria-label="Social Media">
-          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
-            <circle cx="18" cy="5" r="3" />
-            <circle cx="6" cy="12" r="3" />
-            <circle cx="18" cy="19" r="3" />
-            <path d="m8.59 13.51 6.83 3.98M15.41 6.51l-6.82 3.98" />
+        <a class="sb-a" id="sba-social" onclick="navTo('social',this)" title="Contact" data-tooltip="Contact"
+          aria-label="Contact">
+          <svg class="sb-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"
+            stroke-linecap="round" stroke-linejoin="round">
+            <path d="M16 2v2" />
+            <path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+            <path d="M8 2v2" />
+            <circle cx="12" cy="11" r="3" />
+            <rect width="18" height="18" x="3" y="4" rx="2" />
           </svg>
-          <span class="sb-text">Social Media</span>
+          <span class="sb-text">Contact</span>
         </a>
       </nav>
 
@@ -3998,11 +4321,6 @@
             <div class="hero-info">
               <div class="hero-name-row">
                 <h1 class="hero-name">Toha Rizal Ahmad</h1>
-                <svg class="hero-verified" viewBox="0 0 24 24" fill="none">
-                  <circle cx="12" cy="12" r="10" fill="#2563EB" opacity=".9" />
-                  <path d="M8 12l3 3 5-5" stroke="#fff" stroke-width="2" stroke-linecap="round"
-                    stroke-linejoin="round" />
-                </svg>
               </div>
               <div class="hero-role-pill">
                 <span>@toha.rizalahmad_</span>
@@ -4027,7 +4345,65 @@
           <div class="career-cards-wrap" style="display:grid; grid-template-columns:1fr; gap:12px;">
 
             <div class="card">
-              <div class="c-label" data-i18n="exp.title">Work Experience</div>
+              <div class="c-label"><svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
+                  <circle cx="12" cy="10" r="3" />
+                </svg><span data-i18n="res.title">Residence History</span></div>
+              <div class="res-sub" data-i18n="res.sub">Places of residence</div>
+              <div class="res-timeline">
+                <div class="res-entry current">
+                  <div class="career-item">
+                    <div class="career-item-top">
+                      <div class="career-info">
+                        <div class="res-head">
+                          <div class="career-job-title">Sriwijaya Mataram</div>
+                          <span class="career-badge cbadge-green">● <span data-i18n="res.cur">Current</span></span>
+                        </div>
+                        <div class="res-row res-loc"><span>Bandar Mataram, Lampung Tengah, Lampung</span></div>
+                        <div class="res-row res-date"><span>Oct 2026 – Sekarang</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="res-entry">
+                  <div class="career-item">
+                    <div class="career-item-top">
+                      <div class="career-info">
+                        <div class="res-head">
+                          <div class="career-job-title">Teluk Dalem Ilir</div>
+
+                        </div>
+                        <div class="res-row res-loc"><span>Rumbia, Lampung Tengah, Lampung</span></div>
+                        <div class="res-row res-date"><span>Jun 2019 – Oct 2026</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="res-entry">
+                  <div class="career-item">
+                    <div class="career-item-top">
+                      <div class="career-info">
+                        <div class="res-head">
+                          <div class="career-job-title">Sriwijaya Mataram</div>
+
+                        </div>
+                        <div class="res-row res-loc"><span>Bandar Mataram, Lampung Tengah, Lampung</span></div>
+                        <div class="res-row res-date"><span>Nov 2006 – Jun 2019</span></div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="c-label"><svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 20V4a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16" />
+                  <rect width="20" height="14" x="2" y="6" rx="2" />
+                </svg><span data-i18n="exp.title">Work Experience</span></div>
               <div class="career-body" style="padding:0;">
                 <div class="career-item" style="margin-top:10px;">
                   <div class="career-item-top">
@@ -4307,7 +4683,13 @@
             </div>
 
             <div class="card">
-              <div class="c-label" data-i18n="edu.title">Education History</div>
+              <div class="c-label"><svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path
+                    d="M21.42 10.922a1 1 0 0 0-.019-1.838L12.83 5.18a2 2 0 0 0-1.66 0L2.6 9.08a1 1 0 0 0 0 1.832l8.57 3.908a2 2 0 0 0 1.66 0z" />
+                  <path d="M22 10v6" />
+                  <path d="M6 12.5V16a6 3 0 0 0 12 0v-3.5" />
+                </svg><span data-i18n="edu.title">Education History</span></div>
               <div class="career-body"
                 style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
                 <div class="career-item">
@@ -4318,12 +4700,12 @@
                     <div class="career-info">
                       <div class="career-job-title">Universitas Terbuka</div>
                       <div class="career-company career-company-edu" data-i18n="edu.degree">Bachelor's Degree ·
-                        Information Systems (S.Kom)
+                        Information Systems
                       </div>
                       <div class="career-meta">
                         2025 – Sekarang
                         <span>•</span>
-                        Lampung Tengah
+                        UPBJJ Bandar Lampung
                         <span class="career-badge cbadge-blue">● <span data-i18n="gpa">GPA</span> 4.00/4.00</span>
                         <span class="career-badge cbadge-green">● Active</span>
                       </div>
@@ -4431,7 +4813,13 @@
             </div>
 
             <div class="card">
-              <div class="c-label" data-i18n="org.title">Organizational Experience</div>
+              <div class="c-label"><svg class="c-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                  stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2" />
+                  <circle cx="9" cy="7" r="4" />
+                  <path d="M22 21v-2a4 4 0 0 0-3-3.87" />
+                  <path d="M16 3.13a4 4 0 0 1 0 7.75" />
+                </svg><span data-i18n="org.title">Organizational Experience</span></div>
               <div class="career-body"
                 style="padding:0; display:flex; flex-direction:column; gap:12px; margin-top:10px;">
                 <div class="career-item">
@@ -4454,7 +4842,15 @@
       <section id="tools" class="section">
         <div id="achievement" class="sub-block">
           <div class="sec-head">
-            <div class="sec-title">Achievements</div>
+            <div class="sec-title"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="15" cy="15" r="3" />
+                <path d="M13 17.5V22l2-1.5 2 1.5v-4.5" />
+                <path d="M10 19H5a2 2 0 0 1-2-2V7a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2v10a2 2 0 0 1-1 1.73" />
+                <path d="M6 9h12" />
+                <path d="M6 12h3" />
+                <path d="M6 15h2" />
+              </svg>Achievements</div>
           </div>
 
           <div class="cert-group">
@@ -4511,98 +4907,107 @@
 
               <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
 
-              <div class="cert-grid">
+              <button type="button" class="cert-toggle" data-count="5" onclick="certToggle(this)"
+                aria-expanded="false"><span>Show Certificates (5)</span><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6" />
+                </svg></button>
+              <div class="cert-more">
+                <div class="cert-more-inner">
+                  <div class="cert-grid">
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp&amp;sz=w500"
-                      alt="Creating and Managing Documents in Microsoft" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp&amp;sz=w500"
+                          alt="Creating and Managing Documents in Microsoft" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Creating and Managing Documents in Microsoft</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Creating and Managing Documents in Microsoft</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN&amp;sz=w500"
-                      alt="Insert Text, Paragraph, and Tables in Microsoft" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN&amp;sz=w500"
+                          alt="Insert Text, Paragraph, and Tables in Microsoft" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Insert Text, Paragraph, and Tables in Microsoft</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Insert Text, Paragraph, and Tables in Microsoft</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy&amp;sz=w500"
-                      alt="Create and Manage References in Microsoft Word" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy&amp;sz=w500"
+                          alt="Create and Manage References in Microsoft Word" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Create and Manage References in Microsoft Word</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Create and Manage References in Microsoft Word</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1gzi3-iUmABu33IXn8DzsIiqkkfG771LL" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1gzi3-iUmABu33IXn8DzsIiqkkfG771LL&amp;sz=w500"
-                      alt="Create Custom Word Elements" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1gzi3-iUmABu33IXn8DzsIiqkkfG771LL"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1gzi3-iUmABu33IXn8DzsIiqkkfG771LL&amp;sz=w500"
+                          alt="Create Custom Word Elements" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Create Custom Word Elements</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Create Custom Word Elements</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh&amp;sz=w500"
-                      alt="Create Custom Document Elements and Advanced" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Create Custom Document Elements and Advanced</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh&amp;sz=w500"
+                          alt="Create Custom Document Elements and Advanced" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Create Custom Document Elements and Advanced</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4611,97 +5016,106 @@
               <!-- Microsoft PowerPoint -->
               <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
 
-              <div class="cert-grid">
+              <button type="button" class="cert-toggle" data-count="5" onclick="certToggle(this)"
+                aria-expanded="false"><span>Show Certificates (5)</span><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6" />
+                </svg></button>
+              <div class="cert-more">
+                <div class="cert-more-inner">
+                  <div class="cert-grid">
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy&amp;sz=w500"
-                      alt="Introduction to Microsoft PowerPoint" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy&amp;sz=w500"
+                          alt="Introduction to Microsoft PowerPoint" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Introduction to Microsoft PowerPoint</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Introduction to Microsoft PowerPoint</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0&amp;sz=w500"
-                      alt="Managing Presentation" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0&amp;sz=w500"
+                          alt="Managing Presentation" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Managing Presentation</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Managing Presentation</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="185ARqnjra_O78Naxxpdaajg9isLcW2N4" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=185ARqnjra_O78Naxxpdaajg9isLcW2N4&amp;sz=w500"
-                      alt="Managing Slides" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="185ARqnjra_O78Naxxpdaajg9isLcW2N4"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=185ARqnjra_O78Naxxpdaajg9isLcW2N4&amp;sz=w500"
+                          alt="Managing Slides" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Managing Slides</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Managing Slides</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP&amp;sz=w500"
-                      alt="Insert and Format Text, Shape, Media" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP&amp;sz=w500"
+                          alt="Insert and Format Text, Shape, Media" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Insert and Format Text, Shape, Media</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Insert and Format Text, Shape, Media</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720&amp;sz=w500"
-                      alt="Insert Table, Chart, SmartArt, 3D Model" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Insert Table, Chart, SmartArt, 3D Model</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720&amp;sz=w500"
+                          alt="Insert Table, Chart, SmartArt, 3D Model" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Insert Table, Chart, SmartArt, 3D Model</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -4741,171 +5155,182 @@
 
               <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
 
-              <div class="cert-grid">
+              <button type="button" class="cert-toggle" data-count="9" onclick="certToggle(this)"
+                aria-expanded="false"><span>Show Certificates (9)</span><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6" />
+                </svg></button>
+              <div class="cert-more">
+                <div class="cert-more-inner">
+                  <div class="cert-grid">
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w500"
-                      alt="Internet Introduction" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w500"
+                          alt="Internet Introduction" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Internet Introduction</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Internet Introduction</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w500"
+                          alt="Front-End Development Introduction" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Front-End Development Introduction</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w500"
+                          alt="Back-End Development Introduction" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Back-End Development Introduction</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ&amp;sz=w500"
+                          alt="API Introduction" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">API Introduction</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1hAk0SQeXNHbybmddqLDXV-YPquCVEok9"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1hAk0SQeXNHbybmddqLDXV-YPquCVEok9&amp;sz=w500"
+                          alt="How Website Development Works" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">How Website Development Works</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj&amp;sz=w500"
+                          alt="Introduction to Cloud" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Introduction to Cloud</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A&amp;sz=w500"
+                          alt="Integrated Development Environment and Text Editor" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Integrated Development Environment and Text Editor</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0&amp;sz=w500"
+                          alt="Responsive Website Design" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Responsive Website Design</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL&amp;sz=w500"
+                          alt="Career in Website Development" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Career in Website Development</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
+                    </div>
+
                   </div>
                 </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w500"
-                      alt="Front-End Development Introduction" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Front-End Development Introduction</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w500"
-                      alt="Back-End Development Introduction" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Back-End Development Introduction</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ&amp;sz=w500"
-                      alt="API Introduction" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">API Introduction</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1hAk0SQeXNHbybmddqLDXV-YPquCVEok9" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1hAk0SQeXNHbybmddqLDXV-YPquCVEok9&amp;sz=w500"
-                      alt="How Website Development Works" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">How Website Development Works</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj&amp;sz=w500"
-                      alt="Introduction to Cloud" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Introduction to Cloud</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A&amp;sz=w500"
-                      alt="Integrated Development Environment and Text Editor" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Integrated Development Environment and Text Editor</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0&amp;sz=w500"
-                      alt="Responsive Website Design" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Responsive Website Design</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL&amp;sz=w500"
-                      alt="Career in Website Development" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Career in Website Development</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
-
               </div>
             </div>
           </div>
@@ -5047,310 +5472,320 @@
 
               <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
 
-              <div class="cert-grid">
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8&amp;sz=w500"
-                      alt="Design Principles" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+              <button type="button" class="cert-toggle" data-count="17" onclick="certToggle(this)"
+                aria-expanded="false"><span>Show Certificates (17)</span><svg viewBox="0 0 24 24" fill="none"
+                  stroke="currentColor" stroke-width="2">
+                  <path d="m6 9 6 6 6-6" />
+                </svg></button>
+              <div class="cert-more">
+                <div class="cert-more-inner">
+                  <div class="cert-grid">
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8&amp;sz=w500"
+                          alt="Design Principles" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Design Principles</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Design Principles</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH&amp;sz=w500"
-                      alt="Design Element" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH&amp;sz=w500"
+                          alt="Design Element" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Design Element</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Design Element</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE&amp;sz=w500"
-                      alt="Design Terminology" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE&amp;sz=w500"
+                          alt="Design Terminology" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Design Terminology</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Design Terminology</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc&amp;sz=w500"
-                      alt="Line, Shape, and Form" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc&amp;sz=w500"
+                          alt="Line, Shape, and Form" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Line, Shape, and Form</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Line, Shape, and Form</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7&amp;sz=w500"
-                      alt="Colours" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7&amp;sz=w500"
+                          alt="Colours" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Colours</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Colours</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1espLmnGTB928gNVMvrYEtwC3U5uHf1d4" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1espLmnGTB928gNVMvrYEtwC3U5uHf1d4&amp;sz=w500"
-                      alt="Typography" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1espLmnGTB928gNVMvrYEtwC3U5uHf1d4"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1espLmnGTB928gNVMvrYEtwC3U5uHf1d4&amp;sz=w500"
+                          alt="Typography" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Typography</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Typography</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad&amp;sz=w500"
-                      alt="Hierarchy and Composition" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad&amp;sz=w500"
+                          alt="Hierarchy and Composition" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Hierarchy and Composition</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Hierarchy and Composition</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3&amp;sz=w500"
-                      alt="Logo Design" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3&amp;sz=w500"
+                          alt="Logo Design" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Logo Design</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Logo Design</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g&amp;sz=w500"
-                      alt="Brand Identity Design" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g&amp;sz=w500"
+                          alt="Brand Identity Design" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Brand Identity Design</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Brand Identity Design</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc&amp;sz=w500"
-                      alt="Designing Brand Identity" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc&amp;sz=w500"
+                          alt="Designing Brand Identity" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Designing Brand Identity</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Designing Brand Identity</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W&amp;sz=w500"
-                      alt="Brand Guideline Design" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W&amp;sz=w500"
+                          alt="Brand Guideline Design" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Brand Guideline Design</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Brand Guideline Design</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1AVHMIEd-jVExernuytJptCuc7JrlsXfE" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1AVHMIEd-jVExernuytJptCuc7JrlsXfE&amp;sz=w500"
-                      alt="Design Styles" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1AVHMIEd-jVExernuytJptCuc7JrlsXfE"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1AVHMIEd-jVExernuytJptCuc7JrlsXfE&amp;sz=w500"
+                          alt="Design Styles" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Design Styles</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Design Styles</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh&amp;sz=w500"
-                      alt="Creative Brief" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh&amp;sz=w500"
+                          alt="Creative Brief" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Creative Brief</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Creative Brief</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl&amp;sz=w500"
-                      alt="Graphic Design Resources" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl&amp;sz=w500"
+                          alt="Graphic Design Resources" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Graphic Design Resources</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Graphic Design Resources</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY&amp;sz=w500"
-                      alt="Intellectual Property, Copyright &amp; License" loading="lazy" decoding="async"
-                      onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY&amp;sz=w500"
+                          alt="Intellectual Property, Copyright &amp; License" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Intellectual Property, Copyright &amp; License</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Intellectual Property, Copyright &amp; License</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7&amp;sz=w500"
-                      alt="Creativity and Creative Block" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7&amp;sz=w500"
+                          alt="Creativity and Creative Block" loading="lazy" decoding="async" onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Creativity and Creative Block</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Creativity and Creative Block</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
-                    </div>
-                  </div>
-                </div>
 
-                <div class="cert-card">
-                  <div class="cert-img has-thumb" data-drive="1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
-                    <img src="https://drive.google.com/thumbnail?id=1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P&amp;sz=w500"
-                      alt="Graphic Design Career Opportunity" loading="lazy" decoding="async" onerror="this.remove()">
-                    <div class="cert-overlay">
-                      <div class="cert-overlay-btn">View Certificate</div>
-                    </div>
-                  </div>
-                  <div class="cert-body">
-                    <div class="cert-title">Graphic Design Career Opportunity</div>
-                    <div class="cert-footer">
-                      <span class="cert-year">Course</span>
-                      <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                    <div class="cert-card">
+                      <div class="cert-img has-thumb" data-drive="1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P"
+                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                        <img src="https://drive.google.com/thumbnail?id=1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P&amp;sz=w500"
+                          alt="Graphic Design Career Opportunity" loading="lazy" decoding="async"
+                          onerror="this.remove()">
+                        <div class="cert-overlay">
+                          <div class="cert-overlay-btn">View Certificate</div>
+                        </div>
+                      </div>
+                      <div class="cert-body">
+                        <div class="cert-title">Graphic Design Career Opportunity</div>
+                        <div class="cert-footer">
+                          <span class="cert-year">Course</span>
+                          <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
+                        </div>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -5363,7 +5798,12 @@
 
         <div id="toolslist" class="sub-block" style="display:flex;flex-direction:column;gap:24px;margin-top:28px;">
           <div class="sec-head">
-            <div class="sec-title">Tools, Platforms &amp; Skills</div>
+            <div class="sec-title"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="m18 16 4-4-4-4" />
+                <path d="m6 8-4 4 4 4" />
+                <path d="m14.5 4-5 16" />
+              </svg>Tools, Platforms &amp; Skills</div>
           </div>
 
           <div class="card">
@@ -5574,7 +6014,13 @@
 
         <div id="dashboard" class="sub-block" style="margin-top:28px;">
           <div class="sec-head">
-            <div class="sec-title">Dashboard</div>
+            <div class="sec-title"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect width="7" height="7" x="3" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="3" rx="1" />
+                <rect width="7" height="7" x="14" y="14" rx="1" />
+                <rect width="7" height="7" x="3" y="14" rx="1" />
+              </svg>Dashboard</div>
           </div>
 
           <div class="card" style="padding:24px; margin-bottom:12px;">
@@ -5653,7 +6099,13 @@
 
       <section id="projects" class="section">
         <div class="sec-head">
-          <div class="sec-title">Projects &amp; Creative Works</div>
+          <div class="sec-title"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path
+                d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z" />
+              <path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65" />
+              <path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65" />
+            </svg>Projects &amp; Creative Works</div>
         </div>
 
         <div class="card">
@@ -5837,7 +6289,14 @@
 
       <section id="social" class="section">
         <div class="sec-head">
-          <div class="sec-title">Social Media</div>
+          <div class="sec-title"><svg class="sec-ico" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+              stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M16 2v2" />
+              <path d="M7 22v-2a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v2" />
+              <path d="M8 2v2" />
+              <circle cx="12" cy="11" r="3" />
+              <rect width="18" height="18" x="3" y="4" rx="2" />
+            </svg>Contact</div>
         </div>
 
         <div class="soc-grid">
@@ -5937,12 +6396,14 @@
   </div>
 
   <script>
-    /* ---- Bahasa EN/ID: hanya bagian tertentu yang diterjemahkan ---- */
     var I18N = {
       en: {}, id: {
         'bio1': 'Mahasiswa Sistem Informasi dengan minat besar pada teknologi digital, pengembangan website, dan solusi produktivitas perkantoran. Telah memperoleh pengalaman praktis dalam mengembangkan dan memelihara website, mengelola platform digital, menangani administrasi data, serta memberikan dukungan teknis.',
         'bio2': 'Memiliki keterampilan dalam teknologi pengembangan web seperti HTML, CSS, dan JavaScript, serta aplikasi produktivitas perkantoran seperti Microsoft Word, Excel, dan PowerPoint. Juga berpengalaman dalam pengelolaan dokumen, pengolahan data, pengelolaan media digital, dan pembuatan konten visual.',
         'bio3': 'Dengan kombinasi pengetahuan teknis, keterampilan administrasi, kreativitas, dan kemampuan beradaptasi, terus belajar dan mengembangkan kemampuan untuk menghadirkan solusi digital yang efektif serta mendukung alur kerja yang efisien dan berbasis teknologi.',
+        'res.title': 'Riwayat Tempat Tinggal',
+        'res.sub': 'Riwayat domisili',
+        'res.cur': 'Saat Ini',
         'exp.title': 'Pengalaman Kerja',
         'exp.resp': 'Tanggung Jawab',
         'exp.b1': 'Membangun website portofolio, company profile, dan landing page untuk berbagai klien.',
@@ -5969,7 +6430,7 @@
         'exp.cs3': 'Menangani keluhan, kendala, dan permintaan revisi dari klien serta membantu menemukan solusi yang tepat.',
         'exp.cs4': 'Melakukan tindak lanjut (follow-up) terhadap setiap pesanan untuk memantau perkembangan pekerjaan dan memastikan penyelesaian sesuai tenggat waktu.',
         'edu.title': 'Riwayat Pendidikan',
-        'edu.degree': 'Sarjana · Sistem Informasi (S.Kom)',
+        'edu.degree': 'Sarjana · Sistem Informasi',
         'edu.major': 'Manajemen Perkantoran dan Layanan Bisnis',
         'cert.modules': 'Modul Kursus',
         'cert.group.web': 'Pengembangan Website &amp; Aplikasi',
@@ -5986,11 +6447,10 @@
       }
     };
     var UI = {
-      en: { careerShow: 'Show Details', careerHide: 'Hide Details', eduShow: 'View Previous Education', eduHide: 'Hide' },
-      id: { careerShow: 'Lihat Detail Pekerjaan', careerHide: 'Sembunyikan Detail', eduShow: 'Lihat Pendidikan Sebelumnya', eduHide: 'Sembunyikan' }
+      en: { careerShow: 'Show Details', careerHide: 'Hide Details', eduShow: 'View Previous Education', eduHide: 'Hide', certShow: 'Show Certificates', certHide: 'Hide Certificates' },
+      id: { careerShow: 'Lihat Detail Pekerjaan', careerHide: 'Sembunyikan Detail', eduShow: 'Lihat Pendidikan Sebelumnya', eduHide: 'Sembunyikan', certShow: 'Tampilkan Sertifikat', certHide: 'Sembunyikan Sertifikat' }
     };
     var LANG = 'en';
-    /* Teks Inggris diambil dari HTML apa adanya (jadi HTML tetap sumber bahasa Inggris) */
     document.querySelectorAll('[data-i18n]').forEach(function (el) {
       if (!(el.dataset.i18n in I18N.en)) I18N.en[el.dataset.i18n] = el.innerHTML.trim();
     });
@@ -6006,6 +6466,10 @@
       document.querySelectorAll('.edu-toggle span').forEach(function (l) {
         l.textContent = l.parentElement.classList.contains('open') ? T('eduHide') : T('eduShow');
       });
+      document.querySelectorAll('.cert-toggle span').forEach(function (l) {
+        var b = l.parentElement;
+        l.textContent = (b.classList.contains('open') ? T('certHide') : T('certShow')) + ' (' + b.dataset.count + ')';
+      });
       document.querySelectorAll('.seg-btn[data-lang]').forEach(function (b) {
         var on = b.dataset.lang === lang;
         b.classList.toggle('active', on);
@@ -6016,7 +6480,6 @@
     document.querySelectorAll('.seg-btn[data-lang]').forEach(function (b) {
       b.addEventListener('click', function () { setLang(b.dataset.lang); });
     });
-    /* ---- Tema Dark/Light ---- */
     function setTheme(t) {
       t = (t === 'light') ? 'light' : 'dark';
       document.documentElement.setAttribute('data-theme', t);
@@ -6041,7 +6504,6 @@
     document.documentElement.classList.add('js');
     var pfYear = document.getElementById('pf-year');
     if (pfYear) pfYear.textContent = new Date().getFullYear();
-    /* Linktree: di HP, tampilan desktop (lebar 740px) diperkecil agar pas, sama seperti Linktree-main */
     function fitLinktree() {
       var g = document.querySelector('.soc-grid');
       if (!g) return;
@@ -6049,7 +6511,7 @@
       g.style.zoom = '';
       g.style.width = '';
       g.style.maxWidth = '';
-      var avail = g.parentElement.clientWidth - 32; /* dikurangi padding section (16px kiri-kanan) */
+      var avail = g.parentElement.clientWidth - 32;
       if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
         g.classList.add('zoomed');
         g.style.maxWidth = 'none';
@@ -6057,17 +6519,20 @@
         g.style.zoom = avail / 708;
       }
     }
-    /* Projects & Tools: ukuran kartu sama dengan Linktree di HP (layout 708px, diperkecil dengan zoom yang sama) */
     function fitBlocks() {
-      /* skala judul kecil di Achievements (cert-sub) = skala yang dipakai kartu lain di HP */
       var lz = 1, tsec = document.getElementById('tools');
       if (tsec && window.innerWidth <= 768) {
         var la = tsec.clientWidth - 32;
         if (la > 0 && la < 708) lz = la / 708;
       }
       document.documentElement.style.setProperty('--lbl-zoom', lz);
+      var pz = 1;
+      if (tsec && window.innerWidth <= 768) {
+        var pa = tsec.clientWidth - 32;
+        if (pa > 0 && pa < 560) pz = pa / 560;
+      }
+      document.documentElement.style.setProperty('--prof-zoom', pz);
       var blocks = [];
-      /* Projects: satu card pembungkus (seperti Tools), seluruh card diperkecil bersama isinya */
       document.querySelectorAll('#projects .card').forEach(function (c) { blocks.push(c); });
       document.querySelectorAll('#tools .card').forEach(function (c) { if (c.querySelector('.tools-grid')) blocks.push(c); });
       document.querySelectorAll('#dashboard .card').forEach(function (c) { blocks.push(c); });
@@ -6078,13 +6543,14 @@
         var sec = el.closest('.section');
         var avail = sec ? sec.clientWidth - 32 : 0;
 
-        if (window.innerWidth <= 768 && avail > 0 && avail < 708) {
+        var base = el.closest('#profile') ? 560 : 708;
+
+        if (window.innerWidth <= 768 && avail > 0 && avail < base) {
           el.classList.add('fit-m');
           el.style.maxWidth = 'none';
-          el.style.width = '708px';
-          el.style.zoom = avail / 708;
+          el.style.width = base + 'px';
+          el.style.zoom = avail / base;
         }
-        /* grid proyek di dalam card ikut gaya ukuran HP (tanpa zoom sendiri) */
         el.querySelectorAll('.proj-grid').forEach(function (g) {
           g.classList.toggle('fit-m', el.classList.contains('fit-m'));
         });
@@ -6093,8 +6559,6 @@
     window.addEventListener('load', fitBlocks);
     document.addEventListener('DOMContentLoaded', fitBlocks);
     window.addEventListener('load', fitLinktree);
-    /* HP: bar alamat browser muncul/hilang saat scroll memicu 'resize' (hanya tinggi berubah).
-       Itu tidak perlu menghitung ulang zoom, jadi hanya proses ulang kalau LEBAR berubah, dan ditunda sebentar. */
     var lastFitW = window.innerWidth, fitTimer = null;
     function refit() { fitBlocks(); fitLinktree(); }
     window.addEventListener('resize', function () {
@@ -6107,10 +6571,8 @@
 
     document.addEventListener('DOMContentLoaded', function () {
       fitLinktree();
-      /* Animasi muncul saat di-scroll (semua bagian, tanpa delay/stagger) */
       var ITEM_SEL = '.prof-hero, .career-item, .cert-card, .proj-card, .tool-pill, .gh-header-wrap, .gh-graph-box, .gh-stat-card, .lb-row, .soc-card, .port-footer';
       var items = Array.prototype.slice.call(document.querySelectorAll('.sec-head, ' + ITEM_SEL));
-      /* kartu pembungkus ikut dianimasikan hanya bila tidak berisi item di atas (hindari animasi ganda) */
       document.querySelectorAll('.card').forEach(function (c) {
         if (!c.querySelector(ITEM_SEL) && items.indexOf(c) < 0) items.push(c);
       });
@@ -6124,7 +6586,6 @@
               e.target.classList.add('in');
               io.unobserve(e.target);
             } else if (e.boundingClientRect.bottom <= 0) {
-              /* sudah terlewati (mis. loncat via menu / reload di tengah halaman): tampil langsung */
               e.target.classList.add('in', 'no-anim');
               io.unobserve(e.target);
             }
@@ -6133,7 +6594,6 @@
         items.forEach(function (el) { io.observe(el); });
       }
 
-      /* Linktree: tombol salin email */
       var btn = document.getElementById('copy');
       if (btn) {
         btn.addEventListener('click', function () {
@@ -6149,7 +6609,6 @@
         });
       }
 
-      /* Linktree: tombol salin ID game */
       document.querySelectorAll('.copy[data-copy]').forEach(function (b) {
         var label = b.textContent;
         b.addEventListener('click', function () {
@@ -6194,6 +6653,17 @@
       if (label) label.textContent = isOpen ? T('eduShow') : T('eduHide');
     }
 
+    function certToggle(btn) {
+      const more = btn.nextElementSibling;
+      if (!more) return;
+      const isOpen = more.classList.contains('open');
+      more.classList.toggle('open');
+      btn.classList.toggle('open');
+      btn.setAttribute('aria-expanded', !isOpen);
+      const label = btn.querySelector('span');
+      if (label) label.textContent = (isOpen ? T('certShow') : T('certHide')) + ' (' + btn.dataset.count + ')';
+    }
+
     function careerToggle(btn) {
       const detail = btn.nextElementSibling;
       if (!detail) return;
@@ -6204,7 +6674,6 @@
       if (label) label.textContent = isOpen ? T('careerShow') : T('careerHide');
     }
 
-    /* ---- Mobile sidebar toggle ---- */
     function toggleMobileSidebar() {
       const sb = document.getElementById('mainSidebar');
       const ov = document.getElementById('sbOverlay');
@@ -6226,18 +6695,15 @@
       document.body.style.overflow = '';
     }
 
-    /* ---- Navigate to section and highlight nav item ---- */
     let navLock = 0;
     function navTo(id, el) {
       navLock = Date.now() + 1000;
       if (id === 'toolslist') setTimeout(animBars, 100);
       if (id === 'profile') setTimeout(animCounters, 100);
 
-      // Update active state
       document.querySelectorAll('.sb-a').forEach(a => a.classList.remove('active'));
       if (el) el.classList.add('active');
 
-      // Scroll to section
       const target = document.getElementById(id);
       if (target) {
         const offset = 20;
@@ -6248,11 +6714,9 @@
         window.scrollTo({ top: offsetPosition, behavior: 'smooth' });
       }
 
-      // Close sidebar on mobile after nav
       if (window.innerWidth <= 768) setTimeout(closeSidebar, 200);
     }
 
-    /* Keep nav() alias for any existing refs */
     function nav(id, el) { navTo(id, el); }
 
     function initObserver() {
@@ -6308,7 +6772,6 @@
       const state = document.getElementById('lb-state');
       const driveId = wrap.dataset.drive;
 
-      // Detail di panel samping (baris kosong otomatis disembunyikan)
       document.getElementById('lb-title').textContent = title;
       document.getElementById('lb-issuer').textContent = wrap.dataset.issuer || '';
       [['credential', 'credential'], ['type', 'type'], ['category', 'category'], ['date', 'date']].forEach(([id, key]) => {
@@ -6317,7 +6780,6 @@
         document.getElementById('lb-row-' + id).hidden = !val;
       });
 
-      // Gambar sertifikat (pratinjau besar, tanpa tombol ke Google Drive)
       const thumb = wrap.querySelector('img');
       const src = driveId
         ? 'https://drive.google.com/thumbnail?id=' + driveId + '&sz=w1600'
@@ -6339,7 +6801,6 @@
 
       const lbEl = document.getElementById('lightbox');
       if (!lbEl.classList.contains('open')) {
-        // tombol Back (HP/browser) menutup pop-up, bukan keluar dari halaman
         try { history.pushState({ lb: 1 }, ''); } catch (err) { }
       }
       lbEl.classList.add('open');
@@ -6383,14 +6844,11 @@
         b.style.width = '0%';
       });
       initObserver();
-      // Update cert count badge in sidebar
       const certCount = document.querySelectorAll('.cert-card').length;
       const badge = document.getElementById('sb-cert-count');
       if (badge && certCount > 0) badge.textContent = certCount;
     });
 
-    // Ambil JSON dengan cache 1 jam (localStorage) agar tidak kena batas permintaan GitHub API
-    // dan tetap menampilkan data lama jika jaringan/API sedang bermasalah.
     function cachedJSON(url) {
       var key = 'cj:' + url, now = Date.now(), cached = null;
       try { cached = JSON.parse(localStorage.getItem(key) || 'null'); } catch (e) { }
@@ -6419,7 +6877,7 @@
         'default': '#8b949e'
       };
       var langEl = document.getElementById("lang-content");
-      if (!langEl || langEl.closest('.card').style.display === 'none') return; // kartu bahasa disembunyikan: tidak perlu memanggil API
+      if (!langEl || langEl.closest('.card').style.display === 'none') return;
       cachedJSON("https://api.github.com/users/" + USERNAME + "/repos?per_page=100&type=public")
         .then(function (r) { return r.json(); })
         .then(function (repos) {
@@ -6453,7 +6911,6 @@
       let CELL = isMobile ? 10 : 13, GAP = isMobile ? 3 : 4, STEP = CELL + GAP;
       let lastWeeks = null;
 
-      /* Desktop: ukuran kotak menyesuaikan lebar kartu supaya grafik memenuhi lebar (tidak ada ruang kosong di kanan) */
       function calcSizes() {
         const wrap = document.getElementById('gh-canvas-wrap');
         GAP = isMobile ? 3 : 4;
@@ -6551,7 +7008,6 @@
 
         const wrap = document.getElementById('gh-canvas-wrap');
         if (wrap) {
-          // ensure it scrolls to the very end
           requestAnimationFrame(() => {
             wrap.scrollLeft = wrap.scrollWidth;
           });
@@ -6608,7 +7064,6 @@
         draw(weeks);
       }
 
-      // Fetch User Repo count
       cachedJSON(`https://api.github.com/users/${USERNAME}`)
         .then(data => {
           if (data.public_repos !== undefined) document.getElementById('gh-vals-repos').textContent = data.public_repos;
@@ -6641,7 +7096,6 @@
           if (weeks) {
             draw(weeks);
 
-            // Interaction logic
             const pill = document.getElementById('gh-graph-pill');
             const canvas = document.getElementById('gh-graph');
             if (canvas && pill) {
@@ -6674,8 +7128,6 @@
   </script>
 
   <script>
-    /* ---- Carousel galeri (3 kartu, tengah besar, loop) ----
-       Isi daftar ID file Google Drive (bagian setelah /d/ pada link). File harus "Siapa saja yang memiliki link". */
     var DESIGN_DRIVE_IDS = [
       '1zvPN-31y17rQuTqMNKnacVM-J2r2UtjG',
       '1G04acC9Ca54oYXQf2687VODhxonn8nYA',
@@ -6742,7 +7194,6 @@
         if (e.key === 'ArrowRight') { e.preventDefault(); go(1); }
         if (e.key === 'ArrowLeft') { e.preventDefault(); go(-1); }
       });
-      /* geser dengan jari / mouse; klik kartu samping untuk memindahkannya ke tengah */
       var sx = null, moved = false;
       stage.addEventListener('pointerdown', function (e) { sx = e.clientX; moved = false; stage.classList.add('dragging'); });
       window.addEventListener('pointerup', function (e) {
