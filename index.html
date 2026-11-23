@@ -2198,7 +2198,7 @@
       background: none;
       border: 1px solid var(--border);
       border-radius: 12px;
-      color: var(--muted2);
+      color: var(--text);
       font-size: 10px;
       font-family: var(--font-m);
       font-weight: 500;
@@ -3832,7 +3832,7 @@
       background: none;
       border: 1px solid var(--border);
       border-radius: 12px;
-      color: var(--muted2);
+      color: var(--text);
       font-size: 10px;
       font-family: var(--font-m);
       font-weight: 500;
@@ -3848,14 +3848,14 @@
     }
 
     .cert-toggle.open {
-      color: var(--blue-bright);
+      color: var(--text);
       background: var(--blue-glow);
       border-color: var(--blue-ring);
     }
 
     @media (hover: hover) and (pointer: fine) {
       .cert-toggle:hover {
-        color: var(--blue-bright);
+        color: var(--text);
         background: var(--blue-glow);
         border-color: var(--blue-ring);
       }
@@ -4131,6 +4131,48 @@
 
       .cert-feature-row .cert-card.cert-feature .cert-type {
         font-size: 7.5px;
+      }
+    }
+
+    /* ======= Credential ID di atas garis "ISSUED ON" (selalu 1 baris, ukuran seragam) ======= */
+    /* Ukuran font mengikuti lebar wadah sertifikat (bukan tiap kartu), jadi semua kartu
+       - utama maupun biasa - memakai ukuran yang sama dan ID terpanjang tetap muat 1 baris. */
+    .cert-wrap {
+      container-type: inline-size;
+    }
+
+    .cert-cred {
+      display: block;
+      font-family: var(--font-m);
+      font-size: 5px;
+      font-size: calc(var(--cred-k, 0.45) * 1cqw);
+      line-height: 1.3;
+      letter-spacing: 0;
+      color: var(--muted2);
+      text-align: center;
+      white-space: nowrap;
+      overflow: hidden;
+      width: calc(100% + 24px);
+      margin: 8px -12px 0;
+      padding: 6px 2px 6px;
+      border-top: 1px solid var(--border-lit);
+    }
+
+    @media (max-width: 768px) {
+      .cert-cred {
+        --cred-k: 1.0;
+        width: calc(100% + 16px);
+        margin: 1px -8px 0;
+        padding: 4px 1px 4px;
+      }
+
+      .cert-cred+.cert-type {
+        margin-top: -4px;
+      }
+
+      /* baris footer yang membungkus tidak ikut melar (hindari celah di atas/bawah Credential ID) */
+      .cert-card .cert-footer {
+        align-content: flex-start;
       }
     }
   </style>
@@ -4862,8 +4904,9 @@
               <!-- Sertifikat utama -->
               <div class="cert-feature-row">
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="MS-20261114-ss82y6CuLnhYWBMLGAPo"
+                    data-drive="1_6oxTJnkyHV09_om7A6W7RAbZbJQZvwo" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Microsoft Word</span>
                     </div>
@@ -4877,6 +4920,7 @@
                     <div class="cert-title">Microsoft Word</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: MS-20261114-ss82y6CuLnhYWBMLGAPo</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
@@ -4884,8 +4928,9 @@
 
                 <!-- Sertifikat utama PowerPoint -->
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="16QCrwWDYphzewjrLpBdgIG55NnOuumZO" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="MS-20261118-B0yfTfXyiDTYh68qvsbD"
+                    data-drive="16QCrwWDYphzewjrLpBdgIG55NnOuumZO" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Microsoft PowerPoint</span>
                     </div>
@@ -4899,6 +4944,7 @@
                     <div class="cert-title">Microsoft PowerPoint</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: MS-20261118-B0yfTfXyiDTYh68qvsbD</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
@@ -4917,8 +4963,9 @@
                   <div class="cert-grid">
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-QyuNLHYUfFHEqueLGV5E"
+                        data-drive="1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1zaswP3ucNdfRTHcrHGX_EZa80KGwfbfp&amp;sz=w500"
                           alt="Creating and Managing Documents in Microsoft" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -4930,14 +4977,16 @@
                         <div class="cert-title">Creating and Managing Documents in Microsoft</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-QyuNLHYUfFHEqueLGV5E</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-t6oA60V4FMxv5nV1Pjwg"
+                        data-drive="1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1ofSM4emmcwhyKFI8YzRYrhGStNM6gYzN&amp;sz=w500"
                           alt="Insert Text, Paragraph, and Tables in Microsoft" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -4949,14 +4998,16 @@
                         <div class="cert-title">Insert Text, Paragraph, and Tables in Microsoft</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-t6oA60V4FMxv5nV1Pjwg</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-DAzetquJDTbYkWmmKInH"
+                        data-drive="1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1P90cqCZXlu0OiP5cY6drBaOzf1QXvsIy&amp;sz=w500"
                           alt="Create and Manage References in Microsoft Word" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -4968,14 +5019,16 @@
                         <div class="cert-title">Create and Manage References in Microsoft Word</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-DAzetquJDTbYkWmmKInH</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1gzi3-iUmABu33IXn8DzsIiqkkfG771LL"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-eiG9bbdCmgT4TSCbuNuM"
+                        data-drive="1gzi3-iUmABu33IXn8DzsIiqkkfG771LL" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1gzi3-iUmABu33IXn8DzsIiqkkfG771LL&amp;sz=w500"
                           alt="Create Custom Word Elements" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -4986,14 +5039,16 @@
                         <div class="cert-title">Create Custom Word Elements</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-eiG9bbdCmgT4TSCbuNuM</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-vMhgmPQXKy8mQc7BoXgW"
+                        data-drive="1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1sNm1IXVEalyU-1fSG6AEgdIh-FqT4bsh&amp;sz=w500"
                           alt="Create Custom Document Elements and Advanced" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5005,6 +5060,7 @@
                         <div class="cert-title">Create Custom Document Elements and Advanced</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-vMhgmPQXKy8mQc7BoXgW</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
@@ -5026,8 +5082,9 @@
                   <div class="cert-grid">
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261118-xNnhzDZLclXOq2ebSnUw"
+                        data-drive="1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1drMvh5Vl4BUVJrZ0psNTSXDR1ZUOKbdy&amp;sz=w500"
                           alt="Introduction to Microsoft PowerPoint" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5039,14 +5096,16 @@
                         <div class="cert-title">Introduction to Microsoft PowerPoint</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261118-xNnhzDZLclXOq2ebSnUw</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261118-vXQqTF1mQLZ4lgEDoXMI"
+                        data-drive="1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1ZfGsD_XWGdKCgp_Si2LhegIvqrVuQis0&amp;sz=w500"
                           alt="Managing Presentation" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5057,14 +5116,16 @@
                         <div class="cert-title">Managing Presentation</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261118-vXQqTF1mQLZ4lgEDoXMI</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="185ARqnjra_O78Naxxpdaajg9isLcW2N4"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261118-PplGfysgtU9b81sTH90a"
+                        data-drive="185ARqnjra_O78Naxxpdaajg9isLcW2N4" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=185ARqnjra_O78Naxxpdaajg9isLcW2N4&amp;sz=w500"
                           alt="Managing Slides" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5075,14 +5136,16 @@
                         <div class="cert-title">Managing Slides</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261118-PplGfysgtU9b81sTH90a</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261118-1jLYkobqJLDU5KMUTJUk"
+                        data-drive="187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=187ikiR24FnhuG3Jj4uIcw7rRlsm1Z9QP&amp;sz=w500"
                           alt="Insert and Format Text, Shape, Media" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5094,14 +5157,16 @@
                         <div class="cert-title">Insert and Format Text, Shape, Media</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261118-1jLYkobqJLDU5KMUTJUk</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261118-yzAGwpDZLocL4oraJNob"
+                        data-drive="1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1wgNHRzzojjX8XJXAqEL_hk8ziYB9b720&amp;sz=w500"
                           alt="Insert Table, Chart, SmartArt, 3D Model" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5113,6 +5178,7 @@
                         <div class="cert-title">Insert Table, Chart, SmartArt, 3D Model</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261118-yzAGwpDZLocL4oraJNob</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
@@ -5132,8 +5198,9 @@
               <!-- Sertifikat utama -->
               <div class="cert-feature-row">
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="MS-20261114-x4mssjE8NB1qoFaUGSsv"
+                    data-drive="1wQFdqhXKcycjwJE3tlV8_X2VGY3fiUmK" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Website Development Fundamental</span>
                     </div>
@@ -5147,6 +5214,7 @@
                     <div class="cert-title">Website Development Fundamental</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: MS-20261114-x4mssjE8NB1qoFaUGSsv</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
@@ -5165,8 +5233,9 @@
                   <div class="cert-grid">
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261107-vPP6hdyqWGXMofynRvuk"
+                        data-drive="12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=12wuBi9q29MMm5vKz8DiMMsNoFkKpAeGX&amp;sz=w500"
                           alt="Internet Introduction" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5177,14 +5246,16 @@
                         <div class="cert-title">Internet Introduction</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261107-vPP6hdyqWGXMofynRvuk</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261108-JElC9eFF8rvSSPTj5q0m"
+                        data-drive="1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1_b13bFNmozDZQ0xN2-aJe6_BAKnFVtXS&amp;sz=w500"
                           alt="Front-End Development Introduction" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5196,14 +5267,16 @@
                         <div class="cert-title">Front-End Development Introduction</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261108-JElC9eFF8rvSSPTj5q0m</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261109-trC4fNJ3QqS1dEXnTlsu"
+                        data-drive="1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1Ak5mqtvQTaFfv95mLp1xuF53BLdVcNtN&amp;sz=w500"
                           alt="Back-End Development Introduction" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5215,14 +5288,16 @@
                         <div class="cert-title">Back-End Development Introduction</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261109-trC4fNJ3QqS1dEXnTlsu</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261111-7fizzXzKW19s5iNeteKM"
+                        data-drive="11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=11JgDKnAzKfLtzjM7BI57lJIgf1YA-4kZ&amp;sz=w500"
                           alt="API Introduction" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5233,14 +5308,16 @@
                         <div class="cert-title">API Introduction</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261111-7fizzXzKW19s5iNeteKM</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1hAk0SQeXNHbybmddqLDXV-YPquCVEok9"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261113-NjM3A8RvkS4QvUYC2TcM"
+                        data-drive="1hAk0SQeXNHbybmddqLDXV-YPquCVEok9" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1hAk0SQeXNHbybmddqLDXV-YPquCVEok9&amp;sz=w500"
                           alt="How Website Development Works" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5251,14 +5328,16 @@
                         <div class="cert-title">How Website Development Works</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261113-NjM3A8RvkS4QvUYC2TcM</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-Rb1IwvBMmZxVtlm0EfFs"
+                        data-drive="1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1GsJC6_U1EG6l5v4moCb_cRjZ9zVEDTCj&amp;sz=w500"
                           alt="Introduction to Cloud" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5269,14 +5348,16 @@
                         <div class="cert-title">Introduction to Cloud</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-Rb1IwvBMmZxVtlm0EfFs</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-8jEgFKBPSiatg261yora"
+                        data-drive="1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1PElZ-rLeVsIsbMraa-gLL1I-XcfF2e6A&amp;sz=w500"
                           alt="Integrated Development Environment and Text Editor" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5288,14 +5369,16 @@
                         <div class="cert-title">Integrated Development Environment and Text Editor</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-8jEgFKBPSiatg261yora</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-Nkrwxwq6KC945tgpLlg7"
+                        data-drive="1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1LmAUDE8ncSlfa91tzlg0v_zM8SD4EvQ0&amp;sz=w500"
                           alt="Responsive Website Design" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5306,14 +5389,16 @@
                         <div class="cert-title">Responsive Website Design</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-Nkrwxwq6KC945tgpLlg7</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261114-h1QewypeQGoURVi1UJrl"
+                        data-drive="1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1DnyOk6iO1EvXFYBHDGyirJ2ikgyk8XVL&amp;sz=w500"
                           alt="Career in Website Development" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5324,6 +5409,7 @@
                         <div class="cert-title">Career in Website Development</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261114-h1QewypeQGoURVi1UJrl</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
@@ -5344,8 +5430,9 @@
               <!-- Sertifikat utama -->
               <div class="cert-feature-row">
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="MS-20261115-KiUgyz86IPwKW1tbIMAl"
+                    data-drive="1VY_3DeuenjXBlOgt9bWsX70VGNhbwkfB" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Graphic Design Fundamental</span>
                     </div>
@@ -5359,14 +5446,16 @@
                     <div class="cert-title">Graphic Design Fundamental</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: MS-20261115-KiUgyz86IPwKW1tbIMAl</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="11z9SxmlpiR6ixlKYfKMAFshUOiRas5LY" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="MS-20261123-4kQo2rE9cbNoy5zNDNIU"
+                    data-drive="11z9SxmlpiR6ixlKYfKMAFshUOiRas5LY" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Canva for Design</span>
                     </div>
@@ -5380,14 +5469,16 @@
                     <div class="cert-title">Canva for Design</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: MS-20261123-4kQo2rE9cbNoy5zNDNIU</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="572618"
+                    data-drive="1WWp0gMADZ9k3v7oX8IQHhTbWz2PjCM0Z" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Perkenalan Aplikasi Visual Canva</span>
                     </div>
@@ -5401,14 +5492,16 @@
                     <div class="cert-title">Perkenalan Aplikasi Visual Canva</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: 572618</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="245f25"
+                    data-drive="1PsdIbi3G47ki8_mL6kgKyfMoqI0NEiiy" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Pengetahuan Dasar Guru</span>
                     </div>
@@ -5422,14 +5515,16 @@
                     <div class="cert-title">Pengetahuan Dasar Guru</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: 245f25</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="5eea56"
+                    data-drive="1EO3o92vzpV-aKLZSQMR0_G0yufFXC7pK" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Dasar-Dasar AI 2026</span>
                     </div>
@@ -5443,14 +5538,16 @@
                     <div class="cert-title">Dasar-Dasar AI 2026</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: 5eea56</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="4480b4"
+                    data-drive="1c-DousfBS1wXkkSHMLHSdaEOnmpRJECx" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Kampanye Kreatif Skala Besar</span>
                     </div>
@@ -5464,14 +5561,16 @@
                     <div class="cert-title">Kampanye Kreatif Skala Besar</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: 4480b4</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
                 </div>
 
                 <div class="cert-card cert-feature">
-                  <div class="cert-img has-thumb" data-drive="1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb" data-category="Course"
-                    data-date="November 2026" onclick="openLb(this)">
+                  <div class="cert-img has-thumb" data-credential="17b52b"
+                    data-drive="1bo-4ujV7JNkvPvqo_97ZU5ERfkLX7SVb" data-category="Course" data-date="November 2026"
+                    onclick="openLb(this)">
                     <div class="cert-ph">
                       <span class="cert-ph-txt">Buat Konten Memikat</span>
                     </div>
@@ -5485,6 +5584,7 @@
                     <div class="cert-title">Buat Konten Memikat</div>
                     <div class="cert-footer">
                       <span class="cert-year">Course</span>
+                      <span class="cert-cred">Credential ID: 17b52b</span>
                       <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                     </div>
                   </div>
@@ -5502,8 +5602,9 @@
                 <div class="cert-more-inner">
                   <div class="cert-grid">
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-OowGMuNdort3xS81UugJ"
+                        data-drive="1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1uk9VNA36J8eGrHWze4_xaKN32LS_HEd8&amp;sz=w500"
                           alt="Design Principles" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5514,14 +5615,16 @@
                         <div class="cert-title">Design Principles</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-OowGMuNdort3xS81UugJ</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-CakhLdAYBXK7t2kzSJJ8"
+                        data-drive="1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1l-S7dXlPURvDG8JMPjMApXd48Y0au3NH&amp;sz=w500"
                           alt="Design Element" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5532,14 +5635,16 @@
                         <div class="cert-title">Design Element</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-CakhLdAYBXK7t2kzSJJ8</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-4Xb5p0CoOcL01p7bZRDH"
+                        data-drive="1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1wfptZ-AsC7CAd65_-lH25a6VQmze6IPE&amp;sz=w500"
                           alt="Design Terminology" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5550,14 +5655,16 @@
                         <div class="cert-title">Design Terminology</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-4Xb5p0CoOcL01p7bZRDH</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-wW88grdHnvk3sfGuP95r"
+                        data-drive="1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1-hotPfT3vpQMvdBMEnvvNWz5_9_HXPWc&amp;sz=w500"
                           alt="Line, Shape, and Form" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5568,14 +5675,16 @@
                         <div class="cert-title">Line, Shape, and Form</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-wW88grdHnvk3sfGuP95r</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-ySkIHSHy83bkZFgEmZep"
+                        data-drive="1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1So-TywhvIsd7_8EZ8akTbFB_7rba3ZH7&amp;sz=w500"
                           alt="Colours" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5586,14 +5695,16 @@
                         <div class="cert-title">Colours</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-ySkIHSHy83bkZFgEmZep</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1espLmnGTB928gNVMvrYEtwC3U5uHf1d4"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-jxTnuW1oRzQBxoRPOwWY"
+                        data-drive="1espLmnGTB928gNVMvrYEtwC3U5uHf1d4" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1espLmnGTB928gNVMvrYEtwC3U5uHf1d4&amp;sz=w500"
                           alt="Typography" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5604,14 +5715,16 @@
                         <div class="cert-title">Typography</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-jxTnuW1oRzQBxoRPOwWY</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-qc3eZ3Nvay9A4xFii9RL"
+                        data-drive="1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1nXwu-3cUpFzcJadcyJHO0s6_-_WYJ3ad&amp;sz=w500"
                           alt="Hierarchy and Composition" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5622,14 +5735,16 @@
                         <div class="cert-title">Hierarchy and Composition</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-qc3eZ3Nvay9A4xFii9RL</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-A5IW3HjhG77HAsHklmtZ"
+                        data-drive="1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1D7C8WrXtDFw1HMunvtdqwhbPI3ru4Lm3&amp;sz=w500"
                           alt="Logo Design" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5640,14 +5755,16 @@
                         <div class="cert-title">Logo Design</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-A5IW3HjhG77HAsHklmtZ</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-BqaQzMMwSVRpTsiYuYN7"
+                        data-drive="1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1fa-p6MBpaSPtnJMPxKX7lDU66M1d0n_g&amp;sz=w500"
                           alt="Brand Identity Design" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5658,14 +5775,16 @@
                         <div class="cert-title">Brand Identity Design</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-BqaQzMMwSVRpTsiYuYN7</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-fknBFDIwE3LAEvOQUpBQ"
+                        data-drive="1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1E7OwoqS59yT1ilYeKcYXIsFfFigTK2nc&amp;sz=w500"
                           alt="Designing Brand Identity" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5676,14 +5795,16 @@
                         <div class="cert-title">Designing Brand Identity</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-fknBFDIwE3LAEvOQUpBQ</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-MngAp7gXw6mI3k8gXGUq"
+                        data-drive="1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1pBPGX9PyQzCAquxxWkaZBgCyr2mq4M6W&amp;sz=w500"
                           alt="Brand Guideline Design" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5694,14 +5815,16 @@
                         <div class="cert-title">Brand Guideline Design</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-MngAp7gXw6mI3k8gXGUq</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1AVHMIEd-jVExernuytJptCuc7JrlsXfE"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-UBeeF88dV1xSdNEvdYAz"
+                        data-drive="1AVHMIEd-jVExernuytJptCuc7JrlsXfE" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1AVHMIEd-jVExernuytJptCuc7JrlsXfE&amp;sz=w500"
                           alt="Design Styles" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5712,14 +5835,16 @@
                         <div class="cert-title">Design Styles</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-UBeeF88dV1xSdNEvdYAz</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-wV4C5256GI7p8fs3Sbvb"
+                        data-drive="1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1wYZFg-rdXgc-mOlwM0CN2-bT_sJlDDOh&amp;sz=w500"
                           alt="Creative Brief" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5730,14 +5855,16 @@
                         <div class="cert-title">Creative Brief</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-wV4C5256GI7p8fs3Sbvb</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-kgiJUZV9iUYvWuUUV0P5"
+                        data-drive="1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1lrqbRcHz8u1M1RfxVNRivCeL4zvtrZyl&amp;sz=w500"
                           alt="Graphic Design Resources" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5748,14 +5875,16 @@
                         <div class="cert-title">Graphic Design Resources</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-kgiJUZV9iUYvWuUUV0P5</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-hFbeF8gzpWu13eVsl8MH"
+                        data-drive="1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1Y8mNIHKA8gg-HK4XvZf828RT_aQaticY&amp;sz=w500"
                           alt="Intellectual Property, Copyright &amp; License" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5767,14 +5896,16 @@
                         <div class="cert-title">Intellectual Property, Copyright &amp; License</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-hFbeF8gzpWu13eVsl8MH</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-caH32MAP4Id2KwmgqBlH"
+                        data-drive="1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1Q5xMmRXoeNcJks6MaQlCpt-dwuIJNYJ7&amp;sz=w500"
                           alt="Creativity and Creative Block" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5785,14 +5916,16 @@
                         <div class="cert-title">Creativity and Creative Block</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-caH32MAP4Id2KwmgqBlH</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261115-kW8wEIHMPPctev9HEnnB"
+                        data-drive="1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1nAWY6ThR6YHOMI7WvfLgkNoRDmMUYj3P&amp;sz=w500"
                           alt="Graphic Design Career Opportunity" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5804,6 +5937,7 @@
                         <div class="cert-title">Graphic Design Career Opportunity</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261115-kW8wEIHMPPctev9HEnnB</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
@@ -5812,8 +5946,10 @@
                 </div>
               </div>
 
-              <button type="button" class="cert-toggle" data-count="10" onclick="certToggle(this)" aria-expanded="false"
-                style="margin-top:12px;"><span>Show Certificates (10)</span><svg viewBox="0 0 24 24" fill="none"
+              <div class="c-label cert-sub cert-sub-center" aria-hidden="true"></div>
+
+              <button type="button" class="cert-toggle" data-count="10" onclick="certToggle(this)"
+                aria-expanded="false"><span>Show Certificates (10)</span><svg viewBox="0 0 24 24" fill="none"
                   stroke="currentColor" stroke-width="2">
                   <path d="m6 9 6 6 6-6" />
                 </svg></button>
@@ -5821,8 +5957,9 @@
                 <div class="cert-more-inner">
                   <div class="cert-grid">
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1yX1cXD_Hhd0A1c3lHZH6bhyB4ZiWB5rD"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-EUrv2exCY0VQFyRfwX8u"
+                        data-drive="1yX1cXD_Hhd0A1c3lHZH6bhyB4ZiWB5rD" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1yX1cXD_Hhd0A1c3lHZH6bhyB4ZiWB5rD&amp;sz=w500"
                           alt="Creating Logo and Merch in Canva" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5834,14 +5971,16 @@
                         <div class="cert-title">Creating Logo and Merch in Canva</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-EUrv2exCY0VQFyRfwX8u</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="15_0qUL5GRm5NCfb-3Ei-SyX-oro2cri6"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-ndRSRBKrEJBdAaDPGGrb"
+                        data-drive="15_0qUL5GRm5NCfb-3Ei-SyX-oro2cri6" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=15_0qUL5GRm5NCfb-3Ei-SyX-oro2cri6&amp;sz=w500"
                           alt="Creating Design for Feeds and Carousels in Canva" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5853,14 +5992,16 @@
                         <div class="cert-title">Creating Design for Feeds and Carousels in Canva</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-ndRSRBKrEJBdAaDPGGrb</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1oE8VrZ-ugKp1NaI4e9N-8iVM66BG7nsi"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-TD5uJwzkLfAOZR8642Sx"
+                        data-drive="1oE8VrZ-ugKp1NaI4e9N-8iVM66BG7nsi" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1oE8VrZ-ugKp1NaI4e9N-8iVM66BG7nsi&amp;sz=w500"
                           alt="Designing Video Using Canva" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5871,14 +6012,16 @@
                         <div class="cert-title">Designing Video Using Canva</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-TD5uJwzkLfAOZR8642Sx</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1G-aeAxTbTP85NsDgRBjTtJtNvdU2QH0L"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-2Njdr7jX17lYWRELbg1Y"
+                        data-drive="1G-aeAxTbTP85NsDgRBjTtJtNvdU2QH0L" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1G-aeAxTbTP85NsDgRBjTtJtNvdU2QH0L&amp;sz=w500"
                           alt="Creating Branding Using Canva" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5889,14 +6032,16 @@
                         <div class="cert-title">Creating Branding Using Canva</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-2Njdr7jX17lYWRELbg1Y</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="16Z8bHYBzZc9wULzj17IpeKUEhlZFS5Vy"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-uh9KQqXSTaGXNB2FCWGC"
+                        data-drive="16Z8bHYBzZc9wULzj17IpeKUEhlZFS5Vy" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=16Z8bHYBzZc9wULzj17IpeKUEhlZFS5Vy&amp;sz=w500"
                           alt="Creating Presentation Using Canva" loading="lazy" decoding="async"
                           onerror="this.remove()">
@@ -5908,14 +6053,16 @@
                         <div class="cert-title">Creating Presentation Using Canva</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-uh9KQqXSTaGXNB2FCWGC</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1YvM2FoAgnh_1ufstVYz9DZcohdTJwGsY"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-nRi0XCl5C7H1J0AEwuFL"
+                        data-drive="1YvM2FoAgnh_1ufstVYz9DZcohdTJwGsY" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1YvM2FoAgnh_1ufstVYz9DZcohdTJwGsY&amp;sz=w500"
                           alt="Creating Website Landing Page" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5926,14 +6073,16 @@
                         <div class="cert-title">Creating Website Landing Page</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-nRi0XCl5C7H1J0AEwuFL</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1Z-VFyeXIYIbQzsmLyrUkHrTIs6BjHJU3"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-sAG98LNFqdqjz4ywjsEp"
+                        data-drive="1Z-VFyeXIYIbQzsmLyrUkHrTIs6BjHJU3" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1Z-VFyeXIYIbQzsmLyrUkHrTIs6BjHJU3&amp;sz=w500"
                           alt="Canva as Collaboration Tools" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5944,14 +6093,16 @@
                         <div class="cert-title">Canva as Collaboration Tools</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-sAG98LNFqdqjz4ywjsEp</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1Kf47c5lFP8sC24YuKrxyjogbl6ieWXIw"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-c1K69A6fUIoLNojQ8sGw"
+                        data-drive="1Kf47c5lFP8sC24YuKrxyjogbl6ieWXIw" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1Kf47c5lFP8sC24YuKrxyjogbl6ieWXIw&amp;sz=w500"
                           alt="Canva Documents" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5962,14 +6113,16 @@
                         <div class="cert-title">Canva Documents</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-c1K69A6fUIoLNojQ8sGw</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1YpLOc-oBOuTw8MaPc087-1pz4vzyHuji"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-HgNZCBDZRFQa1FnroM8o"
+                        data-drive="1YpLOc-oBOuTw8MaPc087-1pz4vzyHuji" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1YpLOc-oBOuTw8MaPc087-1pz4vzyHuji&amp;sz=w500"
                           alt="Canva Whiteboards" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5980,14 +6133,16 @@
                         <div class="cert-title">Canva Whiteboards</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-HgNZCBDZRFQa1FnroM8o</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
                     </div>
 
                     <div class="cert-card">
-                      <div class="cert-img has-thumb" data-drive="1pOYquiaQBDkzR8Bkj6n6xT5sRWkWAqAK"
-                        data-category="Course" data-date="November 2026" onclick="openLb(this)">
+                      <div class="cert-img has-thumb" data-credential="MS-20261123-46deJahZp7kzArE2D4Gz"
+                        data-drive="1pOYquiaQBDkzR8Bkj6n6xT5sRWkWAqAK" data-category="Course" data-date="November 2026"
+                        onclick="openLb(this)">
                         <img src="https://drive.google.com/thumbnail?id=1pOYquiaQBDkzR8Bkj6n6xT5sRWkWAqAK&amp;sz=w500"
                           alt="Canva Tips" loading="lazy" decoding="async" onerror="this.remove()">
                         <div class="cert-overlay">
@@ -5998,6 +6153,7 @@
                         <div class="cert-title">Canva Tips</div>
                         <div class="cert-footer">
                           <span class="cert-year">Course</span>
+                          <span class="cert-cred">Credential ID: MS-20261123-46deJahZp7kzArE2D4Gz</span>
                           <span class="cert-type">ISSUED ON NOVEMBER 2026</span>
                         </div>
                       </div>
